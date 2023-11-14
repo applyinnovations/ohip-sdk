@@ -95,61 +95,61 @@ import {
 } from '../models/index';
 
 export interface AssociateCommissionAgentToReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
+    commissionAgentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    associateCommissionAgentToReservations?: AssociateCommissionAgentToReservations;
+    associateCommissionAgentToReservations: AssociateCommissionAgentToReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CalculateCommissionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calculateCommissions?: CalculateCommissions;
+    calculateCommissions: CalculateCommissions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionToBeChanged?: CommissionToBeChanged;
+    commissionToBeChanged: CommissionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeCommissionCheckRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionCheckToBeChanged?: CommissionCheckToBeChanged;
+    commissionCheckToBeChanged: CommissionCheckToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeCommissionPaymentActivityByRangeRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionPaymentActivityByRangeToBeChanged?: CommissionPaymentActivityByRangeToBeChanged;
+    commissionPaymentActivityByRangeToBeChanged: CommissionPaymentActivityByRangeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DiscardCommissionChecksRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -167,7 +167,7 @@ export interface DiscardCommissionChecksRequest {
 }
 
 export interface GetBankAccountsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -179,8 +179,8 @@ export interface GetBankAccountsRequest {
 }
 
 export interface GetCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -192,8 +192,8 @@ export interface GetCommissionRequest {
 }
 
 export interface GetCommissionNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -205,8 +205,8 @@ export interface GetCommissionNotesRequest {
 }
 
 export interface GetCommissionPaymentDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
+    hotelId: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -215,8 +215,8 @@ export interface GetCommissionPaymentDetailsRequest {
 }
 
 export interface GetCommissionPaymentsActivityRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -236,7 +236,7 @@ export interface GetCommissionPaymentsActivityRequest {
 }
 
 export interface GetCommissionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -265,9 +265,9 @@ export interface GetCommissionsRequest {
 }
 
 export interface GetReservationsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    agentId?: string;
+    hotelId: string;
+    bankAccountId: string;
+    agentId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -283,8 +283,8 @@ export interface GetReservationsForCommissionsRequest {
 }
 
 export interface GetTravelAgentsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
+    hotelId: string;
+    bankAccountId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -293,30 +293,30 @@ export interface GetTravelAgentsForCommissionsRequest {
 }
 
 export interface ProcessCommissionPaymentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    processCommissionPayments?: ProcessCommissionPayments;
+    processCommissionPayments: ProcessCommissionPayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RecalculateCommissionOnCodeChangeRequest {
-    commissionCode?: string;
-    commissionId?: string;
-    hotelId?: string;
+    commissionCode: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    recalculateCommissionOnCodeChange?: RecalculateCommissionOnCodeChange;
+    recalculateCommissionOnCodeChange: RecalculateCommissionOnCodeChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -329,8 +329,8 @@ export interface RemoveCommissionRequest {
 }
 
 export interface RemoveCommissionAgentFromReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
+    commissionAgentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -347,22 +347,22 @@ export interface RemoveCommissionAgentFromReservationsRequest {
 }
 
 export interface ReprintCommissionCheckByRangeRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reprintCommissionCheckByRange?: ReprintCommissionCheckByRange;
+    reprintCommissionCheckByRange: ReprintCommissionCheckByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetProcessingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    setProcessingInstructions?: SetProcessingInstructions;
+    setProcessingInstructions: SetProcessingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -380,27 +380,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionAgentId === null || requestParameters.commissionAgentId === undefined) {
             throw new runtime.RequiredError('commissionAgentId','Required parameter requestParameters.commissionAgentId was null or undefined when calling associateCommissionAgentToReservations.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling associateCommissionAgentToReservations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling associateCommissionAgentToReservations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling associateCommissionAgentToReservations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling associateCommissionAgentToReservations.');
-        }
-
+        
         if (requestParameters.associateCommissionAgentToReservations === null || requestParameters.associateCommissionAgentToReservations === undefined) {
             throw new runtime.RequiredError('associateCommissionAgentToReservations','Required parameter requestParameters.associateCommissionAgentToReservations was null or undefined when calling associateCommissionAgentToReservations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -455,23 +443,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling calculateCommissions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling calculateCommissions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling calculateCommissions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling calculateCommissions.');
-        }
-
+        
         if (requestParameters.calculateCommissions === null || requestParameters.calculateCommissions === undefined) {
             throw new runtime.RequiredError('calculateCommissions','Required parameter requestParameters.calculateCommissions was null or undefined when calling calculateCommissions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -526,27 +502,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
             throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling changeCommission.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommission.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommission.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommission.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommission.');
-        }
-
+        
         if (requestParameters.commissionToBeChanged === null || requestParameters.commissionToBeChanged === undefined) {
             throw new runtime.RequiredError('commissionToBeChanged','Required parameter requestParameters.commissionToBeChanged was null or undefined when calling changeCommission.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -601,27 +565,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling changeCommissionCheck.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommissionCheck.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommissionCheck.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommissionCheck.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommissionCheck.');
-        }
-
+        
         if (requestParameters.commissionCheckToBeChanged === null || requestParameters.commissionCheckToBeChanged === undefined) {
             throw new runtime.RequiredError('commissionCheckToBeChanged','Required parameter requestParameters.commissionCheckToBeChanged was null or undefined when calling changeCommissionCheck.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -676,27 +628,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling changeCommissionPaymentActivityByRange.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommissionPaymentActivityByRange.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommissionPaymentActivityByRange.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommissionPaymentActivityByRange.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommissionPaymentActivityByRange.');
-        }
-
+        
         if (requestParameters.commissionPaymentActivityByRangeToBeChanged === null || requestParameters.commissionPaymentActivityByRangeToBeChanged === undefined) {
             throw new runtime.RequiredError('commissionPaymentActivityByRangeToBeChanged','Required parameter requestParameters.commissionPaymentActivityByRangeToBeChanged was null or undefined when calling changeCommissionPaymentActivityByRange.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -751,19 +691,7 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling discardCommissionChecks.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling discardCommissionChecks.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling discardCommissionChecks.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling discardCommissionChecks.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bankAccountId !== undefined) {
@@ -851,19 +779,7 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBankAccounts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBankAccounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBankAccounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBankAccounts.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bankName !== undefined) {
@@ -927,23 +843,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
             throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling getCommission.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommission.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommission.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommission.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommission.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1007,23 +911,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
             throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getCommissionNotes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionNotes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionNotes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionNotes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionNotes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1087,23 +979,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionPaymentDetails.');
         }
-
+        
         if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
             throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getCommissionPaymentDetails.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionPaymentDetails.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionPaymentDetails.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionPaymentDetails.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1155,23 +1035,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getCommissionPaymentsActivity.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionPaymentsActivity.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionPaymentsActivity.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionPaymentsActivity.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionPaymentsActivity.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1267,19 +1135,7 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bankAccountId !== undefined) {
@@ -1411,27 +1267,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsForCommissions.');
         }
-
+        
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getReservationsForCommissions.');
         }
-
+        
         if (requestParameters.agentId === null || requestParameters.agentId === undefined) {
             throw new runtime.RequiredError('agentId','Required parameter requestParameters.agentId was null or undefined when calling getReservationsForCommissions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsForCommissions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsForCommissions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsForCommissions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1511,23 +1355,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTravelAgentsForCommissions.');
         }
-
+        
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getTravelAgentsForCommissions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTravelAgentsForCommissions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTravelAgentsForCommissions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTravelAgentsForCommissions.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1579,23 +1411,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processCommissionPayments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processCommissionPayments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processCommissionPayments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processCommissionPayments.');
-        }
-
+        
         if (requestParameters.processCommissionPayments === null || requestParameters.processCommissionPayments === undefined) {
             throw new runtime.RequiredError('processCommissionPayments','Required parameter requestParameters.processCommissionPayments was null or undefined when calling processCommissionPayments.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1650,31 +1470,19 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionCode === null || requestParameters.commissionCode === undefined) {
             throw new runtime.RequiredError('commissionCode','Required parameter requestParameters.commissionCode was null or undefined when calling recalculateCommissionOnCodeChange.');
         }
-
+        
         if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
             throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling recalculateCommissionOnCodeChange.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling recalculateCommissionOnCodeChange.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling recalculateCommissionOnCodeChange.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling recalculateCommissionOnCodeChange.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling recalculateCommissionOnCodeChange.');
-        }
-
+        
         if (requestParameters.recalculateCommissionOnCodeChange === null || requestParameters.recalculateCommissionOnCodeChange === undefined) {
             throw new runtime.RequiredError('recalculateCommissionOnCodeChange','Required parameter requestParameters.recalculateCommissionOnCodeChange was null or undefined when calling recalculateCommissionOnCodeChange.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1729,23 +1537,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
             throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling removeCommission.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeCommission.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCommission.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCommission.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCommission.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1813,23 +1609,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.commissionAgentId === null || requestParameters.commissionAgentId === undefined) {
             throw new runtime.RequiredError('commissionAgentId','Required parameter requestParameters.commissionAgentId was null or undefined when calling removeCommissionAgentFromReservations.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeCommissionAgentFromReservations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCommissionAgentFromReservations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCommissionAgentFromReservations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCommissionAgentFromReservations.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.commissionAgentType !== undefined) {
@@ -1913,27 +1697,15 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
             throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling reprintCommissionCheckByRange.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reprintCommissionCheckByRange.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reprintCommissionCheckByRange.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reprintCommissionCheckByRange.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reprintCommissionCheckByRange.');
-        }
-
+        
         if (requestParameters.reprintCommissionCheckByRange === null || requestParameters.reprintCommissionCheckByRange === undefined) {
             throw new runtime.RequiredError('reprintCommissionCheckByRange','Required parameter requestParameters.reprintCommissionCheckByRange was null or undefined when calling reprintCommissionCheckByRange.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1988,23 +1760,11 @@ export class CommissionsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setProcessingInstructions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setProcessingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setProcessingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setProcessingInstructions.');
-        }
-
+        
         if (requestParameters.setProcessingInstructions === null || requestParameters.setProcessingInstructions === undefined) {
             throw new runtime.RequiredError('setProcessingInstructions','Required parameter requestParameters.setProcessingInstructions was null or undefined when calling setProcessingInstructions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -12,30 +12,30 @@
 import * as runtime from '../runtime';
 import type { Links, Restrictions, RestrictionsStatus } from '../models/index';
 export interface GetRestrictionsRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    requestId?: string;
+    hotelId: string;
+    extSystemCode: string;
+    requestId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface GetRestrictionsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface PostRestrictionsProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    restrictions?: Restrictions;
+    restrictions: Restrictions;
     acceptLanguage?: string;
 }
 /**

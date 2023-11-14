@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { ArAccountTypes, ArFlaggedReasons, Status } from '../models/index';
 export interface DeleteARAccountTypesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,7 +21,7 @@ export interface DeleteARAccountTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteARFlaggedReasonsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteARFlaggedReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetARAccountTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -55,7 +55,7 @@ export interface PostARAccountTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arAccountTypes?: ArAccountTypes;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -63,7 +63,7 @@ export interface PostARFlaggedReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arFlaggedReasons?: ArFlaggedReasons;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -71,7 +71,7 @@ export interface PutARAccountTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arAccountTypes?: ArAccountTypes;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -79,7 +79,7 @@ export interface PutARFlaggedReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arFlaggedReasons?: ArFlaggedReasons;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

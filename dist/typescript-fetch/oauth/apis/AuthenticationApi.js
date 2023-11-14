@@ -58,9 +58,6 @@ class AuthenticationApi extends runtime.BaseAPI {
      */
     getTokenRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getToken.');
-            }
             if (requestParameters.grantType === null || requestParameters.grantType === undefined) {
                 throw new runtime.RequiredError('grantType', 'Required parameter requestParameters.grantType was null or undefined when calling getToken.');
             }

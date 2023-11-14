@@ -12,9 +12,9 @@
 import * as runtime from '../runtime';
 import type { ProfileMembershipStatistics, ProfileStatistics } from '../models/index';
 export interface GetProfileMembershipStatisticsRequest {
-    profileId?: Array<string>;
-    membershipCardNo?: string;
-    membershipType?: string;
+    profileId: Array<string>;
+    membershipCardNo: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -26,9 +26,9 @@ export interface GetProfileMembershipStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileStatisticsRequest {
-    profileId?: Array<string>;
-    hotelIds?: Array<string>;
-    reportType?: GetProfileStatisticsReportTypeEnum;
+    profileId: Array<string>;
+    hotelIds: Array<string>;
+    reportType: GetProfileStatisticsReportTypeEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

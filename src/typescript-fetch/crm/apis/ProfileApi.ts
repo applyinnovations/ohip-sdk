@@ -203,43 +203,43 @@ import {
 } from '../models/index';
 
 export interface ChangeMembershipRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membership?: Membership;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeProfileCashieringDetailsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCashieringDetails?: ProfileCashieringDetails;
+    profileCashieringDetails: ProfileCashieringDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeProfileOwnersOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileOwners?: ChangeProfileOwnersRequest;
+    profileOwners: ChangeProfileOwnersRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeStagedProfileRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stagedProfile?: StagedProfile;
+    stagedProfile: StagedProfile;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -257,30 +257,30 @@ export interface CheckProfileTypeRequest {
 }
 
 export interface ConsumeECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToConsume?: ECertificateToConsume;
+    eCertificateToConsume: ECertificateToConsume;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyProfileCommissionAccountRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccountCopy?: ProfileCommissionAccountCopy;
+    profileCommissionAccountCopy: ProfileCommissionAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -298,7 +298,7 @@ export interface DeleteCertificateRequest {
 }
 
 export interface DeleteECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -307,9 +307,9 @@ export interface DeleteECertificateRequest {
 }
 
 export interface DeleteGlobalPreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    profileId?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -319,9 +319,9 @@ export interface DeleteGlobalPreferenceRequest {
 }
 
 export interface DeleteMembershipRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -330,8 +330,8 @@ export interface DeleteMembershipRequest {
 }
 
 export interface DeleteMultipleAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -341,10 +341,10 @@ export interface DeleteMultipleAccountForecastsRequest {
 }
 
 export interface DeletePreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    hotelId?: string;
-    profileId?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -354,7 +354,7 @@ export interface DeletePreferenceRequest {
 }
 
 export interface DeleteProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -363,8 +363,8 @@ export interface DeleteProfileRequest {
 }
 
 export interface DeleteProfileAttachmentRequest {
-    attachmentId?: string;
-    profileId?: string;
+    attachmentId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -379,7 +379,7 @@ export interface DeleteProfileAttachmentRequest {
 }
 
 export interface DeleteProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -399,7 +399,7 @@ export interface DeleteProfileCommissionAccountRequest {
 }
 
 export interface DeleteProfilePermanentlyRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -408,28 +408,28 @@ export interface DeleteProfilePermanentlyRequest {
 }
 
 export interface DistributePreferenceRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preference?: Preference;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ExtendECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToExtend?: ECertificateToExtend;
+    eCertificateToExtend: ECertificateToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -455,7 +455,7 @@ export interface GetAddressRequest {
 }
 
 export interface GetAwardsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -467,7 +467,7 @@ export interface GetAwardsRequest {
 }
 
 export interface GetCashieringDetailsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -481,7 +481,7 @@ export interface GetCashieringDetailsRequest {
 }
 
 export interface GetCompanyProfileRequest {
-    corporateID?: string;
+    corporateID: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -538,7 +538,7 @@ export interface GetECertificatesRequest {
 }
 
 export interface GetFulfillmentExportLogsRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -551,7 +551,7 @@ export interface GetFulfillmentExportLogsRequest {
 }
 
 export interface GetGuestProfileRequest {
-    guestId?: string;
+    guestId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -562,7 +562,7 @@ export interface GetGuestProfileRequest {
 }
 
 export interface GetLinkedProfilesRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -595,7 +595,7 @@ export interface GetLinkedProfilesRequest {
 }
 
 export interface GetMatchProfilesRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -622,7 +622,7 @@ export interface GetMembershipTierProjectionsRequest {
 }
 
 export interface GetMergeProfilesSnapshotRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -637,7 +637,7 @@ export interface GetMergeProfilesSnapshotRequest {
 }
 
 export interface GetMergeStageProfileSnapshotRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -652,7 +652,7 @@ export interface GetMergeStageProfileSnapshotRequest {
 }
 
 export interface GetPreferenceForProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -666,7 +666,7 @@ export interface GetPreferenceForProfileRequest {
 }
 
 export interface GetProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -683,7 +683,7 @@ export interface GetProfileRequest {
 }
 
 export interface GetProfileAccountsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -716,7 +716,7 @@ export interface GetProfileActivityLogRequest {
 }
 
 export interface GetProfileAttachmentsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -727,8 +727,8 @@ export interface GetProfileAttachmentsRequest {
 }
 
 export interface GetProfileByExtIdRequest {
-    profileExternalId?: string;
-    extSystemCode?: string;
+    profileExternalId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -744,7 +744,7 @@ export interface GetProfileByExtIdRequest {
 }
 
 export interface GetProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -754,7 +754,7 @@ export interface GetProfileCommissionAccountRequest {
 }
 
 export interface GetProfileOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -766,7 +766,7 @@ export interface GetProfileOwnersRequest {
 }
 
 export interface GetProfileRelationshipsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -864,7 +864,7 @@ export interface GetRecentlyAccessedProfilesRequest {
 }
 
 export interface GetStagedProfileRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -900,7 +900,7 @@ export interface GetStagedProfilesRequest {
 }
 
 export interface GetStayHistoryRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -938,22 +938,22 @@ export interface GetSuspendedProfileErrorSummaryRequest {
 }
 
 export interface MergeProfilesOperationRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileToBeMerged?: MergeProfilesRequest;
+    profileToBeMerged: MergeProfilesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountForecastRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forecastsInformation?: ForecastsInformation;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -962,7 +962,7 @@ export interface PostCompanyProfileRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    company?: Company;
+    company: Company;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -971,7 +971,7 @@ export interface PostECertificateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateGeneration?: ECertificateGeneration;
+    eCertificateGeneration: ECertificateGeneration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -980,37 +980,37 @@ export interface PostGuestProfileRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guest?: Guest;
+    guest: Guest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMembershipRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membership?: Membership;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMembershipNumberRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipNumber?: MembershipNumber;
+    membershipNumber: MembershipNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPreferenceRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preference?: Preference;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1019,80 +1019,80 @@ export interface PostProfileOperationRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profile?: PostProfileRequest;
+    profile: PostProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccount?: ProfileCommissionAccount;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostProfileOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileOwners?: ProfileOwners;
+    profileOwners: ProfileOwners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileRelationship?: PostProfileRelationshipRequest;
+    profileRelationship: PostProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forecastsInformation?: ForecastsInformation;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutProfileOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profile?: PutProfileRequest;
+    profile: PutProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileRelationshipToBeChanged?: PutProfileRelationshipRequest;
+    profileRelationshipToBeChanged: PutProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveProfileRelationshipRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
-    sourceRelation?: string;
-    targetRelation?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
+    sourceRelation: string;
+    targetRelation: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1104,21 +1104,21 @@ export interface RemoveProfileRelationshipRequest {
 }
 
 export interface SetProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccount?: ProfileCommissionAccount;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface StoreEmailOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    emailMessageType?: StoreEmailRequest;
+    emailMessageType: StoreEmailRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1127,7 +1127,7 @@ export interface SynchronizeProfileSubscriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileSubscriptionsToSynchronize?: ProfileSubscriptionsToSynchronize;
+    profileSubscriptionsToSynchronize: ProfileSubscriptionsToSynchronize;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1136,27 +1136,27 @@ export interface ValidateForgetProfilesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forgetProfilesCriteria?: ForgetProfilesCriteria;
+    forgetProfilesCriteria: ForgetProfilesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ValidateReservationsForProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    futurePastBookingsCriteria?: FuturePastBookingsCriteria;
+    futurePastBookingsCriteria: FuturePastBookingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface VerifyECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToVerify?: ECertificateToVerify;
+    eCertificateToVerify: ECertificateToVerify;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1174,31 +1174,19 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling changeMembership.');
         }
-
+        
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling changeMembership.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling changeMembership.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeMembership.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeMembership.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeMembership.');
-        }
-
+        
         if (requestParameters.membership === null || requestParameters.membership === undefined) {
             throw new runtime.RequiredError('membership','Required parameter requestParameters.membership was null or undefined when calling changeMembership.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1253,23 +1241,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling changeProfileCashieringDetails.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeProfileCashieringDetails.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeProfileCashieringDetails.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeProfileCashieringDetails.');
-        }
-
+        
         if (requestParameters.profileCashieringDetails === null || requestParameters.profileCashieringDetails === undefined) {
             throw new runtime.RequiredError('profileCashieringDetails','Required parameter requestParameters.profileCashieringDetails was null or undefined when calling changeProfileCashieringDetails.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1324,23 +1300,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling changeProfileOwners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeProfileOwners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeProfileOwners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeProfileOwners.');
-        }
-
+        
         if (requestParameters.profileOwners === null || requestParameters.profileOwners === undefined) {
             throw new runtime.RequiredError('profileOwners','Required parameter requestParameters.profileOwners was null or undefined when calling changeProfileOwners.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1395,23 +1359,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling changeStagedProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeStagedProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeStagedProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeStagedProfile.');
-        }
-
+        
         if (requestParameters.stagedProfile === null || requestParameters.stagedProfile === undefined) {
             throw new runtime.RequiredError('stagedProfile','Required parameter requestParameters.stagedProfile was null or undefined when calling changeStagedProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1463,18 +1415,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Validate and check profiles
      */
     async checkProfileTypeRaw(requestParameters: CheckProfileTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckedProfiles>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling checkProfileType.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling checkProfileType.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling checkProfileType.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -1542,23 +1482,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.certificateId === null || requestParameters.certificateId === undefined) {
             throw new runtime.RequiredError('certificateId','Required parameter requestParameters.certificateId was null or undefined when calling consumeECertificate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling consumeECertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling consumeECertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling consumeECertificate.');
-        }
-
+        
         if (requestParameters.eCertificateToConsume === null || requestParameters.eCertificateToConsume === undefined) {
             throw new runtime.RequiredError('eCertificateToConsume','Required parameter requestParameters.eCertificateToConsume was null or undefined when calling consumeECertificate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1613,27 +1541,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling copyProfileCommissionAccount.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyProfileCommissionAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyProfileCommissionAccount.');
-        }
-
+        
         if (requestParameters.profileCommissionAccountCopy === null || requestParameters.profileCommissionAccountCopy === undefined) {
             throw new runtime.RequiredError('profileCommissionAccountCopy','Required parameter requestParameters.profileCommissionAccountCopy was null or undefined when calling copyProfileCommissionAccount.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1688,27 +1604,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.periodCode === null || requestParameters.periodCode === undefined) {
             throw new runtime.RequiredError('periodCode','Required parameter requestParameters.periodCode was null or undefined when calling deleteAccountForecast.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountForecast.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteAccountForecast.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAccountForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountForecast.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.periodCodes) {
@@ -1761,18 +1665,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Delete certificate
      */
     async deleteCertificateRaw(requestParameters: DeleteCertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCertificate.');
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1824,19 +1716,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.certificateId === null || requestParameters.certificateId === undefined) {
             throw new runtime.RequiredError('certificateId','Required parameter requestParameters.certificateId was null or undefined when calling deleteECertificate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteECertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteECertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteECertificate.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1888,27 +1768,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.preferenceCode === null || requestParameters.preferenceCode === undefined) {
             throw new runtime.RequiredError('preferenceCode','Required parameter requestParameters.preferenceCode was null or undefined when calling deleteGlobalPreference.');
         }
-
+        
         if (requestParameters.preferenceType === null || requestParameters.preferenceType === undefined) {
             throw new runtime.RequiredError('preferenceType','Required parameter requestParameters.preferenceType was null or undefined when calling deleteGlobalPreference.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteGlobalPreference.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGlobalPreference.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGlobalPreference.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteGlobalPreference.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.registeredProperty !== undefined) {
@@ -1964,27 +1832,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling deleteMembership.');
         }
-
+        
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling deleteMembership.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteMembership.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembership.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembership.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembership.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2036,23 +1892,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteMultipleAccountForecasts.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteMultipleAccountForecasts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMultipleAccountForecasts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMultipleAccountForecasts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMultipleAccountForecasts.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.periodCodes) {
@@ -2108,31 +1952,19 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.preferenceCode === null || requestParameters.preferenceCode === undefined) {
             throw new runtime.RequiredError('preferenceCode','Required parameter requestParameters.preferenceCode was null or undefined when calling deletePreference.');
         }
-
+        
         if (requestParameters.preferenceType === null || requestParameters.preferenceType === undefined) {
             throw new runtime.RequiredError('preferenceType','Required parameter requestParameters.preferenceType was null or undefined when calling deletePreference.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePreference.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deletePreference.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePreference.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePreference.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePreference.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.registeredProperty !== undefined) {
@@ -2188,19 +2020,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2252,23 +2072,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.attachmentId === null || requestParameters.attachmentId === undefined) {
             throw new runtime.RequiredError('attachmentId','Required parameter requestParameters.attachmentId was null or undefined when calling deleteProfileAttachment.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteProfileAttachment.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteProfileAttachment.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfileAttachment.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfileAttachment.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idExtension) {
@@ -2344,19 +2152,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteProfileCommissionAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfileCommissionAccount.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.validatePending !== undefined) {
@@ -2452,19 +2248,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteProfilePermanently.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteProfilePermanently.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfilePermanently.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfilePermanently.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2516,23 +2300,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling distributePreference.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling distributePreference.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling distributePreference.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling distributePreference.');
-        }
-
+        
         if (requestParameters.preference === null || requestParameters.preference === undefined) {
             throw new runtime.RequiredError('preference','Required parameter requestParameters.preference was null or undefined when calling distributePreference.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2587,23 +2359,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.certificateId === null || requestParameters.certificateId === undefined) {
             throw new runtime.RequiredError('certificateId','Required parameter requestParameters.certificateId was null or undefined when calling extendECertificate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling extendECertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling extendECertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling extendECertificate.');
-        }
-
+        
         if (requestParameters.eCertificateToExtend === null || requestParameters.eCertificateToExtend === undefined) {
             throw new runtime.RequiredError('eCertificateToExtend','Required parameter requestParameters.eCertificateToExtend was null or undefined when calling extendECertificate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2658,23 +2418,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAccountForecasts.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getAccountForecasts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAccountForecasts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAccountForecasts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAccountForecasts.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fromPeriodCode !== undefined) {
@@ -2735,18 +2483,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get city states
      */
     async getAddressRaw(requestParameters: GetAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CityState>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAddress.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAddress.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAddress.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.excludeNoCity !== undefined) {
@@ -2822,19 +2558,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getAwards.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAwards.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAwards.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAwards.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.profileContext !== undefined) {
@@ -2898,19 +2622,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getCashieringDetails.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashieringDetails.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashieringDetails.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashieringDetails.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fetchPaymentMethod !== undefined) {
@@ -2982,19 +2694,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.corporateID === null || requestParameters.corporateID === undefined) {
             throw new runtime.RequiredError('corporateID','Required parameter requestParameters.corporateID was null or undefined when calling getCompanyProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompanyProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompanyProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompanyProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -3047,18 +2747,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get profiles with duplicate external subscriptions 
      */
     async getDuplicateExternalSubscriptionsRaw(requestParameters: GetDuplicateExternalSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DuplicateExternalSubscriptions>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDuplicateExternalSubscriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDuplicateExternalSubscriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDuplicateExternalSubscriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3131,18 +2819,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get profiles with duplicate OPERA Cloud subscriptions
      */
     async getDuplicateOPERASubscriptionsRaw(requestParameters: GetDuplicateOPERASubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DuplicateOPERASubscriptions>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDuplicateOPERASubscriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDuplicateOPERASubscriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDuplicateOPERASubscriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3215,18 +2891,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get e-certificate
      */
     async getECertificatesRaw(requestParameters: GetECertificatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ECertificates>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getECertificates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getECertificates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getECertificates.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.profileId !== undefined) {
@@ -3322,19 +2986,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling getFulfillmentExportLogs.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFulfillmentExportLogs.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFulfillmentExportLogs.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFulfillmentExportLogs.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -3402,19 +3054,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.guestId === null || requestParameters.guestId === undefined) {
             throw new runtime.RequiredError('guestId','Required parameter requestParameters.guestId was null or undefined when calling getGuestProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuestProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuestProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuestProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3474,19 +3114,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getLinkedProfiles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getLinkedProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getLinkedProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getLinkedProfiles.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -3634,19 +3262,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getMatchProfiles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMatchProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMatchProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMatchProfiles.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3707,18 +3323,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get Membership Tier Projection
      */
     async getMembershipTierProjectionsRaw(requestParameters: GetMembershipTierProjectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTierProjections>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTierProjections.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTierProjections.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTierProjections.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.membershipId !== undefined) {
@@ -3798,19 +3402,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.survivorProfileId === null || requestParameters.survivorProfileId === undefined) {
             throw new runtime.RequiredError('survivorProfileId','Required parameter requestParameters.survivorProfileId was null or undefined when calling getMergeProfilesSnapshot.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMergeProfilesSnapshot.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMergeProfilesSnapshot.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMergeProfilesSnapshot.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.originalId !== undefined) {
@@ -3886,19 +3478,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.survivorProfileId === null || requestParameters.survivorProfileId === undefined) {
             throw new runtime.RequiredError('survivorProfileId','Required parameter requestParameters.survivorProfileId was null or undefined when calling getMergeStageProfileSnapshot.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMergeStageProfileSnapshot.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMergeStageProfileSnapshot.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMergeStageProfileSnapshot.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3974,19 +3554,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getPreferenceForProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPreferenceForProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPreferenceForProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPreferenceForProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.id) {
@@ -4058,19 +3626,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -4154,19 +3710,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileAccounts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileAccounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileAccounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileAccounts.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext) {
@@ -4227,18 +3771,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Fetch profile activity log
      */
     async getProfileActivityLogRaw(requestParameters: GetProfileActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileActivityLog>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileActivityLog.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileActivityLog.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileActivityLog.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4342,19 +3874,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileAttachments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileAttachments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileAttachments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileAttachments.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -4414,23 +3934,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileExternalId === null || requestParameters.profileExternalId === undefined) {
             throw new runtime.RequiredError('profileExternalId','Required parameter requestParameters.profileExternalId was null or undefined when calling getProfileByExtId.');
         }
-
+        
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getProfileByExtId.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileByExtId.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileByExtId.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileByExtId.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -4510,19 +4018,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileCommissionAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileCommissionAccount.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -4578,19 +4074,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileOwners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileOwners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileOwners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileOwners.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.id) {
@@ -4654,19 +4138,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileRelationships.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileRelationships.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileRelationships.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileRelationships.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.relationshipPrimaryProfile !== undefined) {
@@ -4719,18 +4191,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Search for profile(s)
      */
     async getProfilesRaw(requestParameters: GetProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileSummaries>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfiles.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.excludeInactive !== undefined) {
@@ -4999,18 +4459,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Search for profile(s)
      */
     async getProfilesByIdsRaw(requestParameters: GetProfilesByIdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfilesByIds.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfilesByIds.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfilesByIds.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.profileIds) {
@@ -5095,18 +4543,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Fetch recently accessed profiles
      */
     async getRecentlyAccessedProfilesRaw(requestParameters: GetRecentlyAccessedProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecentlyAccessedProfiles>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRecentlyAccessedProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRecentlyAccessedProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRecentlyAccessedProfiles.');
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5158,19 +4594,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling getStagedProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStagedProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStagedProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStagedProfile.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -5235,18 +4659,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get staged profiles
      */
     async getStagedProfilesRaw(requestParameters: GetStagedProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StagedProfiles>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStagedProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStagedProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStagedProfiles.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -5358,19 +4770,7 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getStayHistory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStayHistory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStayHistory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStayHistory.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -5439,18 +4839,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Fetch Suspended Profile Addresses
      */
     async getSuspendedAddressesRaw(requestParameters: GetSuspendedAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuspendedAddresses>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSuspendedAddresses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSuspendedAddresses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSuspendedAddresses.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.name !== undefined) {
@@ -5527,18 +4915,6 @@ export class ProfileApi extends runtime.BaseAPI {
      * Get suspended profile error summary details
      */
     async getSuspendedProfileErrorSummaryRaw(requestParameters: GetSuspendedProfileErrorSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuspendedProfileErrorSummaryInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSuspendedProfileErrorSummary.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSuspendedProfileErrorSummary.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSuspendedProfileErrorSummary.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -5594,23 +4970,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.survivorProfileId === null || requestParameters.survivorProfileId === undefined) {
             throw new runtime.RequiredError('survivorProfileId','Required parameter requestParameters.survivorProfileId was null or undefined when calling mergeProfiles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling mergeProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling mergeProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling mergeProfiles.');
-        }
-
+        
         if (requestParameters.profileToBeMerged === null || requestParameters.profileToBeMerged === undefined) {
             throw new runtime.RequiredError('profileToBeMerged','Required parameter requestParameters.profileToBeMerged was null or undefined when calling mergeProfiles.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5665,27 +5029,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAccountForecast.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postAccountForecast.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAccountForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAccountForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAccountForecast.');
-        }
-
+        
         if (requestParameters.forecastsInformation === null || requestParameters.forecastsInformation === undefined) {
             throw new runtime.RequiredError('forecastsInformation','Required parameter requestParameters.forecastsInformation was null or undefined when calling postAccountForecast.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5737,22 +5089,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * This API facilitates creation of a company/agent/group/source profile in OPERA.
      */
     async postCompanyProfileRaw(requestParameters: PostCompanyProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompanyProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompanyProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCompanyProfile.');
-        }
-
         if (requestParameters.company === null || requestParameters.company === undefined) {
             throw new runtime.RequiredError('company','Required parameter requestParameters.company was null or undefined when calling postCompanyProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5804,22 +5144,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * Create e-certificate
      */
     async postECertificateRaw(requestParameters: PostECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postECertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postECertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postECertificate.');
-        }
-
         if (requestParameters.eCertificateGeneration === null || requestParameters.eCertificateGeneration === undefined) {
             throw new runtime.RequiredError('eCertificateGeneration','Required parameter requestParameters.eCertificateGeneration was null or undefined when calling postECertificate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5871,22 +5199,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * Create a guest, contact or employee profile in OPERA
      */
     async postGuestProfileRaw(requestParameters: PostGuestProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGuestProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGuestProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGuestProfile.');
-        }
-
         if (requestParameters.guest === null || requestParameters.guest === undefined) {
             throw new runtime.RequiredError('guest','Required parameter requestParameters.guest was null or undefined when calling postGuestProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5941,23 +5257,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postMembership.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembership.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembership.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembership.');
-        }
-
+        
         if (requestParameters.membership === null || requestParameters.membership === undefined) {
             throw new runtime.RequiredError('membership','Required parameter requestParameters.membership was null or undefined when calling postMembership.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6012,23 +5316,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling postMembershipNumber.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipNumber.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipNumber.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipNumber.');
-        }
-
+        
         if (requestParameters.membershipNumber === null || requestParameters.membershipNumber === undefined) {
             throw new runtime.RequiredError('membershipNumber','Required parameter requestParameters.membershipNumber was null or undefined when calling postMembershipNumber.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6083,23 +5375,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postPreference.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPreference.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPreference.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPreference.');
-        }
-
+        
         if (requestParameters.preference === null || requestParameters.preference === undefined) {
             throw new runtime.RequiredError('preference','Required parameter requestParameters.preference was null or undefined when calling postPreference.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6151,22 +5431,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * Create a profile
      */
     async postProfileRaw(requestParameters: PostProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postProfile.');
-        }
-
         if (requestParameters.profile === null || requestParameters.profile === undefined) {
             throw new runtime.RequiredError('profile','Required parameter requestParameters.profile was null or undefined when calling postProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6221,23 +5489,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postProfileCommissionAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postProfileCommissionAccount.');
-        }
-
+        
         if (requestParameters.profileCommissionAccount === null || requestParameters.profileCommissionAccount === undefined) {
             throw new runtime.RequiredError('profileCommissionAccount','Required parameter requestParameters.profileCommissionAccount was null or undefined when calling postProfileCommissionAccount.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6292,23 +5548,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postProfileOwners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postProfileOwners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postProfileOwners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postProfileOwners.');
-        }
-
+        
         if (requestParameters.profileOwners === null || requestParameters.profileOwners === undefined) {
             throw new runtime.RequiredError('profileOwners','Required parameter requestParameters.profileOwners was null or undefined when calling postProfileOwners.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6363,27 +5607,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.targetProfileId === null || requestParameters.targetProfileId === undefined) {
             throw new runtime.RequiredError('targetProfileId','Required parameter requestParameters.targetProfileId was null or undefined when calling postProfileRelationship.');
         }
-
+        
         if (requestParameters.sourceProfileId === null || requestParameters.sourceProfileId === undefined) {
             throw new runtime.RequiredError('sourceProfileId','Required parameter requestParameters.sourceProfileId was null or undefined when calling postProfileRelationship.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postProfileRelationship.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postProfileRelationship.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postProfileRelationship.');
-        }
-
+        
         if (requestParameters.profileRelationship === null || requestParameters.profileRelationship === undefined) {
             throw new runtime.RequiredError('profileRelationship','Required parameter requestParameters.profileRelationship was null or undefined when calling postProfileRelationship.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6438,31 +5670,19 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.periodCode === null || requestParameters.periodCode === undefined) {
             throw new runtime.RequiredError('periodCode','Required parameter requestParameters.periodCode was null or undefined when calling putAccountForecast.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAccountForecast.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling putAccountForecast.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAccountForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAccountForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAccountForecast.');
-        }
-
+        
         if (requestParameters.forecastsInformation === null || requestParameters.forecastsInformation === undefined) {
             throw new runtime.RequiredError('forecastsInformation','Required parameter requestParameters.forecastsInformation was null or undefined when calling putAccountForecast.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6517,23 +5737,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling putProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putProfile.');
-        }
-
+        
         if (requestParameters.profile === null || requestParameters.profile === undefined) {
             throw new runtime.RequiredError('profile','Required parameter requestParameters.profile was null or undefined when calling putProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6588,27 +5796,15 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.targetProfileId === null || requestParameters.targetProfileId === undefined) {
             throw new runtime.RequiredError('targetProfileId','Required parameter requestParameters.targetProfileId was null or undefined when calling putProfileRelationship.');
         }
-
+        
         if (requestParameters.sourceProfileId === null || requestParameters.sourceProfileId === undefined) {
             throw new runtime.RequiredError('sourceProfileId','Required parameter requestParameters.sourceProfileId was null or undefined when calling putProfileRelationship.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putProfileRelationship.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putProfileRelationship.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putProfileRelationship.');
-        }
-
+        
         if (requestParameters.profileRelationshipToBeChanged === null || requestParameters.profileRelationshipToBeChanged === undefined) {
             throw new runtime.RequiredError('profileRelationshipToBeChanged','Required parameter requestParameters.profileRelationshipToBeChanged was null or undefined when calling putProfileRelationship.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6663,31 +5859,19 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.targetProfileId === null || requestParameters.targetProfileId === undefined) {
             throw new runtime.RequiredError('targetProfileId','Required parameter requestParameters.targetProfileId was null or undefined when calling removeProfileRelationship.');
         }
-
+        
         if (requestParameters.sourceProfileId === null || requestParameters.sourceProfileId === undefined) {
             throw new runtime.RequiredError('sourceProfileId','Required parameter requestParameters.sourceProfileId was null or undefined when calling removeProfileRelationship.');
         }
-
+        
         if (requestParameters.sourceRelation === null || requestParameters.sourceRelation === undefined) {
             throw new runtime.RequiredError('sourceRelation','Required parameter requestParameters.sourceRelation was null or undefined when calling removeProfileRelationship.');
         }
-
+        
         if (requestParameters.targetRelation === null || requestParameters.targetRelation === undefined) {
             throw new runtime.RequiredError('targetRelation','Required parameter requestParameters.targetRelation was null or undefined when calling removeProfileRelationship.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeProfileRelationship.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeProfileRelationship.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeProfileRelationship.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.sourceRelation !== undefined) {
@@ -6759,23 +5943,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling setProfileCommissionAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setProfileCommissionAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setProfileCommissionAccount.');
-        }
-
+        
         if (requestParameters.profileCommissionAccount === null || requestParameters.profileCommissionAccount === undefined) {
             throw new runtime.RequiredError('profileCommissionAccount','Required parameter requestParameters.profileCommissionAccount was null or undefined when calling setProfileCommissionAccount.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6830,23 +6002,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling storeEmail.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling storeEmail.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling storeEmail.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling storeEmail.');
-        }
-
+        
         if (requestParameters.emailMessageType === null || requestParameters.emailMessageType === undefined) {
             throw new runtime.RequiredError('emailMessageType','Required parameter requestParameters.emailMessageType was null or undefined when calling storeEmail.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6898,22 +6058,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * Synchronize profile subscriptions
      */
     async synchronizeProfileSubscriptionsRaw(requestParameters: SynchronizeProfileSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling synchronizeProfileSubscriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling synchronizeProfileSubscriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling synchronizeProfileSubscriptions.');
-        }
-
         if (requestParameters.profileSubscriptionsToSynchronize === null || requestParameters.profileSubscriptionsToSynchronize === undefined) {
             throw new runtime.RequiredError('profileSubscriptionsToSynchronize','Required parameter requestParameters.profileSubscriptionsToSynchronize was null or undefined when calling synchronizeProfileSubscriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6965,22 +6113,10 @@ export class ProfileApi extends runtime.BaseAPI {
      * Validate forget profiles
      */
     async validateForgetProfilesRaw(requestParameters: ValidateForgetProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedForgetProfiles>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateForgetProfiles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateForgetProfiles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateForgetProfiles.');
-        }
-
         if (requestParameters.forgetProfilesCriteria === null || requestParameters.forgetProfilesCriteria === undefined) {
             throw new runtime.RequiredError('forgetProfilesCriteria','Required parameter requestParameters.forgetProfilesCriteria was null or undefined when calling validateForgetProfiles.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7035,23 +6171,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling validateReservationsForProfile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateReservationsForProfile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateReservationsForProfile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateReservationsForProfile.');
-        }
-
+        
         if (requestParameters.futurePastBookingsCriteria === null || requestParameters.futurePastBookingsCriteria === undefined) {
             throw new runtime.RequiredError('futurePastBookingsCriteria','Required parameter requestParameters.futurePastBookingsCriteria was null or undefined when calling validateReservationsForProfile.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7106,23 +6230,11 @@ export class ProfileApi extends runtime.BaseAPI {
         if (requestParameters.certificateId === null || requestParameters.certificateId === undefined) {
             throw new runtime.RequiredError('certificateId','Required parameter requestParameters.certificateId was null or undefined when calling verifyECertificate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling verifyECertificate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling verifyECertificate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling verifyECertificate.');
-        }
-
+        
         if (requestParameters.eCertificateToVerify === null || requestParameters.eCertificateToVerify === undefined) {
             throw new runtime.RequiredError('eCertificateToVerify','Required parameter requestParameters.eCertificateToVerify was null or undefined when calling verifyECertificate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

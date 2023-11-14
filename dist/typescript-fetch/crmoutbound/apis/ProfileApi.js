@@ -64,12 +64,6 @@ class ProfileApi extends runtime.BaseAPI {
             if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
                 throw new runtime.RequiredError('membershipType', 'Required parameter requestParameters.membershipType was null or undefined when calling postMembershipNumber.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMembershipNumber.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipNumber.');
-            }
             if (requestParameters.membershipNumber === null || requestParameters.membershipNumber === undefined) {
                 throw new runtime.RequiredError('membershipNumber', 'Required parameter requestParameters.membershipNumber was null or undefined when calling postMembershipNumber.');
             }

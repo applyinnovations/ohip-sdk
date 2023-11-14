@@ -12,43 +12,43 @@
 import * as runtime from '../runtime';
 import type { BlockConversionsCriteria, BlockConversionsDetails, BlockConversionsToBeChanged, BlockRankingsCriteria, BlockRankingsDetails, BlockRankingsToBeChanged, BookingTypesCriteria, BookingTypesDetails, BookingTypesToBeChanged, CancellationCodesCriteria, CancellationCodesDetails, CancellationCodesToBeChanged, DiscountReasonsCriteria, DiscountReasonsDetails, DiscountReasonsToBeChanged, EntryPointsCriteria, EntryPointsDetails, EntryPointsToBeChanged, GlobalActionCodesCriteria, GlobalActionCodesDetails, GlobalActionCodesToBeChanged, MoveReasonCodesCriteria, MoveReasonCodesDetails, MoveReasonCodesToBeChanged, OriginCodesCriteria, OriginCodesDetails, OriginCodesToBeChanged, PurposeOfStaysCriteria, PurposeOfStaysDetails, PurposeOfStaysToBeChanged, ScriptsCriteria, ScriptsDetails, ScriptsToBeChanged, Status, WaitlistCodesCriteria, WaitlistCodesDetails, WaitlistCodesToBeChanged, WaitlistPrioritiesCriteria, WaitlistPrioritiesDetails, WaitlistPrioritiesToBeChanged } from '../models/index';
 export interface ChangeBlockConversionsRequest {
-    blockConversionCode?: string;
+    blockConversionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockConversionsToBeChanged?: BlockConversionsToBeChanged;
+    blockConversionsToBeChanged: BlockConversionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeBlockRankingsRequest {
-    blockRankingsCode?: string;
+    blockRankingsCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockRankingsToBeChanged?: BlockRankingsToBeChanged;
+    blockRankingsToBeChanged: BlockRankingsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeGlobalActionCodesRequest {
-    actionCode?: string;
+    actionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    globalActionCodesToBeChanged?: GlobalActionCodesToBeChanged;
+    globalActionCodesToBeChanged: GlobalActionCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeScriptsRequest {
-    scriptCode?: string;
+    scriptCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    scriptsToBeChanged?: ScriptsToBeChanged;
+    scriptsToBeChanged: ScriptsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBookingTypesRequest {
-    bookingTypesId?: string;
+    bookingTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -57,7 +57,7 @@ export interface DeleteBookingTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCancellationCodesRequest {
-    cancellationCodesId?: string;
+    cancellationCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -66,7 +66,7 @@ export interface DeleteCancellationCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDiscountReasonsRequest {
-    discountReasonsId?: string;
+    discountReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -74,7 +74,7 @@ export interface DeleteDiscountReasonsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteEntryPointsRequest {
-    entryPointsId?: string;
+    entryPointsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -83,7 +83,7 @@ export interface DeleteEntryPointsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMoveReasonCodesRequest {
-    moveReasonCodesId?: string;
+    moveReasonCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -92,7 +92,7 @@ export interface DeleteMoveReasonCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteOriginCodesRequest {
-    originCodesId?: string;
+    originCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -101,7 +101,7 @@ export interface DeleteOriginCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePurposeOfStaysRequest {
-    purposeOfStaysId?: string;
+    purposeOfStaysId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -110,7 +110,7 @@ export interface DeletePurposeOfStaysRequest {
     acceptLanguage?: string;
 }
 export interface DeleteWaitlistCodesRequest {
-    waitlistCodesId?: string;
+    waitlistCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -119,7 +119,7 @@ export interface DeleteWaitlistCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteWaitlistPrioritiesRequest {
-    waitlistPrioritiesId?: string;
+    waitlistPrioritiesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -278,7 +278,7 @@ export interface PostBlockConversionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockConversionsCriteria?: BlockConversionsCriteria;
+    blockConversionsCriteria: BlockConversionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -286,7 +286,7 @@ export interface PostBlockRankingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockRankingsCriteria?: BlockRankingsCriteria;
+    blockRankingsCriteria: BlockRankingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -294,7 +294,7 @@ export interface PostBookingTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bookingTypesCriteria?: BookingTypesCriteria;
+    bookingTypesCriteria: BookingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -302,7 +302,7 @@ export interface PostCancellationCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancellationCodesCriteria?: CancellationCodesCriteria;
+    cancellationCodesCriteria: CancellationCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -310,7 +310,7 @@ export interface PostDiscountReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    discountReasonsCriteria?: DiscountReasonsCriteria;
+    discountReasonsCriteria: DiscountReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -318,7 +318,7 @@ export interface PostEntryPointsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    entryPointsCriteria?: EntryPointsCriteria;
+    entryPointsCriteria: EntryPointsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -326,7 +326,7 @@ export interface PostGlobalActionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    globalActionCodesCriteria?: GlobalActionCodesCriteria;
+    globalActionCodesCriteria: GlobalActionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -334,7 +334,7 @@ export interface PostMoveReasonCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    moveReasonCodesCriteria?: MoveReasonCodesCriteria;
+    moveReasonCodesCriteria: MoveReasonCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -342,7 +342,7 @@ export interface PostOriginCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    originCodesCriteria?: OriginCodesCriteria;
+    originCodesCriteria: OriginCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -350,7 +350,7 @@ export interface PostPurposeOfStaysRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    purposeOfStaysCriteria?: PurposeOfStaysCriteria;
+    purposeOfStaysCriteria: PurposeOfStaysCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -358,7 +358,7 @@ export interface PostScriptsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    scriptsCriteria?: ScriptsCriteria;
+    scriptsCriteria: ScriptsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -366,7 +366,7 @@ export interface PostWaitlistCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    waitlistCodesCriteria?: WaitlistCodesCriteria;
+    waitlistCodesCriteria: WaitlistCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -374,93 +374,93 @@ export interface PostWaitlistPrioritiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    waitlistPrioritiesCriteria?: WaitlistPrioritiesCriteria;
+    waitlistPrioritiesCriteria: WaitlistPrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBookingTypesRequest {
-    bookingTypesId?: string;
+    bookingTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bookingTypesToBeChanged?: BookingTypesToBeChanged;
+    bookingTypesToBeChanged: BookingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCancellationCodesRequest {
-    cancellationCodesId?: string;
+    cancellationCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancellationCodesToBeChanged?: CancellationCodesToBeChanged;
+    cancellationCodesToBeChanged: CancellationCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutDiscountReasonsRequest {
-    discountReasonsId?: string;
+    discountReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    discountReasonsToBeChanged?: DiscountReasonsToBeChanged;
+    discountReasonsToBeChanged: DiscountReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutEntryPointsRequest {
-    entryPointsId?: string;
+    entryPointsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    entryPointsToBeChanged?: EntryPointsToBeChanged;
+    entryPointsToBeChanged: EntryPointsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMoveReasonCodesRequest {
-    moveReasonCodesId?: string;
+    moveReasonCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    moveReasonCodesToBeChanged?: MoveReasonCodesToBeChanged;
+    moveReasonCodesToBeChanged: MoveReasonCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutOriginCodesRequest {
-    originCodesId?: string;
+    originCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    originCodesToBeChanged?: OriginCodesToBeChanged;
+    originCodesToBeChanged: OriginCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPurposeOfStaysRequest {
-    purposeOfStaysId?: string;
+    purposeOfStaysId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    purposeOfStaysToBeChanged?: PurposeOfStaysToBeChanged;
+    purposeOfStaysToBeChanged: PurposeOfStaysToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutWaitlistCodesRequest {
-    waitlistCodesId?: string;
+    waitlistCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    waitlistCodesToBeChanged?: WaitlistCodesToBeChanged;
+    waitlistCodesToBeChanged: WaitlistCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutWaitlistPrioritiesRequest {
-    waitlistPrioritiesId?: string;
+    waitlistPrioritiesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    waitlistPrioritiesToBeChanged?: WaitlistPrioritiesToBeChanged;
+    waitlistPrioritiesToBeChanged: WaitlistPrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBlockConversionsRequest {
-    blockConversionCode?: string;
+    blockConversionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -469,7 +469,7 @@ export interface RemoveBlockConversionsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveBlockRankingsRequest {
-    blockRankingsCode?: string;
+    blockRankingsCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -478,7 +478,7 @@ export interface RemoveBlockRankingsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveGlobalActionCodesRequest {
-    actionCode?: string;
+    actionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -487,7 +487,7 @@ export interface RemoveGlobalActionCodesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveScriptsRequest {
-    scriptCode?: string;
+    scriptCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

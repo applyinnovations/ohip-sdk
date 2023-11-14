@@ -64,15 +64,6 @@ class IntegrationProcessorApi extends runtime.BaseAPI {
             if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
                 throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getBusinessEvents.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBusinessEvents.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEvents.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEvents.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -120,15 +111,6 @@ class IntegrationProcessorApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
                 throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getBusinessEventsByExternalSystem.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBusinessEventsByExternalSystem.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEventsByExternalSystem.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEventsByExternalSystem.');
             }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {

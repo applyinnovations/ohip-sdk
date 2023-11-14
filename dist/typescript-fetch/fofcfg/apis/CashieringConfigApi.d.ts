@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { AdjustmentCodes, AdjustmentCodesCopy, Articles, ArticlesInfo, AuthorizationConfigRules, AuthorizationConfigRulesInfo, AuthorizerGroups, AuthorizerGroupsToChange, BudgetForecastInformation, BudgetForecastInformationBase, BudgetForecastToDelete, CalculatedPosting, CashierNumber, Cashiers, CashiersDetails, ChangeFiscalCommands, ChangeFiscalPartners, CollectingAgentTaxes, CompAuthorizer, CompAuthorizers, CompBucketRedemptionConfig, CompBucketRedemptionConfigDetails, CompTypesCriteria, CompTypesDetails, CompTypesStatus, CompTypesToBeChanged, CreateFiscalPartners, CurrencyExchangeServiceTaxes, CustomChargeExemptionsConfig, CustomChargeExemptionsConfigCopy, CustomChargeExemptionsConfigToBeChanged, CustomChargeExemptionsConfigToBeCreated, CustomChargesConfig, CustomChargesConfigDetails, CustomNumberConfigDetails, CustomNumberConfiguration, DailyPlanCodes, DefaultPaymentMethodRule, ExchangeRates, ExchangeRatesDetails, ExpenseArrangementCodes, ExpenseArrangementCodesCopy, FiscalCommandsDetails, FiscalFolioParameters, FiscalFolioParametersCopy, FiscalPartnersDetails, FiscalPeriods, FiscalPeriodsEdit, FiscalPeriodsInfo, FiscalYears, FolioArrangementCodes, FolioArrangementCodesCopy, FolioCopyLegend, FolioCopyLegends, FolioPrintQueues, FolioTypeLegendMappingConfigCriteria, FolioTypeLegendMappingConfigStatus, FolioTypeLegendMappingConfigToBeChanged, FolioTypeLegendMappingsConfigDetails, FolioTypesConfig, ForeignCurrencies, FuturePastExchangeRates, GUINumberRulesDetails, GroupArrangementCodes, GroupArrangementCodesCopy, HotelTransactionCode, HotelTransactionCodes, HotelTransactionGenerates, HotelTransactionSubgroup, HotelTransactionSubgroups, NoShowPostingRules, NoShowPostingRulesEdit, NumberDescriptions, OperaControlSequences, PackageArrangementCodes, PackageArrangementCodesCopy, PaymentMethods, PaymentMethodsCopy, PaymentMethodsInfo, RevenueBucketCodes, RevenueBucketCodesCopy, RevenueBucketTypes, RevenueBucketTypesCopy, RevenueTypeMapping, RevenueTypeMappingCopy, RevenueTypeMappingList, RoutingInstructions, RoutingInstructionsCopy, Status, TaxBrackets, TaxBracketsCopy, TaxTypes, TaxTypesCopy, TaxTypesGenerate, TemplateCustomNumberConfig, TemplateCustomNumberConfigDetails, TemplateTransactionCodes, TemplateTransactionGroups, TemplateTransactionSubgroups, TransactionArrangementCodes, TransactionCodeAccessRoles, TransactionCodeOwnership, TransactionCodes, TransactionCodesCopy, TransactionDiscount, TransactionDiscounts, TransactionDiversionRules, TransactionGroup, TransactionGroups, TransactionGroupsCopy, TransactionSubgroupsCopy } from '../models/index';
 export interface CalculatePostingRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -28,25 +28,25 @@ export interface ChangeCompTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compTypesToBeChanged?: CompTypesToBeChanged;
+    compTypesToBeChanged: CompTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFiscalCommandsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeFiscalCommands?: ChangeFiscalCommands;
+    changeFiscalCommands: ChangeFiscalCommands;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeFiscalPartners?: ChangeFiscalPartners;
+    changeFiscalPartners: ChangeFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -54,7 +54,7 @@ export interface ChangeFolioTypeLegendMappingConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypeLegendMappingConfigToBeChanged?: FolioTypeLegendMappingConfigToBeChanged;
+    folioTypeLegendMappingConfigToBeChanged: FolioTypeLegendMappingConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -62,16 +62,16 @@ export interface CopyAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodesCopy?: AdjustmentCodesCopy;
+    adjustmentCodesCopy: AdjustmentCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCustomChargeExemptionsConfigRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigCopy?: CustomChargeExemptionsConfigCopy;
+    customChargeExemptionsConfigCopy: CustomChargeExemptionsConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -79,16 +79,16 @@ export interface CopyExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodesCopy?: ExpenseArrangementCodesCopy;
+    expenseArrangementCodesCopy: ExpenseArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyFiscalFolioParametersRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioParametersCopy?: FiscalFolioParametersCopy;
+    fiscalFolioParametersCopy: FiscalFolioParametersCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -96,7 +96,7 @@ export interface CopyFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodesCopy?: FolioArrangementCodesCopy;
+    folioArrangementCodesCopy: FolioArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -104,7 +104,7 @@ export interface CopyGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodesCopy?: GroupArrangementCodesCopy;
+    groupArrangementCodesCopy: GroupArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -112,7 +112,7 @@ export interface CopyPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodesCopy?: PackageArrangementCodesCopy;
+    packageArrangementCodesCopy: PackageArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -120,7 +120,7 @@ export interface CopyPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethodsCopy?: PaymentMethodsCopy;
+    paymentMethodsCopy: PaymentMethodsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -128,7 +128,7 @@ export interface CopyRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodesCopy?: RevenueBucketCodesCopy;
+    revenueBucketCodesCopy: RevenueBucketCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -136,7 +136,7 @@ export interface CopyRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypesCopy?: RevenueBucketTypesCopy;
+    revenueBucketTypesCopy: RevenueBucketTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -144,7 +144,7 @@ export interface CopyRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMappingCopy?: RevenueTypeMappingCopy;
+    revenueTypeMappingCopy: RevenueTypeMappingCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -152,7 +152,7 @@ export interface CopyRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructionsCopy?: RoutingInstructionsCopy;
+    routingInstructionsCopy: RoutingInstructionsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -160,7 +160,7 @@ export interface CopyTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBracketsCopy?: TaxBracketsCopy;
+    taxBracketsCopy: TaxBracketsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -168,7 +168,7 @@ export interface CopyTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypesCopy?: TaxTypesCopy;
+    taxTypesCopy: TaxTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -176,7 +176,7 @@ export interface CopyTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodesCopy?: TransactionCodesCopy;
+    transactionCodesCopy: TransactionCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -184,7 +184,7 @@ export interface CopyTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroupsCopy?: TransactionGroupsCopy;
+    transactionGroupsCopy: TransactionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -192,7 +192,7 @@ export interface CopyTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionSubgroupsCopy?: TransactionSubgroupsCopy;
+    transactionSubgroupsCopy: TransactionSubgroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -206,8 +206,8 @@ export interface DeleteAdjustmentCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteArticlesRequest {
-    hotelId?: string;
-    articleCodes?: Array<string>;
+    hotelId: string;
+    articleCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -225,7 +225,7 @@ export interface DeleteArticlesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAuthorizationConfigRuleRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -253,12 +253,12 @@ export interface DeleteBudgetForecastRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    budgetForecastToDelete?: BudgetForecastToDelete;
+    budgetForecastToDelete: BudgetForecastToDelete;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCollectingAgentTaxesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -268,8 +268,8 @@ export interface DeleteCollectingAgentTaxesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -277,7 +277,7 @@ export interface DeleteCompBucketRedemptionConfigRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCurrencyExchangeServiceTaxesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -286,8 +286,8 @@ export interface DeleteCurrencyExchangeServiceTaxesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -295,8 +295,8 @@ export interface DeleteCustomChargeExemptionsConfigRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -304,8 +304,8 @@ export interface DeleteCustomChargesConfigRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -316,12 +316,12 @@ export interface DeleteExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExpenseArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -340,7 +340,7 @@ export interface DeleteFiscalFolioParametersRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFiscalPeriodsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -350,7 +350,7 @@ export interface DeleteFiscalPeriodsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFiscalYearsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -359,7 +359,7 @@ export interface DeleteFiscalYearsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFolioArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -368,7 +368,7 @@ export interface DeleteFolioArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFolioPrintQueuesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -377,7 +377,7 @@ export interface DeleteFolioPrintQueuesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFolioTypesConfigRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -396,7 +396,7 @@ export interface DeleteForeignCurrenciesRequest {
 export interface DeleteGlobalExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -410,7 +410,7 @@ export interface DeleteGroupArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteNoShowPostingRulesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -421,7 +421,7 @@ export interface DeleteNoShowPostingRulesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePackageArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -430,7 +430,7 @@ export interface DeletePackageArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRevenueBucketCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -440,7 +440,7 @@ export interface DeleteRevenueBucketCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRevenueBucketTypesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -449,7 +449,7 @@ export interface DeleteRevenueBucketTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRevenueTypeMappingRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -469,7 +469,7 @@ export interface DeleteRevenueTypeMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -478,7 +478,7 @@ export interface DeleteRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTaxBracketsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -487,8 +487,8 @@ export interface DeleteTaxBracketsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTaxTypesRequest {
-    taxTypeCode?: Array<string>;
-    hotelId?: Array<string>;
+    taxTypeCode: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -504,8 +504,8 @@ export interface DeleteTemplateCustomNumberRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -513,7 +513,7 @@ export interface DeleteTemplateCustomNumberConfigRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTransactionCodesRequest {
-    transactionCodes?: Array<string>;
+    transactionCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -521,7 +521,7 @@ export interface DeleteTemplateTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTransactionGroupsRequest {
-    templateTransactionCodes?: Array<string>;
+    templateTransactionCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -538,8 +538,8 @@ export interface DeleteTemplateTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTransactionCodesRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -547,8 +547,8 @@ export interface DeleteTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTransactionDiscountsRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
+    hotelId: string;
+    transactionDiscountCode: string;
 }
 export interface DeleteTransactionGroupsRequest {
     authorization?: string;
@@ -570,7 +570,7 @@ export interface DeleteTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetAdjustmentCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -580,7 +580,7 @@ export interface GetAdjustmentCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetArticlesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -600,7 +600,7 @@ export interface GetAuthorizationConfigRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizerGroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -671,7 +671,7 @@ export interface GetBudgetForecastRequest {
     acceptLanguage?: string;
 }
 export interface GetCashiersRequest {
-    cashierIDs?: Array<number>;
+    cashierIDs: Array<number>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -693,7 +693,7 @@ export interface GetCollectingAgentTaxesRequest {
     acceptLanguage?: string;
 }
 export interface GetCompAuthorizersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -707,7 +707,7 @@ export interface GetCompAuthorizersRequest {
     acceptLanguage?: string;
 }
 export interface GetCompBucketRedemptionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -718,8 +718,8 @@ export interface GetCompBucketRedemptionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -728,7 +728,7 @@ export interface GetCompBucketRedemptionConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetCompTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -737,7 +737,7 @@ export interface GetCompTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyExchangeServiceTaxesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -746,7 +746,7 @@ export interface GetCurrencyExchangeServiceTaxesRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomChargeCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -768,8 +768,8 @@ export interface GetCustomChargeExemptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -779,8 +779,8 @@ export interface GetCustomChargeExemptionsConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -789,8 +789,8 @@ export interface GetCustomChargesConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -805,7 +805,7 @@ export interface GetCustomNumberConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomNumbersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -822,7 +822,7 @@ export interface GetCustomNumbersRequest {
     acceptLanguage?: string;
 }
 export interface GetDailyPlanCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -833,9 +833,9 @@ export interface GetDailyPlanCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetDefaultPaymentMethodRuleRequest {
-    hotelIds?: Array<string>;
-    transactionCodes?: Array<string>;
-    paymentMethods?: Array<string>;
+    hotelIds: Array<string>;
+    transactionCodes: Array<string>;
+    paymentMethods: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -846,7 +846,7 @@ export interface GetDefaultPaymentMethodRuleRequest {
     acceptLanguage?: string;
 }
 export interface GetExchangeRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -864,7 +864,7 @@ export interface GetExchangeRatesInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetExpenseArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -875,7 +875,7 @@ export interface GetExpenseArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalCommandsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -887,7 +887,7 @@ export interface GetFiscalCommandsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioParametersRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -899,7 +899,7 @@ export interface GetFiscalFolioParametersRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -909,7 +909,7 @@ export interface GetFiscalPartnersRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPeriodsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -920,7 +920,7 @@ export interface GetFiscalPeriodsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalYearsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -930,7 +930,7 @@ export interface GetFiscalYearsRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -950,7 +950,7 @@ export interface GetFolioCopyLegendsRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioPrintQueuesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -960,8 +960,8 @@ export interface GetFolioPrintQueuesRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypeLegendMappingsConfigRequest {
-    hotelId?: string;
-    legendCode?: string;
+    hotelId: string;
+    legendCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -970,7 +970,7 @@ export interface GetFolioTypeLegendMappingsConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -991,9 +991,9 @@ export interface GetForeignCurrenciesRequest {
     acceptLanguage?: string;
 }
 export interface GetFuturePastExchangeRatesRequest {
-    currencyCode?: string;
-    hotelId?: string;
-    exchangeTypes?: GetFuturePastExchangeRatesExchangeTypesEnum;
+    currencyCode: string;
+    hotelId: string;
+    exchangeTypes: GetFuturePastExchangeRatesExchangeTypesEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1003,7 +1003,7 @@ export interface GetFuturePastExchangeRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetGUINumberRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1011,7 +1011,7 @@ export interface GetGUINumberRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetGenerateTaxTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1027,7 +1027,7 @@ export interface GetGlobalExchangeRatesInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetGroupArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1038,7 +1038,7 @@ export interface GetGroupArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetNoShowPostingRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1058,7 +1058,7 @@ export interface GetNumberDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetOperaControlSequencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1070,7 +1070,7 @@ export interface GetOperaControlSequencesRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1081,7 +1081,7 @@ export interface GetPackageArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1094,7 +1094,7 @@ export interface GetPaymentMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1107,7 +1107,7 @@ export interface GetRevenueBucketCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketTypesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1118,7 +1118,7 @@ export interface GetRevenueBucketTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1130,7 +1130,7 @@ export interface GetRevenueTypeMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1141,7 +1141,7 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxBracketsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1150,7 +1150,7 @@ export interface GetTaxBracketsRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxTypesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1160,8 +1160,8 @@ export interface GetTaxTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1221,7 +1221,7 @@ export interface GetTemplateTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionArrangementCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1230,8 +1230,8 @@ export interface GetTransactionArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodeRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1240,7 +1240,7 @@ export interface GetTransactionCodeRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodeAccessRolesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1249,7 +1249,7 @@ export interface GetTransactionCodeAccessRolesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1266,7 +1266,7 @@ export interface GetTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiscountsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1281,7 +1281,7 @@ export interface GetTransactionDiscountsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1297,8 +1297,8 @@ export interface GetTransactionDiversionRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupRequest {
-    transactionGroupCode?: string;
-    hotelId?: string;
+    transactionGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1307,7 +1307,7 @@ export interface GetTransactionGroupRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1318,9 +1318,9 @@ export interface GetTransactionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupRequest {
-    transactionGroupCode?: string;
-    transactionSubGroupCode?: string;
-    hotelId?: string;
+    transactionGroupCode: string;
+    transactionSubGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1329,7 +1329,7 @@ export interface GetTransactionSubgroupRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1343,7 +1343,7 @@ export interface PostAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodes?: AdjustmentCodes;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1351,7 +1351,7 @@ export interface PostArticlesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    articles?: Articles;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1359,7 +1359,7 @@ export interface PostAuthorizationConfigRuleRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizationConfigRules?: AuthorizationConfigRules;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1367,7 +1367,7 @@ export interface PostAuthorizerGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizerGroups?: AuthorizerGroups;
+    authorizerGroups: AuthorizerGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1375,7 +1375,7 @@ export interface PostCashiersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashiers?: Cashiers;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1383,16 +1383,16 @@ export interface PostCollectingAgentTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    collectingAgentTaxes?: CollectingAgentTaxes;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCompBucketRedemptionConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compBucketRedemptionConfig?: CompBucketRedemptionConfig;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1400,7 +1400,7 @@ export interface PostCompTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compTypesCriteria?: CompTypesCriteria;
+    compTypesCriteria: CompTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1408,34 +1408,34 @@ export interface PostCurrencyExchangeServiceTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencyExchangeServiceTaxes?: CurrencyExchangeServiceTaxes;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCustomChargeExemptionsConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigToBeCreated?: CustomChargeExemptionsConfigToBeCreated;
+    customChargeExemptionsConfigToBeCreated: CustomChargeExemptionsConfigToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCustomChargesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargesConfig?: CustomChargesConfig;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCustomNumberConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customNumberConfiguration?: CustomNumberConfiguration;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1443,16 +1443,16 @@ export interface PostExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodes?: ExpenseArrangementCodes;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createFiscalPartners?: CreateFiscalPartners;
+    createFiscalPartners: CreateFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1460,7 +1460,7 @@ export interface PostFiscalPeriodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalPeriods?: FiscalPeriods;
+    fiscalPeriods: FiscalPeriods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1468,7 +1468,7 @@ export interface PostFiscalYearsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalYears?: FiscalYears;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1476,7 +1476,7 @@ export interface PostFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodes?: FolioArrangementCodes;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1484,7 +1484,7 @@ export interface PostFolioPrintQueuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioPrintQueues?: FolioPrintQueues;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1492,7 +1492,7 @@ export interface PostFolioTypeLegendMappingConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypeLegendMappingConfigCriteria?: FolioTypeLegendMappingConfigCriteria;
+    folioTypeLegendMappingConfigCriteria: FolioTypeLegendMappingConfigCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1500,7 +1500,7 @@ export interface PostFolioTypesConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypesConfig?: FolioTypesConfig;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1508,7 +1508,7 @@ export interface PostForeignCurrenciesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencies?: ForeignCurrencies;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1516,7 +1516,7 @@ export interface PostGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodes?: GroupArrangementCodes;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1524,7 +1524,7 @@ export interface PostNoShowPostingRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    noShowPostingRules?: NoShowPostingRules;
+    noShowPostingRules: NoShowPostingRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1532,7 +1532,7 @@ export interface PostPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodes?: PackageArrangementCodes;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1540,7 +1540,7 @@ export interface PostPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1548,7 +1548,7 @@ export interface PostRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodes?: RevenueBucketCodes;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1556,7 +1556,7 @@ export interface PostRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypes?: RevenueBucketTypes;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1564,7 +1564,7 @@ export interface PostRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMapping?: RevenueTypeMapping;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1572,7 +1572,7 @@ export interface PostRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructions?: RoutingInstructions;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1580,7 +1580,7 @@ export interface PostTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBrackets?: TaxBrackets;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1588,7 +1588,7 @@ export interface PostTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypes?: TaxTypes;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1596,16 +1596,16 @@ export interface PostTemplateCustomNumberRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateCustomNumberConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1613,7 +1613,7 @@ export interface PostTemplateTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionCodes?: TemplateTransactionCodes;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1621,7 +1621,7 @@ export interface PostTemplateTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionGroups?: TemplateTransactionGroups;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1629,7 +1629,7 @@ export interface PostTemplateTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionSubgroups?: TemplateTransactionSubgroups;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1637,7 +1637,7 @@ export interface PostTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionCodes?: HotelTransactionCodes;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1645,7 +1645,7 @@ export interface PostTransactionDiscountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiscount?: TransactionDiscount;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1653,7 +1653,7 @@ export interface PostTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1661,7 +1661,7 @@ export interface PostTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1669,7 +1669,7 @@ export interface PostTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroups?: TransactionGroups;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1677,7 +1677,7 @@ export interface PostTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionSubgroups?: HotelTransactionSubgroups;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1685,7 +1685,7 @@ export interface PutAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodes?: AdjustmentCodes;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1693,7 +1693,7 @@ export interface PutArticlesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    articles?: Articles;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1701,7 +1701,7 @@ export interface PutAuthorizationConfigRuleRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizationConfigRules?: AuthorizationConfigRules;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1709,7 +1709,7 @@ export interface PutAuthorizerGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizerGroupsToChange?: AuthorizerGroupsToChange;
+    authorizerGroupsToChange: AuthorizerGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1717,7 +1717,7 @@ export interface PutCashiersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashiers?: Cashiers;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1725,17 +1725,17 @@ export interface PutCollectingAgentTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    collectingAgentTaxes?: CollectingAgentTaxes;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compBucketRedemptionConfig?: CompBucketRedemptionConfig;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1743,37 +1743,37 @@ export interface PutCurrencyExchangeServiceTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencyExchangeServiceTaxes?: CurrencyExchangeServiceTaxes;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigToBeChanged?: CustomChargeExemptionsConfigToBeChanged;
+    customChargeExemptionsConfigToBeChanged: CustomChargeExemptionsConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargesConfig?: CustomChargesConfig;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customNumberConfiguration?: CustomNumberConfiguration;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1781,7 +1781,7 @@ export interface PutDailyPlanCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dailyPlanCodes?: DailyPlanCodes;
+    dailyPlanCodes: DailyPlanCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1789,7 +1789,7 @@ export interface PutExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodes?: ExpenseArrangementCodes;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1797,7 +1797,7 @@ export interface PutFiscalFolioParametersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioParameters?: FiscalFolioParameters;
+    fiscalFolioParameters: FiscalFolioParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1805,7 +1805,7 @@ export interface PutFiscalPeriodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalPeriodsEdit?: FiscalPeriodsEdit;
+    fiscalPeriodsEdit: FiscalPeriodsEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1813,7 +1813,7 @@ export interface PutFiscalYearsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalYears?: FiscalYears;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1821,7 +1821,7 @@ export interface PutFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodes?: FolioArrangementCodes;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1829,7 +1829,7 @@ export interface PutFolioCopyLegendsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioCopyLegend?: FolioCopyLegend;
+    folioCopyLegend: FolioCopyLegend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1837,7 +1837,7 @@ export interface PutFolioPrintQueuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioPrintQueues?: FolioPrintQueues;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1845,7 +1845,7 @@ export interface PutFolioTypesConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypesConfig?: FolioTypesConfig;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1853,7 +1853,7 @@ export interface PutForeignCurrenciesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencies?: ForeignCurrencies;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1861,7 +1861,7 @@ export interface PutGUINumberRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    gUINumberRulesDetails?: GUINumberRulesDetails;
+    gUINumberRulesDetails: GUINumberRulesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1869,7 +1869,7 @@ export interface PutGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodes?: GroupArrangementCodes;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1877,7 +1877,7 @@ export interface PutNoShowPostingRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    noShowPostingRulesEdit?: NoShowPostingRulesEdit;
+    noShowPostingRulesEdit: NoShowPostingRulesEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1885,7 +1885,7 @@ export interface PutNumberDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    numberDescriptions?: NumberDescriptions;
+    numberDescriptions: NumberDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1893,7 +1893,7 @@ export interface PutOperaControlSequencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    operaControlSequences?: OperaControlSequences;
+    operaControlSequences: OperaControlSequences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1901,7 +1901,7 @@ export interface PutPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodes?: PackageArrangementCodes;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1909,7 +1909,7 @@ export interface PutPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1917,7 +1917,7 @@ export interface PutRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodes?: RevenueBucketCodes;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1925,7 +1925,7 @@ export interface PutRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypes?: RevenueBucketTypes;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1933,7 +1933,7 @@ export interface PutRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMapping?: RevenueTypeMapping;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1941,7 +1941,7 @@ export interface PutRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructions?: RoutingInstructions;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1949,7 +1949,7 @@ export interface PutTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBrackets?: TaxBrackets;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1957,7 +1957,7 @@ export interface PutTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypes?: TaxTypes;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1965,17 +1965,17 @@ export interface PutTemplateCustomNumberRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1983,7 +1983,7 @@ export interface PutTemplateTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionCodes?: TemplateTransactionCodes;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1991,7 +1991,7 @@ export interface PutTemplateTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionGroups?: TemplateTransactionGroups;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1999,7 +1999,7 @@ export interface PutTemplateTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionSubgroups?: TemplateTransactionSubgroups;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2007,7 +2007,7 @@ export interface PutTransactionCodeOwnershipRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodeOwnership?: TransactionCodeOwnership;
+    transactionCodeOwnership: TransactionCodeOwnership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2015,17 +2015,17 @@ export interface PutTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionCodes?: HotelTransactionCodes;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTransactionDiscountsRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
+    hotelId: string;
+    transactionDiscountCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiscount?: TransactionDiscount;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2033,7 +2033,7 @@ export interface PutTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2041,7 +2041,7 @@ export interface PutTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2049,7 +2049,7 @@ export interface PutTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroups?: TransactionGroups;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2057,12 +2057,12 @@ export interface PutTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionSubgroups?: HotelTransactionSubgroups;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCompTypesRequest {
-    compTypesCode?: string;
+    compTypesCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2070,7 +2070,7 @@ export interface RemoveCompTypesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2079,9 +2079,9 @@ export interface RemoveFiscalPartnersRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFolioTypeLegendMappingConfigRequest {
-    legendCode?: string;
-    folioType?: string;
-    hotelId?: string;
+    legendCode: string;
+    folioType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2092,7 +2092,7 @@ export interface RemovePaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2100,7 +2100,7 @@ export interface RemoveTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2108,7 +2108,7 @@ export interface RemoveTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2116,7 +2116,7 @@ export interface SetBudgetForecastRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    budgetForecastInformationBase?: BudgetForecastInformationBase;
+    budgetForecastInformationBase: BudgetForecastInformationBase;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2124,7 +2124,7 @@ export interface SetCompAuthorizerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compAuthorizer?: CompAuthorizer;
+    compAuthorizer: CompAuthorizer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2132,14 +2132,14 @@ export interface SetExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetGlobalExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2147,7 +2147,7 @@ export interface SetTransactionCodeAccessRolesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodeAccessRoles?: TransactionCodeAccessRoles;
+    transactionCodeAccessRoles: TransactionCodeAccessRoles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

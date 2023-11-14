@@ -15,46 +15,46 @@ export interface CopyPackagesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packagesCopy?: PackagesCopy;
+    packagesCopy: PackagesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyPromotionGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    promotionGroupsCopy?: PromotionGroupsCopy;
+    promotionGroupsCopy: PromotionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyRatePlansRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlansCopy?: RatePlansCopy;
+    ratePlansCopy: RatePlansCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyTieredRateSchedulesRequest {
-    destinationTierId?: string;
-    sourceTierId?: string;
-    ratePlanCode?: string;
-    hotelId?: string;
+    destinationTierId: string;
+    sourceTierId: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    tieredRateSchedulesCopy?: TieredRateSchedulesCopy;
+    tieredRateSchedulesCopy: TieredRateSchedulesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBestAvailableRatesRequest {
-    hotelId?: string;
-    code?: Array<string>;
-    end?: Date;
-    start?: Date;
+    hotelId: string;
+    code: Array<string>;
+    end: Date;
+    start: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -77,10 +77,10 @@ export interface DeleteBestAvailableRatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDailyRatePlanScheduleRangeRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    ratePlanCode: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -99,7 +99,7 @@ export interface DeleteDailyRatePlanScheduleRangeRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelPackageForecastGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -108,7 +108,7 @@ export interface DeleteHotelPackageForecastGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMassRateChangeLogRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -116,10 +116,10 @@ export interface DeleteMassRateChangeLogRequest {
     acceptLanguage?: string;
 }
 export interface DeleteNegotiatedRatesRequest {
-    ratePlanId?: string;
-    startDate?: string;
-    profileId?: string;
-    hotelId?: string;
+    ratePlanId: string;
+    startDate: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -127,8 +127,8 @@ export interface DeleteNegotiatedRatesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePackageRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -136,8 +136,8 @@ export interface DeletePackageRequest {
     acceptLanguage?: string;
 }
 export interface DeletePackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
+    packageFormulaRangeId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -147,8 +147,8 @@ export interface DeletePackageFormulaRangesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePackageGroupsRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -156,8 +156,8 @@ export interface DeletePackageGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeletePromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
+    groupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -165,7 +165,7 @@ export interface DeletePromotionGroupRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRateAccessExclusionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -183,7 +183,7 @@ export interface DeleteRateAccessExclusionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRateGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -191,8 +191,8 @@ export interface DeleteRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -200,8 +200,8 @@ export interface DeleteRatePlanRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -211,8 +211,8 @@ export interface DeleteRatePlanPackagesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -221,9 +221,9 @@ export interface DeleteRatePlanPostingRhythmsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    ratePlanScheduleIds?: Array<string>;
+    ratePlanCode: string;
+    hotelId: string;
+    ratePlanScheduleIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -250,8 +250,8 @@ export interface DeleteRatePlanServiceCacheRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
+    rateStrategyId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -259,7 +259,7 @@ export interface DeleteRateStrategyRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplatePackageForecastGroupsRequest {
-    packageForecastGroupCode?: string;
+    packageForecastGroupCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -267,17 +267,17 @@ export interface DeleteTemplatePackageForecastGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DistributeNegotiatedRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    distributedNegotiatedRates?: DistributedNegotiatedRates;
+    distributedNegotiatedRates: DistributedNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DownloadExternalRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -285,8 +285,8 @@ export interface DownloadExternalRatePlanRequest {
     acceptLanguage?: string;
 }
 export interface GetBestAvailableRatesRequest {
-    hotelId?: string;
-    startDay?: Date;
+    hotelId: string;
+    startDay: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -300,7 +300,7 @@ export interface GetBestAvailableRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelPackageForecastGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -314,7 +314,7 @@ export interface GetHotelPackageForecastGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMassRateChangeStatusRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -323,7 +323,7 @@ export interface GetMassRateChangeStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -337,8 +337,8 @@ export interface GetNegotiatedRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
-    rateCode?: string;
-    hotelId?: string;
+    rateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -352,7 +352,7 @@ export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesForGivenProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -368,8 +368,8 @@ export interface GetNegotiatedRatesForGivenProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -378,7 +378,7 @@ export interface GetPackageRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageFormulaRangesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -387,7 +387,7 @@ export interface GetPackageFormulaRangesRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -399,8 +399,8 @@ export interface GetPackageGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageRatesRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -434,7 +434,7 @@ export interface GetPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetPromotionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -449,7 +449,7 @@ export interface GetPromotionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetPromotionGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -464,10 +464,10 @@ export interface GetPromotionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRateActivityLogRequest {
-    hotelId?: string;
-    module?: GetRateActivityLogModuleEnum;
-    parameterName?: Array<string>;
-    parameterValue?: Array<string>;
+    hotelId: string;
+    module: GetRateActivityLogModuleEnum;
+    parameterName: Array<string>;
+    parameterValue: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -484,7 +484,7 @@ export interface GetRateActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetRateGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -497,8 +497,8 @@ export interface GetRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -507,7 +507,7 @@ export interface GetRatePlanRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanScheduleYieldAdjustmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -519,8 +519,8 @@ export interface GetRatePlanScheduleYieldAdjustmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -539,7 +539,7 @@ export interface GetRatePlanSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -563,7 +563,7 @@ export interface GetRatePlansRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansByHotelRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -573,7 +573,7 @@ export interface GetRatePlansByHotelRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansForBlockRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -592,7 +592,7 @@ export interface GetRatePlansForBlockRequest {
     acceptLanguage?: string;
 }
 export interface GetRateStrategiesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -603,7 +603,7 @@ export interface GetRateStrategiesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePackageForecastGroupsRequest {
-    includeInactive?: boolean;
+    includeInactive: boolean;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -628,7 +628,7 @@ export interface GetTemplatePromotionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetYieldAdjustmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -641,7 +641,7 @@ export interface ManageRatePlansSchedulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlansSchedulesToManage?: RatePlansSchedulesToManage;
+    ratePlansSchedulesToManage: RatePlansSchedulesToManage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -653,134 +653,134 @@ export interface PingRatePlanServiceRequest {
     acceptLanguage?: string;
 }
 export interface PostBestAvailableRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createBestAvailableRates?: CreateBestAvailableRates;
+    createBestAvailableRates: CreateBestAvailableRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHotelPackageForecastGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelPackageForecastGroupsToCreate?: HotelPackageForecastGroupsToCreate;
+    hotelPackageForecastGroupsToCreate: HotelPackageForecastGroupsToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostNegotiatedRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    negotiatedRates?: NegotiatedRates;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageInfo?: PackageInfo;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageFormulaRangesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageFormulaRanges?: PackageFormulaRanges;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageGroupRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageGroup?: PackageGroup;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPromotionCodeRequest {
-    promotionCode?: string;
-    hotelId?: string;
+    promotionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    propertyPromotionCode?: PropertyPromotionCode;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
+    groupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    promotionGroup?: PromotionGroup;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRateGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateGroups?: RateGroups;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlan?: RatePlan;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanPackages?: RatePlanPackages;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanPostingRhythms?: RatePlanPostingRhythms;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanSchedulesToCreate?: RatePlanSchedulesToCreate;
+    ratePlanSchedulesToCreate: RatePlanSchedulesToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRateStrategyRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateStrategy?: RateStrategy;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -788,143 +788,143 @@ export interface PostTemplatePackageForecastGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePackageForecastGroups?: TemplatePackageForecastGroups;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplatePromotionCodeRequest {
-    promotionCode?: string;
+    promotionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePromotionCode?: TemplatePromotionCode;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutHotelPackageForecastGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelPackageForecastGroupsToChange?: HotelPackageForecastGroupsToChange;
+    hotelPackageForecastGroupsToChange: HotelPackageForecastGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutNegotiatedRatesRequest {
-    rateCode?: string;
-    hotelId?: string;
+    rateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    negotiatedRates?: NegotiatedRates;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
+    packageCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageInfo?: PackageInfo;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
+    packageFormulaRangeId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageFormulaRanges?: PackageFormulaRanges;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPackageGroupRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageGroup?: PackageGroup;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPromotionCodeRequest {
-    promotionCode?: string;
-    hotelId?: string;
+    promotionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    propertyPromotionCode?: PropertyPromotionCode;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
+    groupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    promotionGroup?: PromotionGroup;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRateGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateGroups?: RateGroups;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlan?: RatePlan;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanPackages?: RatePlanPackages;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanPostingRhythms?: RatePlanPostingRhythms;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanSchedules?: RatePlanSchedules;
+    ratePlanSchedules: RatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
+    rateStrategyId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateStrategy?: RateStrategy;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -932,44 +932,44 @@ export interface PutTemplatePackageForecastGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePackageForecastGroups?: TemplatePackageForecastGroups;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplatePromotionCodeRequest {
-    promotionCode?: string;
+    promotionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePromotionCode?: TemplatePromotionCode;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetDailyRatePlanScheduleRangeRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dailyRatePlanScheduleRange?: DailyRatePlanScheduleRange;
+    dailyRatePlanScheduleRange: DailyRatePlanScheduleRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetMassRatePlanSchedulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    massRatePlanSchedules?: MassRatePlanSchedules;
+    massRatePlanSchedules: MassRatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetRateAccessExclusionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateAccessExclusions?: RateAccessExclusions;
+    rateAccessExclusions: RateAccessExclusions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -977,17 +977,17 @@ export interface SetRateStrategiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateStrategiesToSet?: RateStrategiesToSet;
+    rateStrategiesToSet: RateStrategiesToSet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SplitRatePlanScheduleRequest {
-    scheduleId?: string;
-    hotelId?: string;
+    scheduleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ratePlanScheduleToSplit?: RatePlanScheduleToSplit;
+    ratePlanScheduleToSplit: RatePlanScheduleToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

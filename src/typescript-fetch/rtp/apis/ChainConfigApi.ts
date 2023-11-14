@@ -35,7 +35,7 @@ import {
 } from '../models/index';
 
 export interface DeleteDisplaySetsRequest {
-    displaySetsId?: string;
+    displaySetsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -59,17 +59,17 @@ export interface PostDisplaySetsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    displaySetsCriteria?: DisplaySetsCriteria;
+    displaySetsCriteria: DisplaySetsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutDisplaySetsRequest {
-    displaySetsId?: string;
+    displaySetsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    displaySetsToBeChanged?: DisplaySetsToBeChanged;
+    displaySetsToBeChanged: DisplaySetsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -87,19 +87,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.displaySetsId === null || requestParameters.displaySetsId === undefined) {
             throw new runtime.RequiredError('displaySetsId','Required parameter requestParameters.displaySetsId was null or undefined when calling deleteDisplaySets.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDisplaySets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDisplaySets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDisplaySets.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -148,18 +136,6 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Display Sets
      */
     async getDisplaySetsRaw(requestParameters: GetDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DisplaySetsDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDisplaySets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDisplaySets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDisplaySets.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -224,22 +200,10 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Create Display Sets
      */
     async postDisplaySetsRaw(requestParameters: PostDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDisplaySets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDisplaySets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDisplaySets.');
-        }
-
         if (requestParameters.displaySetsCriteria === null || requestParameters.displaySetsCriteria === undefined) {
             throw new runtime.RequiredError('displaySetsCriteria','Required parameter requestParameters.displaySetsCriteria was null or undefined when calling postDisplaySets.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -294,23 +258,11 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.displaySetsId === null || requestParameters.displaySetsId === undefined) {
             throw new runtime.RequiredError('displaySetsId','Required parameter requestParameters.displaySetsId was null or undefined when calling putDisplaySets.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDisplaySets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDisplaySets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDisplaySets.');
-        }
-
+        
         if (requestParameters.displaySetsToBeChanged === null || requestParameters.displaySetsToBeChanged === undefined) {
             throw new runtime.RequiredError('displaySetsToBeChanged','Required parameter requestParameters.displaySetsToBeChanged was null or undefined when calling putDisplaySets.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ChannelInventorySnapshot, GeneralAvailabilitySimulator, RateParity, RegionalRateParity } from '../models/index';
 export interface GetChannelInventorySnapshotRequest {
-    hotelId?: string;
-    fromDate?: Date;
+    hotelId: string;
+    fromDate: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -33,10 +33,10 @@ export interface GetChannelInventorySnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelInventorySnapshotByRoomTypeRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    fromDate?: Date;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    fromDate: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -54,7 +54,7 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     acceptLanguage?: string;
 }
 export interface GetGeneralAvailabilitySimulatorRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -76,7 +76,7 @@ export interface GetGeneralAvailabilitySimulatorRequest {
     acceptLanguage?: string;
 }
 export interface GetRateParityRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

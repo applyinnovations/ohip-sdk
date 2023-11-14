@@ -13,7 +13,7 @@ import * as runtime from '../runtime';
 import type { OAuth2TokenResponse } from '../models/index';
 export interface GetTokenRequest {
     xAppKey?: string;
-    grantType?: GetTokenGrantTypeEnum;
+    grantType: GetTokenGrantTypeEnum;
     enterpriseId?: string;
     username?: string;
     password?: string;

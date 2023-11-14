@@ -356,8 +356,8 @@ import {
 } from '../models/index';
 
 export interface CalculatePostingRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -373,27 +373,27 @@ export interface ChangeCompTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compTypesToBeChanged?: CompTypesToBeChanged;
+    compTypesToBeChanged: CompTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeFiscalCommandsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeFiscalCommands?: ChangeFiscalCommands;
+    changeFiscalCommands: ChangeFiscalCommands;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeFiscalPartners?: ChangeFiscalPartners;
+    changeFiscalPartners: ChangeFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -402,7 +402,7 @@ export interface ChangeFolioTypeLegendMappingConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypeLegendMappingConfigToBeChanged?: FolioTypeLegendMappingConfigToBeChanged;
+    folioTypeLegendMappingConfigToBeChanged: FolioTypeLegendMappingConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -411,17 +411,17 @@ export interface CopyAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodesCopy?: AdjustmentCodesCopy;
+    adjustmentCodesCopy: AdjustmentCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyCustomChargeExemptionsConfigRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigCopy?: CustomChargeExemptionsConfigCopy;
+    customChargeExemptionsConfigCopy: CustomChargeExemptionsConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -430,17 +430,17 @@ export interface CopyExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodesCopy?: ExpenseArrangementCodesCopy;
+    expenseArrangementCodesCopy: ExpenseArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyFiscalFolioParametersRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioParametersCopy?: FiscalFolioParametersCopy;
+    fiscalFolioParametersCopy: FiscalFolioParametersCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -449,7 +449,7 @@ export interface CopyFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodesCopy?: FolioArrangementCodesCopy;
+    folioArrangementCodesCopy: FolioArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -458,7 +458,7 @@ export interface CopyGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodesCopy?: GroupArrangementCodesCopy;
+    groupArrangementCodesCopy: GroupArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -467,7 +467,7 @@ export interface CopyPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodesCopy?: PackageArrangementCodesCopy;
+    packageArrangementCodesCopy: PackageArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -476,7 +476,7 @@ export interface CopyPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethodsCopy?: PaymentMethodsCopy;
+    paymentMethodsCopy: PaymentMethodsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -485,7 +485,7 @@ export interface CopyRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodesCopy?: RevenueBucketCodesCopy;
+    revenueBucketCodesCopy: RevenueBucketCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -494,7 +494,7 @@ export interface CopyRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypesCopy?: RevenueBucketTypesCopy;
+    revenueBucketTypesCopy: RevenueBucketTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -503,7 +503,7 @@ export interface CopyRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMappingCopy?: RevenueTypeMappingCopy;
+    revenueTypeMappingCopy: RevenueTypeMappingCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -512,7 +512,7 @@ export interface CopyRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructionsCopy?: RoutingInstructionsCopy;
+    routingInstructionsCopy: RoutingInstructionsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -521,7 +521,7 @@ export interface CopyTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBracketsCopy?: TaxBracketsCopy;
+    taxBracketsCopy: TaxBracketsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -530,7 +530,7 @@ export interface CopyTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypesCopy?: TaxTypesCopy;
+    taxTypesCopy: TaxTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -539,7 +539,7 @@ export interface CopyTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodesCopy?: TransactionCodesCopy;
+    transactionCodesCopy: TransactionCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -548,7 +548,7 @@ export interface CopyTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroupsCopy?: TransactionGroupsCopy;
+    transactionGroupsCopy: TransactionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -557,7 +557,7 @@ export interface CopyTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionSubgroupsCopy?: TransactionSubgroupsCopy;
+    transactionSubgroupsCopy: TransactionSubgroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -573,8 +573,8 @@ export interface DeleteAdjustmentCodesRequest {
 }
 
 export interface DeleteArticlesRequest {
-    hotelId?: string;
-    articleCodes?: Array<string>;
+    hotelId: string;
+    articleCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -593,7 +593,7 @@ export interface DeleteArticlesRequest {
 }
 
 export interface DeleteAuthorizationConfigRuleRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -623,13 +623,13 @@ export interface DeleteBudgetForecastRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    budgetForecastToDelete?: BudgetForecastToDelete;
+    budgetForecastToDelete: BudgetForecastToDelete;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCollectingAgentTaxesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -640,8 +640,8 @@ export interface DeleteCollectingAgentTaxesRequest {
 }
 
 export interface DeleteCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -650,7 +650,7 @@ export interface DeleteCompBucketRedemptionConfigRequest {
 }
 
 export interface DeleteCurrencyExchangeServiceTaxesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -660,8 +660,8 @@ export interface DeleteCurrencyExchangeServiceTaxesRequest {
 }
 
 export interface DeleteCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -670,8 +670,8 @@ export interface DeleteCustomChargeExemptionsConfigRequest {
 }
 
 export interface DeleteCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -680,8 +680,8 @@ export interface DeleteCustomChargesConfigRequest {
 }
 
 export interface DeleteCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -693,13 +693,13 @@ export interface DeleteExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteExpenseArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -720,7 +720,7 @@ export interface DeleteFiscalFolioParametersRequest {
 }
 
 export interface DeleteFiscalPeriodsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -731,7 +731,7 @@ export interface DeleteFiscalPeriodsRequest {
 }
 
 export interface DeleteFiscalYearsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -741,7 +741,7 @@ export interface DeleteFiscalYearsRequest {
 }
 
 export interface DeleteFolioArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -751,7 +751,7 @@ export interface DeleteFolioArrangementCodesRequest {
 }
 
 export interface DeleteFolioPrintQueuesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -761,7 +761,7 @@ export interface DeleteFolioPrintQueuesRequest {
 }
 
 export interface DeleteFolioTypesConfigRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -782,7 +782,7 @@ export interface DeleteForeignCurrenciesRequest {
 export interface DeleteGlobalExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -798,7 +798,7 @@ export interface DeleteGroupArrangementCodesRequest {
 }
 
 export interface DeleteNoShowPostingRulesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -810,7 +810,7 @@ export interface DeleteNoShowPostingRulesRequest {
 }
 
 export interface DeletePackageArrangementCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -820,7 +820,7 @@ export interface DeletePackageArrangementCodesRequest {
 }
 
 export interface DeleteRevenueBucketCodesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -831,7 +831,7 @@ export interface DeleteRevenueBucketCodesRequest {
 }
 
 export interface DeleteRevenueBucketTypesRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -841,7 +841,7 @@ export interface DeleteRevenueBucketTypesRequest {
 }
 
 export interface DeleteRevenueTypeMappingRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -862,7 +862,7 @@ export interface DeleteRevenueTypeMappingRequest {
 }
 
 export interface DeleteRoutingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -872,7 +872,7 @@ export interface DeleteRoutingInstructionsRequest {
 }
 
 export interface DeleteTaxBracketsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -882,8 +882,8 @@ export interface DeleteTaxBracketsRequest {
 }
 
 export interface DeleteTaxTypesRequest {
-    taxTypeCode?: Array<string>;
-    hotelId?: Array<string>;
+    taxTypeCode: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -901,8 +901,8 @@ export interface DeleteTemplateCustomNumberRequest {
 }
 
 export interface DeleteTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -911,7 +911,7 @@ export interface DeleteTemplateCustomNumberConfigRequest {
 }
 
 export interface DeleteTemplateTransactionCodesRequest {
-    transactionCodes?: Array<string>;
+    transactionCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -920,7 +920,7 @@ export interface DeleteTemplateTransactionCodesRequest {
 }
 
 export interface DeleteTemplateTransactionGroupsRequest {
-    templateTransactionCodes?: Array<string>;
+    templateTransactionCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -939,8 +939,8 @@ export interface DeleteTemplateTransactionSubgroupsRequest {
 }
 
 export interface DeleteTransactionCodesRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -949,8 +949,8 @@ export interface DeleteTransactionCodesRequest {
 }
 
 export interface DeleteTransactionDiscountsRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
+    hotelId: string;
+    transactionDiscountCode: string;
 }
 
 export interface DeleteTransactionGroupsRequest {
@@ -975,7 +975,7 @@ export interface DeleteTransactionSubgroupsRequest {
 }
 
 export interface GetAdjustmentCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -986,7 +986,7 @@ export interface GetAdjustmentCodesRequest {
 }
 
 export interface GetArticlesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1008,7 +1008,7 @@ export interface GetAuthorizationConfigRulesRequest {
 }
 
 export interface GetAuthorizerGroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1082,7 +1082,7 @@ export interface GetBudgetForecastRequest {
 }
 
 export interface GetCashiersRequest {
-    cashierIDs?: Array<number>;
+    cashierIDs: Array<number>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1106,7 +1106,7 @@ export interface GetCollectingAgentTaxesRequest {
 }
 
 export interface GetCompAuthorizersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1121,7 +1121,7 @@ export interface GetCompAuthorizersRequest {
 }
 
 export interface GetCompBucketRedemptionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1133,8 +1133,8 @@ export interface GetCompBucketRedemptionCodesRequest {
 }
 
 export interface GetCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1144,7 +1144,7 @@ export interface GetCompBucketRedemptionConfigRequest {
 }
 
 export interface GetCompTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1154,7 +1154,7 @@ export interface GetCompTypesRequest {
 }
 
 export interface GetCurrencyExchangeServiceTaxesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1164,7 +1164,7 @@ export interface GetCurrencyExchangeServiceTaxesRequest {
 }
 
 export interface GetCustomChargeCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1188,8 +1188,8 @@ export interface GetCustomChargeExemptionsRequest {
 }
 
 export interface GetCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1200,8 +1200,8 @@ export interface GetCustomChargeExemptionsConfigRequest {
 }
 
 export interface GetCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1211,8 +1211,8 @@ export interface GetCustomChargesConfigRequest {
 }
 
 export interface GetCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1228,7 +1228,7 @@ export interface GetCustomNumberConfigRequest {
 }
 
 export interface GetCustomNumbersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1246,7 +1246,7 @@ export interface GetCustomNumbersRequest {
 }
 
 export interface GetDailyPlanCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1258,9 +1258,9 @@ export interface GetDailyPlanCodesRequest {
 }
 
 export interface GetDefaultPaymentMethodRuleRequest {
-    hotelIds?: Array<string>;
-    transactionCodes?: Array<string>;
-    paymentMethods?: Array<string>;
+    hotelIds: Array<string>;
+    transactionCodes: Array<string>;
+    paymentMethods: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1272,7 +1272,7 @@ export interface GetDefaultPaymentMethodRuleRequest {
 }
 
 export interface GetExchangeRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1292,7 +1292,7 @@ export interface GetExchangeRatesInfoRequest {
 }
 
 export interface GetExpenseArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1304,7 +1304,7 @@ export interface GetExpenseArrangementCodesRequest {
 }
 
 export interface GetFiscalCommandsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1317,7 +1317,7 @@ export interface GetFiscalCommandsRequest {
 }
 
 export interface GetFiscalFolioParametersRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1330,7 +1330,7 @@ export interface GetFiscalFolioParametersRequest {
 }
 
 export interface GetFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1341,7 +1341,7 @@ export interface GetFiscalPartnersRequest {
 }
 
 export interface GetFiscalPeriodsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1353,7 +1353,7 @@ export interface GetFiscalPeriodsRequest {
 }
 
 export interface GetFiscalYearsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1364,7 +1364,7 @@ export interface GetFiscalYearsRequest {
 }
 
 export interface GetFolioArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1386,7 +1386,7 @@ export interface GetFolioCopyLegendsRequest {
 }
 
 export interface GetFolioPrintQueuesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1397,8 +1397,8 @@ export interface GetFolioPrintQueuesRequest {
 }
 
 export interface GetFolioTypeLegendMappingsConfigRequest {
-    hotelId?: string;
-    legendCode?: string;
+    hotelId: string;
+    legendCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1408,7 +1408,7 @@ export interface GetFolioTypeLegendMappingsConfigRequest {
 }
 
 export interface GetFolioTypesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1431,9 +1431,9 @@ export interface GetForeignCurrenciesRequest {
 }
 
 export interface GetFuturePastExchangeRatesRequest {
-    currencyCode?: string;
-    hotelId?: string;
-    exchangeTypes?: GetFuturePastExchangeRatesExchangeTypesEnum;
+    currencyCode: string;
+    hotelId: string;
+    exchangeTypes: GetFuturePastExchangeRatesExchangeTypesEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1444,7 +1444,7 @@ export interface GetFuturePastExchangeRatesRequest {
 }
 
 export interface GetGUINumberRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1453,7 +1453,7 @@ export interface GetGUINumberRulesRequest {
 }
 
 export interface GetGenerateTaxTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1471,7 +1471,7 @@ export interface GetGlobalExchangeRatesInfoRequest {
 }
 
 export interface GetGroupArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1483,7 +1483,7 @@ export interface GetGroupArrangementCodesRequest {
 }
 
 export interface GetNoShowPostingRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1505,7 +1505,7 @@ export interface GetNumberDescriptionsRequest {
 }
 
 export interface GetOperaControlSequencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1518,7 +1518,7 @@ export interface GetOperaControlSequencesRequest {
 }
 
 export interface GetPackageArrangementCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1530,7 +1530,7 @@ export interface GetPackageArrangementCodesRequest {
 }
 
 export interface GetPaymentMethodsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1544,7 +1544,7 @@ export interface GetPaymentMethodsRequest {
 }
 
 export interface GetRevenueBucketCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1558,7 +1558,7 @@ export interface GetRevenueBucketCodesRequest {
 }
 
 export interface GetRevenueBucketTypesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1570,7 +1570,7 @@ export interface GetRevenueBucketTypesRequest {
 }
 
 export interface GetRevenueTypeMappingRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1583,7 +1583,7 @@ export interface GetRevenueTypeMappingRequest {
 }
 
 export interface GetRoutingInstructionsRequest {
-    hotelId?: Array<string>;
+    hotelId: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1595,7 +1595,7 @@ export interface GetRoutingInstructionsRequest {
 }
 
 export interface GetTaxBracketsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1605,7 +1605,7 @@ export interface GetTaxBracketsRequest {
 }
 
 export interface GetTaxTypesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1616,8 +1616,8 @@ export interface GetTaxTypesRequest {
 }
 
 export interface GetTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1682,7 +1682,7 @@ export interface GetTemplateTransactionSubgroupsRequest {
 }
 
 export interface GetTransactionArrangementCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1692,8 +1692,8 @@ export interface GetTransactionArrangementCodesRequest {
 }
 
 export interface GetTransactionCodeRequest {
-    transactionCode?: string;
-    hotelId?: string;
+    transactionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1703,7 +1703,7 @@ export interface GetTransactionCodeRequest {
 }
 
 export interface GetTransactionCodeAccessRolesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1713,7 +1713,7 @@ export interface GetTransactionCodeAccessRolesRequest {
 }
 
 export interface GetTransactionCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1731,7 +1731,7 @@ export interface GetTransactionCodesRequest {
 }
 
 export interface GetTransactionDiscountsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1747,7 +1747,7 @@ export interface GetTransactionDiscountsRequest {
 }
 
 export interface GetTransactionDiversionRulesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1764,8 +1764,8 @@ export interface GetTransactionDiversionRulesRequest {
 }
 
 export interface GetTransactionGroupRequest {
-    transactionGroupCode?: string;
-    hotelId?: string;
+    transactionGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1775,7 +1775,7 @@ export interface GetTransactionGroupRequest {
 }
 
 export interface GetTransactionGroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1787,9 +1787,9 @@ export interface GetTransactionGroupsRequest {
 }
 
 export interface GetTransactionSubgroupRequest {
-    transactionGroupCode?: string;
-    transactionSubGroupCode?: string;
-    hotelId?: string;
+    transactionGroupCode: string;
+    transactionSubGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1799,7 +1799,7 @@ export interface GetTransactionSubgroupRequest {
 }
 
 export interface GetTransactionSubgroupsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1814,7 +1814,7 @@ export interface PostAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodes?: AdjustmentCodes;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1823,7 +1823,7 @@ export interface PostArticlesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    articles?: Articles;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1832,7 +1832,7 @@ export interface PostAuthorizationConfigRuleRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizationConfigRules?: AuthorizationConfigRules;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1841,7 +1841,7 @@ export interface PostAuthorizerGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizerGroups?: AuthorizerGroups;
+    authorizerGroups: AuthorizerGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1850,7 +1850,7 @@ export interface PostCashiersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashiers?: Cashiers;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1859,17 +1859,17 @@ export interface PostCollectingAgentTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    collectingAgentTaxes?: CollectingAgentTaxes;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCompBucketRedemptionConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compBucketRedemptionConfig?: CompBucketRedemptionConfig;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1878,7 +1878,7 @@ export interface PostCompTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compTypesCriteria?: CompTypesCriteria;
+    compTypesCriteria: CompTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1887,37 +1887,37 @@ export interface PostCurrencyExchangeServiceTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencyExchangeServiceTaxes?: CurrencyExchangeServiceTaxes;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCustomChargeExemptionsConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigToBeCreated?: CustomChargeExemptionsConfigToBeCreated;
+    customChargeExemptionsConfigToBeCreated: CustomChargeExemptionsConfigToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCustomChargesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargesConfig?: CustomChargesConfig;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCustomNumberConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customNumberConfiguration?: CustomNumberConfiguration;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1926,17 +1926,17 @@ export interface PostExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodes?: ExpenseArrangementCodes;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createFiscalPartners?: CreateFiscalPartners;
+    createFiscalPartners: CreateFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1945,7 +1945,7 @@ export interface PostFiscalPeriodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalPeriods?: FiscalPeriods;
+    fiscalPeriods: FiscalPeriods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1954,7 +1954,7 @@ export interface PostFiscalYearsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalYears?: FiscalYears;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1963,7 +1963,7 @@ export interface PostFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodes?: FolioArrangementCodes;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1972,7 +1972,7 @@ export interface PostFolioPrintQueuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioPrintQueues?: FolioPrintQueues;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1981,7 +1981,7 @@ export interface PostFolioTypeLegendMappingConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypeLegendMappingConfigCriteria?: FolioTypeLegendMappingConfigCriteria;
+    folioTypeLegendMappingConfigCriteria: FolioTypeLegendMappingConfigCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1990,7 +1990,7 @@ export interface PostFolioTypesConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypesConfig?: FolioTypesConfig;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1999,7 +1999,7 @@ export interface PostForeignCurrenciesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencies?: ForeignCurrencies;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2008,7 +2008,7 @@ export interface PostGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodes?: GroupArrangementCodes;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2017,7 +2017,7 @@ export interface PostNoShowPostingRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    noShowPostingRules?: NoShowPostingRules;
+    noShowPostingRules: NoShowPostingRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2026,7 +2026,7 @@ export interface PostPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodes?: PackageArrangementCodes;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2035,7 +2035,7 @@ export interface PostPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2044,7 +2044,7 @@ export interface PostRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodes?: RevenueBucketCodes;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2053,7 +2053,7 @@ export interface PostRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypes?: RevenueBucketTypes;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2062,7 +2062,7 @@ export interface PostRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMapping?: RevenueTypeMapping;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2071,7 +2071,7 @@ export interface PostRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructions?: RoutingInstructions;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2080,7 +2080,7 @@ export interface PostTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBrackets?: TaxBrackets;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2089,7 +2089,7 @@ export interface PostTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypes?: TaxTypes;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2098,17 +2098,17 @@ export interface PostTemplateCustomNumberRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateCustomNumberConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2117,7 +2117,7 @@ export interface PostTemplateTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionCodes?: TemplateTransactionCodes;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2126,7 +2126,7 @@ export interface PostTemplateTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionGroups?: TemplateTransactionGroups;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2135,7 +2135,7 @@ export interface PostTemplateTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionSubgroups?: TemplateTransactionSubgroups;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2144,7 +2144,7 @@ export interface PostTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionCodes?: HotelTransactionCodes;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2153,7 +2153,7 @@ export interface PostTransactionDiscountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiscount?: TransactionDiscount;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2162,7 +2162,7 @@ export interface PostTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2171,7 +2171,7 @@ export interface PostTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2180,7 +2180,7 @@ export interface PostTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroups?: TransactionGroups;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2189,7 +2189,7 @@ export interface PostTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionSubgroups?: HotelTransactionSubgroups;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2198,7 +2198,7 @@ export interface PutAdjustmentCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    adjustmentCodes?: AdjustmentCodes;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2207,7 +2207,7 @@ export interface PutArticlesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    articles?: Articles;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2216,7 +2216,7 @@ export interface PutAuthorizationConfigRuleRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizationConfigRules?: AuthorizationConfigRules;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2225,7 +2225,7 @@ export interface PutAuthorizerGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    authorizerGroupsToChange?: AuthorizerGroupsToChange;
+    authorizerGroupsToChange: AuthorizerGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2234,7 +2234,7 @@ export interface PutCashiersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashiers?: Cashiers;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2243,18 +2243,18 @@ export interface PutCollectingAgentTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    collectingAgentTaxes?: CollectingAgentTaxes;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
+    redemptionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compBucketRedemptionConfig?: CompBucketRedemptionConfig;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2263,40 +2263,40 @@ export interface PutCurrencyExchangeServiceTaxesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencyExchangeServiceTaxes?: CurrencyExchangeServiceTaxes;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargeExemptionsConfigToBeChanged?: CustomChargeExemptionsConfigToBeChanged;
+    customChargeExemptionsConfigToBeChanged: CustomChargeExemptionsConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customChargesConfig?: CustomChargesConfig;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customNumberConfiguration?: CustomNumberConfiguration;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2305,7 +2305,7 @@ export interface PutDailyPlanCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dailyPlanCodes?: DailyPlanCodes;
+    dailyPlanCodes: DailyPlanCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2314,7 +2314,7 @@ export interface PutExpenseArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    expenseArrangementCodes?: ExpenseArrangementCodes;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2323,7 +2323,7 @@ export interface PutFiscalFolioParametersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioParameters?: FiscalFolioParameters;
+    fiscalFolioParameters: FiscalFolioParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2332,7 +2332,7 @@ export interface PutFiscalPeriodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalPeriodsEdit?: FiscalPeriodsEdit;
+    fiscalPeriodsEdit: FiscalPeriodsEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2341,7 +2341,7 @@ export interface PutFiscalYearsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalYears?: FiscalYears;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2350,7 +2350,7 @@ export interface PutFolioArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioArrangementCodes?: FolioArrangementCodes;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2359,7 +2359,7 @@ export interface PutFolioCopyLegendsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioCopyLegend?: FolioCopyLegend;
+    folioCopyLegend: FolioCopyLegend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2368,7 +2368,7 @@ export interface PutFolioPrintQueuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioPrintQueues?: FolioPrintQueues;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2377,7 +2377,7 @@ export interface PutFolioTypesConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioTypesConfig?: FolioTypesConfig;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2386,7 +2386,7 @@ export interface PutForeignCurrenciesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencies?: ForeignCurrencies;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2395,7 +2395,7 @@ export interface PutGUINumberRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    gUINumberRulesDetails?: GUINumberRulesDetails;
+    gUINumberRulesDetails: GUINumberRulesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2404,7 +2404,7 @@ export interface PutGroupArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    groupArrangementCodes?: GroupArrangementCodes;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2413,7 +2413,7 @@ export interface PutNoShowPostingRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    noShowPostingRulesEdit?: NoShowPostingRulesEdit;
+    noShowPostingRulesEdit: NoShowPostingRulesEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2422,7 +2422,7 @@ export interface PutNumberDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    numberDescriptions?: NumberDescriptions;
+    numberDescriptions: NumberDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2431,7 +2431,7 @@ export interface PutOperaControlSequencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    operaControlSequences?: OperaControlSequences;
+    operaControlSequences: OperaControlSequences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2440,7 +2440,7 @@ export interface PutPackageArrangementCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packageArrangementCodes?: PackageArrangementCodes;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2449,7 +2449,7 @@ export interface PutPaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2458,7 +2458,7 @@ export interface PutRevenueBucketCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketCodes?: RevenueBucketCodes;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2467,7 +2467,7 @@ export interface PutRevenueBucketTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueBucketTypes?: RevenueBucketTypes;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2476,7 +2476,7 @@ export interface PutRevenueTypeMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueTypeMapping?: RevenueTypeMapping;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2485,7 +2485,7 @@ export interface PutRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructions?: RoutingInstructions;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2494,7 +2494,7 @@ export interface PutTaxBracketsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxBrackets?: TaxBrackets;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2503,7 +2503,7 @@ export interface PutTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxTypes?: TaxTypes;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2512,18 +2512,18 @@ export interface PutTemplateCustomNumberRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
+    configurationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCustomNumberConfig?: TemplateCustomNumberConfig;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2532,7 +2532,7 @@ export interface PutTemplateTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionCodes?: TemplateTransactionCodes;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2541,7 +2541,7 @@ export interface PutTemplateTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionGroups?: TemplateTransactionGroups;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2550,7 +2550,7 @@ export interface PutTemplateTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateTransactionSubgroups?: TemplateTransactionSubgroups;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2559,7 +2559,7 @@ export interface PutTransactionCodeOwnershipRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodeOwnership?: TransactionCodeOwnership;
+    transactionCodeOwnership: TransactionCodeOwnership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2568,18 +2568,18 @@ export interface PutTransactionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionCodes?: HotelTransactionCodes;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTransactionDiscountsRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
+    hotelId: string;
+    transactionDiscountCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiscount?: TransactionDiscount;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2588,7 +2588,7 @@ export interface PutTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2597,7 +2597,7 @@ export interface PutTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2606,7 +2606,7 @@ export interface PutTransactionGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionGroups?: TransactionGroups;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2615,13 +2615,13 @@ export interface PutTransactionSubgroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionSubgroups?: HotelTransactionSubgroups;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCompTypesRequest {
-    compTypesCode?: string;
+    compTypesCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2630,7 +2630,7 @@ export interface RemoveCompTypesRequest {
 }
 
 export interface RemoveFiscalPartnersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2640,9 +2640,9 @@ export interface RemoveFiscalPartnersRequest {
 }
 
 export interface RemoveFolioTypeLegendMappingConfigRequest {
-    legendCode?: string;
-    folioType?: string;
-    hotelId?: string;
+    legendCode: string;
+    folioType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2654,7 +2654,7 @@ export interface RemovePaymentMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentMethods?: PaymentMethods;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2663,7 +2663,7 @@ export interface RemoveTransactionDiversionRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionRules?: TransactionDiversionRules;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2672,7 +2672,7 @@ export interface RemoveTransactionGeneratesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelTransactionGenerates?: HotelTransactionGenerates;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2681,7 +2681,7 @@ export interface SetBudgetForecastRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    budgetForecastInformationBase?: BudgetForecastInformationBase;
+    budgetForecastInformationBase: BudgetForecastInformationBase;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2690,7 +2690,7 @@ export interface SetCompAuthorizerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compAuthorizer?: CompAuthorizer;
+    compAuthorizer: CompAuthorizer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2699,7 +2699,7 @@ export interface SetExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2707,7 +2707,7 @@ export interface SetExchangeRatesRequest {
 export interface SetGlobalExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
-    exchangeRates?: ExchangeRates;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2716,7 +2716,7 @@ export interface SetTransactionCodeAccessRolesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionCodeAccessRoles?: TransactionCodeAccessRoles;
+    transactionCodeAccessRoles: TransactionCodeAccessRoles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2734,23 +2734,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionCode === null || requestParameters.transactionCode === undefined) {
             throw new runtime.RequiredError('transactionCode','Required parameter requestParameters.transactionCode was null or undefined when calling calculatePosting.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling calculatePosting.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling calculatePosting.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling calculatePosting.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling calculatePosting.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.postingAmount !== undefined) {
@@ -2815,22 +2803,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Change Comp Types.
      */
     async changeCompTypesRaw(requestParameters: ChangeCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompTypesStatus>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCompTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCompTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCompTypes.');
-        }
-
         if (requestParameters.compTypesToBeChanged === null || requestParameters.compTypesToBeChanged === undefined) {
             throw new runtime.RequiredError('compTypesToBeChanged','Required parameter requestParameters.compTypesToBeChanged was null or undefined when calling changeCompTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2885,23 +2861,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeFiscalCommands.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFiscalCommands.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalCommands.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalCommands.');
-        }
-
+        
         if (requestParameters.changeFiscalCommands === null || requestParameters.changeFiscalCommands === undefined) {
             throw new runtime.RequiredError('changeFiscalCommands','Required parameter requestParameters.changeFiscalCommands was null or undefined when calling changeFiscalCommands.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2956,23 +2920,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeFiscalPartners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFiscalPartners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalPartners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalPartners.');
-        }
-
+        
         if (requestParameters.changeFiscalPartners === null || requestParameters.changeFiscalPartners === undefined) {
             throw new runtime.RequiredError('changeFiscalPartners','Required parameter requestParameters.changeFiscalPartners was null or undefined when calling changeFiscalPartners.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3024,22 +2976,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change folio type legend mappings config.
      */
     async changeFolioTypeLegendMappingConfigRaw(requestParameters: ChangeFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTypeLegendMappingConfigStatus>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFolioTypeLegendMappingConfig.');
-        }
-
         if (requestParameters.folioTypeLegendMappingConfigToBeChanged === null || requestParameters.folioTypeLegendMappingConfigToBeChanged === undefined) {
             throw new runtime.RequiredError('folioTypeLegendMappingConfigToBeChanged','Required parameter requestParameters.folioTypeLegendMappingConfigToBeChanged was null or undefined when calling changeFolioTypeLegendMappingConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3091,22 +3031,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy AdjustmentCodes.
      */
     async copyAdjustmentCodesRaw(requestParameters: CopyAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyAdjustmentCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyAdjustmentCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyAdjustmentCodes.');
-        }
-
         if (requestParameters.adjustmentCodesCopy === null || requestParameters.adjustmentCodesCopy === undefined) {
             throw new runtime.RequiredError('adjustmentCodesCopy','Required parameter requestParameters.adjustmentCodesCopy was null or undefined when calling copyAdjustmentCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3161,23 +3089,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
             throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyCustomChargeExemptionsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyCustomChargeExemptionsConfig.');
-        }
-
+        
         if (requestParameters.customChargeExemptionsConfigCopy === null || requestParameters.customChargeExemptionsConfigCopy === undefined) {
             throw new runtime.RequiredError('customChargeExemptionsConfigCopy','Required parameter requestParameters.customChargeExemptionsConfigCopy was null or undefined when calling copyCustomChargeExemptionsConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3229,22 +3145,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy ExpenseArrangementCodes.
      */
     async copyExpenseArrangementCodesRaw(requestParameters: CopyExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyExpenseArrangementCodes.');
-        }
-
         if (requestParameters.expenseArrangementCodesCopy === null || requestParameters.expenseArrangementCodesCopy === undefined) {
             throw new runtime.RequiredError('expenseArrangementCodesCopy','Required parameter requestParameters.expenseArrangementCodesCopy was null or undefined when calling copyExpenseArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3299,23 +3203,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
             throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyFiscalFolioParameters.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyFiscalFolioParameters.');
-        }
-
+        
         if (requestParameters.fiscalFolioParametersCopy === null || requestParameters.fiscalFolioParametersCopy === undefined) {
             throw new runtime.RequiredError('fiscalFolioParametersCopy','Required parameter requestParameters.fiscalFolioParametersCopy was null or undefined when calling copyFiscalFolioParameters.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3367,22 +3259,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy FolioArrangementCodes.
      */
     async copyFolioArrangementCodesRaw(requestParameters: CopyFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyFolioArrangementCodes.');
-        }
-
         if (requestParameters.folioArrangementCodesCopy === null || requestParameters.folioArrangementCodesCopy === undefined) {
             throw new runtime.RequiredError('folioArrangementCodesCopy','Required parameter requestParameters.folioArrangementCodesCopy was null or undefined when calling copyFolioArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3434,22 +3314,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy GroupArrangementCodes.
      */
     async copyGroupArrangementCodesRaw(requestParameters: CopyGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyGroupArrangementCodes.');
-        }
-
         if (requestParameters.groupArrangementCodesCopy === null || requestParameters.groupArrangementCodesCopy === undefined) {
             throw new runtime.RequiredError('groupArrangementCodesCopy','Required parameter requestParameters.groupArrangementCodesCopy was null or undefined when calling copyGroupArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3501,22 +3369,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy PackageArrangementCodes.
      */
     async copyPackageArrangementCodesRaw(requestParameters: CopyPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyPackageArrangementCodes.');
-        }
-
         if (requestParameters.packageArrangementCodesCopy === null || requestParameters.packageArrangementCodesCopy === undefined) {
             throw new runtime.RequiredError('packageArrangementCodesCopy','Required parameter requestParameters.packageArrangementCodesCopy was null or undefined when calling copyPackageArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3568,22 +3424,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy PaymentMethods.
      */
     async copyPaymentMethodsRaw(requestParameters: CopyPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyPaymentMethods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyPaymentMethods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyPaymentMethods.');
-        }
-
         if (requestParameters.paymentMethodsCopy === null || requestParameters.paymentMethodsCopy === undefined) {
             throw new runtime.RequiredError('paymentMethodsCopy','Required parameter requestParameters.paymentMethodsCopy was null or undefined when calling copyPaymentMethods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3635,22 +3479,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy RevenueBucketCodes.
      */
     async copyRevenueBucketCodesRaw(requestParameters: CopyRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyRevenueBucketCodes.');
-        }
-
         if (requestParameters.revenueBucketCodesCopy === null || requestParameters.revenueBucketCodesCopy === undefined) {
             throw new runtime.RequiredError('revenueBucketCodesCopy','Required parameter requestParameters.revenueBucketCodesCopy was null or undefined when calling copyRevenueBucketCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3702,22 +3534,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy RevenueBucketTypes.
      */
     async copyRevenueBucketTypesRaw(requestParameters: CopyRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyRevenueBucketTypes.');
-        }
-
         if (requestParameters.revenueBucketTypesCopy === null || requestParameters.revenueBucketTypesCopy === undefined) {
             throw new runtime.RequiredError('revenueBucketTypesCopy','Required parameter requestParameters.revenueBucketTypesCopy was null or undefined when calling copyRevenueBucketTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3769,22 +3589,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy RevenueTypeMapping.
      */
     async copyRevenueTypeMappingRaw(requestParameters: CopyRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyRevenueTypeMapping.');
-        }
-
         if (requestParameters.revenueTypeMappingCopy === null || requestParameters.revenueTypeMappingCopy === undefined) {
             throw new runtime.RequiredError('revenueTypeMappingCopy','Required parameter requestParameters.revenueTypeMappingCopy was null or undefined when calling copyRevenueTypeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3836,22 +3644,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy RoutingInstructions.
      */
     async copyRoutingInstructionsRaw(requestParameters: CopyRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyRoutingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyRoutingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyRoutingInstructions.');
-        }
-
         if (requestParameters.routingInstructionsCopy === null || requestParameters.routingInstructionsCopy === undefined) {
             throw new runtime.RequiredError('routingInstructionsCopy','Required parameter requestParameters.routingInstructionsCopy was null or undefined when calling copyRoutingInstructions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3903,22 +3699,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy TaxBrackets.
      */
     async copyTaxBracketsRaw(requestParameters: CopyTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTaxBrackets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTaxBrackets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTaxBrackets.');
-        }
-
         if (requestParameters.taxBracketsCopy === null || requestParameters.taxBracketsCopy === undefined) {
             throw new runtime.RequiredError('taxBracketsCopy','Required parameter requestParameters.taxBracketsCopy was null or undefined when calling copyTaxBrackets.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3970,22 +3754,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy TaxTypes.
      */
     async copyTaxTypesRaw(requestParameters: CopyTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTaxTypes.');
-        }
-
         if (requestParameters.taxTypesCopy === null || requestParameters.taxTypesCopy === undefined) {
             throw new runtime.RequiredError('taxTypesCopy','Required parameter requestParameters.taxTypesCopy was null or undefined when calling copyTaxTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4037,22 +3809,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy TransactionCodes.
      */
     async copyTransactionCodesRaw(requestParameters: CopyTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTransactionCodes.');
-        }
-
         if (requestParameters.transactionCodesCopy === null || requestParameters.transactionCodesCopy === undefined) {
             throw new runtime.RequiredError('transactionCodesCopy','Required parameter requestParameters.transactionCodesCopy was null or undefined when calling copyTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4104,22 +3864,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy TransactionGroups.
      */
     async copyTransactionGroupsRaw(requestParameters: CopyTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTransactionGroups.');
-        }
-
         if (requestParameters.transactionGroupsCopy === null || requestParameters.transactionGroupsCopy === undefined) {
             throw new runtime.RequiredError('transactionGroupsCopy','Required parameter requestParameters.transactionGroupsCopy was null or undefined when calling copyTransactionGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4171,22 +3919,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to copy TransactionSubgroups.
      */
     async copyTransactionSubgroupsRaw(requestParameters: CopyTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTransactionSubgroups.');
-        }
-
         if (requestParameters.transactionSubgroupsCopy === null || requestParameters.transactionSubgroupsCopy === undefined) {
             throw new runtime.RequiredError('transactionSubgroupsCopy','Required parameter requestParameters.transactionSubgroupsCopy was null or undefined when calling copyTransactionSubgroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4238,18 +3974,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete AdjustmentCodes.
      */
     async deleteAdjustmentCodesRaw(requestParameters: DeleteAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAdjustmentCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAdjustmentCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAdjustmentCodes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.adjustmentCode !== undefined) {
@@ -4309,23 +4033,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteArticles.');
         }
-
+        
         if (requestParameters.articleCodes === null || requestParameters.articleCodes === undefined) {
             throw new runtime.RequiredError('articleCodes','Required parameter requestParameters.articleCodes was null or undefined when calling deleteArticles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteArticles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteArticles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteArticles.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -4425,19 +4137,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAuthorizationConfigRule.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAuthorizationConfigRule.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -4522,18 +4222,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete AuthorizerGroups.
      */
     async deleteAuthorizerGroupsRaw(requestParameters: DeleteAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAuthorizerGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAuthorizerGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAuthorizerGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.authorizerGroup !== undefined) {
@@ -4590,22 +4278,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete BudgetForecast.
      */
     async deleteBudgetForecastRaw(requestParameters: DeleteBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBudgetForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBudgetForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBudgetForecast.');
-        }
-
         if (requestParameters.budgetForecastToDelete === null || requestParameters.budgetForecastToDelete === undefined) {
             throw new runtime.RequiredError('budgetForecastToDelete','Required parameter requestParameters.budgetForecastToDelete was null or undefined when calling deleteBudgetForecast.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4660,19 +4336,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCollectingAgentTaxes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCollectingAgentTaxes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -4736,23 +4400,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.redemptionCode === null || requestParameters.redemptionCode === undefined) {
             throw new runtime.RequiredError('redemptionCode','Required parameter requestParameters.redemptionCode was null or undefined when calling deleteCompBucketRedemptionConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCompBucketRedemptionConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCompBucketRedemptionConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4804,19 +4456,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCurrencyExchangeServiceTaxes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCurrencyExchangeServiceTaxes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -4876,23 +4516,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling deleteCustomChargeExemptionsConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCustomChargeExemptionsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCustomChargeExemptionsConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4944,23 +4572,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling deleteCustomChargesConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCustomChargesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCustomChargesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCustomChargesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCustomChargesConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5012,23 +4628,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling deleteCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCustomNumberConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5077,22 +4681,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete ExchangeRates.
      */
     async deleteExchangeRatesRaw(requestParameters: DeleteExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteExchangeRates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteExchangeRates.');
-        }
-
         if (requestParameters.exchangeRates === null || requestParameters.exchangeRates === undefined) {
             throw new runtime.RequiredError('exchangeRates','Required parameter requestParameters.exchangeRates was null or undefined when calling deleteExchangeRates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5147,19 +4739,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteExpenseArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteExpenseArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5216,18 +4796,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete FiscalFolioParameters.
      */
     async deleteFiscalFolioParametersRaw(requestParameters: DeleteFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFiscalFolioParameters.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5291,19 +4859,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFiscalPeriods.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFiscalPeriods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFiscalPeriods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFiscalPeriods.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5367,19 +4923,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFiscalYears.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFiscalYears.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFiscalYears.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFiscalYears.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5439,19 +4983,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFolioArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFolioArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5511,19 +5043,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFolioPrintQueues.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFolioPrintQueues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFolioPrintQueues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFolioPrintQueues.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5583,19 +5103,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFolioTypesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFolioTypesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFolioTypesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFolioTypesConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5652,18 +5160,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete ForeignCurrencies.
      */
     async deleteForeignCurrenciesRaw(requestParameters: DeleteForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteForeignCurrencies.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteForeignCurrencies.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteForeignCurrencies.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.currencyCodes) {
@@ -5716,18 +5212,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete GlobalExchangeRates.
      */
     async deleteGlobalExchangeRatesRaw(requestParameters: DeleteGlobalExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGlobalExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGlobalExchangeRates.');
-        }
-
         if (requestParameters.exchangeRates === null || requestParameters.exchangeRates === undefined) {
             throw new runtime.RequiredError('exchangeRates','Required parameter requestParameters.exchangeRates was null or undefined when calling deleteGlobalExchangeRates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5775,18 +5263,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete GroupArrangementCodes.
      */
     async deleteGroupArrangementCodesRaw(requestParameters: DeleteGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteGroupArrangementCodes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -5846,19 +5322,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteNoShowPostingRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteNoShowPostingRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteNoShowPostingRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteNoShowPostingRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5926,19 +5390,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePackageArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePackageArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePackageArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePackageArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -5998,19 +5450,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRevenueBucketCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRevenueBucketCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -6074,19 +5514,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRevenueBucketTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRevenueBucketTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -6146,19 +5574,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRevenueTypeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRevenueTypeMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -6262,19 +5678,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRoutingInstructions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoutingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoutingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoutingInstructions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -6334,19 +5738,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTaxBrackets.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaxBrackets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaxBrackets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaxBrackets.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -6406,23 +5798,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.taxTypeCode === null || requestParameters.taxTypeCode === undefined) {
             throw new runtime.RequiredError('taxTypeCode','Required parameter requestParameters.taxTypeCode was null or undefined when calling deleteTaxTypes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTaxTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaxTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.taxTypeCode) {
@@ -6479,18 +5859,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to remove template custom number configuration.
      */
     async deleteTemplateCustomNumberRaw(requestParameters: DeleteTemplateCustomNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateCustomNumber.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.configurationId !== undefined) {
@@ -6547,23 +5915,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling deleteTemplateCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTemplateCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateCustomNumberConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6616,19 +5972,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionCodes === null || requestParameters.transactionCodes === undefined) {
             throw new runtime.RequiredError('transactionCodes','Required parameter requestParameters.transactionCodes was null or undefined when calling deleteTemplateTransactionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateTransactionCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.transactionCodes) {
@@ -6684,19 +6028,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.templateTransactionCodes === null || requestParameters.templateTransactionCodes === undefined) {
             throw new runtime.RequiredError('templateTransactionCodes','Required parameter requestParameters.templateTransactionCodes was null or undefined when calling deleteTemplateTransactionGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateTransactionGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.templateTransactionCodes) {
@@ -6749,18 +6081,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TemplateTransactionSubgroups.
      */
     async deleteTemplateTransactionSubgroupsRaw(requestParameters: DeleteTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateTransactionSubgroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.subgroup) {
@@ -6820,23 +6140,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionCode === null || requestParameters.transactionCode === undefined) {
             throw new runtime.RequiredError('transactionCode','Required parameter requestParameters.transactionCode was null or undefined when calling deleteTransactionCodes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTransactionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTransactionCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6888,11 +6196,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTransactionDiscounts.');
         }
-
+        
         if (requestParameters.transactionDiscountCode === null || requestParameters.transactionDiscountCode === undefined) {
             throw new runtime.RequiredError('transactionDiscountCode','Required parameter requestParameters.transactionDiscountCode was null or undefined when calling deleteTransactionDiscounts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6921,18 +6229,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TransactionGroups.
      */
     async deleteTransactionGroupsRaw(requestParameters: DeleteTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTransactionGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -6989,18 +6285,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TransactionSubgroups.
      */
     async deleteTransactionSubgroupsRaw(requestParameters: DeleteTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTransactionSubgroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.subgroup) {
@@ -7064,19 +6348,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getAdjustmentCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAdjustmentCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAdjustmentCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAdjustmentCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -7140,19 +6412,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getArticles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getArticles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getArticles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getArticles.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -7221,18 +6481,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch AuthorizationConfigRules.
      */
     async getAuthorizationConfigRulesRaw(requestParameters: GetAuthorizationConfigRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationConfigRulesInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizationConfigRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizationConfigRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizationConfigRules.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -7288,19 +6536,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getAuthorizerGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizerGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizerGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizerGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -7361,18 +6597,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch AvailableCashierNumber.
      */
     async getAvailableCashierNumberRaw(requestParameters: GetAvailableCashierNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierNumber>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableCashierNumber.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableCashierNumber.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableCashierNumber.');
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7421,18 +6645,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch BudgetForecast.
      */
     async getBudgetForecastRaw(requestParameters: GetBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BudgetForecastInformation>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBudgetForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBudgetForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBudgetForecast.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -7672,19 +6884,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.cashierIDs === null || requestParameters.cashierIDs === undefined) {
             throw new runtime.RequiredError('cashierIDs','Required parameter requestParameters.cashierIDs was null or undefined when calling getCashiers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashiers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashiers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashiers.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.cashierIDs) {
@@ -7757,18 +6957,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch CollectingAgentTaxes.
      */
     async getCollectingAgentTaxesRaw(requestParameters: GetCollectingAgentTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CollectingAgentTaxes>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCollectingAgentTaxes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -7828,19 +7016,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompAuthorizers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompAuthorizers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompAuthorizers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompAuthorizers.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeCompAuthorizerDetails !== undefined) {
@@ -7916,19 +7092,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompBucketRedemptionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompBucketRedemptionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompBucketRedemptionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompBucketRedemptionCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -7993,23 +7157,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.redemptionCode === null || requestParameters.redemptionCode === undefined) {
             throw new runtime.RequiredError('redemptionCode','Required parameter requestParameters.redemptionCode was null or undefined when calling getCompBucketRedemptionConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompBucketRedemptionConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompBucketRedemptionConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.wildCard !== undefined) {
@@ -8066,19 +7218,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.compTypeCode !== undefined) {
@@ -8134,19 +7274,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getCurrencyExchangeServiceTaxes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCurrencyExchangeServiceTaxes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -8206,19 +7334,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomChargeCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomChargeCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomChargeCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomChargeCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -8279,18 +7395,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch Custom Charge Exemptions Config.
      */
     async getCustomChargeExemptionsRaw(requestParameters: GetCustomChargeExemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChargeExemptionsConfig>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomChargeExemptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomChargeExemptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomChargeExemptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -8359,23 +7463,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling getCustomChargeExemptionsConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomChargeExemptionsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomChargeExemptionsConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.wildCard !== undefined) {
@@ -8437,23 +7529,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling getCustomChargesConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomChargesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomChargesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomChargesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomChargesConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.wildCard !== undefined) {
@@ -8511,23 +7591,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling getCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomNumberConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -8608,19 +7676,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomNumbers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomNumbers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomNumbers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomNumbers.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -8708,19 +7764,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getDailyPlanCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDailyPlanCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDailyPlanCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDailyPlanCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -8788,27 +7832,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getDefaultPaymentMethodRule.');
         }
-
+        
         if (requestParameters.transactionCodes === null || requestParameters.transactionCodes === undefined) {
             throw new runtime.RequiredError('transactionCodes','Required parameter requestParameters.transactionCodes was null or undefined when calling getDefaultPaymentMethodRule.');
         }
-
+        
         if (requestParameters.paymentMethods === null || requestParameters.paymentMethods === undefined) {
             throw new runtime.RequiredError('paymentMethods','Required parameter requestParameters.paymentMethods was null or undefined when calling getDefaultPaymentMethodRule.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDefaultPaymentMethodRule.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDefaultPaymentMethodRule.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDefaultPaymentMethodRule.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -8885,19 +7917,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExchangeRates.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExchangeRates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExchangeRates.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.exchangeTypes) {
@@ -8951,18 +7971,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch ExchangeRates.
      */
     async getExchangeRatesInfoRaw(requestParameters: GetExchangeRatesInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeRatesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExchangeRatesInfo.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExchangeRatesInfo.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExchangeRatesInfo.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9022,19 +8030,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getExpenseArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExpenseArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -9102,19 +8098,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalCommands.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalCommands.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalCommands.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalCommands.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -9182,19 +8166,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getFiscalFolioParameters.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalFolioParameters.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -9266,19 +8238,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalPartners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalPartners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalPartners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalPartners.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -9338,19 +8298,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalPeriods.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalPeriods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalPeriods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalPeriods.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9418,19 +8366,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalYears.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalYears.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalYears.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalYears.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9494,19 +8430,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getFolioArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -9571,18 +8495,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch FolioCopyLegends.
      */
     async getFolioCopyLegendsRaw(requestParameters: GetFolioCopyLegendsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioCopyLegends>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioCopyLegends.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioCopyLegends.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioCopyLegends.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.codes) {
@@ -9642,19 +8554,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioPrintQueues.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioPrintQueues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioPrintQueues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioPrintQueues.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9718,23 +8618,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTypeLegendMappingsConfig.');
         }
-
+        
         if (requestParameters.legendCode === null || requestParameters.legendCode === undefined) {
             throw new runtime.RequiredError('legendCode','Required parameter requestParameters.legendCode was null or undefined when calling getFolioTypeLegendMappingsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTypeLegendMappingsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTypeLegendMappingsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTypeLegendMappingsConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9798,19 +8686,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTypesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTypesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTypesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTypesConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -9871,18 +8747,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch ForeignCurrencies.
      */
     async getForeignCurrenciesRaw(requestParameters: GetForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForeignCurrencies>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getForeignCurrencies.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getForeignCurrencies.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getForeignCurrencies.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.currencies) {
@@ -9950,27 +8814,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.currencyCode === null || requestParameters.currencyCode === undefined) {
             throw new runtime.RequiredError('currencyCode','Required parameter requestParameters.currencyCode was null or undefined when calling getFuturePastExchangeRates.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFuturePastExchangeRates.');
         }
-
+        
         if (requestParameters.exchangeTypes === null || requestParameters.exchangeTypes === undefined) {
             throw new runtime.RequiredError('exchangeTypes','Required parameter requestParameters.exchangeTypes was null or undefined when calling getFuturePastExchangeRates.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFuturePastExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFuturePastExchangeRates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFuturePastExchangeRates.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.exchangeTypes !== undefined) {
@@ -10034,19 +8886,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getGUINumberRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGUINumberRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGUINumberRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGUINumberRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10102,19 +8942,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGenerateTaxTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGenerateTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGenerateTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGenerateTaxTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.transactionCode !== undefined) {
@@ -10167,14 +8995,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch GlobalExchangeRates.
      */
     async getGlobalExchangeRatesInfoRaw(requestParameters: GetGlobalExchangeRatesInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeRatesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGlobalExchangeRatesInfo.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGlobalExchangeRatesInfo.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.exchangeTypes) {
@@ -10226,19 +9046,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getGroupArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGroupArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10306,19 +9114,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getNoShowPostingRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNoShowPostingRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNoShowPostingRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNoShowPostingRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10379,18 +9175,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch NumberDescriptions.
      */
     async getNumberDescriptionsRaw(requestParameters: GetNumberDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NumberDescriptions>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNumberDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNumberDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNumberDescriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.numberCodes) {
@@ -10454,19 +9238,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOperaControlSequences.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOperaControlSequences.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOperaControlSequences.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOperaControlSequences.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -10538,19 +9310,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getPackageArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackageArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10618,19 +9378,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getPaymentMethods.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPaymentMethods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPaymentMethods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPaymentMethods.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10706,19 +9454,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getRevenueBucketCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueBucketCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10794,19 +9530,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getRevenueBucketTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueBucketTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10874,19 +9598,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getRevenueTypeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTypeMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -10958,19 +9670,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoutingInstructions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoutingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoutingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoutingInstructions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -11038,19 +9738,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTaxBrackets.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaxBrackets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaxBrackets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaxBrackets.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -11110,19 +9798,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTaxTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaxTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -11187,23 +9863,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling getTemplateCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTemplateCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCustomNumberConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -11269,18 +9933,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch template custom number configuration.
      */
     async getTemplateCustomNumbersRaw(requestParameters: GetTemplateCustomNumbersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateCustomNumberConfigDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateCustomNumbers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCustomNumbers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCustomNumbers.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -11349,18 +10001,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Get template transaction codes
      */
     async getTemplateTransactionCodesRaw(requestParameters: GetTemplateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateTransactionCodes>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateTransactionCodes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.compTransactionCodes !== undefined) {
@@ -11445,18 +10085,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch TemplateTransactionGroups.
      */
     async getTemplateTransactionGroupsRaw(requestParameters: GetTemplateTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateTransactionGroups>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateTransactionGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.transactionGroupCodes) {
@@ -11517,18 +10145,6 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to fetch TemplateTransactionSubgroups.
      */
     async getTemplateTransactionSubgroupsRaw(requestParameters: GetTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateTransactionSubgroups>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateTransactionSubgroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.transactionGroupCodes) {
@@ -11592,19 +10208,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionArrangementCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionArrangementCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -11664,23 +10268,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionCode === null || requestParameters.transactionCode === undefined) {
             throw new runtime.RequiredError('transactionCode','Required parameter requestParameters.transactionCode was null or undefined when calling getTransactionCode.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCode.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCode.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCode.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCode.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -11736,19 +10328,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCodeAccessRoles.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodeAccessRoles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodeAccessRoles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodeAccessRoles.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.roleCode !== undefined) {
@@ -11804,19 +10384,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTransactionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -11908,19 +10476,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTransactionDiscounts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionDiscounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionDiscounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionDiscounts.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -12004,19 +10560,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTransactionDiversionRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionDiversionRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -12104,23 +10648,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionGroupCode === null || requestParameters.transactionGroupCode === undefined) {
             throw new runtime.RequiredError('transactionGroupCode','Required parameter requestParameters.transactionGroupCode was null or undefined when calling getTransactionGroup.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionGroup.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionGroup.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionGroup.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionGroup.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -12176,19 +10708,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTransactionGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -12256,27 +10776,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.transactionGroupCode === null || requestParameters.transactionGroupCode === undefined) {
             throw new runtime.RequiredError('transactionGroupCode','Required parameter requestParameters.transactionGroupCode was null or undefined when calling getTransactionSubgroup.');
         }
-
+        
         if (requestParameters.transactionSubGroupCode === null || requestParameters.transactionSubGroupCode === undefined) {
             throw new runtime.RequiredError('transactionSubGroupCode','Required parameter requestParameters.transactionSubGroupCode was null or undefined when calling getTransactionSubgroup.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionSubgroup.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionSubgroup.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionSubgroup.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionSubgroup.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -12332,19 +10840,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getTransactionSubgroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionSubgroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -12409,22 +10905,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create AdjustmentCodes.
      */
     async postAdjustmentCodesRaw(requestParameters: PostAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdjustmentCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdjustmentCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdjustmentCodes.');
-        }
-
         if (requestParameters.adjustmentCodes === null || requestParameters.adjustmentCodes === undefined) {
             throw new runtime.RequiredError('adjustmentCodes','Required parameter requestParameters.adjustmentCodes was null or undefined when calling postAdjustmentCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12476,22 +10960,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create Articles.
      */
     async postArticlesRaw(requestParameters: PostArticlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postArticles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postArticles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postArticles.');
-        }
-
         if (requestParameters.articles === null || requestParameters.articles === undefined) {
             throw new runtime.RequiredError('articles','Required parameter requestParameters.articles was null or undefined when calling postArticles.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12543,22 +11015,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create AuthorizationConfigRule.
      */
     async postAuthorizationConfigRuleRaw(requestParameters: PostAuthorizationConfigRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAuthorizationConfigRule.');
-        }
-
         if (requestParameters.authorizationConfigRules === null || requestParameters.authorizationConfigRules === undefined) {
             throw new runtime.RequiredError('authorizationConfigRules','Required parameter requestParameters.authorizationConfigRules was null or undefined when calling postAuthorizationConfigRule.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12610,22 +11070,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create AuthorizerGroups.
      */
     async postAuthorizerGroupsRaw(requestParameters: PostAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAuthorizerGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAuthorizerGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAuthorizerGroups.');
-        }
-
         if (requestParameters.authorizerGroups === null || requestParameters.authorizerGroups === undefined) {
             throw new runtime.RequiredError('authorizerGroups','Required parameter requestParameters.authorizerGroups was null or undefined when calling postAuthorizerGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12677,22 +11125,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create Cashiers.
      */
     async postCashiersRaw(requestParameters: PostCashiersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCashiers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCashiers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCashiers.');
-        }
-
         if (requestParameters.cashiers === null || requestParameters.cashiers === undefined) {
             throw new runtime.RequiredError('cashiers','Required parameter requestParameters.cashiers was null or undefined when calling postCashiers.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12744,22 +11180,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create CollectingAgentTaxes.
      */
     async postCollectingAgentTaxesRaw(requestParameters: PostCollectingAgentTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCollectingAgentTaxes.');
-        }
-
         if (requestParameters.collectingAgentTaxes === null || requestParameters.collectingAgentTaxes === undefined) {
             throw new runtime.RequiredError('collectingAgentTaxes','Required parameter requestParameters.collectingAgentTaxes was null or undefined when calling postCollectingAgentTaxes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12814,23 +11238,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCompBucketRedemptionConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCompBucketRedemptionConfig.');
-        }
-
+        
         if (requestParameters.compBucketRedemptionConfig === null || requestParameters.compBucketRedemptionConfig === undefined) {
             throw new runtime.RequiredError('compBucketRedemptionConfig','Required parameter requestParameters.compBucketRedemptionConfig was null or undefined when calling postCompBucketRedemptionConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12882,22 +11294,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Create Comp Types
      */
     async postCompTypesRaw(requestParameters: PostCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCompTypes.');
-        }
-
         if (requestParameters.compTypesCriteria === null || requestParameters.compTypesCriteria === undefined) {
             throw new runtime.RequiredError('compTypesCriteria','Required parameter requestParameters.compTypesCriteria was null or undefined when calling postCompTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12949,22 +11349,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create CurrencyExchangeServiceTaxes.
      */
     async postCurrencyExchangeServiceTaxesRaw(requestParameters: PostCurrencyExchangeServiceTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCurrencyExchangeServiceTaxes.');
-        }
-
         if (requestParameters.currencyExchangeServiceTaxes === null || requestParameters.currencyExchangeServiceTaxes === undefined) {
             throw new runtime.RequiredError('currencyExchangeServiceTaxes','Required parameter requestParameters.currencyExchangeServiceTaxes was null or undefined when calling postCurrencyExchangeServiceTaxes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13019,23 +11407,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCustomChargeExemptionsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCustomChargeExemptionsConfig.');
-        }
-
+        
         if (requestParameters.customChargeExemptionsConfigToBeCreated === null || requestParameters.customChargeExemptionsConfigToBeCreated === undefined) {
             throw new runtime.RequiredError('customChargeExemptionsConfigToBeCreated','Required parameter requestParameters.customChargeExemptionsConfigToBeCreated was null or undefined when calling postCustomChargeExemptionsConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13090,23 +11466,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCustomChargesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCustomChargesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCustomChargesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCustomChargesConfig.');
-        }
-
+        
         if (requestParameters.customChargesConfig === null || requestParameters.customChargesConfig === undefined) {
             throw new runtime.RequiredError('customChargesConfig','Required parameter requestParameters.customChargesConfig was null or undefined when calling postCustomChargesConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13161,23 +11525,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCustomNumberConfig.');
-        }
-
+        
         if (requestParameters.customNumberConfiguration === null || requestParameters.customNumberConfiguration === undefined) {
             throw new runtime.RequiredError('customNumberConfiguration','Required parameter requestParameters.customNumberConfiguration was null or undefined when calling postCustomNumberConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13229,22 +11581,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create ExpenseArrangementCodes.
      */
     async postExpenseArrangementCodesRaw(requestParameters: PostExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postExpenseArrangementCodes.');
-        }
-
         if (requestParameters.expenseArrangementCodes === null || requestParameters.expenseArrangementCodes === undefined) {
             throw new runtime.RequiredError('expenseArrangementCodes','Required parameter requestParameters.expenseArrangementCodes was null or undefined when calling postExpenseArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13299,23 +11639,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postFiscalPartners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalPartners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalPartners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalPartners.');
-        }
-
+        
         if (requestParameters.createFiscalPartners === null || requestParameters.createFiscalPartners === undefined) {
             throw new runtime.RequiredError('createFiscalPartners','Required parameter requestParameters.createFiscalPartners was null or undefined when calling postFiscalPartners.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13367,22 +11695,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create FiscalPeriods.
      */
     async postFiscalPeriodsRaw(requestParameters: PostFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalPeriods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalPeriods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalPeriods.');
-        }
-
         if (requestParameters.fiscalPeriods === null || requestParameters.fiscalPeriods === undefined) {
             throw new runtime.RequiredError('fiscalPeriods','Required parameter requestParameters.fiscalPeriods was null or undefined when calling postFiscalPeriods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13434,22 +11750,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create FiscalYears.
      */
     async postFiscalYearsRaw(requestParameters: PostFiscalYearsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalYears.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalYears.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalYears.');
-        }
-
         if (requestParameters.fiscalYears === null || requestParameters.fiscalYears === undefined) {
             throw new runtime.RequiredError('fiscalYears','Required parameter requestParameters.fiscalYears was null or undefined when calling postFiscalYears.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13501,22 +11805,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create FolioArrangementCodes.
      */
     async postFolioArrangementCodesRaw(requestParameters: PostFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFolioArrangementCodes.');
-        }
-
         if (requestParameters.folioArrangementCodes === null || requestParameters.folioArrangementCodes === undefined) {
             throw new runtime.RequiredError('folioArrangementCodes','Required parameter requestParameters.folioArrangementCodes was null or undefined when calling postFolioArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13568,22 +11860,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create FolioPrintQueues.
      */
     async postFolioPrintQueuesRaw(requestParameters: PostFolioPrintQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFolioPrintQueues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFolioPrintQueues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFolioPrintQueues.');
-        }
-
         if (requestParameters.folioPrintQueues === null || requestParameters.folioPrintQueues === undefined) {
             throw new runtime.RequiredError('folioPrintQueues','Required parameter requestParameters.folioPrintQueues was null or undefined when calling postFolioPrintQueues.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13635,22 +11915,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create folio type legend mappings config.
      */
     async postFolioTypeLegendMappingConfigRaw(requestParameters: PostFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFolioTypeLegendMappingConfig.');
-        }
-
         if (requestParameters.folioTypeLegendMappingConfigCriteria === null || requestParameters.folioTypeLegendMappingConfigCriteria === undefined) {
             throw new runtime.RequiredError('folioTypeLegendMappingConfigCriteria','Required parameter requestParameters.folioTypeLegendMappingConfigCriteria was null or undefined when calling postFolioTypeLegendMappingConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13702,22 +11970,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create FolioTypesConfig.
      */
     async postFolioTypesConfigRaw(requestParameters: PostFolioTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFolioTypesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFolioTypesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFolioTypesConfig.');
-        }
-
         if (requestParameters.folioTypesConfig === null || requestParameters.folioTypesConfig === undefined) {
             throw new runtime.RequiredError('folioTypesConfig','Required parameter requestParameters.folioTypesConfig was null or undefined when calling postFolioTypesConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13769,22 +12025,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create ForeignCurrencies.
      */
     async postForeignCurrenciesRaw(requestParameters: PostForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postForeignCurrencies.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postForeignCurrencies.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postForeignCurrencies.');
-        }
-
         if (requestParameters.foreignCurrencies === null || requestParameters.foreignCurrencies === undefined) {
             throw new runtime.RequiredError('foreignCurrencies','Required parameter requestParameters.foreignCurrencies was null or undefined when calling postForeignCurrencies.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13836,22 +12080,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create GroupArrangementCodes.
      */
     async postGroupArrangementCodesRaw(requestParameters: PostGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGroupArrangementCodes.');
-        }
-
         if (requestParameters.groupArrangementCodes === null || requestParameters.groupArrangementCodes === undefined) {
             throw new runtime.RequiredError('groupArrangementCodes','Required parameter requestParameters.groupArrangementCodes was null or undefined when calling postGroupArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13903,22 +12135,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create NoShowPostingRules.
      */
     async postNoShowPostingRulesRaw(requestParameters: PostNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postNoShowPostingRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postNoShowPostingRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postNoShowPostingRules.');
-        }
-
         if (requestParameters.noShowPostingRules === null || requestParameters.noShowPostingRules === undefined) {
             throw new runtime.RequiredError('noShowPostingRules','Required parameter requestParameters.noShowPostingRules was null or undefined when calling postNoShowPostingRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13970,22 +12190,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create PackageArrangementCodes.
      */
     async postPackageArrangementCodesRaw(requestParameters: PostPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPackageArrangementCodes.');
-        }
-
         if (requestParameters.packageArrangementCodes === null || requestParameters.packageArrangementCodes === undefined) {
             throw new runtime.RequiredError('packageArrangementCodes','Required parameter requestParameters.packageArrangementCodes was null or undefined when calling postPackageArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14037,22 +12245,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create PaymentMethods.
      */
     async postPaymentMethodsRaw(requestParameters: PostPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPaymentMethods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPaymentMethods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPaymentMethods.');
-        }
-
         if (requestParameters.paymentMethods === null || requestParameters.paymentMethods === undefined) {
             throw new runtime.RequiredError('paymentMethods','Required parameter requestParameters.paymentMethods was null or undefined when calling postPaymentMethods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14104,22 +12300,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create RevenueBucketCodes.
      */
     async postRevenueBucketCodesRaw(requestParameters: PostRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRevenueBucketCodes.');
-        }
-
         if (requestParameters.revenueBucketCodes === null || requestParameters.revenueBucketCodes === undefined) {
             throw new runtime.RequiredError('revenueBucketCodes','Required parameter requestParameters.revenueBucketCodes was null or undefined when calling postRevenueBucketCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14171,22 +12355,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create RevenueBucketTypes.
      */
     async postRevenueBucketTypesRaw(requestParameters: PostRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRevenueBucketTypes.');
-        }
-
         if (requestParameters.revenueBucketTypes === null || requestParameters.revenueBucketTypes === undefined) {
             throw new runtime.RequiredError('revenueBucketTypes','Required parameter requestParameters.revenueBucketTypes was null or undefined when calling postRevenueBucketTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14238,22 +12410,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Post revenue type mapping
      */
     async postRevenueTypeMappingRaw(requestParameters: PostRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRevenueTypeMapping.');
-        }
-
         if (requestParameters.revenueTypeMapping === null || requestParameters.revenueTypeMapping === undefined) {
             throw new runtime.RequiredError('revenueTypeMapping','Required parameter requestParameters.revenueTypeMapping was null or undefined when calling postRevenueTypeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14305,22 +12465,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create RoutingInstructions.
      */
     async postRoutingInstructionsRaw(requestParameters: PostRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoutingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoutingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoutingInstructions.');
-        }
-
         if (requestParameters.routingInstructions === null || requestParameters.routingInstructions === undefined) {
             throw new runtime.RequiredError('routingInstructions','Required parameter requestParameters.routingInstructions was null or undefined when calling postRoutingInstructions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14372,22 +12520,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TaxBrackets.
      */
     async postTaxBracketsRaw(requestParameters: PostTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaxBrackets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaxBrackets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaxBrackets.');
-        }
-
         if (requestParameters.taxBrackets === null || requestParameters.taxBrackets === undefined) {
             throw new runtime.RequiredError('taxBrackets','Required parameter requestParameters.taxBrackets was null or undefined when calling postTaxBrackets.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14439,22 +12575,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TaxTypes.
      */
     async postTaxTypesRaw(requestParameters: PostTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaxTypes.');
-        }
-
         if (requestParameters.taxTypes === null || requestParameters.taxTypes === undefined) {
             throw new runtime.RequiredError('taxTypes','Required parameter requestParameters.taxTypes was null or undefined when calling postTaxTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14506,22 +12630,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create a new template custom number configuration.
      */
     async postTemplateCustomNumberRaw(requestParameters: PostTemplateCustomNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCustomNumber.');
-        }
-
         if (requestParameters.templateCustomNumberConfig === null || requestParameters.templateCustomNumberConfig === undefined) {
             throw new runtime.RequiredError('templateCustomNumberConfig','Required parameter requestParameters.templateCustomNumberConfig was null or undefined when calling postTemplateCustomNumber.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14577,23 +12689,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTemplateCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCustomNumberConfig.');
-        }
-
+        
         if (requestParameters.templateCustomNumberConfig === null || requestParameters.templateCustomNumberConfig === undefined) {
             throw new runtime.RequiredError('templateCustomNumberConfig','Required parameter requestParameters.templateCustomNumberConfig was null or undefined when calling postTemplateCustomNumberConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14646,22 +12746,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Post template transaction codes
      */
     async postTemplateTransactionCodesRaw(requestParameters: PostTemplateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateTransactionCodes.');
-        }
-
         if (requestParameters.templateTransactionCodes === null || requestParameters.templateTransactionCodes === undefined) {
             throw new runtime.RequiredError('templateTransactionCodes','Required parameter requestParameters.templateTransactionCodes was null or undefined when calling postTemplateTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14713,22 +12801,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TemplateTransactionGroups.
      */
     async postTemplateTransactionGroupsRaw(requestParameters: PostTemplateTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateTransactionGroups.');
-        }
-
         if (requestParameters.templateTransactionGroups === null || requestParameters.templateTransactionGroups === undefined) {
             throw new runtime.RequiredError('templateTransactionGroups','Required parameter requestParameters.templateTransactionGroups was null or undefined when calling postTemplateTransactionGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14780,22 +12856,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TemplateTransactionSubgroups.
      */
     async postTemplateTransactionSubgroupsRaw(requestParameters: PostTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateTransactionSubgroups.');
-        }
-
         if (requestParameters.templateTransactionSubgroups === null || requestParameters.templateTransactionSubgroups === undefined) {
             throw new runtime.RequiredError('templateTransactionSubgroups','Required parameter requestParameters.templateTransactionSubgroups was null or undefined when calling postTemplateTransactionSubgroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14847,22 +12911,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Post transaction codes
      */
     async postTransactionCodesRaw(requestParameters: PostTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionCodes.');
-        }
-
         if (requestParameters.hotelTransactionCodes === null || requestParameters.hotelTransactionCodes === undefined) {
             throw new runtime.RequiredError('hotelTransactionCodes','Required parameter requestParameters.hotelTransactionCodes was null or undefined when calling postTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14914,22 +12966,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TransactionDiscounts.
      */
     async postTransactionDiscountsRaw(requestParameters: PostTransactionDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionDiscounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionDiscounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionDiscounts.');
-        }
-
         if (requestParameters.transactionDiscount === null || requestParameters.transactionDiscount === undefined) {
             throw new runtime.RequiredError('transactionDiscount','Required parameter requestParameters.transactionDiscount was null or undefined when calling postTransactionDiscounts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14981,22 +13021,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TransactionDiversionRules.
      */
     async postTransactionDiversionRulesRaw(requestParameters: PostTransactionDiversionRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionDiversionRules.');
-        }
-
         if (requestParameters.transactionDiversionRules === null || requestParameters.transactionDiversionRules === undefined) {
             throw new runtime.RequiredError('transactionDiversionRules','Required parameter requestParameters.transactionDiversionRules was null or undefined when calling postTransactionDiversionRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15048,22 +13076,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Post transaction generates
      */
     async postTransactionGeneratesRaw(requestParameters: PostTransactionGeneratesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionGenerates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionGenerates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionGenerates.');
-        }
-
         if (requestParameters.hotelTransactionGenerates === null || requestParameters.hotelTransactionGenerates === undefined) {
             throw new runtime.RequiredError('hotelTransactionGenerates','Required parameter requestParameters.hotelTransactionGenerates was null or undefined when calling postTransactionGenerates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15115,22 +13131,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TransactionGroups.
      */
     async postTransactionGroupsRaw(requestParameters: PostTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionGroups.');
-        }
-
         if (requestParameters.transactionGroups === null || requestParameters.transactionGroups === undefined) {
             throw new runtime.RequiredError('transactionGroups','Required parameter requestParameters.transactionGroups was null or undefined when calling postTransactionGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15182,22 +13186,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create TransactionSubgroups.
      */
     async postTransactionSubgroupsRaw(requestParameters: PostTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTransactionSubgroups.');
-        }
-
         if (requestParameters.hotelTransactionSubgroups === null || requestParameters.hotelTransactionSubgroups === undefined) {
             throw new runtime.RequiredError('hotelTransactionSubgroups','Required parameter requestParameters.hotelTransactionSubgroups was null or undefined when calling postTransactionSubgroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15249,22 +13241,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change AdjustmentCodes.
      */
     async putAdjustmentCodesRaw(requestParameters: PutAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAdjustmentCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAdjustmentCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAdjustmentCodes.');
-        }
-
         if (requestParameters.adjustmentCodes === null || requestParameters.adjustmentCodes === undefined) {
             throw new runtime.RequiredError('adjustmentCodes','Required parameter requestParameters.adjustmentCodes was null or undefined when calling putAdjustmentCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15316,22 +13296,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change Articles.
      */
     async putArticlesRaw(requestParameters: PutArticlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putArticles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putArticles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putArticles.');
-        }
-
         if (requestParameters.articles === null || requestParameters.articles === undefined) {
             throw new runtime.RequiredError('articles','Required parameter requestParameters.articles was null or undefined when calling putArticles.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15383,22 +13351,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change AuthorizationConfigRule.
      */
     async putAuthorizationConfigRuleRaw(requestParameters: PutAuthorizationConfigRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAuthorizationConfigRule.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAuthorizationConfigRule.');
-        }
-
         if (requestParameters.authorizationConfigRules === null || requestParameters.authorizationConfigRules === undefined) {
             throw new runtime.RequiredError('authorizationConfigRules','Required parameter requestParameters.authorizationConfigRules was null or undefined when calling putAuthorizationConfigRule.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15450,22 +13406,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change AuthorizerGroups.
      */
     async putAuthorizerGroupsRaw(requestParameters: PutAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAuthorizerGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAuthorizerGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAuthorizerGroups.');
-        }
-
         if (requestParameters.authorizerGroupsToChange === null || requestParameters.authorizerGroupsToChange === undefined) {
             throw new runtime.RequiredError('authorizerGroupsToChange','Required parameter requestParameters.authorizerGroupsToChange was null or undefined when calling putAuthorizerGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15517,22 +13461,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change CashiersDetails.
      */
     async putCashiersRaw(requestParameters: PutCashiersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCashiers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCashiers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCashiers.');
-        }
-
         if (requestParameters.cashiers === null || requestParameters.cashiers === undefined) {
             throw new runtime.RequiredError('cashiers','Required parameter requestParameters.cashiers was null or undefined when calling putCashiers.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15584,22 +13516,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change CollectingAgentTaxes.
      */
     async putCollectingAgentTaxesRaw(requestParameters: PutCollectingAgentTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCollectingAgentTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCollectingAgentTaxes.');
-        }
-
         if (requestParameters.collectingAgentTaxes === null || requestParameters.collectingAgentTaxes === undefined) {
             throw new runtime.RequiredError('collectingAgentTaxes','Required parameter requestParameters.collectingAgentTaxes was null or undefined when calling putCollectingAgentTaxes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15654,27 +13574,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.redemptionCode === null || requestParameters.redemptionCode === undefined) {
             throw new runtime.RequiredError('redemptionCode','Required parameter requestParameters.redemptionCode was null or undefined when calling putCompBucketRedemptionConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCompBucketRedemptionConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCompBucketRedemptionConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCompBucketRedemptionConfig.');
-        }
-
+        
         if (requestParameters.compBucketRedemptionConfig === null || requestParameters.compBucketRedemptionConfig === undefined) {
             throw new runtime.RequiredError('compBucketRedemptionConfig','Required parameter requestParameters.compBucketRedemptionConfig was null or undefined when calling putCompBucketRedemptionConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15726,22 +13634,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change ExchangeServiceTaxes.
      */
     async putCurrencyExchangeServiceTaxesRaw(requestParameters: PutCurrencyExchangeServiceTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCurrencyExchangeServiceTaxes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCurrencyExchangeServiceTaxes.');
-        }
-
         if (requestParameters.currencyExchangeServiceTaxes === null || requestParameters.currencyExchangeServiceTaxes === undefined) {
             throw new runtime.RequiredError('currencyExchangeServiceTaxes','Required parameter requestParameters.currencyExchangeServiceTaxes was null or undefined when calling putCurrencyExchangeServiceTaxes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15796,27 +13692,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling putCustomChargeExemptionsConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCustomChargeExemptionsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCustomChargeExemptionsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCustomChargeExemptionsConfig.');
-        }
-
+        
         if (requestParameters.customChargeExemptionsConfigToBeChanged === null || requestParameters.customChargeExemptionsConfigToBeChanged === undefined) {
             throw new runtime.RequiredError('customChargeExemptionsConfigToBeChanged','Required parameter requestParameters.customChargeExemptionsConfigToBeChanged was null or undefined when calling putCustomChargeExemptionsConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15871,27 +13755,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling putCustomChargesConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCustomChargesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCustomChargesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCustomChargesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCustomChargesConfig.');
-        }
-
+        
         if (requestParameters.customChargesConfig === null || requestParameters.customChargesConfig === undefined) {
             throw new runtime.RequiredError('customChargesConfig','Required parameter requestParameters.customChargesConfig was null or undefined when calling putCustomChargesConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15946,27 +13818,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling putCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCustomNumberConfig.');
-        }
-
+        
         if (requestParameters.customNumberConfiguration === null || requestParameters.customNumberConfiguration === undefined) {
             throw new runtime.RequiredError('customNumberConfiguration','Required parameter requestParameters.customNumberConfiguration was null or undefined when calling putCustomNumberConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16018,22 +13878,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change DailyPlanCodes.
      */
     async putDailyPlanCodesRaw(requestParameters: PutDailyPlanCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDailyPlanCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDailyPlanCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDailyPlanCodes.');
-        }
-
         if (requestParameters.dailyPlanCodes === null || requestParameters.dailyPlanCodes === undefined) {
             throw new runtime.RequiredError('dailyPlanCodes','Required parameter requestParameters.dailyPlanCodes was null or undefined when calling putDailyPlanCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16085,22 +13933,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change ExpenseArrangementCodes.
      */
     async putExpenseArrangementCodesRaw(requestParameters: PutExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putExpenseArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putExpenseArrangementCodes.');
-        }
-
         if (requestParameters.expenseArrangementCodes === null || requestParameters.expenseArrangementCodes === undefined) {
             throw new runtime.RequiredError('expenseArrangementCodes','Required parameter requestParameters.expenseArrangementCodes was null or undefined when calling putExpenseArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16152,22 +13988,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FiscalFolioParameters.
      */
     async putFiscalFolioParametersRaw(requestParameters: PutFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFiscalFolioParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFiscalFolioParameters.');
-        }
-
         if (requestParameters.fiscalFolioParameters === null || requestParameters.fiscalFolioParameters === undefined) {
             throw new runtime.RequiredError('fiscalFolioParameters','Required parameter requestParameters.fiscalFolioParameters was null or undefined when calling putFiscalFolioParameters.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16219,22 +14043,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FiscalPeriods.
      */
     async putFiscalPeriodsRaw(requestParameters: PutFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFiscalPeriods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFiscalPeriods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFiscalPeriods.');
-        }
-
         if (requestParameters.fiscalPeriodsEdit === null || requestParameters.fiscalPeriodsEdit === undefined) {
             throw new runtime.RequiredError('fiscalPeriodsEdit','Required parameter requestParameters.fiscalPeriodsEdit was null or undefined when calling putFiscalPeriods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16286,22 +14098,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FiscalYears.
      */
     async putFiscalYearsRaw(requestParameters: PutFiscalYearsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFiscalYears.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFiscalYears.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFiscalYears.');
-        }
-
         if (requestParameters.fiscalYears === null || requestParameters.fiscalYears === undefined) {
             throw new runtime.RequiredError('fiscalYears','Required parameter requestParameters.fiscalYears was null or undefined when calling putFiscalYears.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16353,22 +14153,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FolioArrangementCodes.
      */
     async putFolioArrangementCodesRaw(requestParameters: PutFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFolioArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFolioArrangementCodes.');
-        }
-
         if (requestParameters.folioArrangementCodes === null || requestParameters.folioArrangementCodes === undefined) {
             throw new runtime.RequiredError('folioArrangementCodes','Required parameter requestParameters.folioArrangementCodes was null or undefined when calling putFolioArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16420,22 +14208,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FolioCopyLegends.
      */
     async putFolioCopyLegendsRaw(requestParameters: PutFolioCopyLegendsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFolioCopyLegends.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFolioCopyLegends.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFolioCopyLegends.');
-        }
-
         if (requestParameters.folioCopyLegend === null || requestParameters.folioCopyLegend === undefined) {
             throw new runtime.RequiredError('folioCopyLegend','Required parameter requestParameters.folioCopyLegend was null or undefined when calling putFolioCopyLegends.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16487,22 +14263,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FolioPrintQueues.
      */
     async putFolioPrintQueuesRaw(requestParameters: PutFolioPrintQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFolioPrintQueues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFolioPrintQueues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFolioPrintQueues.');
-        }
-
         if (requestParameters.folioPrintQueues === null || requestParameters.folioPrintQueues === undefined) {
             throw new runtime.RequiredError('folioPrintQueues','Required parameter requestParameters.folioPrintQueues was null or undefined when calling putFolioPrintQueues.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16554,22 +14318,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change FolioTypesConfig.
      */
     async putFolioTypesConfigRaw(requestParameters: PutFolioTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFolioTypesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFolioTypesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFolioTypesConfig.');
-        }
-
         if (requestParameters.folioTypesConfig === null || requestParameters.folioTypesConfig === undefined) {
             throw new runtime.RequiredError('folioTypesConfig','Required parameter requestParameters.folioTypesConfig was null or undefined when calling putFolioTypesConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16621,22 +14373,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change ForeignCurrencies.
      */
     async putForeignCurrenciesRaw(requestParameters: PutForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putForeignCurrencies.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putForeignCurrencies.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putForeignCurrencies.');
-        }
-
         if (requestParameters.foreignCurrencies === null || requestParameters.foreignCurrencies === undefined) {
             throw new runtime.RequiredError('foreignCurrencies','Required parameter requestParameters.foreignCurrencies was null or undefined when calling putForeignCurrencies.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16688,22 +14428,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change GUINumberRules.
      */
     async putGUINumberRulesRaw(requestParameters: PutGUINumberRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putGUINumberRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putGUINumberRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putGUINumberRules.');
-        }
-
         if (requestParameters.gUINumberRulesDetails === null || requestParameters.gUINumberRulesDetails === undefined) {
             throw new runtime.RequiredError('gUINumberRulesDetails','Required parameter requestParameters.gUINumberRulesDetails was null or undefined when calling putGUINumberRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16755,22 +14483,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change GroupArrangementCodes.
      */
     async putGroupArrangementCodesRaw(requestParameters: PutGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putGroupArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putGroupArrangementCodes.');
-        }
-
         if (requestParameters.groupArrangementCodes === null || requestParameters.groupArrangementCodes === undefined) {
             throw new runtime.RequiredError('groupArrangementCodes','Required parameter requestParameters.groupArrangementCodes was null or undefined when calling putGroupArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16822,22 +14538,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change NoShowPostingRules.
      */
     async putNoShowPostingRulesRaw(requestParameters: PutNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putNoShowPostingRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putNoShowPostingRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putNoShowPostingRules.');
-        }
-
         if (requestParameters.noShowPostingRulesEdit === null || requestParameters.noShowPostingRulesEdit === undefined) {
             throw new runtime.RequiredError('noShowPostingRulesEdit','Required parameter requestParameters.noShowPostingRulesEdit was null or undefined when calling putNoShowPostingRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16889,22 +14593,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change NumberDescriptions.
      */
     async putNumberDescriptionsRaw(requestParameters: PutNumberDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putNumberDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putNumberDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putNumberDescriptions.');
-        }
-
         if (requestParameters.numberDescriptions === null || requestParameters.numberDescriptions === undefined) {
             throw new runtime.RequiredError('numberDescriptions','Required parameter requestParameters.numberDescriptions was null or undefined when calling putNumberDescriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -16956,22 +14648,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change OperaControlSequences.
      */
     async putOperaControlSequencesRaw(requestParameters: PutOperaControlSequencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putOperaControlSequences.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putOperaControlSequences.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putOperaControlSequences.');
-        }
-
         if (requestParameters.operaControlSequences === null || requestParameters.operaControlSequences === undefined) {
             throw new runtime.RequiredError('operaControlSequences','Required parameter requestParameters.operaControlSequences was null or undefined when calling putOperaControlSequences.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17023,22 +14703,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change PackageArrangementCodes.
      */
     async putPackageArrangementCodesRaw(requestParameters: PutPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPackageArrangementCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPackageArrangementCodes.');
-        }
-
         if (requestParameters.packageArrangementCodes === null || requestParameters.packageArrangementCodes === undefined) {
             throw new runtime.RequiredError('packageArrangementCodes','Required parameter requestParameters.packageArrangementCodes was null or undefined when calling putPackageArrangementCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17090,22 +14758,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change PaymentMethods.
      */
     async putPaymentMethodsRaw(requestParameters: PutPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPaymentMethods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPaymentMethods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPaymentMethods.');
-        }
-
         if (requestParameters.paymentMethods === null || requestParameters.paymentMethods === undefined) {
             throw new runtime.RequiredError('paymentMethods','Required parameter requestParameters.paymentMethods was null or undefined when calling putPaymentMethods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17157,22 +14813,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change RevenueBucketCodes.
      */
     async putRevenueBucketCodesRaw(requestParameters: PutRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueBucketCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueBucketCodes.');
-        }
-
         if (requestParameters.revenueBucketCodes === null || requestParameters.revenueBucketCodes === undefined) {
             throw new runtime.RequiredError('revenueBucketCodes','Required parameter requestParameters.revenueBucketCodes was null or undefined when calling putRevenueBucketCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17224,22 +14868,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change RevenueBucketTypes.
      */
     async putRevenueBucketTypesRaw(requestParameters: PutRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueBucketTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueBucketTypes.');
-        }
-
         if (requestParameters.revenueBucketTypes === null || requestParameters.revenueBucketTypes === undefined) {
             throw new runtime.RequiredError('revenueBucketTypes','Required parameter requestParameters.revenueBucketTypes was null or undefined when calling putRevenueBucketTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17291,22 +14923,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change RevenueTypeMapping.
      */
     async putRevenueTypeMappingRaw(requestParameters: PutRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueTypeMapping.');
-        }
-
         if (requestParameters.revenueTypeMapping === null || requestParameters.revenueTypeMapping === undefined) {
             throw new runtime.RequiredError('revenueTypeMapping','Required parameter requestParameters.revenueTypeMapping was null or undefined when calling putRevenueTypeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17358,22 +14978,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change RoutingInstructions.
      */
     async putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoutingInstructions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoutingInstructions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoutingInstructions.');
-        }
-
         if (requestParameters.routingInstructions === null || requestParameters.routingInstructions === undefined) {
             throw new runtime.RequiredError('routingInstructions','Required parameter requestParameters.routingInstructions was null or undefined when calling putRoutingInstructions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17425,22 +15033,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TaxBrackets.
      */
     async putTaxBracketsRaw(requestParameters: PutTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaxBrackets.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaxBrackets.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaxBrackets.');
-        }
-
         if (requestParameters.taxBrackets === null || requestParameters.taxBrackets === undefined) {
             throw new runtime.RequiredError('taxBrackets','Required parameter requestParameters.taxBrackets was null or undefined when calling putTaxBrackets.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17492,22 +15088,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TaxTypes.
      */
     async putTaxTypesRaw(requestParameters: PutTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaxTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaxTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaxTypes.');
-        }
-
         if (requestParameters.taxTypes === null || requestParameters.taxTypes === undefined) {
             throw new runtime.RequiredError('taxTypes','Required parameter requestParameters.taxTypes was null or undefined when calling putTaxTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17559,22 +15143,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change template custom number configuration.
      */
     async putTemplateCustomNumberRaw(requestParameters: PutTemplateCustomNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateCustomNumber.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateCustomNumber.');
-        }
-
         if (requestParameters.templateCustomNumberConfig === null || requestParameters.templateCustomNumberConfig === undefined) {
             throw new runtime.RequiredError('templateCustomNumberConfig','Required parameter requestParameters.templateCustomNumberConfig was null or undefined when calling putTemplateCustomNumber.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17630,27 +15202,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.configurationId === null || requestParameters.configurationId === undefined) {
             throw new runtime.RequiredError('configurationId','Required parameter requestParameters.configurationId was null or undefined when calling putTemplateCustomNumberConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTemplateCustomNumberConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateCustomNumberConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateCustomNumberConfig.');
-        }
-
+        
         if (requestParameters.templateCustomNumberConfig === null || requestParameters.templateCustomNumberConfig === undefined) {
             throw new runtime.RequiredError('templateCustomNumberConfig','Required parameter requestParameters.templateCustomNumberConfig was null or undefined when calling putTemplateCustomNumberConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17703,22 +15263,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TemplateTransactionCodes.
      */
     async putTemplateTransactionCodesRaw(requestParameters: PutTemplateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateTransactionCodes.');
-        }
-
         if (requestParameters.templateTransactionCodes === null || requestParameters.templateTransactionCodes === undefined) {
             throw new runtime.RequiredError('templateTransactionCodes','Required parameter requestParameters.templateTransactionCodes was null or undefined when calling putTemplateTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17770,22 +15318,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TemplateTransactionGroups.
      */
     async putTemplateTransactionGroupsRaw(requestParameters: PutTemplateTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateTransactionGroups.');
-        }
-
         if (requestParameters.templateTransactionGroups === null || requestParameters.templateTransactionGroups === undefined) {
             throw new runtime.RequiredError('templateTransactionGroups','Required parameter requestParameters.templateTransactionGroups was null or undefined when calling putTemplateTransactionGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17837,22 +15373,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TemplateTransactionSubgroups.
      */
     async putTemplateTransactionSubgroupsRaw(requestParameters: PutTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateTransactionSubgroups.');
-        }
-
         if (requestParameters.templateTransactionSubgroups === null || requestParameters.templateTransactionSubgroups === undefined) {
             throw new runtime.RequiredError('templateTransactionSubgroups','Required parameter requestParameters.templateTransactionSubgroups was null or undefined when calling putTemplateTransactionSubgroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17904,22 +15428,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TransactionCodeOwnership.
      */
     async putTransactionCodeOwnershipRaw(requestParameters: PutTransactionCodeOwnershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionCodeOwnership.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionCodeOwnership.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionCodeOwnership.');
-        }
-
         if (requestParameters.transactionCodeOwnership === null || requestParameters.transactionCodeOwnership === undefined) {
             throw new runtime.RequiredError('transactionCodeOwnership','Required parameter requestParameters.transactionCodeOwnership was null or undefined when calling putTransactionCodeOwnership.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -17971,22 +15483,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Put transaction codes
      */
     async putTransactionCodesRaw(requestParameters: PutTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionCodes>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionCodes.');
-        }
-
         if (requestParameters.hotelTransactionCodes === null || requestParameters.hotelTransactionCodes === undefined) {
             throw new runtime.RequiredError('hotelTransactionCodes','Required parameter requestParameters.hotelTransactionCodes was null or undefined when calling putTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18041,27 +15541,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTransactionDiscounts.');
         }
-
+        
         if (requestParameters.transactionDiscountCode === null || requestParameters.transactionDiscountCode === undefined) {
             throw new runtime.RequiredError('transactionDiscountCode','Required parameter requestParameters.transactionDiscountCode was null or undefined when calling putTransactionDiscounts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionDiscounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionDiscounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionDiscounts.');
-        }
-
+        
         if (requestParameters.transactionDiscount === null || requestParameters.transactionDiscount === undefined) {
             throw new runtime.RequiredError('transactionDiscount','Required parameter requestParameters.transactionDiscount was null or undefined when calling putTransactionDiscounts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18113,22 +15601,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TransactionDiversionRules.
      */
     async putTransactionDiversionRulesRaw(requestParameters: PutTransactionDiversionRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionDiversionRules.');
-        }
-
         if (requestParameters.transactionDiversionRules === null || requestParameters.transactionDiversionRules === undefined) {
             throw new runtime.RequiredError('transactionDiversionRules','Required parameter requestParameters.transactionDiversionRules was null or undefined when calling putTransactionDiversionRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18180,22 +15656,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Put transaction generates
      */
     async putTransactionGeneratesRaw(requestParameters: PutTransactionGeneratesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionGenerates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionGenerates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionGenerates.');
-        }
-
         if (requestParameters.hotelTransactionGenerates === null || requestParameters.hotelTransactionGenerates === undefined) {
             throw new runtime.RequiredError('hotelTransactionGenerates','Required parameter requestParameters.hotelTransactionGenerates was null or undefined when calling putTransactionGenerates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18247,22 +15711,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TransactionGroups.
      */
     async putTransactionGroupsRaw(requestParameters: PutTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionGroups.');
-        }
-
         if (requestParameters.transactionGroups === null || requestParameters.transactionGroups === undefined) {
             throw new runtime.RequiredError('transactionGroups','Required parameter requestParameters.transactionGroups was null or undefined when calling putTransactionGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18314,22 +15766,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change TransactionSubgroups.
      */
     async putTransactionSubgroupsRaw(requestParameters: PutTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTransactionSubgroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTransactionSubgroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTransactionSubgroups.');
-        }
-
         if (requestParameters.hotelTransactionSubgroups === null || requestParameters.hotelTransactionSubgroups === undefined) {
             throw new runtime.RequiredError('hotelTransactionSubgroups','Required parameter requestParameters.hotelTransactionSubgroups was null or undefined when calling putTransactionSubgroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18384,19 +15824,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.compTypesCode === null || requestParameters.compTypesCode === undefined) {
             throw new runtime.RequiredError('compTypesCode','Required parameter requestParameters.compTypesCode was null or undefined when calling removeCompTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCompTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCompTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCompTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18448,19 +15876,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeFiscalPartners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFiscalPartners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFiscalPartners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFiscalPartners.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.partnerCode) {
@@ -18516,27 +15932,15 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         if (requestParameters.legendCode === null || requestParameters.legendCode === undefined) {
             throw new runtime.RequiredError('legendCode','Required parameter requestParameters.legendCode was null or undefined when calling removeFolioTypeLegendMappingConfig.');
         }
-
+        
         if (requestParameters.folioType === null || requestParameters.folioType === undefined) {
             throw new runtime.RequiredError('folioType','Required parameter requestParameters.folioType was null or undefined when calling removeFolioTypeLegendMappingConfig.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeFolioTypeLegendMappingConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFolioTypeLegendMappingConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFolioTypeLegendMappingConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18585,22 +15989,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TransactionArrangementCodes.
      */
     async removePaymentMethodsRaw(requestParameters: RemovePaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removePaymentMethods.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removePaymentMethods.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removePaymentMethods.');
-        }
-
         if (requestParameters.paymentMethods === null || requestParameters.paymentMethods === undefined) {
             throw new runtime.RequiredError('paymentMethods','Required parameter requestParameters.paymentMethods was null or undefined when calling removePaymentMethods.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18652,22 +16044,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TransactionDiversionRules.
      */
     async removeTransactionDiversionRulesRaw(requestParameters: RemoveTransactionDiversionRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTransactionDiversionRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTransactionDiversionRules.');
-        }
-
         if (requestParameters.transactionDiversionRules === null || requestParameters.transactionDiversionRules === undefined) {
             throw new runtime.RequiredError('transactionDiversionRules','Required parameter requestParameters.transactionDiversionRules was null or undefined when calling removeTransactionDiversionRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18719,22 +16099,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to delete TransactionGenerates.
      */
     async removeTransactionGeneratesRaw(requestParameters: RemoveTransactionGeneratesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTransactionGenerates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTransactionGenerates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTransactionGenerates.');
-        }
-
         if (requestParameters.hotelTransactionGenerates === null || requestParameters.hotelTransactionGenerates === undefined) {
             throw new runtime.RequiredError('hotelTransactionGenerates','Required parameter requestParameters.hotelTransactionGenerates was null or undefined when calling removeTransactionGenerates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18786,22 +16154,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to set BudgetForecast.
      */
     async setBudgetForecastRaw(requestParameters: SetBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setBudgetForecast.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setBudgetForecast.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setBudgetForecast.');
-        }
-
         if (requestParameters.budgetForecastInformationBase === null || requestParameters.budgetForecastInformationBase === undefined) {
             throw new runtime.RequiredError('budgetForecastInformationBase','Required parameter requestParameters.budgetForecastInformationBase was null or undefined when calling setBudgetForecast.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18853,22 +16209,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to set CompAuthorizer.
      */
     async setCompAuthorizerRaw(requestParameters: SetCompAuthorizerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setCompAuthorizer.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setCompAuthorizer.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setCompAuthorizer.');
-        }
-
         if (requestParameters.compAuthorizer === null || requestParameters.compAuthorizer === undefined) {
             throw new runtime.RequiredError('compAuthorizer','Required parameter requestParameters.compAuthorizer was null or undefined when calling setCompAuthorizer.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18920,22 +16264,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to set ExchangeRates.
      */
     async setExchangeRatesRaw(requestParameters: SetExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setExchangeRates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setExchangeRates.');
-        }
-
         if (requestParameters.exchangeRates === null || requestParameters.exchangeRates === undefined) {
             throw new runtime.RequiredError('exchangeRates','Required parameter requestParameters.exchangeRates was null or undefined when calling setExchangeRates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -18987,18 +16319,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to set GlobalExchangeRates.
      */
     async setGlobalExchangeRatesRaw(requestParameters: SetGlobalExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setGlobalExchangeRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setGlobalExchangeRates.');
-        }
-
         if (requestParameters.exchangeRates === null || requestParameters.exchangeRates === undefined) {
             throw new runtime.RequiredError('exchangeRates','Required parameter requestParameters.exchangeRates was null or undefined when calling setGlobalExchangeRates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -19046,22 +16370,10 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to set TransactionCodeAccessRoles.
      */
     async setTransactionCodeAccessRolesRaw(requestParameters: SetTransactionCodeAccessRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setTransactionCodeAccessRoles.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setTransactionCodeAccessRoles.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setTransactionCodeAccessRoles.');
-        }
-
         if (requestParameters.transactionCodeAccessRoles === null || requestParameters.transactionCodeAccessRoles === undefined) {
             throw new runtime.RequiredError('transactionCodeAccessRoles','Required parameter requestParameters.transactionCodeAccessRoles was null or undefined when calling setTransactionCodeAccessRoles.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

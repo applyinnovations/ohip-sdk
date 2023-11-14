@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ConvertedHotelCode, ConvertedValues, DefaultValues } from '../models/index';
 export interface GetConvertedValuesRequest {
-    operaHotelId?: string;
-    extSystemCode?: string;
+    operaHotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -25,8 +25,8 @@ export interface GetConvertedValuesRequest {
     acceptLanguage?: string;
 }
 export interface GetDefaultValuesRequest {
-    operaHotelId?: string;
-    extSystemCode?: string;
+    operaHotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -34,8 +34,8 @@ export interface GetDefaultValuesRequest {
     acceptLanguage?: string;
 }
 export interface GetOperaHotelCodeRequest {
-    externalHotelId?: string;
-    extSystemCode?: string;
+    externalHotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

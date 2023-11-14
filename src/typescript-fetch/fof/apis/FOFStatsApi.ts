@@ -38,8 +38,8 @@ import {
 } from '../models/index';
 
 export interface GetFrontOfficeStatisticsRequest {
-    statisticsCode?: GetFrontOfficeStatisticsStatisticsCodeEnum;
-    hotelId?: string;
+    statisticsCode: GetFrontOfficeStatisticsStatisticsCodeEnum;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -53,8 +53,8 @@ export interface GetFrontOfficeStatisticsRequest {
 }
 
 export interface GetFrontOfficeStatisticsWithDateRangeRequest {
-    statisticsCode?: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
-    hotelId?: string;
+    statisticsCode: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -69,7 +69,7 @@ export interface GetFrontOfficeStatisticsWithDateRangeRequest {
 }
 
 export interface GetReservationQueueStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -78,8 +78,8 @@ export interface GetReservationQueueStatisticsRequest {
 }
 
 export interface GetReservationStatusStatisticsRequest {
-    hotelId?: string;
-    reservationStatus?: Array<GetReservationStatusStatisticsReservationStatusEnum>;
+    hotelId: string;
+    reservationStatus: Array<GetReservationStatusStatisticsReservationStatusEnum>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -88,12 +88,12 @@ export interface GetReservationStatusStatisticsRequest {
 }
 
 export interface GetRoomsByRoomStatusRequest {
-    hotelId?: string;
+    hotelId: string;
     frontOfficeStatus?: GetRoomsByRoomStatusFrontOfficeStatusEnum;
 }
 
 export interface GetTaskSheetStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -117,23 +117,11 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.statisticsCode === null || requestParameters.statisticsCode === undefined) {
             throw new runtime.RequiredError('statisticsCode','Required parameter requestParameters.statisticsCode was null or undefined when calling getFrontOfficeStatistics.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFrontOfficeStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFrontOfficeStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFrontOfficeStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFrontOfficeStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.date !== undefined) {
@@ -205,23 +193,11 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.statisticsCode === null || requestParameters.statisticsCode === undefined) {
             throw new runtime.RequiredError('statisticsCode','Required parameter requestParameters.statisticsCode was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
@@ -297,19 +273,7 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationQueueStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationQueueStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationQueueStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationQueueStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -361,23 +325,11 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationStatusStatistics.');
         }
-
+        
         if (requestParameters.reservationStatus === null || requestParameters.reservationStatus === undefined) {
             throw new runtime.RequiredError('reservationStatus','Required parameter requestParameters.reservationStatus was null or undefined when calling getReservationStatusStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationStatusStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationStatusStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationStatusStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.reservationStatus) {
@@ -433,7 +385,7 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomsByRoomStatus.');
         }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.frontOfficeStatus !== undefined) {
@@ -469,19 +421,7 @@ export class FOFStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaskSheetStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeAllAssignedTasks !== undefined) {

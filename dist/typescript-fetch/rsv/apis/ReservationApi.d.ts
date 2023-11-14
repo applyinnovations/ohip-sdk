@@ -12,20 +12,20 @@
 import * as runtime from '../runtime';
 import type { ActivityLog, Alerts, AttachCertificate, AwardUpgrades, BreakShareValidations, BreakShareValidationsDetails, CallHistory, CallStatistics, CancelReservation, CancelReservationDetails, CancelReservations, CancellationHistory, ChangeDepositPolicyDetails, ChangeGuestMessages, ChangeReservation, ChangeReservationDetails, ChangeResvGuestMessages, ChangeShareRateAmount, ChangeSharingGuests, CheckReservationsDetails, CombineShareReservations, CombineShareReservationsDetails, CombineShareValidations, CombineShareValidationsDetails, ComputeCancellationPolicies, ComputeCancellationPoliciesDetails, ComputeDepositPolicies, ComputeDepositPoliciesDetails, ConfirmationLetters, ConfirmationLettersDetails, CopyReservation, CreateGuestMessages, CreateReservationType, DeliveryHistoryLog, ECoupons, ECouponsInfo, ExtendReservationLock, ExtendReservationLockDetails, FetchReservations, FetchSellMessageConfig, FutureReservationsOrBlocksDetails, GuestMessages, GuestMessagesDetails, InventoryItems, LinkReservationsCriteria, LinkedHotelReservations, LinkedReservationsInfo, MasterAccount, MasterAccountSummary, MergeReservationsStatus, MoveReservationHotel, MoveReservationHotelDetails, OverlappingStay, OverlappingStayDetails, Packages, PostCancelReservationRequest, PostPreCheckInReservationRequest, PostReservationByBlockRequest, PostReservationLinksRequest, PostReservationRequest, PostUpsellReservationRequest, PreArrivalMemberReservationsDetails, PreConfiguredRoutingInstructions, PutReservationRequest, PutValidateReservationChangesRequest, RateInfo, RecentlyAccessedReservations, RegisterCall, RegisterTurnaway, ReinstateReservation, ReinstateReservationDetails, Reservation, ReservationAlerts, ReservationAttachments, ReservationAwards, ReservationCancellationPolicyCriteria, ReservationConfirmationLetters, ReservationDailyRateDetail, ReservationDailyRateDetailDetails, ReservationDepositPolicyCriteria, ReservationExcludedPreferences, ReservationLocators, ReservationLocatorsDetails, ReservationLocatorsDetailsInfo, ReservationLocatorsInfo, ReservationLocatorsStatus, ReservationLock, ReservationLockDetails, ReservationMembership, ReservationPackagesInfo, ReservationPaymentMethods, ReservationPolicies, ReservationPreference, ReservationPreferenceDetails, ReservationPreferenceInfo, ReservationRoutingCriteria, ReservationUpsellInfo, ReservationsDetails, ReservationsSummary, ReservationsToMerge, ReservationsUpgradeEligibility, ReservationsUpgradeEligibilityDetails, ReserveInventoryItems, ReservedInventoryItemsInfo, ReverseDepositPolicy, RoomCalendar, RoutingInstructions, RoutingInstructionsInfo, Script, SellMessageConfig, SellMessages, ShareReservations, SplitMultiRoomReservation, SplitMultiRoomReservationDetails, Status, Tickets, TicketsInfo, Traces, TransactionDiversions, TransactionDiversionsDetails, TransactionDiversionsInfo, UpgradeEligibilityReservations, ValidateRateInfo, ValidateReservationChangesDetails } from '../models/index';
 export interface ChangeReservationLocatorsRequest {
-    locatorId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    locatorId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationLocatorsInfo?: ReservationLocatorsInfo;
+    reservationLocatorsInfo: ReservationLocatorsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCancellationPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    policyId?: string;
+    reservationId: string;
+    hotelId: string;
+    policyId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -33,9 +33,9 @@ export interface DeleteCancellationPolicyRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDepositPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    policyId?: string;
+    reservationId: string;
+    hotelId: string;
+    policyId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -43,8 +43,8 @@ export interface DeleteDepositPolicyRequest {
     acceptLanguage?: string;
 }
 export interface DeleteECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -53,9 +53,9 @@ export interface DeleteECouponsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteGuestMessagesRequest {
-    guestMessageId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    guestMessageId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -63,8 +63,8 @@ export interface DeleteGuestMessagesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMasterAccountRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,8 +72,8 @@ export interface DeleteMasterAccountRequest {
     acceptLanguage?: string;
 }
 export interface DeletePaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -81,8 +81,8 @@ export interface DeletePaymentMethodsRequest {
     acceptLanguage?: string;
 }
 export interface DeletePreCheckInReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -148,8 +148,8 @@ export interface DeletePreCheckInReservationRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRefundTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -157,9 +157,9 @@ export interface DeleteRefundTicketsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationAttachmentRequest {
-    attachmentId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    attachmentId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -167,8 +167,8 @@ export interface DeleteReservationAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationCertificateRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -176,8 +176,8 @@ export interface DeleteReservationCertificateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -185,7 +185,7 @@ export interface DeleteReservationLinksRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksByChainRequest {
-    reservationId?: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -193,9 +193,9 @@ export interface DeleteReservationLinksByChainRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -203,9 +203,9 @@ export interface DeleteReservationLinksByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationLocatorsRequest {
-    locatorId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    locatorId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -213,8 +213,8 @@ export interface DeleteReservationLocatorsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationLockRequest {
-    lockHandle?: string;
-    hotelId?: string;
+    lockHandle: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -222,8 +222,8 @@ export interface DeleteReservationLockRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationMembershipRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -231,8 +231,8 @@ export interface DeleteReservationMembershipRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -240,9 +240,9 @@ export interface DeleteReservationPackageRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationPreferenceRequest {
-    preferenceCode?: string;
-    reservationId?: string;
-    hotelId?: string;
+    preferenceCode: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -250,8 +250,8 @@ export interface DeleteReservationPreferenceRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservedInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -259,8 +259,8 @@ export interface DeleteReservedInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -268,7 +268,7 @@ export interface DeleteRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteSellMessageConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -284,8 +284,8 @@ export interface DeleteSellMessageConfigByChainRequest {
     acceptLanguage?: string;
 }
 export interface DeleteShareReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -297,9 +297,9 @@ export interface DeleteShareReservationRequest {
     acceptLanguage?: string;
 }
 export interface DeleteShareReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -311,8 +311,8 @@ export interface DeleteShareReservationByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -320,8 +320,8 @@ export interface DeleteTicketsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -329,8 +329,8 @@ export interface DeleteTransactionDiversionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteUpsellRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -338,8 +338,8 @@ export interface DeleteUpsellRequest {
     acceptLanguage?: string;
 }
 export interface GetAlertNoticesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -349,7 +349,7 @@ export interface GetAlertNoticesRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardUpgradesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -369,7 +369,7 @@ export interface GetAwardUpgradesRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -378,8 +378,8 @@ export interface GetAwardsRequest {
     acceptLanguage?: string;
 }
 export interface GetCallHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -398,8 +398,8 @@ export interface GetCallStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetCancellationHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -428,7 +428,7 @@ export interface GetCancellationHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetConfirmationLettersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -457,8 +457,8 @@ export interface GetConfirmationLettersRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -468,7 +468,7 @@ export interface GetECouponsRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalSystemDeliveryHistoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -478,8 +478,8 @@ export interface GetExternalSystemDeliveryHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalSystemReservationsRequest {
-    extSystemCode?: string;
-    externalReferenceList?: Array<string>;
+    extSystemCode: string;
+    externalReferenceList: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -586,7 +586,7 @@ export interface GetExternalSystemReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetFutureReservationsOrBlocksRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -594,7 +594,7 @@ export interface GetFutureReservationsOrBlocksRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -618,7 +618,7 @@ export interface GetGuestMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -753,8 +753,8 @@ export interface GetHotelReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -765,8 +765,8 @@ export interface GetLinkedReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsSummaryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -776,8 +776,8 @@ export interface GetLinkedReservationsSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -797,8 +797,8 @@ export interface GetPackageRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -807,7 +807,7 @@ export interface GetPaymentMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetPreArrivalMemberReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -819,7 +819,7 @@ export interface GetPreArrivalMemberReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetPreConfiguredRoutingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -845,7 +845,7 @@ export interface GetPreConfiguredRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetRateInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -883,8 +883,8 @@ export interface GetRecentlyAccessedReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetReprintTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -903,8 +903,8 @@ export interface GetReprintTicketsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -915,7 +915,7 @@ export interface GetReservationRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationActivityLogRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -934,8 +934,8 @@ export interface GetReservationActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationAttachmentsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -944,9 +944,9 @@ export interface GetReservationAttachmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -956,8 +956,8 @@ export interface GetReservationByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationExcludedPreferencesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -976,8 +976,8 @@ export interface GetReservationIndicatorsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationLocatorsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -985,8 +985,8 @@ export interface GetReservationLocatorsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPoliciesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -996,8 +996,8 @@ export interface GetReservationPoliciesRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPreferenceRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1006,8 +1006,8 @@ export interface GetReservationPreferenceRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationUpsellInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1133,7 +1133,7 @@ export interface GetReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsSummaryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1161,8 +1161,8 @@ export interface GetReservationsSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsToShareByProfileIdRequest {
-    profileIdtoShare?: string;
-    hotelId?: string;
+    profileIdtoShare: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1181,8 +1181,8 @@ export interface GetReservationsToShareByProfileIdRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsToShareByReservationIdRequest {
-    reservationIdtoShare?: string;
-    hotelId?: string;
+    reservationIdtoShare: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1201,8 +1201,8 @@ export interface GetReservationsToShareByReservationIdRequest {
     acceptLanguage?: string;
 }
 export interface GetReservedInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1210,7 +1210,7 @@ export interface GetReservedInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomCalendarRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1244,8 +1244,8 @@ export interface GetRoomCalendarRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1258,7 +1258,7 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetScriptRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1270,7 +1270,7 @@ export interface GetScriptRequest {
     acceptLanguage?: string;
 }
 export interface GetSellMessageConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1330,8 +1330,8 @@ export interface GetSellMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetShareReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1339,9 +1339,9 @@ export interface GetShareReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetShareReservationsByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1349,8 +1349,8 @@ export interface GetShareReservationsByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1361,8 +1361,8 @@ export interface GetTicketsRequest {
     acceptLanguage?: string;
 }
 export interface GetTicketsInquiryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1381,8 +1381,8 @@ export interface GetTicketsInquiryRequest {
     acceptLanguage?: string;
 }
 export interface GetTracesByReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1390,8 +1390,8 @@ export interface GetTracesByReservationRequest {
     acceptLanguage?: string;
 }
 export interface GetTracesByRoomRequest {
-    roomId?: string;
-    hotelId?: string;
+    roomId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1399,8 +1399,8 @@ export interface GetTracesByRoomRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1410,7 +1410,7 @@ export interface GetTransactionDiversionsRequest {
     acceptLanguage?: string;
 }
 export interface GetUpgradeEligibilityReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1422,31 +1422,31 @@ export interface GetUpgradeEligibilityReservationsRequest {
     acceptLanguage?: string;
 }
 export interface MergeReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationsToMerge?: ReservationsToMerge;
+    reservationsToMerge: ReservationsToMerge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBreakReservationLockRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationLock?: ReservationLock;
+    reservationLock: ReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBulkReservationAlertsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationAlerts?: ReservationAlerts;
+    reservationAlerts: ReservationAlerts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1454,316 +1454,316 @@ export interface PostCallRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    registerCall?: RegisterCall;
+    registerCall: RegisterCall;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancelReservation?: PostCancelReservationRequest;
+    cancelReservation: PostCancelReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancelReservation?: CancelReservation;
+    cancelReservation: CancelReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancelReservations?: CancelReservations;
+    cancelReservations: CancelReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelShareReservationRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancelReservation?: CancelReservation;
+    cancelReservation: CancelReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancellationPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationCancellationPolicyCriteria?: ReservationCancellationPolicyCriteria;
+    reservationCancellationPolicyCriteria: ReservationCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCombineShareReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    combineShareReservations?: CombineShareReservations;
+    combineShareReservations: CombineShareReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCombineShareReservationsByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    combineShareReservations?: CombineShareReservations;
+    combineShareReservations: CombineShareReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostConfirmationLettersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    confirmationLetters?: ConfirmationLetters;
+    confirmationLetters: ConfirmationLetters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationDepositPolicyCriteria?: ReservationDepositPolicyCriteria;
+    reservationDepositPolicyCriteria: ReservationDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCouponsInfo?: ECouponsInfo;
+    eCouponsInfo: ECouponsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGuestMessagesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createGuestMessages?: CreateGuestMessages;
+    createGuestMessages: CreateGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostIssueTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ticketsInfo?: TicketsInfo;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMasterAccountRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    masterAccount?: MasterAccount;
+    masterAccount: MasterAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPaymentMethods?: ReservationPaymentMethods;
+    reservationPaymentMethods: ReservationPaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreCheckInReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preCheckInReservation?: PostPreCheckInReservationRequest;
+    preCheckInReservation: PostPreCheckInReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationOperationRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createReservation?: PostReservationRequest;
+    createReservation: PostReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationByBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createReservation?: PostReservationByBlockRequest;
+    createReservation: PostReservationByBlockRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationCertificateRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    attachCertificate?: AttachCertificate;
+    attachCertificate: AttachCertificate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationCopyRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyReservation?: CopyReservation;
+    copyReservation: CopyReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLinksOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    linkReservationsCriteria?: PostReservationLinksRequest;
+    linkReservationsCriteria: PostReservationLinksRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLinksByChainRequest {
-    reservationId?: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    linkReservationsCriteria?: LinkReservationsCriteria;
+    linkReservationsCriteria: LinkReservationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLinksByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    linkReservationsCriteria?: LinkReservationsCriteria;
+    linkReservationsCriteria: LinkReservationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLocatorsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationLocatorsDetailsInfo?: ReservationLocatorsDetailsInfo;
+    reservationLocatorsDetailsInfo: ReservationLocatorsDetailsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationMembershipRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationMembership?: ReservationMembership;
+    reservationMembership: ReservationMembership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPackagesInfo?: ReservationPackagesInfo;
+    reservationPackagesInfo: ReservationPackagesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationPreferenceRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPreferenceInfo?: ReservationPreferenceInfo;
+    reservationPreferenceInfo: ReservationPreferenceInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReserveInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reserveInventoryItems?: ReserveInventoryItems;
+    reserveInventoryItems: ReserveInventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReverseDepositPolicyRequest {
-    policyId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    policyId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reverseDepositPolicy?: ReverseDepositPolicy;
+    reverseDepositPolicy: ReverseDepositPolicy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationRoutingCriteria?: ReservationRoutingCriteria;
+    reservationRoutingCriteria: ReservationRoutingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoutingInstructionsByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationRoutingCriteria?: ReservationRoutingCriteria;
+    reservationRoutingCriteria: ReservationRoutingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSellMessageConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellMessageConfig?: SellMessageConfig;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1771,318 +1771,318 @@ export interface PostSellMessageConfigByChainRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellMessageConfig?: SellMessageConfig;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ticketsInfo?: TicketsInfo;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionsInfo?: TransactionDiversionsInfo;
+    transactionDiversionsInfo: TransactionDiversionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTurnawayReservationRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    registerTurnaway?: RegisterTurnaway;
+    registerTurnaway: RegisterTurnaway;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostUpsellReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    upsellReservation?: PostUpsellReservationRequest;
+    upsellReservation: PostUpsellReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAcquireReservationLockRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationLock?: ReservationLock;
+    reservationLock: ReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBreakShareValidationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    breakShareValidations?: BreakShareValidations;
+    breakShareValidations: BreakShareValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCancellationPolicyRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationCancellationPolicyCriteria?: ReservationCancellationPolicyCriteria;
+    reservationCancellationPolicyCriteria: ReservationCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCombineShareValidationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    combineShareValidations?: CombineShareValidations;
+    combineShareValidations: CombineShareValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutComputeCancellationPoliciesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    computeCancellationPolicies?: ComputeCancellationPolicies;
+    computeCancellationPolicies: ComputeCancellationPolicies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutComputeDepositPoliciesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    computeDepositPolicies?: ComputeDepositPolicies;
+    computeDepositPolicies: ComputeDepositPolicies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutDepositPolicyRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationDepositPolicyCriteria?: ReservationDepositPolicyCriteria;
+    reservationDepositPolicyCriteria: ReservationDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCouponsInfo?: ECouponsInfo;
+    eCouponsInfo: ECouponsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutGuestMessagesRequest {
-    guestMessageId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    guestMessageId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeGuestMessages?: ChangeGuestMessages;
+    changeGuestMessages: ChangeGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMasterAccountRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    masterAccount?: MasterAccount;
+    masterAccount: MasterAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPaymentMethods?: ReservationPaymentMethods;
+    reservationPaymentMethods: ReservationPaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReinstateReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reinstateReservation?: ReinstateReservation;
+    reinstateReservation: ReinstateReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReinstateReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reinstateReservation?: ReinstateReservation;
+    reinstateReservation: ReinstateReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeReservation?: PutReservationRequest;
+    changeReservation: PutReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeReservation?: ChangeReservation;
+    changeReservation: ChangeReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationDailyRateDetailValidationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationDailyRateDetail?: ReservationDailyRateDetail;
+    reservationDailyRateDetail: ReservationDailyRateDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationHeaderValidationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationDailyRateDetail?: ReservationDailyRateDetail;
+    reservationDailyRateDetail: ReservationDailyRateDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationHotelMoveRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    moveReservationHotel?: MoveReservationHotel;
+    moveReservationHotel: MoveReservationHotel;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationLockRequest {
-    lockHandle?: string;
-    hotelId?: string;
+    lockHandle: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    extendReservationLock?: ExtendReservationLock;
+    extendReservationLock: ExtendReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPackagesInfo?: ReservationPackagesInfo;
+    reservationPackagesInfo: ReservationPackagesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationPreferenceRequest {
-    preferenceCode?: string;
-    reservationId?: string;
-    hotelId?: string;
+    preferenceCode: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationPreferenceInfo?: ReservationPreferenceInfo;
+    reservationPreferenceInfo: ReservationPreferenceInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationsUpgradeEligibilityRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationsUpgradeEligibility?: ReservationsUpgradeEligibility;
+    reservationsUpgradeEligibility: ReservationsUpgradeEligibility;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservedInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservedInventoryItemsInfo?: ReservedInventoryItemsInfo;
+    reservedInventoryItemsInfo: ReservedInventoryItemsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutResvGuestMessagesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeResvGuestMessages?: ChangeResvGuestMessages;
+    changeResvGuestMessages: ChangeResvGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructionsInfo?: RoutingInstructionsInfo;
+    routingInstructionsInfo: RoutingInstructionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoutingInstructionsByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructionsInfo?: RoutingInstructionsInfo;
+    routingInstructionsInfo: RoutingInstructionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutSellMessageConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellMessageConfig?: SellMessageConfig;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2090,93 +2090,93 @@ export interface PutSellMessageConfigByChainRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellMessageConfig?: SellMessageConfig;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutShareRateAmountRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeShareRateAmount?: ChangeShareRateAmount;
+    changeShareRateAmount: ChangeShareRateAmount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutSharingGuestsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeSharingGuests?: ChangeSharingGuests;
+    changeSharingGuests: ChangeSharingGuests;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutSplitMultiRoomReservationRequest {
-    reservationId?: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    splitMultiRoomReservation?: SplitMultiRoomReservation;
+    splitMultiRoomReservation: SplitMultiRoomReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ticketsInfo?: TicketsInfo;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionDiversionsInfo?: TransactionDiversionsInfo;
+    transactionDiversionsInfo: TransactionDiversionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateOverlappingStayRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overlappingStay?: OverlappingStay;
+    overlappingStay: OverlappingStay;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateOverlappingStaysRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overlappingStay?: OverlappingStay;
+    overlappingStay: OverlappingStay;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateReservationChangesOperationRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    validateReservationChanges?: PutValidateReservationChangesRequest;
+    validateReservationChanges: PutValidateReservationChangesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateRateInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    validateRateInfo?: ValidateRateInfo;
+    validateRateInfo: ValidateRateInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

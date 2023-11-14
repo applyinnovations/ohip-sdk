@@ -61,15 +61,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.cancelpolicycode === null || requestParameters.cancelpolicycode === undefined) {
                 throw new runtime.RequiredError('cancelpolicycode', 'Required parameter requestParameters.cancelpolicycode was null or undefined when calling changeCancellationPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeCancellationPolicy.');
-            }
             if (requestParameters.cancellationPolicyToBeChanged === null || requestParameters.cancellationPolicyToBeChanged === undefined) {
                 throw new runtime.RequiredError('cancellationPolicyToBeChanged', 'Required parameter requestParameters.cancellationPolicyToBeChanged was null or undefined when calling changeCancellationPolicy.');
             }
@@ -120,15 +111,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.depositpolicycode === null || requestParameters.depositpolicycode === undefined) {
                 throw new runtime.RequiredError('depositpolicycode', 'Required parameter requestParameters.depositpolicycode was null or undefined when calling changeDepositPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeDepositPolicy.');
-            }
             if (requestParameters.depositPolicyToBeChanged === null || requestParameters.depositPolicyToBeChanged === undefined) {
                 throw new runtime.RequiredError('depositPolicyToBeChanged', 'Required parameter requestParameters.depositPolicyToBeChanged was null or undefined when calling changeDepositPolicy.');
             }
@@ -178,15 +160,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
                 throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling changeGuaranteeCode.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeGuaranteeCode.');
             }
             if (requestParameters.guaranteeCodeToBeChanged === null || requestParameters.guaranteeCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('guaranteeCodeToBeChanged', 'Required parameter requestParameters.guaranteeCodeToBeChanged was null or undefined when calling changeGuaranteeCode.');
@@ -241,15 +214,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeGuaranteeCodeSchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeGuaranteeCodeSchedule.');
-            }
             if (requestParameters.guaranteeCodeScheduleToBeChanged === null || requestParameters.guaranteeCodeScheduleToBeChanged === undefined) {
                 throw new runtime.RequiredError('guaranteeCodeScheduleToBeChanged', 'Required parameter requestParameters.guaranteeCodeScheduleToBeChanged was null or undefined when calling changeGuaranteeCodeSchedule.');
             }
@@ -302,15 +266,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeMarketCode.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeMarketCode.');
             }
             if (requestParameters.marketCodeToBeChanged === null || requestParameters.marketCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('marketCodeToBeChanged', 'Required parameter requestParameters.marketCodeToBeChanged was null or undefined when calling changeMarketCode.');
@@ -365,15 +320,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeMarketGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeMarketGroup.');
-            }
             if (requestParameters.marketGroupToBeChanged === null || requestParameters.marketGroupToBeChanged === undefined) {
                 throw new runtime.RequiredError('marketGroupToBeChanged', 'Required parameter requestParameters.marketGroupToBeChanged was null or undefined when calling changeMarketGroup.');
             }
@@ -427,15 +373,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changePolicySchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changePolicySchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changePolicySchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changePolicySchedule.');
-            }
             if (requestParameters.policyScheduleToBeChanged === null || requestParameters.policyScheduleToBeChanged === undefined) {
                 throw new runtime.RequiredError('policyScheduleToBeChanged', 'Required parameter requestParameters.policyScheduleToBeChanged was null or undefined when calling changePolicySchedule.');
             }
@@ -485,15 +422,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changePreCheckInRules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changePreCheckInRules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changePreCheckInRules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changePreCheckInRules.');
             }
             if (requestParameters.preCheckInRulesToBeChanged === null || requestParameters.preCheckInRulesToBeChanged === undefined) {
                 throw new runtime.RequiredError('preCheckInRulesToBeChanged', 'Required parameter requestParameters.preCheckInRulesToBeChanged was null or undefined when calling changePreCheckInRules.');
@@ -548,15 +476,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeServiceRequestCodePriorities.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeServiceRequestCodePriorities.');
-            }
             if (requestParameters.serviceRequestCodePrioritiesToBeChanged === null || requestParameters.serviceRequestCodePrioritiesToBeChanged === undefined) {
                 throw new runtime.RequiredError('serviceRequestCodePrioritiesToBeChanged', 'Required parameter requestParameters.serviceRequestCodePrioritiesToBeChanged was null or undefined when calling changeServiceRequestCodePriorities.');
             }
@@ -606,15 +525,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeServiceRequestCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeServiceRequestCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeServiceRequestCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeServiceRequestCodes.');
             }
             if (requestParameters.serviceRequestCodesToBeChanged === null || requestParameters.serviceRequestCodesToBeChanged === undefined) {
                 throw new runtime.RequiredError('serviceRequestCodesToBeChanged', 'Required parameter requestParameters.serviceRequestCodesToBeChanged was null or undefined when calling changeServiceRequestCodes.');
@@ -669,15 +579,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeSourceCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeSourceCode.');
-            }
             if (requestParameters.sourceCodeToBeChanged === null || requestParameters.sourceCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('sourceCodeToBeChanged', 'Required parameter requestParameters.sourceCodeToBeChanged was null or undefined when calling changeSourceCode.');
             }
@@ -731,15 +632,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeSourceGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeSourceGroup.');
-            }
             if (requestParameters.sourceGroupToBeChanged === null || requestParameters.sourceGroupToBeChanged === undefined) {
                 throw new runtime.RequiredError('sourceGroupToBeChanged', 'Required parameter requestParameters.sourceGroupToBeChanged was null or undefined when calling changeSourceGroup.');
             }
@@ -789,15 +681,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
                 throw new runtime.RequiredError('cancelpolicytemplate', 'Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling changeTemplateCancellationPolicy.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateCancellationPolicy.');
             }
             if (requestParameters.templateCancellationPolicyToBeChanged === null || requestParameters.templateCancellationPolicyToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateCancellationPolicyToBeChanged', 'Required parameter requestParameters.templateCancellationPolicyToBeChanged was null or undefined when calling changeTemplateCancellationPolicy.');
@@ -849,15 +732,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
                 throw new runtime.RequiredError('depositpolicytemplate', 'Required parameter requestParameters.depositpolicytemplate was null or undefined when calling changeTemplateDepositPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateDepositPolicy.');
-            }
             if (requestParameters.templateDepositPolicyToBeChanged === null || requestParameters.templateDepositPolicyToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateDepositPolicyToBeChanged', 'Required parameter requestParameters.templateDepositPolicyToBeChanged was null or undefined when calling changeTemplateDepositPolicy.');
             }
@@ -907,15 +781,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
                 throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling changeTemplateGuaranteeCode.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateGuaranteeCode.');
             }
             if (requestParameters.templateGuaranteeCodeToBeChanged === null || requestParameters.templateGuaranteeCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateGuaranteeCodeToBeChanged', 'Required parameter requestParameters.templateGuaranteeCodeToBeChanged was null or undefined when calling changeTemplateGuaranteeCode.');
@@ -967,15 +832,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
                 throw new runtime.RequiredError('marketcode', 'Required parameter requestParameters.marketcode was null or undefined when calling changeTemplateMarketCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateMarketCode.');
-            }
             if (requestParameters.templateMarketCodeToBeChanged === null || requestParameters.templateMarketCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateMarketCodeToBeChanged', 'Required parameter requestParameters.templateMarketCodeToBeChanged was null or undefined when calling changeTemplateMarketCode.');
             }
@@ -1025,15 +881,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
                 throw new runtime.RequiredError('marketGroupCode', 'Required parameter requestParameters.marketGroupCode was null or undefined when calling changeTemplateMarketGroup.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateMarketGroup.');
             }
             if (requestParameters.templateMarketGroupToBeChanged === null || requestParameters.templateMarketGroupToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateMarketGroupToBeChanged', 'Required parameter requestParameters.templateMarketGroupToBeChanged was null or undefined when calling changeTemplateMarketGroup.');
@@ -1085,15 +932,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
                 throw new runtime.RequiredError('sourceCode', 'Required parameter requestParameters.sourceCode was null or undefined when calling changeTemplateSourceCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateSourceCode.');
-            }
             if (requestParameters.templateSourceCodeToBeChanged === null || requestParameters.templateSourceCodeToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateSourceCodeToBeChanged', 'Required parameter requestParameters.templateSourceCodeToBeChanged was null or undefined when calling changeTemplateSourceCode.');
             }
@@ -1141,15 +979,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     changeTemplateSourceGroupRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateSourceGroup.');
-            }
             if (requestParameters.templateSourceGroupToBeChanged === null || requestParameters.templateSourceGroupToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateSourceGroupToBeChanged', 'Required parameter requestParameters.templateSourceGroupToBeChanged was null or undefined when calling changeTemplateSourceGroup.');
             }
@@ -1202,15 +1031,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling copyGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyGuaranteeCodeSchedules.');
             }
             if (requestParameters.copyGuaranteeCodeSchedules === null || requestParameters.copyGuaranteeCodeSchedules === undefined) {
                 throw new runtime.RequiredError('copyGuaranteeCodeSchedules', 'Required parameter requestParameters.copyGuaranteeCodeSchedules was null or undefined when calling copyGuaranteeCodeSchedules.');
@@ -1265,15 +1085,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling copyPolicySchedules.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyPolicySchedules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyPolicySchedules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyPolicySchedules.');
-            }
             if (requestParameters.copyPolicySchedules === null || requestParameters.copyPolicySchedules === undefined) {
                 throw new runtime.RequiredError('copyPolicySchedules', 'Required parameter requestParameters.copyPolicySchedules was null or undefined when calling copyPolicySchedules.');
             }
@@ -1323,15 +1134,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
                 throw new runtime.RequiredError('sourceHotelId', 'Required parameter requestParameters.sourceHotelId was null or undefined when calling copyServiceRequestCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyServiceRequestCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyServiceRequestCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyServiceRequestCodes.');
             }
             if (requestParameters.copyServiceRequestCodes === null || requestParameters.copyServiceRequestCodes === undefined) {
                 throw new runtime.RequiredError('copyServiceRequestCodes', 'Required parameter requestParameters.copyServiceRequestCodes was null or undefined when calling copyServiceRequestCodes.');
@@ -1386,15 +1188,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteCancellationPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCancellationPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -1446,15 +1239,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteDepositPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteDepositPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -1502,15 +1286,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
                 throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteGuaranteeCode.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteeCode.');
             }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
@@ -1562,15 +1337,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteeCodeSchedule.');
             }
             const queryParameters = {};
             if (requestParameters.idContext !== undefined) {
@@ -1626,15 +1392,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deletePolicySchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deletePolicySchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deletePolicySchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deletePolicySchedule.');
-            }
             const queryParameters = {};
             if (requestParameters.idContext !== undefined) {
                 queryParameters['idContext'] = requestParameters.idContext;
@@ -1686,15 +1443,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
                 throw new runtime.RequiredError('cancelpolicytemplate', 'Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling deleteTemplateCancellationPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateCancellationPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.policyCode !== undefined) {
                 queryParameters['policyCode'] = requestParameters.policyCode;
@@ -1742,15 +1490,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
                 throw new runtime.RequiredError('depositpolicytemplate', 'Required parameter requestParameters.depositpolicytemplate was null or undefined when calling deleteTemplateDepositPolicy.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateDepositPolicy.');
             }
             const queryParameters = {};
             if (requestParameters.policyCode !== undefined) {
@@ -1800,15 +1539,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
                 throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteTemplateGuaranteeCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateGuaranteeCode.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1851,15 +1581,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getCancellationPolicyRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCancellationPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -1917,15 +1638,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getDepositPolicyRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDepositPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -1985,15 +1697,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteeCodeSchedules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteeCodeSchedules.');
             }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
@@ -2070,15 +1773,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getGuaranteeCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getGuaranteeCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteeCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteeCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2136,15 +1830,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getMarketCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getMarketCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getMarketCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getMarketCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2205,15 +1890,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getMarketGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getMarketGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getMarketGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getMarketGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2276,15 +1952,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getPolicySchedules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getPolicySchedules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getPolicySchedules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getPolicySchedules.');
             }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
@@ -2379,15 +2046,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getPreCheckInRules.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getPreCheckInRules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getPreCheckInRules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getPreCheckInRules.');
-            }
             const queryParameters = {};
             if (requestParameters.date !== undefined) {
                 queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
@@ -2436,15 +2094,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getServiceRequestCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCode.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2512,15 +2161,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequestCodePriorities.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodePriorities.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -2573,15 +2213,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getServiceRequestCodePriorityRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodePriority.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodePriority.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodePriority.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -2643,15 +2274,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequestCodes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2712,15 +2334,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getSourceCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getSourceCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getSourceCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getSourceCodes.');
             }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
@@ -2785,15 +2398,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getSourceGroups.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getSourceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getSourceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getSourceGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -2854,15 +2458,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateCancellationPolicyRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCancellationPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2920,15 +2515,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateDepositPolicyRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateDepositPolicy.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2986,15 +2572,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateGuaranteeCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateGuaranteeCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateGuaranteeCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateGuaranteeCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -3049,15 +2626,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateMarketCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -3115,15 +2683,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateMarketGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -3181,15 +2740,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateSourceCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -3247,15 +2797,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getTemplateSourceGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -3316,15 +2857,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.cancelpolicycode === null || requestParameters.cancelpolicycode === undefined) {
                 throw new runtime.RequiredError('cancelpolicycode', 'Required parameter requestParameters.cancelpolicycode was null or undefined when calling postCancellationPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCancellationPolicy.');
-            }
             if (requestParameters.cancellationPolicyCriteria === null || requestParameters.cancellationPolicyCriteria === undefined) {
                 throw new runtime.RequiredError('cancellationPolicyCriteria', 'Required parameter requestParameters.cancellationPolicyCriteria was null or undefined when calling postCancellationPolicy.');
             }
@@ -3375,15 +2907,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.depositpolicycode === null || requestParameters.depositpolicycode === undefined) {
                 throw new runtime.RequiredError('depositpolicycode', 'Required parameter requestParameters.depositpolicycode was null or undefined when calling postDepositPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postDepositPolicy.');
-            }
             if (requestParameters.depositPolicyCriteria === null || requestParameters.depositPolicyCriteria === undefined) {
                 throw new runtime.RequiredError('depositPolicyCriteria', 'Required parameter requestParameters.depositPolicyCriteria was null or undefined when calling postDepositPolicy.');
             }
@@ -3431,15 +2954,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     postGuaranteeCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteeCode.');
-            }
             if (requestParameters.guaranteeCodeCriteria === null || requestParameters.guaranteeCodeCriteria === undefined) {
                 throw new runtime.RequiredError('guaranteeCodeCriteria', 'Required parameter requestParameters.guaranteeCodeCriteria was null or undefined when calling postGuaranteeCode.');
             }
@@ -3489,15 +3003,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteeCodeSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteeCodeSchedule.');
             }
             if (requestParameters.guaranteeCodeScheduleCriteria === null || requestParameters.guaranteeCodeScheduleCriteria === undefined) {
                 throw new runtime.RequiredError('guaranteeCodeScheduleCriteria', 'Required parameter requestParameters.guaranteeCodeScheduleCriteria was null or undefined when calling postGuaranteeCodeSchedule.');
@@ -3552,15 +3057,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postMarketCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postMarketCode.');
-            }
             if (requestParameters.marketCodeCriteria === null || requestParameters.marketCodeCriteria === undefined) {
                 throw new runtime.RequiredError('marketCodeCriteria', 'Required parameter requestParameters.marketCodeCriteria was null or undefined when calling postMarketCode.');
             }
@@ -3614,15 +3110,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postMarketGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postMarketGroup.');
-            }
             if (requestParameters.marketGroupCriteria === null || requestParameters.marketGroupCriteria === undefined) {
                 throw new runtime.RequiredError('marketGroupCriteria', 'Required parameter requestParameters.marketGroupCriteria was null or undefined when calling postMarketGroup.');
             }
@@ -3672,15 +3159,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postNewPolicySchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postNewPolicySchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postNewPolicySchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postNewPolicySchedule.');
             }
             if (requestParameters.policyScheduleCriteria === null || requestParameters.policyScheduleCriteria === undefined) {
                 throw new runtime.RequiredError('policyScheduleCriteria', 'Required parameter requestParameters.policyScheduleCriteria was null or undefined when calling postNewPolicySchedule.');
@@ -3736,15 +3214,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postPolicySchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postPolicySchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postPolicySchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postPolicySchedule.');
-            }
             if (requestParameters.policyScheduleCriteria === null || requestParameters.policyScheduleCriteria === undefined) {
                 throw new runtime.RequiredError('policyScheduleCriteria', 'Required parameter requestParameters.policyScheduleCriteria was null or undefined when calling postPolicySchedule.');
             }
@@ -3795,15 +3264,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postPreCheckInRules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postPreCheckInRules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postPreCheckInRules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postPreCheckInRules.');
             }
             if (requestParameters.preCheckInRulesCriteria === null || requestParameters.preCheckInRulesCriteria === undefined) {
                 throw new runtime.RequiredError('preCheckInRulesCriteria', 'Required parameter requestParameters.preCheckInRulesCriteria was null or undefined when calling postPreCheckInRules.');
@@ -3858,15 +3318,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postServiceRequestCodePriorities.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postServiceRequestCodePriorities.');
-            }
             if (requestParameters.serviceRequestCodePrioritiesCriteria === null || requestParameters.serviceRequestCodePrioritiesCriteria === undefined) {
                 throw new runtime.RequiredError('serviceRequestCodePrioritiesCriteria', 'Required parameter requestParameters.serviceRequestCodePrioritiesCriteria was null or undefined when calling postServiceRequestCodePriorities.');
             }
@@ -3916,15 +3367,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postServiceRequestCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postServiceRequestCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postServiceRequestCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postServiceRequestCodes.');
             }
             if (requestParameters.serviceRequestCodesCriteria === null || requestParameters.serviceRequestCodesCriteria === undefined) {
                 throw new runtime.RequiredError('serviceRequestCodesCriteria', 'Required parameter requestParameters.serviceRequestCodesCriteria was null or undefined when calling postServiceRequestCodes.');
@@ -3976,15 +3418,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postSourceCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postSourceCode.');
-            }
             if (requestParameters.sourceCodeCriteria === null || requestParameters.sourceCodeCriteria === undefined) {
                 throw new runtime.RequiredError('sourceCodeCriteria', 'Required parameter requestParameters.sourceCodeCriteria was null or undefined when calling postSourceCode.');
             }
@@ -4034,15 +3467,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postSourceGroup.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postSourceGroup.');
             }
             if (requestParameters.sourceGroupCriteria === null || requestParameters.sourceGroupCriteria === undefined) {
                 throw new runtime.RequiredError('sourceGroupCriteria', 'Required parameter requestParameters.sourceGroupCriteria was null or undefined when calling postSourceGroup.');
@@ -4094,15 +3518,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
                 throw new runtime.RequiredError('cancelpolicytemplate', 'Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling postTemplateCancellationPolicy.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCancellationPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCancellationPolicy.');
-            }
             if (requestParameters.templateCancellationPolicyCriteria === null || requestParameters.templateCancellationPolicyCriteria === undefined) {
                 throw new runtime.RequiredError('templateCancellationPolicyCriteria', 'Required parameter requestParameters.templateCancellationPolicyCriteria was null or undefined when calling postTemplateCancellationPolicy.');
             }
@@ -4152,15 +3567,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
                 throw new runtime.RequiredError('depositpolicytemplate', 'Required parameter requestParameters.depositpolicytemplate was null or undefined when calling postTemplateDepositPolicy.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateDepositPolicy.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateDepositPolicy.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateDepositPolicy.');
             }
             if (requestParameters.templateDepositPolicyCriteria === null || requestParameters.templateDepositPolicyCriteria === undefined) {
                 throw new runtime.RequiredError('templateDepositPolicyCriteria', 'Required parameter requestParameters.templateDepositPolicyCriteria was null or undefined when calling postTemplateDepositPolicy.');
@@ -4212,15 +3618,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
                 throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling postTemplateGuaranteeCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateGuaranteeCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateGuaranteeCode.');
-            }
             if (requestParameters.templateGuaranteeCodeCriteria === null || requestParameters.templateGuaranteeCodeCriteria === undefined) {
                 throw new runtime.RequiredError('templateGuaranteeCodeCriteria', 'Required parameter requestParameters.templateGuaranteeCodeCriteria was null or undefined when calling postTemplateGuaranteeCode.');
             }
@@ -4268,15 +3665,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     postTemplateMarketCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateMarketCode.');
-            }
             if (requestParameters.templateMarketCodeCriteria === null || requestParameters.templateMarketCodeCriteria === undefined) {
                 throw new runtime.RequiredError('templateMarketCodeCriteria', 'Required parameter requestParameters.templateMarketCodeCriteria was null or undefined when calling postTemplateMarketCode.');
             }
@@ -4327,15 +3715,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
                 throw new runtime.RequiredError('marketGroupCode', 'Required parameter requestParameters.marketGroupCode was null or undefined when calling postTemplateMarketGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateMarketGroup.');
-            }
             if (requestParameters.templateMarketGroupCriteria === null || requestParameters.templateMarketGroupCriteria === undefined) {
                 throw new runtime.RequiredError('templateMarketGroupCriteria', 'Required parameter requestParameters.templateMarketGroupCriteria was null or undefined when calling postTemplateMarketGroup.');
             }
@@ -4383,15 +3762,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     postTemplateSourceCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateSourceCode.');
-            }
             if (requestParameters.templateSourceCodeCriteria === null || requestParameters.templateSourceCodeCriteria === undefined) {
                 throw new runtime.RequiredError('templateSourceCodeCriteria', 'Required parameter requestParameters.templateSourceCodeCriteria was null or undefined when calling postTemplateSourceCode.');
             }
@@ -4439,15 +3809,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     postTemplateSourceGroupRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateSourceGroup.');
-            }
             if (requestParameters.templateSourceGroupCriteria === null || requestParameters.templateSourceGroupCriteria === undefined) {
                 throw new runtime.RequiredError('templateSourceGroupCriteria', 'Required parameter requestParameters.templateSourceGroupCriteria was null or undefined when calling postTemplateSourceGroup.');
             }
@@ -4501,15 +3862,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeMarketCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeMarketCode.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -4558,15 +3910,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeMarketGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeMarketGroup.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -4611,15 +3954,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removePreCheckInRules.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removePreCheckInRules.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removePreCheckInRules.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removePreCheckInRules.');
             }
             const queryParameters = {};
             if (requestParameters.ruleType) {
@@ -4735,15 +4069,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeServiceRequestCodePriorities.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeServiceRequestCodePriorities.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeServiceRequestCodePriorities.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -4788,15 +4113,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeServiceRequestCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeServiceRequestCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeServiceRequestCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeServiceRequestCodes.');
             }
             const queryParameters = {};
             if (requestParameters.serviceRequestCode) {
@@ -4849,15 +4165,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeSourceCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeSourceCode.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -4906,15 +4213,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeSourceGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeSourceGroup.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -4959,15 +4257,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
                 throw new runtime.RequiredError('marketcode', 'Required parameter requestParameters.marketcode was null or undefined when calling removeTemplateMarketCode.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTemplateMarketCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateMarketCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateMarketCode.');
             }
             const queryParameters = {};
             if (requestParameters.templateMarketCode !== undefined) {
@@ -5017,15 +4306,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
                 throw new runtime.RequiredError('marketGroupCode', 'Required parameter requestParameters.marketGroupCode was null or undefined when calling removeTemplateMarketGroup.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTemplateMarketGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateMarketGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateMarketGroup.');
-            }
             const queryParameters = {};
             if (requestParameters.templateMarketGroup !== undefined) {
                 queryParameters['templateMarketGroup'] = requestParameters.templateMarketGroup;
@@ -5074,15 +4354,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
                 throw new runtime.RequiredError('sourceCode', 'Required parameter requestParameters.sourceCode was null or undefined when calling removeTemplateSourceCode.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTemplateSourceCode.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateSourceCode.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateSourceCode.');
-            }
             const queryParameters = {};
             if (requestParameters.templateSourceCode !== undefined) {
                 queryParameters['templateSourceCode'] = requestParameters.templateSourceCode;
@@ -5128,15 +4399,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     removeTemplateSourceGroupRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTemplateSourceGroup.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateSourceGroup.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateSourceGroup.');
-            }
             const queryParameters = {};
             if (requestParameters.templateSourceGroup !== undefined) {
                 queryParameters['templateSourceGroup'] = requestParameters.templateSourceGroup;

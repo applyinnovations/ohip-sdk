@@ -12,25 +12,25 @@
 import * as runtime from '../runtime';
 import type { HoldItemInventory, HoldItemsInventory, HotelInventory, ItemInventory, ReleaseItemInventoryHold, ReleasedItemInventoryHeld, SellLimit, SellLimitByDateResponse, SellLimitByRange, SellLimitResponse, Status } from '../models/index';
 export interface ChangeSellLimitByDateRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimit?: SellLimit;
+    sellLimit: SellLimit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeSellLimitByDateRangeRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimitByRange?: SellLimitByRange;
+    sellLimitByRange: SellLimitByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHoldItemsInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,10 +39,10 @@ export interface GetHoldItemsInventoryRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInventoryRequest {
-    hotelId?: string;
-    dateRangeStart?: Date;
-    dateRangeEnd?: Date;
-    roomCountRequested?: number;
+    hotelId: string;
+    dateRangeStart: Date;
+    dateRangeEnd: Date;
+    roomCountRequested: number;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -55,7 +55,7 @@ export interface GetHotelInventoryRequest {
     acceptLanguage?: string;
 }
 export interface GetItemInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -79,20 +79,20 @@ export interface GetItemInventoryRequest {
     acceptLanguage?: string;
 }
 export interface PostHoldItemInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdItemInventory?: HoldItemInventory;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutHoldItemsInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdItemInventory?: HoldItemInventory;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -100,7 +100,7 @@ export interface PutItemInventoryHoldRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    releaseItemInventoryHold?: ReleaseItemInventoryHold;
+    releaseItemInventoryHold: ReleaseItemInventoryHold;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

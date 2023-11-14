@@ -12,10 +12,10 @@
 import * as runtime from '../runtime';
 import type { OpenPaymentTokenExchange200Response, OpenPaymentTokenExchangeRequest } from '../models/index';
 export interface OpenPaymentTokenExchangeOperationRequest {
-    hotelCode?: string;
+    hotelCode: string;
     authorization?: string;
     xAppKey?: string;
-    body?: OpenPaymentTokenExchangeRequest;
+    body: OpenPaymentTokenExchangeRequest;
 }
 /**
  *

@@ -61,12 +61,6 @@ class HotelsApi extends runtime.BaseAPI {
             if (requestParameters.hotelCode === null || requestParameters.hotelCode === undefined) {
                 throw new runtime.RequiredError('hotelCode', 'Required parameter requestParameters.hotelCode was null or undefined when calling openPaymentTokenExchange.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling openPaymentTokenExchange.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling openPaymentTokenExchange.');
-            }
             if (requestParameters.body === null || requestParameters.body === undefined) {
                 throw new runtime.RequiredError('body', 'Required parameter requestParameters.body was null or undefined when calling openPaymentTokenExchange.');
             }

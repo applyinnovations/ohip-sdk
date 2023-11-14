@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { ListOfValueNames, ListOfValues, OperaVersion, ValidateListOfValues, ValidateListOfValuesDetails } from '../models/index';
 export interface GetADSEchoTokenLOVRequest {
-    errorType?: string;
+    errorType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -24,7 +24,7 @@ export interface GetADSEchoTokenLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetADSStatusLOVRequest {
-    errorType?: string;
+    errorType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -36,7 +36,7 @@ export interface GetADSStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetARAccountTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,7 +48,7 @@ export interface GetARAccountTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetARCreditCardsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -60,7 +60,7 @@ export interface GetARCreditCardsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActionTypesLOVRequest {
-    module?: string;
+    module: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,7 +72,7 @@ export interface GetActionTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -84,7 +84,7 @@ export interface GetActivitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityConfigTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -96,7 +96,7 @@ export interface GetActivityConfigTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -108,7 +108,7 @@ export interface GetActivityLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityStatusLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -120,7 +120,7 @@ export interface GetActivityStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -132,7 +132,7 @@ export interface GetActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAddressFormatElementsLOVRequest {
-    salesFormat?: string;
+    salesFormat: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -144,7 +144,7 @@ export interface GetAddressFormatElementsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentAccountsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -156,7 +156,7 @@ export interface GetAgentAccountsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentSourceCitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -168,7 +168,7 @@ export interface GetAgentSourceCitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentSourceResvCitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -180,7 +180,7 @@ export interface GetAgentSourceResvCitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAlertCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -192,7 +192,7 @@ export interface GetAlertCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAllRevenueTypesLOVRequest {
-    interfaceId?: string;
+    interfaceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -204,9 +204,9 @@ export interface GetAllRevenueTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAllowedHotelInterfaceRightsLOVRequest {
-    interfaceRowId?: string;
-    interfaceType?: string;
-    hotelId?: string;
+    interfaceRowId: string;
+    interfaceType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -218,7 +218,7 @@ export interface GetAllowedHotelInterfaceRightsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAlternateHotelCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -230,7 +230,7 @@ export interface GetAlternateHotelCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAmenitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -242,8 +242,8 @@ export interface GetAmenitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetApplicationModulesLOVRequest {
-    relModuleName?: string;
-    hotelId?: string;
+    relModuleName: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -255,8 +255,8 @@ export interface GetApplicationModulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetApplicationSettingsLOVRequest {
-    settingName?: string;
-    levelCode?: string;
+    settingName: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -268,7 +268,7 @@ export interface GetApplicationSettingsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArrangementCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -280,7 +280,7 @@ export interface GetArrangementCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArrangementCodesNumberLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -292,7 +292,7 @@ export interface GetArrangementCodesNumberLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArticleCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -304,8 +304,8 @@ export interface GetArticleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAssignRoomsLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -317,7 +317,7 @@ export interface GetAssignRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAttractionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -329,7 +329,7 @@ export interface GetAttractionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizerLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -341,7 +341,7 @@ export interface GetAuthorizerLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoNumberGeneratorLOVRequest {
-    number?: string;
+    number: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -353,8 +353,8 @@ export interface GetAutoNumberGeneratorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceExpressionFieldsLOVRequest {
-    traceGroup?: string;
-    tableName?: string;
+    traceGroup: string;
+    tableName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -366,8 +366,8 @@ export interface GetAutoTraceExpressionFieldsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableExportTemplatesLOVRequest {
-    fileGroup?: string;
-    hotelId?: string;
+    fileGroup: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -379,7 +379,7 @@ export interface GetAvailableExportTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableProfileOwnerRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -391,9 +391,9 @@ export interface GetAvailableProfileOwnerRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableRoomComponentsLOVRequest {
-    roomNumber?: string;
-    roomType?: string;
-    hotelId?: string;
+    roomNumber: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -405,8 +405,8 @@ export interface GetAvailableRoomComponentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableRoomTypeComponentsLOVRequest {
-    roomType?: string;
-    hotelId?: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -418,7 +418,7 @@ export interface GetAvailableRoomTypeComponentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableScriptLanguagesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -430,7 +430,7 @@ export interface GetAvailableScriptLanguagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -442,7 +442,7 @@ export interface GetAwardCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardCodesMultiHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -454,7 +454,7 @@ export interface GetAwardCodesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardMktgCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -466,8 +466,8 @@ export interface GetAwardMktgCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardPaymentLOVRequest {
-    membershipType?: string;
-    hotelId?: string;
+    membershipType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -479,7 +479,7 @@ export interface GetAwardPaymentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsForReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -491,7 +491,7 @@ export interface GetBankAccountsForReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -503,7 +503,7 @@ export interface GetBankAccountsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBanquetPrintingMethodLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -515,7 +515,7 @@ export interface GetBanquetPrintingMethodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBillingInstructionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -527,7 +527,7 @@ export interface GetBillingInstructionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockBookingStatusesLOVRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -539,7 +539,7 @@ export interface GetBlockBookingStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCatNextStatusesLOVRequest {
-    catStatus?: string;
+    catStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -551,8 +551,8 @@ export interface GetBlockCatNextStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesByArrivalDateLOVRequest {
-    arrivalDate?: string;
-    hotelId?: string;
+    arrivalDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -564,7 +564,7 @@ export interface GetBlockCodesByArrivalDateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesFinOperationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -576,9 +576,9 @@ export interface GetBlockCodesFinOperationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -590,7 +590,7 @@ export interface GetBlockCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCurrentStatusesLOVRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -602,8 +602,8 @@ export interface GetBlockCurrentStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockEventIdsLOVRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -615,7 +615,7 @@ export interface GetBlockEventIdsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockEventsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -627,9 +627,9 @@ export interface GetBlockEventsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockIdsLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -641,7 +641,7 @@ export interface GetBlockIdsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockModeLovLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -653,7 +653,7 @@ export interface GetBlockModeLovLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockNextStatusesLOVRequest {
-    bookingStatus?: string;
+    bookingStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -665,7 +665,7 @@ export interface GetBlockNextStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -677,10 +677,10 @@ export interface GetBlockPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRateCodesLOVRequest {
-    negotiatedOnly?: string;
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    negotiatedOnly: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -692,10 +692,10 @@ export interface GetBlockRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRatesLOVRequest {
-    blockId?: string;
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
+    blockId: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -707,8 +707,8 @@ export interface GetBlockRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockReservationTypesLOVRequest {
-    bookingStatus?: string;
-    hotelId?: string;
+    bookingStatus: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -720,8 +720,8 @@ export interface GetBlockReservationTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingChannelRatePlansLOVRequest {
-    channel?: string;
-    hotelId?: string;
+    channel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -733,7 +733,7 @@ export interface GetBookingChannelRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingChannelRoomTypesLOVRequest {
-    channel?: string;
+    channel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -745,7 +745,7 @@ export interface GetBookingChannelRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingTypesIndividualsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -757,7 +757,7 @@ export interface GetBookingTypesIndividualsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBudgetForecastCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -769,7 +769,7 @@ export interface GetBudgetForecastCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBudgetRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -781,10 +781,10 @@ export interface GetBudgetRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessEventActionTypeExtDBLOVRequest {
-    databaseId?: string;
-    extSystem?: string;
-    module?: string;
-    hotelId?: string;
+    databaseId: string;
+    extSystem: string;
+    module: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -796,9 +796,9 @@ export interface GetBusinessEventActionTypeExtDBLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessEventActionTypeLOVRequest {
-    module?: string;
-    extSystem?: string;
-    hotelId?: string;
+    module: string;
+    extSystem: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -810,7 +810,7 @@ export interface GetBusinessEventActionTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCampaignActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -822,7 +822,7 @@ export interface GetCampaignActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCashRegisterIDLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -834,7 +834,7 @@ export interface GetCashRegisterIDLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierHotelsLOVRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -846,8 +846,8 @@ export interface GetCashierHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeEventCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -859,8 +859,8 @@ export interface GetCatBudgetTypeEventCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeMarketCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -872,8 +872,8 @@ export interface GetCatBudgetTypeMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeMealCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -885,8 +885,8 @@ export interface GetCatBudgetTypeMealCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeRevenueCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -898,8 +898,8 @@ export interface GetCatBudgetTypeRevenueCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringBudgetTypesLOVRequest {
-    active?: string;
-    catering?: string;
+    active: string;
+    catering: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -911,7 +911,7 @@ export interface GetCateringBudgetTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringCodesLOVRequest {
-    codeType?: string;
+    codeType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -923,8 +923,8 @@ export interface GetCateringCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringEventStatusLOVRequest {
-    waitList?: string;
-    newEvent?: string;
+    waitList: string;
+    newEvent: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -936,8 +936,8 @@ export interface GetCateringEventStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageCodesLOVRequest {
-    hotelId?: string;
-    radioType?: string;
+    hotelId: string;
+    radioType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -949,7 +949,7 @@ export interface GetCateringPackageCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagePriceCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -961,7 +961,7 @@ export interface GetCateringPackagePriceCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
-    pkgLinkId?: string;
+    pkgLinkId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -973,7 +973,7 @@ export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueEventTypeLOVRequest {
-    pkgId?: string;
+    pkgId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -985,8 +985,8 @@ export interface GetCateringPackageRevenueEventTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringSetupStylesLOVRequest {
-    space?: string;
-    hotelId?: string;
+    space: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -998,7 +998,7 @@ export interface GetCateringSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringStatusCodesLOVRequest {
-    exclusionList?: string;
+    exclusionList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1010,7 +1010,7 @@ export interface GetCateringStatusCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChainLanguagesLOVRequest {
-    chainCode?: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1022,7 +1022,7 @@ export interface GetChainLanguagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingCardTypeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1034,8 +1034,8 @@ export interface GetChannelCardTypeMappingCardTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
-    cardType?: string;
-    gdsHost?: string;
+    cardType: string;
+    gdsHost: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1047,7 +1047,7 @@ export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingGdsHostLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1059,9 +1059,9 @@ export interface GetChannelCardTypeMappingGdsHostLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelConfigRateCodesLOVRequest {
-    roomType?: string;
-    bookingChannelCode?: string;
-    hotelId?: string;
+    roomType: string;
+    bookingChannelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1073,10 +1073,10 @@ export interface GetChannelConfigRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelParametersLOVRequest {
-    channelCode?: string;
-    settingName?: string;
-    levelType?: string;
-    levelCode?: string;
+    channelCode: string;
+    settingName: string;
+    levelType: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1088,7 +1088,7 @@ export interface GetChannelParametersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetClaimMembershipDetailsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1100,7 +1100,7 @@ export interface GetClaimMembershipDetailsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1112,7 +1112,7 @@ export interface GetCommissionCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionTxnCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1124,7 +1124,7 @@ export interface GetCommissionTxnCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompAuthorizersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1136,7 +1136,7 @@ export interface GetCompAuthorizersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1148,7 +1148,7 @@ export interface GetCompTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompaniesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1160,7 +1160,7 @@ export interface GetCompaniesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfLetterReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1172,10 +1172,10 @@ export interface GetConfLetterReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
-    daily?: string;
-    tiered?: string;
-    currentRateCode?: string;
-    hotelId?: string;
+    daily: string;
+    tiered: string;
+    currentRateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1187,11 +1187,11 @@ export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigBaseRatePlansLOVRequest {
-    tiered?: string;
-    daily?: string;
-    currencyCode?: string;
-    currentRateCode?: string;
-    hotelId?: string;
+    tiered: string;
+    daily: string;
+    currencyCode: string;
+    currentRateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1203,9 +1203,9 @@ export interface GetConfigBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigDynamicBaseRatePlansLOVRequest {
-    currentRateCode?: string;
-    tiered?: string;
-    hotelId?: string;
+    currentRateCode: string;
+    tiered: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1217,7 +1217,7 @@ export interface GetConfigDynamicBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigReportsLOVRequest {
-    moduleName?: string;
+    moduleName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1229,8 +1229,8 @@ export interface GetConfigReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConnectingSuitesLOVRequest {
-    roomNumber?: string;
-    hotelId?: string;
+    roomNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1242,7 +1242,7 @@ export interface GetConnectingSuitesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1254,7 +1254,7 @@ export interface GetCreditCardTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCroUsersLOVRequest {
-    userId?: string;
+    userId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1266,8 +1266,8 @@ export interface GetCroUsersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyExchangeRatesLOVRequest {
-    exchangeType?: string;
-    hotelId?: string;
+    exchangeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1279,7 +1279,7 @@ export interface GetCurrencyExchangeRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyFormatsLOVRequest {
-    decimal?: string;
+    decimal: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1291,7 +1291,7 @@ export interface GetCurrencyFormatsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomNumberConfigCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1303,8 +1303,8 @@ export interface GetCustomNumberConfigCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomRoomTranslationLOVRequest {
-    dbfLogo?: string;
-    hotelId?: string;
+    dbfLogo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1316,8 +1316,8 @@ export interface GetCustomRoomTranslationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositCancelRulesLOVRequest {
-    policyType?: string;
-    hotelId?: string;
+    policyType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1329,7 +1329,7 @@ export interface GetDepositCancelRulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositCancelRulesMultiHotelLOVRequest {
-    policyType?: string;
+    policyType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1341,10 +1341,10 @@ export interface GetDepositCancelRulesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDeviceCodeMappingValuesLOVRequest {
-    externalCode?: string;
-    codeType?: string;
-    deviceCode?: string;
-    deviceType?: string;
+    externalCode: string;
+    codeType: string;
+    deviceCode: string;
+    deviceType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1356,7 +1356,7 @@ export interface GetDeviceCodeMappingValuesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDeviceLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1368,7 +1368,7 @@ export interface GetDeviceLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDietaryPreferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1380,8 +1380,8 @@ export interface GetDietaryPreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDistributionTemplatesLOVRequest {
-    location?: string;
-    locationType?: string;
+    location: string;
+    locationType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1393,7 +1393,7 @@ export interface GetDistributionTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECertificateGroupEntityLOVRequest {
-    entityName?: string;
+    entityName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1405,7 +1405,7 @@ export interface GetECertificateGroupEntityLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1417,7 +1417,7 @@ export interface GetECouponLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1429,7 +1429,7 @@ export interface GetECouponRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEcouponResvRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1441,8 +1441,8 @@ export interface GetEcouponResvRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEndOfDayReportsLOVRequest {
-    beforeIncomeAudit?: string;
-    hotelId?: string;
+    beforeIncomeAudit: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1454,7 +1454,7 @@ export interface GetEndOfDayReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1466,7 +1466,7 @@ export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1478,7 +1478,7 @@ export interface GetEventGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1490,8 +1490,8 @@ export interface GetEventLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventRateCodeLOVRequest {
-    space?: string;
-    hotelId?: string;
+    space: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1503,8 +1503,8 @@ export interface GetEventRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventSetupStylesLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1516,7 +1516,7 @@ export interface GetEventSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventStatusCodesLOVRequest {
-    exclusionList?: string;
+    exclusionList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1528,7 +1528,7 @@ export interface GetEventStatusCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExchangeTypesLOVRequest {
-    currencyCode?: string;
+    currencyCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1540,8 +1540,8 @@ export interface GetExchangeTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesToLinkLOVRequest {
-    configType?: string;
-    hotelId?: string;
+    configType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1553,7 +1553,7 @@ export interface GetExportMappingCodesToLinkLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingTypeCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1565,8 +1565,8 @@ export interface GetExportMappingTypeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalDatabaseAvailableResortsLOVRequest {
-    databaseId?: string;
-    interfaceType?: string;
+    databaseId: string;
+    interfaceType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1578,7 +1578,7 @@ export interface GetExternalDatabaseAvailableResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalReferenceTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1590,7 +1590,7 @@ export interface GetExternalReferenceTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1602,8 +1602,8 @@ export interface GetFacilityCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityCodesReservationLOVRequest {
-    facilityTask?: string;
-    hotelId?: string;
+    facilityTask: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1615,7 +1615,7 @@ export interface GetFacilityCodesReservationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityTasksLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1627,8 +1627,8 @@ export interface GetFacilityTasksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityTasksRoomTypeLOVRequest {
-    roomTypeLabel?: string;
-    hotelId?: string;
+    roomTypeLabel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1640,7 +1640,7 @@ export interface GetFacilityTasksRoomTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFieldNameLOVRequest {
-    changeSource?: string;
+    changeSource: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1652,7 +1652,7 @@ export interface GetFieldNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1664,7 +1664,7 @@ export interface GetFiscalPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFixedChargesTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1676,7 +1676,7 @@ export interface GetFixedChargesTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFloorsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1688,7 +1688,7 @@ export interface GetFloorsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioGroupingCodesLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1700,7 +1700,7 @@ export interface GetFolioGroupingCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioGroupingTransactionCodesLOVRequest {
-    mode?: string;
+    mode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1712,7 +1712,7 @@ export interface GetFolioGroupingTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioStylesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1724,7 +1724,7 @@ export interface GetFolioStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1736,7 +1736,7 @@ export interface GetFolioTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetForecastGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1748,9 +1748,9 @@ export interface GetForecastGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetForeignCurrenciesLOVRequest {
-    exchangeType?: string;
-    sell?: string;
-    hotelId?: string;
+    exchangeType: string;
+    sell: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1762,9 +1762,9 @@ export interface GetForeignCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFormatLOVRequest {
-    method?: string;
-    moduleName?: string;
-    hotelId?: string;
+    method: string;
+    moduleName: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1776,8 +1776,8 @@ export interface GetFormatLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFrequencyLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1789,8 +1789,8 @@ export interface GetFrequencyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFrequencyTypeLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1802,7 +1802,7 @@ export interface GetFrequencyTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFromRoomNumberLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1814,8 +1814,8 @@ export interface GetFromRoomNumberLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsConvAmenityCodesLOVRequest {
-    bookingChannelCodes?: string;
-    featureType?: string;
+    bookingChannelCodes: string;
+    featureType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1827,7 +1827,7 @@ export interface GetGdsConvAmenityCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsGuaranteeCodesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1839,7 +1839,7 @@ export interface GetGdsGuaranteeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsHotelsLOVRequest {
-    channelType?: string;
+    channelType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1851,7 +1851,7 @@ export interface GetGdsHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRateCategoriesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1863,7 +1863,7 @@ export interface GetGdsRateCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRateLevelsLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1875,7 +1875,7 @@ export interface GetGdsRateLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRoomCategoryTemplatesLOVRequest {
-    bookingChannelCodes?: string;
+    bookingChannelCodes: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1887,7 +1887,7 @@ export interface GetGdsRoomCategoryTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGemMenuItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1899,7 +1899,7 @@ export interface GetGemMenuItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGenericReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1911,7 +1911,7 @@ export interface GetGenericReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertFieldQueryLOVRequest {
-    sourceId?: string;
+    sourceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1923,7 +1923,7 @@ export interface GetGlobalAlertFieldQueryLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertFunctionLOVRequest {
-    fieldType?: string;
+    fieldType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1935,10 +1935,10 @@ export interface GetGlobalAlertFunctionLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertOperatorLOVRequest {
-    tableName?: string;
-    fieldName?: string;
-    fieldType?: string;
-    sourceIdIn?: string;
+    tableName: string;
+    fieldName: string;
+    fieldType: string;
+    sourceIdIn: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1950,7 +1950,7 @@ export interface GetGlobalAlertOperatorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGridTypesLOVRequest {
-    bookingStatus?: string;
+    bookingStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1962,7 +1962,7 @@ export interface GetGridTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGroupArrivalsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1974,7 +1974,7 @@ export interface GetGroupArrivalsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1986,7 +1986,7 @@ export interface GetGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesMultiHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1998,7 +1998,7 @@ export interface GetGuestMessagesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesQuickTextsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2010,7 +2010,7 @@ export interface GetGuestMessagesQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKAttendantsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2022,7 +2022,7 @@ export interface GetHKAttendantsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKAttendantsMobileLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2034,8 +2034,8 @@ export interface GetHKAttendantsMobileLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKScheduledAttendantsLOVRequest {
-    businessDate?: string;
-    hotelId?: string;
+    businessDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2047,7 +2047,7 @@ export interface GetHKScheduledAttendantsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskBreakOutLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2059,7 +2059,7 @@ export interface GetHKTaskBreakOutLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2071,8 +2071,8 @@ export interface GetHKTaskCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskSheetsNoLOVRequest {
-    breakOutId?: string;
-    hotelId?: string;
+    breakOutId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2084,7 +2084,7 @@ export interface GetHKTaskSheetsNoLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskTemplatesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2096,7 +2096,7 @@ export interface GetHKTaskTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkFloorsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2108,7 +2108,7 @@ export interface GetHkFloorsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2120,7 +2120,7 @@ export interface GetHkRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2132,8 +2132,8 @@ export interface GetHkRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelContactCommMethodLOVRequest {
-    contactType?: string;
-    hotelId?: string;
+    contactType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2145,7 +2145,7 @@ export interface GetHotelContactCommMethodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelEventTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2157,8 +2157,8 @@ export interface GetHotelEventTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceDataLineTypesLOVRequest {
-    logo?: string;
-    hotelId?: string;
+    logo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2170,7 +2170,7 @@ export interface GetHotelInterfaceDataLineTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceImportRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2182,7 +2182,7 @@ export interface GetHotelInterfaceImportRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRateTierLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2194,7 +2194,7 @@ export interface GetHotelRateTierLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsForARProfileLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2206,7 +2206,7 @@ export interface GetHotelsForARProfileLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsForSnCLOVRequest {
-    cateringEvents?: string;
+    cateringEvents: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2218,7 +2218,7 @@ export interface GetHotelsForSnCLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2230,7 +2230,7 @@ export interface GetHouseKeepingRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingSectionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2242,7 +2242,7 @@ export interface GetHouseKeepingSectionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingCreditRulesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2254,9 +2254,9 @@ export interface GetHousekeepingCreditRulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetIfcRightsViewLOVRequest {
-    category?: string;
-    ifcId?: string;
-    hotelId?: string;
+    category: string;
+    ifcId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2268,7 +2268,7 @@ export interface GetIfcRightsViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetImbalanceVerificationTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2280,7 +2280,7 @@ export interface GetImbalanceVerificationTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceAutoBalanceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2292,7 +2292,7 @@ export interface GetInterfaceAutoBalanceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestMarketCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2304,7 +2304,7 @@ export interface GetInterfaceDataRequestMarketCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestMarketGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2316,7 +2316,7 @@ export interface GetInterfaceDataRequestMarketGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestRoomClassLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2328,7 +2328,7 @@ export interface GetInterfaceDataRequestRoomClassLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2340,7 +2340,7 @@ export interface GetInterfaceDataRequestRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestSourceCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2352,7 +2352,7 @@ export interface GetInterfaceDataRequestSourceCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestSourceGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2364,7 +2364,7 @@ export interface GetInterfaceDataRequestSourceGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfacePseudoRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2376,7 +2376,7 @@ export interface GetInterfacePseudoRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncFunctionSpaceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2388,7 +2388,7 @@ export interface GetInterfaceResyncFunctionSpaceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncOwnerContractLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2400,7 +2400,7 @@ export interface GetInterfaceResyncOwnerContractLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2412,7 +2412,7 @@ export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncProductsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2424,8 +2424,8 @@ export interface GetInterfaceResyncProductsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceRevenueCodeLOVRequest {
-    logo?: string;
-    hotelId?: string;
+    logo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2437,7 +2437,7 @@ export interface GetInterfaceRevenueCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTabColumnsLOVRequest {
-    tableName?: string;
+    tableName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2449,7 +2449,7 @@ export interface GetInterfaceTabColumnsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTrxCodesAllChargesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2461,7 +2461,7 @@ export interface GetInterfaceTrxCodesAllChargesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTrxCodesMinibarLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2473,7 +2473,7 @@ export interface GetInterfaceTrxCodesMinibarLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInvItemsClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2485,7 +2485,7 @@ export interface GetInvItemsClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInvItemsPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2497,8 +2497,8 @@ export interface GetInvItemsPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemAttributesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2510,8 +2510,8 @@ export interface GetInventoryItemAttributesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemRatesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2523,7 +2523,7 @@ export interface GetInventoryItemRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemTemplateItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2535,9 +2535,9 @@ export interface GetInventoryItemTemplateItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2549,7 +2549,7 @@ export interface GetInventoryItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2561,7 +2561,7 @@ export interface GetItemClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2573,8 +2573,8 @@ export interface GetItemCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemPriceCodeLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2586,8 +2586,8 @@ export interface GetItemPriceCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemVendorLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2599,7 +2599,7 @@ export interface GetItemVendorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetJobTitlesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2611,7 +2611,7 @@ export interface GetJobTitlesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetKeyOptionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2630,7 +2630,7 @@ export interface GetLOVNamesRequest {
     acceptLanguage?: string;
 }
 export interface GetLicensesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2642,7 +2642,7 @@ export interface GetLicensesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetListOfValuesRequest {
-    name?: GetListOfValuesNameEnum;
+    name: GetListOfValuesNameEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2654,7 +2654,7 @@ export interface GetListOfValuesRequest {
     acceptLanguage?: string;
 }
 export interface GetLocatorQuickTextsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2666,7 +2666,7 @@ export interface GetLocatorQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMailGenericLOVRequest {
-    sourceIdIn?: string;
+    sourceIdIn: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2678,7 +2678,7 @@ export interface GetMailGenericLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetManagerReportDetailsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2690,7 +2690,7 @@ export interface GetManagerReportDetailsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetManagersReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2702,7 +2702,7 @@ export interface GetManagersReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2714,7 +2714,7 @@ export interface GetMarketGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketSegmentLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2726,7 +2726,7 @@ export interface GetMarketSegmentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMasterBlockLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2738,7 +2738,7 @@ export interface GetMasterBlockLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardFinTrxLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2750,7 +2750,7 @@ export interface GetMembershipAwardFinTrxLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardProductsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2762,7 +2762,7 @@ export interface GetMembershipAwardProductsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2774,7 +2774,7 @@ export interface GetMembershipAwardRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2786,7 +2786,7 @@ export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardUpgradeRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2798,7 +2798,7 @@ export interface GetMembershipAwardUpgradeRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipBenefitProgramLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2810,7 +2810,7 @@ export interface GetMembershipBenefitProgramLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipBenefitsLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2822,7 +2822,7 @@ export interface GetMembershipBenefitsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipCardFeeAmountLOVRequest {
-    membershipLevel?: string;
+    membershipLevel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2834,8 +2834,8 @@ export interface GetMembershipCardFeeAmountLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClassTypesLOVRequest {
-    loyalty?: string;
-    airlines?: string;
+    loyalty: string;
+    airlines: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2847,8 +2847,8 @@ export interface GetMembershipClassTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipMaxDowngradeLevelLOVRequest {
-    membershipType?: string;
-    membershipLevelRank?: string;
+    membershipType: string;
+    membershipLevelRank: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2860,7 +2860,7 @@ export interface GetMembershipMaxDowngradeLevelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipPointsRuleCodesLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2872,9 +2872,9 @@ export interface GetMembershipPointsRuleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipPromotionsLOVRequest {
-    membershipId?: string;
-    beginDate?: string;
-    hotelId?: string;
+    membershipId: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2886,7 +2886,7 @@ export interface GetMembershipPromotionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipStatementBatchListLOVRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2898,7 +2898,7 @@ export interface GetMembershipStatementBatchListLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTotalPointsAvailableLOVRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2910,7 +2910,7 @@ export interface GetMembershipTotalPointsAvailableLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransferPointsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2922,7 +2922,7 @@ export interface GetMembershipTransferPointsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2934,7 +2934,7 @@ export interface GetMenuClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2946,7 +2946,7 @@ export interface GetMenuItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuLOVRequest {
-    menuClassId?: string;
+    menuClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2958,7 +2958,7 @@ export interface GetMenuLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRateHotelsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2970,8 +2970,8 @@ export interface GetNegotiatedRateHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesHotelsLOVRequest {
-    profileId?: string;
-    rateCode?: string;
+    profileId: string;
+    rateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2983,7 +2983,7 @@ export interface GetNegotiatedRatesHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNoteTypesLOVRequest {
-    departmentType?: string;
+    departmentType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2995,7 +2995,7 @@ export interface GetNoteTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOSAActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3007,7 +3007,7 @@ export interface GetOSAActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfaceReferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3019,7 +3019,7 @@ export interface GetOXIInterfaceReferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfaceResortsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3031,7 +3031,7 @@ export interface GetOXIInterfaceResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3043,7 +3043,7 @@ export interface GetOXIInterfacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIResortsLOVRequest {
-    interfaceId?: string;
+    interfaceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3055,9 +3055,9 @@ export interface GetOXIResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOrganizationsLOVRequest {
-    actionTask?: string;
-    chainCode?: string;
-    roles?: string;
+    actionTask: string;
+    chainCode: string;
+    roles: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3069,7 +3069,7 @@ export interface GetOrganizationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPackForecastGroupCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3081,8 +3081,8 @@ export interface GetPackForecastGroupCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageArrangementAssociationLOVRequest {
-    arrangementCode?: string;
-    hotelId?: string;
+    arrangementCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3094,8 +3094,8 @@ export interface GetPackageArrangementAssociationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetParameterActiveUnderChainLOVRequest {
-    chainCode?: string;
-    parameter?: string;
+    chainCode: string;
+    parameter: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3107,7 +3107,7 @@ export interface GetParameterActiveUnderChainLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3119,7 +3119,7 @@ export interface GetPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3131,7 +3131,7 @@ export interface GetPaymentTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPeriodSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3143,7 +3143,7 @@ export interface GetPeriodSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPeriodsSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3155,7 +3155,7 @@ export interface GetPeriodsSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostalCodesLOVRequest {
-    country?: string;
+    country: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3167,7 +3167,7 @@ export interface GetPostalCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3179,7 +3179,7 @@ export interface GetPostingRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3191,8 +3191,8 @@ export interface GetPostingTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceSubgroupsLOVRequest {
-    preferenceGroup?: string;
-    chainCode?: string;
+    preferenceGroup: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3204,7 +3204,7 @@ export interface GetPreferenceSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferencesMultiHotelsLOVRequest {
-    preferenceGroup?: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3216,7 +3216,7 @@ export interface GetPreferencesMultiHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardInterfacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3228,7 +3228,7 @@ export interface GetPrepaidCardInterfacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrintersLOVRequest {
-    alertPrinters?: string;
+    alertPrinters: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3240,7 +3240,7 @@ export interface GetPrintersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrioritiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3252,7 +3252,7 @@ export interface GetPrioritiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileCommunicationsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3264,7 +3264,7 @@ export interface GetProfileCommunicationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3276,7 +3276,7 @@ export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3288,7 +3288,7 @@ export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3300,8 +3300,8 @@ export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileHotelsLOVRequest {
-    taxTypeCheck?: string;
-    profileId?: string;
+    taxTypeCheck: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3313,8 +3313,8 @@ export interface GetProfileHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileIdentificationsLOVRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3326,7 +3326,7 @@ export interface GetProfileIdentificationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileNameValidationsTypeLOVRequest {
-    operaParam?: string;
+    operaParam: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3338,7 +3338,7 @@ export interface GetProfileNameValidationsTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPromoGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3350,8 +3350,8 @@ export interface GetPromoGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPromoRatesLOVRequest {
-    promoCode?: string;
-    hotelId?: string;
+    promoCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3363,7 +3363,7 @@ export interface GetPromoRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPropertyAmenitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3375,7 +3375,7 @@ export interface GetPropertyAmenitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPublisherPropertiesLOVRequest {
-    subscriber?: string;
+    subscriber: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3387,7 +3387,7 @@ export interface GetPublisherPropertiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetQueueNameLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3399,8 +3399,8 @@ export interface GetQueueNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetQuickTextsLOVRequest {
-    departmentId?: string;
-    hotelId?: string;
+    departmentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3412,7 +3412,7 @@ export interface GetQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCategoriesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3424,7 +3424,7 @@ export interface GetRateCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodeGlobalDescEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3436,8 +3436,8 @@ export interface GetRateCodeGlobalDescEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodesByTypeLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
+    rateCodeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3449,7 +3449,7 @@ export interface GetRateCodesByTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodesValidLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3461,7 +3461,7 @@ export interface GetRateCodesValidLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCommissionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3473,7 +3473,7 @@ export interface GetRateCommissionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateConfigCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3485,7 +3485,7 @@ export interface GetRateConfigCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3497,8 +3497,8 @@ export interface GetRateGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanForMassRateLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
+    rateCodeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3510,8 +3510,8 @@ export interface GetRatePlanForMassRateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansForYieldAsConfigLOVRequest {
-    rateCode?: string;
-    hotelId?: string;
+    rateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3523,7 +3523,7 @@ export interface GetRatePlansForYieldAsConfigLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3535,7 +3535,7 @@ export interface GetRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepBlockCodesParamOffLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3547,7 +3547,7 @@ export interface GetRepBlockCodesParamOffLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepBlockCodesParamOnLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3559,7 +3559,7 @@ export interface GetRepBlockCodesParamOnLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarMonthsLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3571,7 +3571,7 @@ export interface GetRepCalendarMonthsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarWeeksLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3583,7 +3583,7 @@ export interface GetRepCalendarWeeksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarYearsLOVRequest {
-    period?: string;
+    period: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3595,7 +3595,7 @@ export interface GetRepCalendarYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCashiersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3607,7 +3607,7 @@ export interface GetRepCashiersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepContactListLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3619,7 +3619,7 @@ export interface GetRepContactListLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3631,7 +3631,7 @@ export interface GetRepCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepDepartmentsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3643,8 +3643,8 @@ export interface GetRepDepartmentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalMonthsLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
+    fiscalYearId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3656,8 +3656,8 @@ export interface GetRepFiscalMonthsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalWeeksLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
+    fiscalYearId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3669,7 +3669,7 @@ export interface GetRepFiscalWeeksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalYearsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3681,7 +3681,7 @@ export interface GetRepFiscalYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepForeignCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3693,7 +3693,7 @@ export interface GetRepForeignCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepGroupReportsLOVRequest {
-    groupName?: string;
+    groupName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3705,7 +3705,7 @@ export interface GetRepGroupReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3717,7 +3717,7 @@ export interface GetRepGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepInventoryItemPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3729,7 +3729,7 @@ export interface GetRepInventoryItemPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepMarketCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3741,7 +3741,7 @@ export interface GetRepMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepOwnerCodesLOVRequest {
-    hotelCodesList?: string;
+    hotelCodesList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3753,7 +3753,7 @@ export interface GetRepOwnerCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRatePlansLOVRequest {
-    propertyList?: string;
+    propertyList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3765,7 +3765,7 @@ export interface GetRepRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomStatusesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3777,7 +3777,7 @@ export interface GetRepRoomStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomTypeMultiHotelLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3789,7 +3789,7 @@ export interface GetRepRoomTypeMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3801,7 +3801,7 @@ export interface GetRepRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3813,9 +3813,9 @@ export interface GetRepRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomsStatLOVRequest {
-    toDate?: string;
-    fromDate?: string;
-    hotelId?: string;
+    toDate: string;
+    fromDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3827,7 +3827,7 @@ export interface GetRepRoomsStatLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepServiceRequestCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3839,7 +3839,7 @@ export interface GetRepServiceRequestCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3851,7 +3851,7 @@ export interface GetRepTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepTraveAgtCalendarYearLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3863,8 +3863,8 @@ export interface GetRepTraveAgtCalendarYearLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReportsGenericLOVRequest {
-    parameter?: string;
-    moduleId?: string;
+    parameter: string;
+    moduleId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3876,9 +3876,9 @@ export interface GetReportsGenericLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResStatReportRateCodeLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3890,7 +3890,7 @@ export interface GetResStatReportRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationBasedBlocksLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3902,7 +3902,7 @@ export interface GetReservationBasedBlocksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationBasedProfilesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3914,11 +3914,11 @@ export interface GetReservationBasedProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackagesGroupItemsLOVRequest {
-    group?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
+    group: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3930,11 +3930,11 @@ export interface GetReservationPackagesGroupItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackagesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3946,7 +3946,7 @@ export interface GetReservationPackagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPreferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3958,7 +3958,7 @@ export interface GetReservationPreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationStatusesHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3970,9 +3970,9 @@ export interface GetReservationStatusesHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationTicketsCodesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3984,8 +3984,8 @@ export interface GetReservationTicketsCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationTicketsLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
+    resvNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3997,7 +3997,7 @@ export interface GetReservationTicketsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortAirportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4009,7 +4009,7 @@ export interface GetResortAirportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortCROsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4021,7 +4021,7 @@ export interface GetResortCROsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortGuaranteeCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4033,9 +4033,9 @@ export interface GetResortGuaranteeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4047,7 +4047,7 @@ export interface GetResortInventoryItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortMarketCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4059,7 +4059,7 @@ export interface GetResortMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRateClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4071,7 +4071,7 @@ export interface GetResortRateClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRestrictionStatusesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4083,7 +4083,7 @@ export interface GetResortRestrictionStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomNumbersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4095,7 +4095,7 @@ export interface GetResortRoomNumbersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4107,7 +4107,7 @@ export interface GetResortRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortTransportationLabelsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4119,7 +4119,7 @@ export interface GetResortTransportationLabelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResourceItemClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4131,7 +4131,7 @@ export interface GetResourceItemClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvAutoAttachRulesCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4143,7 +4143,7 @@ export interface GetResvAutoAttachRulesCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4155,7 +4155,7 @@ export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvBasedProfilesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4167,8 +4167,8 @@ export interface GetResvBasedProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvTransactionDiversionCodesLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
+    resvNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4180,8 +4180,8 @@ export interface GetResvTransactionDiversionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketTrxCodesLOVRequest {
-    bucketType?: string;
-    hotelId?: string;
+    bucketType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4193,7 +4193,7 @@ export interface GetRevenueBucketTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketsLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4205,7 +4205,7 @@ export interface GetRevenueBucketsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingSpaceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4217,7 +4217,7 @@ export interface GetRevenueTypeMappingSpaceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4229,8 +4229,8 @@ export interface GetRevenueTypeMappingTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRolesForLevelLOVRequest {
-    levelCode?: string;
-    roleLevel?: string;
+    levelCode: string;
+    roleLevel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4242,7 +4242,7 @@ export interface GetRolesForLevelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassCategoriesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4254,7 +4254,7 @@ export interface GetRoomClassCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassMultiPropertyLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4266,7 +4266,7 @@ export interface GetRoomClassMultiPropertyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4278,7 +4278,7 @@ export interface GetRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomFeaturesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4290,7 +4290,7 @@ export interface GetRoomFeaturesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyClassesCopyLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4302,7 +4302,7 @@ export interface GetRoomHierarchyClassesCopyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyRoomClassesLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4314,7 +4314,7 @@ export interface GetRoomHierarchyRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyRoomTypesLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4326,7 +4326,7 @@ export interface GetRoomHierarchyRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyTypesCopyLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4338,7 +4338,7 @@ export interface GetRoomHierarchyTypesCopyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHoldConditionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4350,7 +4350,7 @@ export interface GetRoomHoldConditionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomMaintenanceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4362,8 +4362,8 @@ export interface GetRoomMaintenanceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPoolRoomTypesLOVRequest {
-    roomPool?: string;
-    hotelId?: string;
+    roomPool: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4375,7 +4375,7 @@ export interface GetRoomPoolRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4387,8 +4387,8 @@ export interface GetRoomPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRatesLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4400,7 +4400,7 @@ export interface GetRoomRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomReservationStatusLOVRequest {
-    includeDayUse?: string;
+    includeDayUse: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4412,7 +4412,7 @@ export interface GetRoomReservationStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRevenueTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4424,7 +4424,7 @@ export interface GetRoomRevenueTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRotationGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4436,7 +4436,7 @@ export interface GetRoomRotationGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRotationUnitGradesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4448,7 +4448,7 @@ export interface GetRoomRotationUnitGradesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomSpecialsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4460,7 +4460,7 @@ export interface GetRoomSpecialsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypePoolLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4472,8 +4472,8 @@ export interface GetRoomTypePoolLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesForMassRateLOVRequest {
-    ratePlanCodes?: string;
-    hotelId?: string;
+    ratePlanCodes: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4485,7 +4485,7 @@ export interface GetRoomTypesForMassRateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4497,10 +4497,10 @@ export interface GetRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomingListHKRoomsLOVRequest {
-    departure?: string;
-    arrival?: string;
-    roomType?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4512,7 +4512,7 @@ export interface GetRoomingListHKRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsKeyGenerationLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4524,7 +4524,7 @@ export interface GetRoomsKeyGenerationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4536,7 +4536,7 @@ export interface GetRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4548,7 +4548,7 @@ export interface GetRoutingInstructionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSalesManagerGoalPeriodLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4560,7 +4560,7 @@ export interface GetSalesManagerGoalPeriodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScheduledReportsExportLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4572,9 +4572,9 @@ export interface GetScheduledReportsExportLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScreenCodesLOVRequest {
-    screenArea?: string;
-    screenType?: string;
-    chainCode?: string;
+    screenArea: string;
+    screenType: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4586,8 +4586,8 @@ export interface GetScreenCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScreenStyleCodesLOVRequest {
-    screenCode?: string;
-    chainCode?: string;
+    screenCode: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4599,8 +4599,8 @@ export interface GetScreenStyleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceNameLOVRequest {
-    protocol?: string;
-    outboundType?: string;
+    protocol: string;
+    outboundType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4612,7 +4612,7 @@ export interface GetServiceNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4624,7 +4624,7 @@ export interface GetServiceRequestCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSetupStylesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4636,7 +4636,7 @@ export interface GetSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetShiftReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4648,7 +4648,7 @@ export interface GetShiftReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetShiftReportsNoParamLOVRequest {
-    shiftGroupId?: string;
+    shiftGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4660,8 +4660,8 @@ export interface GetShiftReportsNoParamLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlanSectionTypeLinksLOVRequest {
-    sectionType?: string;
-    hotelId?: string;
+    sectionType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4673,7 +4673,7 @@ export interface GetSitePlanSectionTypeLinksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlanSectionTypesLOVRequest {
-    siteType?: string;
+    siteType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4685,8 +4685,8 @@ export interface GetSitePlanSectionTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlansLOVRequest {
-    siteType?: string;
-    hotelId?: string;
+    siteType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4698,8 +4698,8 @@ export interface GetSitePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSourceGroupsLOVRequest {
-    includeInactive?: string;
-    hotelId?: string;
+    includeInactive: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4711,7 +4711,7 @@ export interface GetSourceGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4723,7 +4723,7 @@ export interface GetSpacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpecialRequestsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4735,7 +4735,7 @@ export interface GetSpecialRequestsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpecialsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4747,8 +4747,8 @@ export interface GetSpecialsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStageProfilesLOVRequest {
-    criteria?: string;
-    hotelId?: string;
+    criteria: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4760,8 +4760,8 @@ export interface GetStageProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStagedProfilePreferencesLOVRequest {
-    resortNameId?: string;
-    hotelId?: string;
+    resortNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4773,7 +4773,7 @@ export interface GetStagedProfilePreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStatisticsYearsLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4785,7 +4785,7 @@ export interface GetStatisticsYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStoredValueRedeemTrxLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4797,8 +4797,8 @@ export interface GetStoredValueRedeemTrxLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSubBlockLOVRequest {
-    superBlock?: string;
-    hotelId?: string;
+    superBlock: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4810,7 +4810,7 @@ export interface GetSubBlockLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSummaryRefreshLogLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4822,7 +4822,7 @@ export interface GetSummaryRefreshLogLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSynchronizeRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4834,8 +4834,8 @@ export interface GetSynchronizeRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskBreakOutLOVRequest {
-    fromDate?: string;
-    hotelId?: string;
+    fromDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4847,7 +4847,7 @@ export interface GetTaskBreakOutLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetDeptLOVRequest {
-    levelCode?: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4859,7 +4859,7 @@ export interface GetTaskSheetDeptLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetLOVRequest {
-    breakOutId?: string;
+    breakOutId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4871,9 +4871,9 @@ export interface GetTaskSheetLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetRoomsLOVRequest {
-    taskSheetNo?: string;
-    taskCode?: string;
-    hotelId?: string;
+    taskSheetNo: string;
+    taskCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4885,8 +4885,8 @@ export interface GetTaskSheetRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxTransactionCodeLOVRequest {
-    taxCode?: string;
-    hotelId?: string;
+    taxCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4898,7 +4898,7 @@ export interface GetTaxTransactionCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4910,7 +4910,7 @@ export interface GetTaxTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTelephoneCategoryLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4922,7 +4922,7 @@ export interface GetTelephoneCategoryLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateBookingChannelRoomTypesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4934,7 +4934,7 @@ export interface GetTemplateBookingChannelRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateFiscalFolioParametersLOVRequest {
-    templateCode?: string;
+    templateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4946,7 +4946,7 @@ export interface GetTemplateFiscalFolioParametersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketCodesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4958,7 +4958,7 @@ export interface GetTemplateMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketGroupsLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4970,7 +4970,7 @@ export interface GetTemplateMarketGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePolicyCodesLOVRequest {
-    policyType?: string;
+    policyType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4982,7 +4982,7 @@ export interface GetTemplatePolicyCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePreferencesLOVRequest {
-    includeGlobals?: string;
+    includeGlobals: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4994,7 +4994,7 @@ export interface GetTemplatePreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateRoomClassesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5006,7 +5006,7 @@ export interface GetTemplateRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceCodesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5018,7 +5018,7 @@ export interface GetTemplateSourceCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceGroupsLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5030,7 +5030,7 @@ export interface GetTemplateSourceGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTransactionSubgroupsLOVRequest {
-    fetchOnlyUniqueValues?: string;
+    fetchOnlyUniqueValues: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5042,10 +5042,10 @@ export interface GetTemplateTransactionSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTestUpsellRulesRateCodeLOVRequest {
-    roomCategory?: string;
-    arrivalDate?: string;
-    nights?: string;
-    hotelId?: string;
+    roomCategory: string;
+    arrivalDate: string;
+    nights: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5057,7 +5057,7 @@ export interface GetTestUpsellRulesRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetToPostalCodesLOVRequest {
-    country?: string;
+    country: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5069,7 +5069,7 @@ export interface GetToPostalCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTraceDateCalcLOVRequest {
-    view?: string;
+    view: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5081,7 +5081,7 @@ export interface GetTraceDateCalcLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTraceFieldLOVRequest {
-    view?: string;
+    view: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5093,7 +5093,7 @@ export interface GetTraceFieldLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionAdjustmentReasonCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5105,7 +5105,7 @@ export interface GetTransactionAdjustmentReasonCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesConsumptionLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5117,7 +5117,7 @@ export interface GetTransactionCodesConsumptionLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5129,7 +5129,7 @@ export interface GetTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesPaymentLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5141,7 +5141,7 @@ export interface GetTransactionCodesPaymentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDeleteReasonCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5153,7 +5153,7 @@ export interface GetTransactionDeleteReasonCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionRuleRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5165,7 +5165,7 @@ export interface GetTransactionDiversionRuleRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5177,7 +5177,7 @@ export interface GetTransactionGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5189,7 +5189,7 @@ export interface GetTransactionSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportTypesHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5201,7 +5201,7 @@ export interface GetTransportTypesHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5213,7 +5213,7 @@ export interface GetTransportTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentSourceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5225,7 +5225,7 @@ export interface GetTravelAgentSourceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentSourceResvLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5237,7 +5237,7 @@ export interface GetTravelAgentSourceResvLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTrxCodeArrangementLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5249,7 +5249,7 @@ export interface GetTrxCodeArrangementLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTurnawayCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5261,7 +5261,7 @@ export interface GetTurnawayCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUDFMappingsLOVRequest {
-    moduleName?: string;
+    moduleName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5273,8 +5273,8 @@ export interface GetUDFMappingsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUdfAttributesLOVRequest {
-    udfCategory?: string;
-    udfType?: string;
+    udfCategory: string;
+    udfType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5286,7 +5286,7 @@ export interface GetUdfAttributesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellDefaultTrxCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5298,7 +5298,7 @@ export interface GetUpsellDefaultTrxCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellFromRoomClassEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5310,7 +5310,7 @@ export interface GetUpsellFromRoomClassEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellFromRoomTypeEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5322,7 +5322,7 @@ export interface GetUpsellFromRoomTypeEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellHierarchyLevelsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5334,7 +5334,7 @@ export interface GetUpsellHierarchyLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellMembershipLevelsOnlyLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5346,8 +5346,8 @@ export interface GetUpsellMembershipLevelsOnlyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellOccupancyLevelsLOVRequest {
-    includeBlank?: string;
-    hotelId?: string;
+    includeBlank: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5359,7 +5359,7 @@ export interface GetUpsellOccupancyLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRateCategoriesEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5371,7 +5371,7 @@ export interface GetUpsellRateCategoriesEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5383,7 +5383,7 @@ export interface GetUpsellRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRoomClassViewLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5395,7 +5395,7 @@ export interface GetUpsellRoomClassViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRoomTypeViewLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5407,7 +5407,7 @@ export interface GetUpsellRoomTypeViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRuleLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5419,8 +5419,8 @@ export interface GetUpsellRuleLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellToRoomClassEditLOVRequest {
-    fromRoomClass?: string;
-    hotelId?: string;
+    fromRoomClass: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5432,8 +5432,8 @@ export interface GetUpsellToRoomClassEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellToRoomTypeEditLOVRequest {
-    fromRoomTypeLabel?: string;
-    hotelId?: string;
+    fromRoomTypeLabel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5445,7 +5445,7 @@ export interface GetUpsellToRoomTypeEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5457,8 +5457,8 @@ export interface GetUpsellTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserDbFunctionArgsLOVRequest {
-    category?: string;
-    functionName?: string;
+    category: string;
+    functionName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5470,7 +5470,7 @@ export interface GetUserDbFunctionArgsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserDbFunctionsLOVRequest {
-    category?: string;
+    category: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5482,7 +5482,7 @@ export interface GetUserDbFunctionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserLogActivityGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5494,8 +5494,8 @@ export interface GetUserLogActivityGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserLogActivityTypesLOVRequest {
-    activityGroup?: string;
-    hotelId?: string;
+    activityGroup: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5507,8 +5507,8 @@ export interface GetUserLogActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserRolesLOVRequest {
-    roleWithDepartment?: string;
-    hotelId?: string;
+    roleWithDepartment: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5520,7 +5520,7 @@ export interface GetUserRolesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetYearSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5532,7 +5532,7 @@ export interface GetYearSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetYieldMarketsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5554,7 +5554,7 @@ export interface ValidateListOfValuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    validateListOfValues?: ValidateListOfValues;
+    validateListOfValues: ValidateListOfValues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

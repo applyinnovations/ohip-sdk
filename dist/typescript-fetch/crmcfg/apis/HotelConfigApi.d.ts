@@ -12,16 +12,16 @@
 import * as runtime from '../runtime';
 import type { AvailablePreferencesDetails, CommunicationTypeCriteria, CommunicationTypeToBeChanged, CommunicationTypesDetails, Status } from '../models/index';
 export interface ChangeCommunicationTypeRequest {
-    communicationTypeCode?: string;
+    communicationTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    communicationTypeToBeChanged?: CommunicationTypeToBeChanged;
+    communicationTypeToBeChanged: CommunicationTypeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailablePreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -44,12 +44,12 @@ export interface PostCommunicationTypeRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    communicationTypeCriteria?: CommunicationTypeCriteria;
+    communicationTypeCriteria: CommunicationTypeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCommunicationTypeRequest {
-    communicationTypeCode?: string;
+    communicationTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

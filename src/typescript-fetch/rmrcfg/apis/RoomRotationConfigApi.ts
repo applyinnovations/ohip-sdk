@@ -104,7 +104,7 @@ import {
 } from '../models/index';
 
 export interface DeleteAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
+    adjustmentReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -114,7 +114,7 @@ export interface DeleteAdjustmentReasonsRequest {
 }
 
 export interface DeleteOverrideReasonsRequest {
-    overrideReasonsId?: string;
+    overrideReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -124,7 +124,7 @@ export interface DeleteOverrideReasonsRequest {
 }
 
 export interface DeleteRoomOwnerRequest {
-    roomOwnershipId?: string;
+    roomOwnershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -134,8 +134,8 @@ export interface DeleteRoomOwnerRequest {
 }
 
 export interface DeleteRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -144,8 +144,8 @@ export interface DeleteRoomOwnerReferralRequest {
 }
 
 export interface DeleteRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
+    ruleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -154,8 +154,8 @@ export interface DeleteRotationRulesRequest {
 }
 
 export interface DeleteUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
+    unitGradeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -189,7 +189,7 @@ export interface GetOverrideReasonsRequest {
 }
 
 export interface GetProfileRoomOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -199,7 +199,7 @@ export interface GetProfileRoomOwnersRequest {
 }
 
 export interface GetRevenueTransactionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -209,7 +209,7 @@ export interface GetRevenueTransactionCodesRequest {
 }
 
 export interface GetRoomOwnerReferralsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -219,7 +219,7 @@ export interface GetRoomOwnerReferralsRequest {
 }
 
 export interface GetRotationPeriodRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -228,7 +228,7 @@ export interface GetRotationPeriodRequest {
 }
 
 export interface GetRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -241,7 +241,7 @@ export interface GetRotationRulesRequest {
 }
 
 export interface GetUnitGradesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -258,7 +258,7 @@ export interface PostAdjustmentReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createAdjustmentReasonsDetails?: CreateAdjustmentReasonsDetails;
+    createAdjustmentReasonsDetails: CreateAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -267,7 +267,7 @@ export interface PostOverrideReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overrideReasonsCriteria?: OverrideReasonsCriteria;
+    overrideReasonsCriteria: OverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -276,77 +276,77 @@ export interface PostRoomOwnerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createRoomOwnerDetails?: CreateRoomOwnerDetails;
+    createRoomOwnerDetails: CreateRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomOwnerReferralsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createRoomOwnerReferralDetails?: CreateRoomOwnerReferralDetails;
+    createRoomOwnerReferralDetails: CreateRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RoomRotationRules;
+    rotationRules: RoomRotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RotationRules;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostUnitGradesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createUnitGradesDetails?: CreateUnitGradesDetails;
+    createUnitGradesDetails: CreateUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
+    adjustmentReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeAdjustmentReasonsDetails?: ChangeAdjustmentReasonsDetails;
+    changeAdjustmentReasonsDetails: ChangeAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutOverrideReasonsRequest {
-    overrideReasonsId?: string;
+    overrideReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overrideReasonsToBeChanged?: OverrideReasonsToBeChanged;
+    overrideReasonsToBeChanged: OverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRevenueTransactionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRevenueTransactionCodesCriteria?: ChangeRevenueTransactionCodesCriteria;
+    changeRevenueTransactionCodesCriteria: ChangeRevenueTransactionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -355,50 +355,50 @@ export interface PutRoomOwnerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRoomOwnerDetails?: ChangeRoomOwnerDetails;
+    changeRoomOwnerDetails: ChangeRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRoomOwnerReferralDetails?: ChangeRoomOwnerReferralDetails;
+    changeRoomOwnerReferralDetails: ChangeRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRotationPeriodRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationPeriod?: RotationPeriod;
+    rotationPeriod: RotationPeriod;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
+    ruleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RotationRules;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
+    unitGradeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeUnitGradesDetails?: ChangeUnitGradesDetails;
+    changeUnitGradesDetails: ChangeUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -416,19 +416,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.adjustmentReasonsId === null || requestParameters.adjustmentReasonsId === undefined) {
             throw new runtime.RequiredError('adjustmentReasonsId','Required parameter requestParameters.adjustmentReasonsId was null or undefined when calling deleteAdjustmentReasons.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAdjustmentReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAdjustmentReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAdjustmentReasons.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -484,19 +472,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.overrideReasonsId === null || requestParameters.overrideReasonsId === undefined) {
             throw new runtime.RequiredError('overrideReasonsId','Required parameter requestParameters.overrideReasonsId was null or undefined when calling deleteOverrideReasons.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteOverrideReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteOverrideReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteOverrideReasons.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -552,19 +528,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.roomOwnershipId === null || requestParameters.roomOwnershipId === undefined) {
             throw new runtime.RequiredError('roomOwnershipId','Required parameter requestParameters.roomOwnershipId was null or undefined when calling deleteRoomOwner.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomOwner.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomOwner.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomOwner.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.overrideReferralCheck !== undefined) {
@@ -620,23 +584,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteRoomOwnerReferral.');
         }
-
+        
         if (requestParameters.roomOwnerReferralId === null || requestParameters.roomOwnerReferralId === undefined) {
             throw new runtime.RequiredError('roomOwnerReferralId','Required parameter requestParameters.roomOwnerReferralId was null or undefined when calling deleteRoomOwnerReferral.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomOwnerReferral.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomOwnerReferral.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomOwnerReferral.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -689,23 +641,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.ruleId === null || requestParameters.ruleId === undefined) {
             throw new runtime.RequiredError('ruleId','Required parameter requestParameters.ruleId was null or undefined when calling deleteRotationRules.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRotationRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRotationRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRotationRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRotationRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -758,23 +698,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.unitGradeCode === null || requestParameters.unitGradeCode === undefined) {
             throw new runtime.RequiredError('unitGradeCode','Required parameter requestParameters.unitGradeCode was null or undefined when calling deleteUnitGrades.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteUnitGrades.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteUnitGrades.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteUnitGrades.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteUnitGrades.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -827,18 +755,6 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Room Rotation Adjustment Reasons
      */
     async getAdjustmentReasonsRaw(requestParameters: GetAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchAdjustmentReasonsDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAdjustmentReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAdjustmentReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAdjustmentReasons.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -903,18 +819,6 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Room Rotation Override Reasons
      */
     async getOverrideReasonsRaw(requestParameters: GetOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OverrideReasonsDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOverrideReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOverrideReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOverrideReasons.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -982,19 +886,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileRoomOwners.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileRoomOwners.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileRoomOwners.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileRoomOwners.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.showInactiveRoomOwners !== undefined) {
@@ -1050,19 +942,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueTransactionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTransactionCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.rotationRevenue !== undefined) {
@@ -1118,19 +998,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getRoomOwnerReferrals.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomOwnerReferrals.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwnerReferrals.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwnerReferrals.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -1186,19 +1054,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRotationPeriod.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRotationPeriod.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRotationPeriod.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRotationPeriod.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1250,19 +1106,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRotationRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRotationRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRotationRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRotationRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1330,19 +1174,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUnitGrades.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUnitGrades.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUnitGrades.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUnitGrades.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1411,22 +1243,10 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Post Room Rotation Adjustment Reasons
      */
     async postAdjustmentReasonsRaw(requestParameters: PostAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdjustmentReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdjustmentReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdjustmentReasons.');
-        }
-
         if (requestParameters.createAdjustmentReasonsDetails === null || requestParameters.createAdjustmentReasonsDetails === undefined) {
             throw new runtime.RequiredError('createAdjustmentReasonsDetails','Required parameter requestParameters.createAdjustmentReasonsDetails was null or undefined when calling postAdjustmentReasons.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1478,22 +1298,10 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Create a new Room Rotation Override Reason
      */
     async postOverrideReasonsRaw(requestParameters: PostOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postOverrideReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postOverrideReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postOverrideReasons.');
-        }
-
         if (requestParameters.overrideReasonsCriteria === null || requestParameters.overrideReasonsCriteria === undefined) {
             throw new runtime.RequiredError('overrideReasonsCriteria','Required parameter requestParameters.overrideReasonsCriteria was null or undefined when calling postOverrideReasons.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1545,22 +1353,10 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Create Room Ownership Record
      */
     async postRoomOwnerRaw(requestParameters: PostRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomOwner.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomOwner.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomOwner.');
-        }
-
         if (requestParameters.createRoomOwnerDetails === null || requestParameters.createRoomOwnerDetails === undefined) {
             throw new runtime.RequiredError('createRoomOwnerDetails','Required parameter requestParameters.createRoomOwnerDetails was null or undefined when calling postRoomOwner.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1615,23 +1411,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postRoomOwnerReferrals.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomOwnerReferrals.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomOwnerReferrals.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomOwnerReferrals.');
-        }
-
+        
         if (requestParameters.createRoomOwnerReferralDetails === null || requestParameters.createRoomOwnerReferralDetails === undefined) {
             throw new runtime.RequiredError('createRoomOwnerReferralDetails','Required parameter requestParameters.createRoomOwnerReferralDetails was null or undefined when calling postRoomOwnerReferrals.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1686,23 +1470,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRoomRotationRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomRotationRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomRotationRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomRotationRules.');
-        }
-
+        
         if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
             throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling postRoomRotationRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1758,23 +1530,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRotationRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRotationRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRotationRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRotationRules.');
-        }
-
+        
         if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
             throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling postRotationRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1830,23 +1590,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postUnitGrades.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postUnitGrades.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postUnitGrades.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postUnitGrades.');
-        }
-
+        
         if (requestParameters.createUnitGradesDetails === null || requestParameters.createUnitGradesDetails === undefined) {
             throw new runtime.RequiredError('createUnitGradesDetails','Required parameter requestParameters.createUnitGradesDetails was null or undefined when calling postUnitGrades.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1901,23 +1649,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.adjustmentReasonsId === null || requestParameters.adjustmentReasonsId === undefined) {
             throw new runtime.RequiredError('adjustmentReasonsId','Required parameter requestParameters.adjustmentReasonsId was null or undefined when calling putAdjustmentReasons.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAdjustmentReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAdjustmentReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAdjustmentReasons.');
-        }
-
+        
         if (requestParameters.changeAdjustmentReasonsDetails === null || requestParameters.changeAdjustmentReasonsDetails === undefined) {
             throw new runtime.RequiredError('changeAdjustmentReasonsDetails','Required parameter requestParameters.changeAdjustmentReasonsDetails was null or undefined when calling putAdjustmentReasons.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1972,23 +1708,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.overrideReasonsId === null || requestParameters.overrideReasonsId === undefined) {
             throw new runtime.RequiredError('overrideReasonsId','Required parameter requestParameters.overrideReasonsId was null or undefined when calling putOverrideReasons.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putOverrideReasons.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putOverrideReasons.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putOverrideReasons.');
-        }
-
+        
         if (requestParameters.overrideReasonsToBeChanged === null || requestParameters.overrideReasonsToBeChanged === undefined) {
             throw new runtime.RequiredError('overrideReasonsToBeChanged','Required parameter requestParameters.overrideReasonsToBeChanged was null or undefined when calling putOverrideReasons.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2043,23 +1767,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRevenueTransactionCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueTransactionCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueTransactionCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueTransactionCodes.');
-        }
-
+        
         if (requestParameters.changeRevenueTransactionCodesCriteria === null || requestParameters.changeRevenueTransactionCodesCriteria === undefined) {
             throw new runtime.RequiredError('changeRevenueTransactionCodesCriteria','Required parameter requestParameters.changeRevenueTransactionCodesCriteria was null or undefined when calling putRevenueTransactionCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2111,22 +1823,10 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Change Room Ownership Records
      */
     async putRoomOwnerRaw(requestParameters: PutRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomOwner.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomOwner.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomOwner.');
-        }
-
         if (requestParameters.changeRoomOwnerDetails === null || requestParameters.changeRoomOwnerDetails === undefined) {
             throw new runtime.RequiredError('changeRoomOwnerDetails','Required parameter requestParameters.changeRoomOwnerDetails was null or undefined when calling putRoomOwner.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2181,27 +1881,15 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling putRoomOwnerReferral.');
         }
-
+        
         if (requestParameters.roomOwnerReferralId === null || requestParameters.roomOwnerReferralId === undefined) {
             throw new runtime.RequiredError('roomOwnerReferralId','Required parameter requestParameters.roomOwnerReferralId was null or undefined when calling putRoomOwnerReferral.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomOwnerReferral.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomOwnerReferral.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomOwnerReferral.');
-        }
-
+        
         if (requestParameters.changeRoomOwnerReferralDetails === null || requestParameters.changeRoomOwnerReferralDetails === undefined) {
             throw new runtime.RequiredError('changeRoomOwnerReferralDetails','Required parameter requestParameters.changeRoomOwnerReferralDetails was null or undefined when calling putRoomOwnerReferral.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2256,23 +1944,11 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRotationPeriod.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRotationPeriod.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRotationPeriod.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRotationPeriod.');
-        }
-
+        
         if (requestParameters.rotationPeriod === null || requestParameters.rotationPeriod === undefined) {
             throw new runtime.RequiredError('rotationPeriod','Required parameter requestParameters.rotationPeriod was null or undefined when calling putRotationPeriod.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2328,27 +2004,15 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.ruleId === null || requestParameters.ruleId === undefined) {
             throw new runtime.RequiredError('ruleId','Required parameter requestParameters.ruleId was null or undefined when calling putRotationRules.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRotationRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRotationRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRotationRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRotationRules.');
-        }
-
+        
         if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
             throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling putRotationRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2404,27 +2068,15 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
         if (requestParameters.unitGradeCode === null || requestParameters.unitGradeCode === undefined) {
             throw new runtime.RequiredError('unitGradeCode','Required parameter requestParameters.unitGradeCode was null or undefined when calling putUnitGrades.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putUnitGrades.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putUnitGrades.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putUnitGrades.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putUnitGrades.');
-        }
-
+        
         if (requestParameters.changeUnitGradesDetails === null || requestParameters.changeUnitGradesDetails === undefined) {
             throw new runtime.RequiredError('changeUnitGradesDetails','Required parameter requestParameters.changeUnitGradesDetails was null or undefined when calling putUnitGrades.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

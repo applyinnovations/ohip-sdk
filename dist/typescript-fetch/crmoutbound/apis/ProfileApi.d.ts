@@ -12,11 +12,11 @@
 import * as runtime from '../runtime';
 import type { MembershipNumber, Status } from '../models/index';
 export interface PostMembershipNumberRequest {
-    extSystemCode?: string;
-    membershipType?: string;
+    extSystemCode: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
-    membershipNumber?: MembershipNumber;
+    membershipNumber: MembershipNumber;
     xTransactionId?: string;
     acceptLanguage?: string;
 }

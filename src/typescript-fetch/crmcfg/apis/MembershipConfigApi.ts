@@ -98,7 +98,7 @@ import {
 } from '../models/index';
 
 export interface DeleteMembershipAwardsRequest {
-    membershipAwardsId?: string;
+    membershipAwardsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -108,7 +108,7 @@ export interface DeleteMembershipAwardsRequest {
 }
 
 export interface DeleteMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
+    membershipBenefitProgramsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -118,7 +118,7 @@ export interface DeleteMembershipBenefitProgramsRequest {
 }
 
 export interface DeleteMembershipClassesRequest {
-    membershipClassId?: string;
+    membershipClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -127,7 +127,7 @@ export interface DeleteMembershipClassesRequest {
 }
 
 export interface DeleteMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
+    membershipEnrollmentGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -136,7 +136,7 @@ export interface DeleteMembershipEnrollmentGroupsRequest {
 }
 
 export interface DeleteMembershipLevelsRequest {
-    membershipLevelsId?: string;
+    membershipLevelsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -146,7 +146,7 @@ export interface DeleteMembershipLevelsRequest {
 }
 
 export interface DeleteMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
+    membershipMarketGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -155,7 +155,7 @@ export interface DeleteMembershipMarketGroupsRequest {
 }
 
 export interface DeleteMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
+    membershipPropertyGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -164,7 +164,7 @@ export interface DeleteMembershipPropertyGroupsRequest {
 }
 
 export interface DeleteMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
+    membershipRateGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -173,7 +173,7 @@ export interface DeleteMembershipRateGroupsRequest {
 }
 
 export interface DeleteMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -183,7 +183,7 @@ export interface DeleteMembershipTypeRulesRequest {
 }
 
 export interface DeleteMembershipTypesRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -246,7 +246,7 @@ export interface GetMembershipEnrollmentGroupsRequest {
 }
 
 export interface GetMembershipLevelsRequest {
-    membershipTypeCode?: string;
+    membershipTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -294,7 +294,7 @@ export interface GetMembershipRateGroupsRequest {
 }
 
 export interface GetMembershipTypeRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -305,7 +305,7 @@ export interface GetMembershipTypeRequest {
 }
 
 export interface GetMembershipTypeRuleRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -346,7 +346,7 @@ export interface PostMembershipAwardsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipAwards?: MembershipAwards;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -355,7 +355,7 @@ export interface PostMembershipBenefitProgramsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipBenefitPrograms?: MembershipBenefitPrograms;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -364,7 +364,7 @@ export interface PostMembershipClassesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClasses?: MembershipClasses;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -373,7 +373,7 @@ export interface PostMembershipEnrollmentGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipEnrollmentGroups?: MembershipEnrollmentGroups;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -382,7 +382,7 @@ export interface PostMembershipFolioTextsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipFolioTexts?: MembershipFolioTexts;
+    membershipFolioTexts: MembershipFolioTexts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -391,7 +391,7 @@ export interface PostMembershipLevelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipLevels?: MembershipLevels;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -400,7 +400,7 @@ export interface PostMembershipMarketGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipMarketGroups?: MembershipMarketGroups;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -409,7 +409,7 @@ export interface PostMembershipPropertyGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipPropertyGroups?: MembershipPropertyGroups;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -418,7 +418,7 @@ export interface PostMembershipRateGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipRateGroups?: MembershipRateGroups;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -427,7 +427,7 @@ export interface PostMembershipTypeRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeRules?: MembershipTypeRules;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -436,107 +436,107 @@ export interface PostMembershipTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypes?: MembershipTypes;
+    membershipTypes: MembershipTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipAwardsRequest {
-    membershipAwardsId?: string;
+    membershipAwardsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipAwards?: MembershipAwards;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
+    membershipBenefitProgramsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipBenefitPrograms?: MembershipBenefitPrograms;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipClassesRequest {
-    membershipClassId?: string;
+    membershipClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClasses?: MembershipClasses;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
+    membershipEnrollmentGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipEnrollmentGroups?: MembershipEnrollmentGroups;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipLevelsRequest {
-    membershipLevelsId?: string;
+    membershipLevelsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipLevels?: MembershipLevels;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
+    membershipMarketGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipMarketGroups?: MembershipMarketGroups;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
+    membershipPropertyGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipPropertyGroups?: MembershipPropertyGroups;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
+    membershipRateGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipRateGroups?: MembershipRateGroups;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipTypeRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeChangeInstructions?: MembershipTypeChangeInstructions;
+    membershipTypeChangeInstructions: MembershipTypeChangeInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeRules?: MembershipTypeRules;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -554,19 +554,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipAwardsId === null || requestParameters.membershipAwardsId === undefined) {
             throw new runtime.RequiredError('membershipAwardsId','Required parameter requestParameters.membershipAwardsId was null or undefined when calling deleteMembershipAwards.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipAwards.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipAwards.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipAwards.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipType) {
@@ -622,19 +610,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipBenefitProgramsId === null || requestParameters.membershipBenefitProgramsId === undefined) {
             throw new runtime.RequiredError('membershipBenefitProgramsId','Required parameter requestParameters.membershipBenefitProgramsId was null or undefined when calling deleteMembershipBenefitPrograms.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipBenefitPrograms.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipType) {
@@ -690,19 +666,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipClassId === null || requestParameters.membershipClassId === undefined) {
             throw new runtime.RequiredError('membershipClassId','Required parameter requestParameters.membershipClassId was null or undefined when calling deleteMembershipClasses.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipClasses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipClasses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipClasses.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -754,19 +718,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipEnrollmentGroupsId === null || requestParameters.membershipEnrollmentGroupsId === undefined) {
             throw new runtime.RequiredError('membershipEnrollmentGroupsId','Required parameter requestParameters.membershipEnrollmentGroupsId was null or undefined when calling deleteMembershipEnrollmentGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipEnrollmentGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -818,19 +770,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipLevelsId === null || requestParameters.membershipLevelsId === undefined) {
             throw new runtime.RequiredError('membershipLevelsId','Required parameter requestParameters.membershipLevelsId was null or undefined when calling deleteMembershipLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipLevels.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.type) {
@@ -886,19 +826,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipMarketGroupId === null || requestParameters.membershipMarketGroupId === undefined) {
             throw new runtime.RequiredError('membershipMarketGroupId','Required parameter requestParameters.membershipMarketGroupId was null or undefined when calling deleteMembershipMarketGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipMarketGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -950,19 +878,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipPropertyGroupsId === null || requestParameters.membershipPropertyGroupsId === undefined) {
             throw new runtime.RequiredError('membershipPropertyGroupsId','Required parameter requestParameters.membershipPropertyGroupsId was null or undefined when calling deleteMembershipPropertyGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipPropertyGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1014,19 +930,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipRateGroupId === null || requestParameters.membershipRateGroupId === undefined) {
             throw new runtime.RequiredError('membershipRateGroupId','Required parameter requestParameters.membershipRateGroupId was null or undefined when calling deleteMembershipRateGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipRateGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipRateGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipRateGroups.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1078,19 +982,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
             throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling deleteMembershipTypeRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipTypeRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipTypeRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipTypeRules.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipPointsSequence) {
@@ -1146,19 +1038,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
             throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling deleteMembershipTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1207,18 +1087,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership Awards
      */
     async getMembershipAwardsRaw(requestParameters: GetMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipAwardsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwards.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwards.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwards.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1295,18 +1163,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Retrieve a Membership Benefit Program
      */
     async getMembershipBenefitProgramsRaw(requestParameters: GetMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipBenefitProgramsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipBenefitPrograms.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1379,18 +1235,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership classes
      */
     async getMembershipClassesRaw(requestParameters: GetMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipClassesInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipClasses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipClasses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipClasses.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1455,18 +1299,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership enrollment groups
      */
     async getMembershipEnrollmentGroupsRaw(requestParameters: GetMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipEnrollmentGroupsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipEnrollmentGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1538,19 +1370,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeCode === null || requestParameters.membershipTypeCode === undefined) {
             throw new runtime.RequiredError('membershipTypeCode','Required parameter requestParameters.membershipTypeCode was null or undefined when calling getMembershipLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipLevels.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypeCode !== undefined) {
@@ -1615,18 +1435,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership market groups
      */
     async getMembershipMarketGroupsRaw(requestParameters: GetMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipMarketGroupsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipMarketGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1691,18 +1499,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership property groups
      */
     async getMembershipPropertyGroupsRaw(requestParameters: GetMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipPropertyGroupsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipPropertyGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1767,18 +1563,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership rate groups
      */
     async getMembershipRateGroupsRaw(requestParameters: GetMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipRateGroupsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipRateGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipRateGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipRateGroups.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1846,19 +1630,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
             throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling getMembershipType.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipType.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipType.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipType.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypeCode !== undefined) {
@@ -1918,19 +1690,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
             throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling getMembershipTypeRule.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypeRule.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypeRule.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypeRule.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1991,18 +1751,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership type rules
      */
     async getMembershipTypeRulesRaw(requestParameters: GetMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypeRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypeRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypeRules.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypesCodes) {
@@ -2071,18 +1819,6 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get membership types
      */
     async getMembershipTypesRaw(requestParameters: GetMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -2151,22 +1887,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership Awards
      */
     async postMembershipAwardsRaw(requestParameters: PostMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipAwards.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipAwards.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipAwards.');
-        }
-
         if (requestParameters.membershipAwards === null || requestParameters.membershipAwards === undefined) {
             throw new runtime.RequiredError('membershipAwards','Required parameter requestParameters.membershipAwards was null or undefined when calling postMembershipAwards.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2218,22 +1942,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership Benefit Program
      */
     async postMembershipBenefitProgramsRaw(requestParameters: PostMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipBenefitPrograms.');
-        }
-
         if (requestParameters.membershipBenefitPrograms === null || requestParameters.membershipBenefitPrograms === undefined) {
             throw new runtime.RequiredError('membershipBenefitPrograms','Required parameter requestParameters.membershipBenefitPrograms was null or undefined when calling postMembershipBenefitPrograms.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2285,22 +1997,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership classes
      */
     async postMembershipClassesRaw(requestParameters: PostMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipClasses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipClasses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipClasses.');
-        }
-
         if (requestParameters.membershipClasses === null || requestParameters.membershipClasses === undefined) {
             throw new runtime.RequiredError('membershipClasses','Required parameter requestParameters.membershipClasses was null or undefined when calling postMembershipClasses.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2352,22 +2052,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership enrollment groups
      */
     async postMembershipEnrollmentGroupsRaw(requestParameters: PostMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipEnrollmentGroups.');
-        }
-
         if (requestParameters.membershipEnrollmentGroups === null || requestParameters.membershipEnrollmentGroups === undefined) {
             throw new runtime.RequiredError('membershipEnrollmentGroups','Required parameter requestParameters.membershipEnrollmentGroups was null or undefined when calling postMembershipEnrollmentGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2419,22 +2107,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Set Membership folio texts
      */
     async postMembershipFolioTextsRaw(requestParameters: PostMembershipFolioTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipFolioTexts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipFolioTexts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipFolioTexts.');
-        }
-
         if (requestParameters.membershipFolioTexts === null || requestParameters.membershipFolioTexts === undefined) {
             throw new runtime.RequiredError('membershipFolioTexts','Required parameter requestParameters.membershipFolioTexts was null or undefined when calling postMembershipFolioTexts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2486,22 +2162,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership levels
      */
     async postMembershipLevelsRaw(requestParameters: PostMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipLevels.');
-        }
-
         if (requestParameters.membershipLevels === null || requestParameters.membershipLevels === undefined) {
             throw new runtime.RequiredError('membershipLevels','Required parameter requestParameters.membershipLevels was null or undefined when calling postMembershipLevels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2553,22 +2217,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership market groups
      */
     async postMembershipMarketGroupsRaw(requestParameters: PostMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipMarketGroups.');
-        }
-
         if (requestParameters.membershipMarketGroups === null || requestParameters.membershipMarketGroups === undefined) {
             throw new runtime.RequiredError('membershipMarketGroups','Required parameter requestParameters.membershipMarketGroups was null or undefined when calling postMembershipMarketGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2620,22 +2272,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership property groups
      */
     async postMembershipPropertyGroupsRaw(requestParameters: PostMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipPropertyGroups.');
-        }
-
         if (requestParameters.membershipPropertyGroups === null || requestParameters.membershipPropertyGroups === undefined) {
             throw new runtime.RequiredError('membershipPropertyGroups','Required parameter requestParameters.membershipPropertyGroups was null or undefined when calling postMembershipPropertyGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2687,22 +2327,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership rate groups
      */
     async postMembershipRateGroupsRaw(requestParameters: PostMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipRateGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipRateGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipRateGroups.');
-        }
-
         if (requestParameters.membershipRateGroups === null || requestParameters.membershipRateGroups === undefined) {
             throw new runtime.RequiredError('membershipRateGroups','Required parameter requestParameters.membershipRateGroups was null or undefined when calling postMembershipRateGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2754,22 +2382,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership type rules
      */
     async postMembershipTypeRulesRaw(requestParameters: PostMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipTypeRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipTypeRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipTypeRules.');
-        }
-
         if (requestParameters.membershipTypeRules === null || requestParameters.membershipTypeRules === undefined) {
             throw new runtime.RequiredError('membershipTypeRules','Required parameter requestParameters.membershipTypeRules was null or undefined when calling postMembershipTypeRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2821,22 +2437,10 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create Membership types
      */
     async postMembershipTypesRaw(requestParameters: PostMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipTypes.');
-        }
-
         if (requestParameters.membershipTypes === null || requestParameters.membershipTypes === undefined) {
             throw new runtime.RequiredError('membershipTypes','Required parameter requestParameters.membershipTypes was null or undefined when calling postMembershipTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2891,23 +2495,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipAwardsId === null || requestParameters.membershipAwardsId === undefined) {
             throw new runtime.RequiredError('membershipAwardsId','Required parameter requestParameters.membershipAwardsId was null or undefined when calling putMembershipAwards.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipAwards.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipAwards.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipAwards.');
-        }
-
+        
         if (requestParameters.membershipAwards === null || requestParameters.membershipAwards === undefined) {
             throw new runtime.RequiredError('membershipAwards','Required parameter requestParameters.membershipAwards was null or undefined when calling putMembershipAwards.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2962,23 +2554,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipBenefitProgramsId === null || requestParameters.membershipBenefitProgramsId === undefined) {
             throw new runtime.RequiredError('membershipBenefitProgramsId','Required parameter requestParameters.membershipBenefitProgramsId was null or undefined when calling putMembershipBenefitPrograms.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipBenefitPrograms.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipBenefitPrograms.');
-        }
-
+        
         if (requestParameters.membershipBenefitPrograms === null || requestParameters.membershipBenefitPrograms === undefined) {
             throw new runtime.RequiredError('membershipBenefitPrograms','Required parameter requestParameters.membershipBenefitPrograms was null or undefined when calling putMembershipBenefitPrograms.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3033,23 +2613,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipClassId === null || requestParameters.membershipClassId === undefined) {
             throw new runtime.RequiredError('membershipClassId','Required parameter requestParameters.membershipClassId was null or undefined when calling putMembershipClasses.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipClasses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipClasses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipClasses.');
-        }
-
+        
         if (requestParameters.membershipClasses === null || requestParameters.membershipClasses === undefined) {
             throw new runtime.RequiredError('membershipClasses','Required parameter requestParameters.membershipClasses was null or undefined when calling putMembershipClasses.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3104,23 +2672,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipEnrollmentGroupsId === null || requestParameters.membershipEnrollmentGroupsId === undefined) {
             throw new runtime.RequiredError('membershipEnrollmentGroupsId','Required parameter requestParameters.membershipEnrollmentGroupsId was null or undefined when calling putMembershipEnrollmentGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipEnrollmentGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipEnrollmentGroups.');
-        }
-
+        
         if (requestParameters.membershipEnrollmentGroups === null || requestParameters.membershipEnrollmentGroups === undefined) {
             throw new runtime.RequiredError('membershipEnrollmentGroups','Required parameter requestParameters.membershipEnrollmentGroups was null or undefined when calling putMembershipEnrollmentGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3175,23 +2731,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipLevelsId === null || requestParameters.membershipLevelsId === undefined) {
             throw new runtime.RequiredError('membershipLevelsId','Required parameter requestParameters.membershipLevelsId was null or undefined when calling putMembershipLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipLevels.');
-        }
-
+        
         if (requestParameters.membershipLevels === null || requestParameters.membershipLevels === undefined) {
             throw new runtime.RequiredError('membershipLevels','Required parameter requestParameters.membershipLevels was null or undefined when calling putMembershipLevels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3246,23 +2790,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipMarketGroupId === null || requestParameters.membershipMarketGroupId === undefined) {
             throw new runtime.RequiredError('membershipMarketGroupId','Required parameter requestParameters.membershipMarketGroupId was null or undefined when calling putMembershipMarketGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipMarketGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipMarketGroups.');
-        }
-
+        
         if (requestParameters.membershipMarketGroups === null || requestParameters.membershipMarketGroups === undefined) {
             throw new runtime.RequiredError('membershipMarketGroups','Required parameter requestParameters.membershipMarketGroups was null or undefined when calling putMembershipMarketGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3317,23 +2849,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipPropertyGroupsId === null || requestParameters.membershipPropertyGroupsId === undefined) {
             throw new runtime.RequiredError('membershipPropertyGroupsId','Required parameter requestParameters.membershipPropertyGroupsId was null or undefined when calling putMembershipPropertyGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipPropertyGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipPropertyGroups.');
-        }
-
+        
         if (requestParameters.membershipPropertyGroups === null || requestParameters.membershipPropertyGroups === undefined) {
             throw new runtime.RequiredError('membershipPropertyGroups','Required parameter requestParameters.membershipPropertyGroups was null or undefined when calling putMembershipPropertyGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3388,23 +2908,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipRateGroupId === null || requestParameters.membershipRateGroupId === undefined) {
             throw new runtime.RequiredError('membershipRateGroupId','Required parameter requestParameters.membershipRateGroupId was null or undefined when calling putMembershipRateGroups.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipRateGroups.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipRateGroups.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipRateGroups.');
-        }
-
+        
         if (requestParameters.membershipRateGroups === null || requestParameters.membershipRateGroups === undefined) {
             throw new runtime.RequiredError('membershipRateGroups','Required parameter requestParameters.membershipRateGroups was null or undefined when calling putMembershipRateGroups.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3459,23 +2967,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
             throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling putMembershipType.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipType.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipType.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipType.');
-        }
-
+        
         if (requestParameters.membershipTypeChangeInstructions === null || requestParameters.membershipTypeChangeInstructions === undefined) {
             throw new runtime.RequiredError('membershipTypeChangeInstructions','Required parameter requestParameters.membershipTypeChangeInstructions was null or undefined when calling putMembershipType.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3530,23 +3026,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
             throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling putMembershipTypeRules.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipTypeRules.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipTypeRules.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipTypeRules.');
-        }
-
+        
         if (requestParameters.membershipTypeRules === null || requestParameters.membershipTypeRules === undefined) {
             throw new runtime.RequiredError('membershipTypeRules','Required parameter requestParameters.membershipTypeRules was null or undefined when calling putMembershipTypeRules.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

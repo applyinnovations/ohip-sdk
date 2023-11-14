@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { PromotionCouponValidationDetails } from '../models/index';
 export interface ValidateRateCouponRequest {
-    couponCode?: string;
-    hotelId?: string;
+    couponCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,8 +21,8 @@ export interface ValidateRateCouponRequest {
     acceptLanguage?: string;
 }
 export interface ValidateRatePromotionRequest {
-    promotionCode?: string;
-    hotelId?: string;
+    promotionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,9 +30,9 @@ export interface ValidateRatePromotionRequest {
     acceptLanguage?: string;
 }
 export interface ValidateRatePromotionCouponRequest {
-    hotelId?: string;
-    couponCode?: string;
-    promotionCode?: string;
+    hotelId: string;
+    couponCode: string;
+    promotionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

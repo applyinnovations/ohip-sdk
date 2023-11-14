@@ -53,17 +53,17 @@ import {
 } from '../models/index';
 
 export interface ChangeFunctionSpaceEventTypesRequest {
-    eventTypeCode?: string;
+    eventTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceEventTypesToBeChanged?: FunctionSpaceEventTypesToBeChanged;
+    functionSpaceEventTypesToBeChanged: FunctionSpaceEventTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteFunctionSpaceTypesRequest {
-    functionSpaceTypesId?: string;
+    functionSpaceTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,7 +72,7 @@ export interface DeleteFunctionSpaceTypesRequest {
 }
 
 export interface DeleteMealTypesRequest {
-    mealTypesId?: string;
+    mealTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -118,7 +118,7 @@ export interface PostFunctionSpaceEventTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceEventTypesCriteria?: FunctionSpaceEventTypesCriteria;
+    functionSpaceEventTypesCriteria: FunctionSpaceEventTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -127,7 +127,7 @@ export interface PostFunctionSpaceTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceTypesCriteria?: FunctionSpaceTypesCriteria;
+    functionSpaceTypesCriteria: FunctionSpaceTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -136,33 +136,33 @@ export interface PostMealTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    mealTypesCriteria?: MealTypesCriteria;
+    mealTypesCriteria: MealTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutFunctionSpaceTypesRequest {
-    functionSpaceTypesId?: string;
+    functionSpaceTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceTypesToBeChanged?: FunctionSpaceTypesToBeChanged;
+    functionSpaceTypesToBeChanged: FunctionSpaceTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMealTypesRequest {
-    mealTypesId?: string;
+    mealTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    mealTypesToBeChanged?: MealTypesToBeChanged;
+    mealTypesToBeChanged: MealTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveFunctionSpaceEventTypesRequest {
-    eventTypeCode?: string;
+    eventTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -183,23 +183,11 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.eventTypeCode === null || requestParameters.eventTypeCode === undefined) {
             throw new runtime.RequiredError('eventTypeCode','Required parameter requestParameters.eventTypeCode was null or undefined when calling changeFunctionSpaceEventTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFunctionSpaceEventTypes.');
-        }
-
+        
         if (requestParameters.functionSpaceEventTypesToBeChanged === null || requestParameters.functionSpaceEventTypesToBeChanged === undefined) {
             throw new runtime.RequiredError('functionSpaceEventTypesToBeChanged','Required parameter requestParameters.functionSpaceEventTypesToBeChanged was null or undefined when calling changeFunctionSpaceEventTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -254,19 +242,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.functionSpaceTypesId === null || requestParameters.functionSpaceTypesId === undefined) {
             throw new runtime.RequiredError('functionSpaceTypesId','Required parameter requestParameters.functionSpaceTypesId was null or undefined when calling deleteFunctionSpaceTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFunctionSpaceTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -318,19 +294,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.mealTypesId === null || requestParameters.mealTypesId === undefined) {
             throw new runtime.RequiredError('mealTypesId','Required parameter requestParameters.mealTypesId was null or undefined when calling deleteMealTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMealTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMealTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMealTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -379,18 +343,6 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Function Space Event Types
      */
     async getFunctionSpaceEventTypesRaw(requestParameters: GetFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FunctionSpaceEventTypesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFunctionSpaceEventTypes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.codes) {
@@ -447,18 +399,6 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Function Space Types
      */
     async getFunctionSpaceTypesRaw(requestParameters: GetFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FunctionSpaceTypesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFunctionSpaceTypes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -523,18 +463,6 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Meal Types
      */
     async getMealTypesRaw(requestParameters: GetMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MealTypesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMealTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMealTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMealTypes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -599,22 +527,10 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Create Function Space Event Types
      */
     async postFunctionSpaceEventTypesRaw(requestParameters: PostFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFunctionSpaceEventTypes.');
-        }
-
         if (requestParameters.functionSpaceEventTypesCriteria === null || requestParameters.functionSpaceEventTypesCriteria === undefined) {
             throw new runtime.RequiredError('functionSpaceEventTypesCriteria','Required parameter requestParameters.functionSpaceEventTypesCriteria was null or undefined when calling postFunctionSpaceEventTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -666,22 +582,10 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Create Function Space Types
      */
     async postFunctionSpaceTypesRaw(requestParameters: PostFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFunctionSpaceTypes.');
-        }
-
         if (requestParameters.functionSpaceTypesCriteria === null || requestParameters.functionSpaceTypesCriteria === undefined) {
             throw new runtime.RequiredError('functionSpaceTypesCriteria','Required parameter requestParameters.functionSpaceTypesCriteria was null or undefined when calling postFunctionSpaceTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -733,22 +637,10 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Create Meal Types
      */
     async postMealTypesRaw(requestParameters: PostMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMealTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMealTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMealTypes.');
-        }
-
         if (requestParameters.mealTypesCriteria === null || requestParameters.mealTypesCriteria === undefined) {
             throw new runtime.RequiredError('mealTypesCriteria','Required parameter requestParameters.mealTypesCriteria was null or undefined when calling postMealTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -803,23 +695,11 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.functionSpaceTypesId === null || requestParameters.functionSpaceTypesId === undefined) {
             throw new runtime.RequiredError('functionSpaceTypesId','Required parameter requestParameters.functionSpaceTypesId was null or undefined when calling putFunctionSpaceTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFunctionSpaceTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFunctionSpaceTypes.');
-        }
-
+        
         if (requestParameters.functionSpaceTypesToBeChanged === null || requestParameters.functionSpaceTypesToBeChanged === undefined) {
             throw new runtime.RequiredError('functionSpaceTypesToBeChanged','Required parameter requestParameters.functionSpaceTypesToBeChanged was null or undefined when calling putFunctionSpaceTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -874,23 +754,11 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.mealTypesId === null || requestParameters.mealTypesId === undefined) {
             throw new runtime.RequiredError('mealTypesId','Required parameter requestParameters.mealTypesId was null or undefined when calling putMealTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMealTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMealTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMealTypes.');
-        }
-
+        
         if (requestParameters.mealTypesToBeChanged === null || requestParameters.mealTypesToBeChanged === undefined) {
             throw new runtime.RequiredError('mealTypesToBeChanged','Required parameter requestParameters.mealTypesToBeChanged was null or undefined when calling putMealTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -945,19 +813,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.eventTypeCode === null || requestParameters.eventTypeCode === undefined) {
             throw new runtime.RequiredError('eventTypeCode','Required parameter requestParameters.eventTypeCode was null or undefined when calling removeFunctionSpaceEventTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFunctionSpaceEventTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFunctionSpaceEventTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

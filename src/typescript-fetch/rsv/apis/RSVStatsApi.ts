@@ -84,18 +84,6 @@ export class RSVStatsApi extends runtime.BaseAPI {
      * Get block Reservation Statistics
      */
     async getBlockReservationStatisticsByDateAndRoomPoolRaw(requestParameters: GetBlockReservationStatisticsByDateAndRoomPoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockReservationStatistics>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockReservationStatisticsByDateAndRoomPool.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockReservationStatisticsByDateAndRoomPool.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockReservationStatisticsByDateAndRoomPool.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.excludeBlocksWithoutQuoteID !== undefined) {
@@ -160,18 +148,6 @@ export class RSVStatsApi extends runtime.BaseAPI {
      * Get Reservation pace
      */
     async getReservationPaceRaw(requestParameters: GetReservationPaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPace>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationPace.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationPace.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationPace.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -236,18 +212,6 @@ export class RSVStatsApi extends runtime.BaseAPI {
      * Get reservation statistics
      */
     async getReservationStatisticsRaw(requestParameters: GetReservationStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationStatistics>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationStatistics.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.chainName) {

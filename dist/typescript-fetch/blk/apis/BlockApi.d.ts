@@ -12,17 +12,17 @@
 import * as runtime from '../runtime';
 import type { AllRestrictions, Allocation, Block, BlockAccessExclusion, BlockAccessExclusionInfo, BlockActivityLog, BlockAllocationRange, BlockAllocationWash, BlockAlternateDates, BlockAttachments, BlockAvailability, BlockChanged, BlockCodeToValidate, BlockCopy, BlockDailyStatistics, BlockOwners, BlockOwnersToAssign, BlockOwnersToChange, BlockPMReservations, BlockPostingMaster, BlockRangeInfo, BlockReservations, BlockReservationsToChange, BlockRestriction, BlockRestrictions, BlockRevenueChanges, BlockRoomTypes, BlockRoomsStatus, BlockStatistics, BlockStatus, BlockStatusChanges, BlockStatusToChange, BlockSummaries, BlockToBeChanged, BlockToCancel, BlockToShift, BlockValidate, BlockWashInfo, BlockWashSchedules, BlockWashSchedulesInfo, BorrowedInventoryToReturn, CateringStatusToChange, ChangedBlockReservations, ChangedBlockStatus, ChangedCateringStatus, DefaultBlockCodeDetails, InventoryToBorrow, InventoryToBorrowInfo, NextBlockStatus, RateOverride, RateOverrideStatus, RecentlyAccessedBlocks, RoomTypeOrder, RoomingList, RoomingListDetails, SalesAllowances, ShiftedBlock, Status, SubAllocation, SubBlock, TourSeries, TracesByDateRange } from '../models/index';
 export interface ChangeRateOverrideRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rateOverride?: RateOverride;
+    rateOverride: RateOverride;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAlternateDatesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,8 +30,8 @@ export interface DeleteAlternateDatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,7 +39,7 @@ export interface DeleteBlockRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockAccessExclusionRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -55,8 +55,8 @@ export interface DeleteBlockAccessExclusionRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockAttachmentRequest {
-    attachId?: string;
-    blockId?: string;
+    attachId: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -64,7 +64,7 @@ export interface DeleteBlockAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockOwnersRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,11 +72,11 @@ export interface DeleteBlockOwnersRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockRestrictionRequest {
-    blockId?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    code?: DeleteBlockRestrictionCodeEnum;
+    blockId: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    code: DeleteBlockRestrictionCodeEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -84,7 +84,7 @@ export interface DeleteBlockRestrictionRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockWashSchedulesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -92,8 +92,8 @@ export interface DeleteBlockWashSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -108,7 +108,7 @@ export interface GetBlockRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockAccessExclusionRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -137,7 +137,7 @@ export interface GetBlockActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockAttachmentsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -146,8 +146,8 @@ export interface GetBlockAttachmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockAvailabilityRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -167,9 +167,9 @@ export interface GetBlockAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -197,7 +197,7 @@ export interface GetBlockDailyStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockOwnersRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -206,8 +206,8 @@ export interface GetBlockOwnersRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockPMReservationsRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -216,9 +216,9 @@ export interface GetBlockPMReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockPMReservationsByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -227,8 +227,8 @@ export interface GetBlockPMReservationsByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRangeInfoRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -237,7 +237,7 @@ export interface GetBlockRangeInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockReservationsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -247,7 +247,7 @@ export interface GetBlockReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRestrictionsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -260,7 +260,7 @@ export interface GetBlockRestrictionsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRevenueChangesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -274,7 +274,7 @@ export interface GetBlockRevenueChangesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRoomTypesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -287,7 +287,7 @@ export interface GetBlockRoomTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRoomsStatusRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -296,7 +296,7 @@ export interface GetBlockRoomsStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockStatisticsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -325,7 +325,7 @@ export interface GetBlockStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockStatusChangesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -350,7 +350,7 @@ export interface GetBlockWashInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockWashSchedulesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -447,10 +447,10 @@ export interface GetDefaultBlockCodeRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryToBorrowRequest {
-    hotelId?: string;
-    blockId?: string;
-    startDate?: Date;
-    requiredRooms?: Array<number>;
+    hotelId: string;
+    blockId: string;
+    startDate: Date;
+    requiredRooms: Array<number>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -493,7 +493,7 @@ export interface GetSalesAllowancesRequest {
     acceptLanguage?: string;
 }
 export interface GetTracesByDateRangeRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -505,48 +505,48 @@ export interface GetTracesByDateRangeRequest {
     acceptLanguage?: string;
 }
 export interface PostAlternateDatesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAlternateDates?: BlockAlternateDates;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    block?: Block;
+    block: Block;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockOwnersRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockOwnersToAssign?: BlockOwnersToAssign;
+    blockOwnersToAssign: BlockOwnersToAssign;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockPostingMasterRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockPostingMaster?: BlockPostingMaster;
+    blockPostingMaster: BlockPostingMaster;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockRestrictionRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockRestriction?: BlockRestriction;
+    blockRestriction: BlockRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -554,44 +554,44 @@ export interface PostBlockValidateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockValidate?: BlockValidate;
+    blockValidate: BlockValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockWashSchedulesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockWashSchedulesInfo?: BlockWashSchedulesInfo;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelBlockRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockToCancel?: BlockToCancel;
+    blockToCancel: BlockToCancel;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCopyBlockRequest {
-    sourceBlockId?: string;
+    sourceBlockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockCopy?: BlockCopy;
+    blockCopy: BlockCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomingListRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomingList?: RoomingList;
+    roomingList: RoomingList;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -599,108 +599,108 @@ export interface PostSubAllocationRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    subAllocation?: SubAllocation;
+    subAllocation: SubAllocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSubBlockRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    subBlock?: SubBlock;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSubBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    subBlock?: SubBlock;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTourSeriesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    tourSeries?: TourSeries;
+    tourSeries: TourSeries;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAlternateDatesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAlternateDates?: BlockAlternateDates;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockToBeChanged?: BlockToBeChanged;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAccessExclusionRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAccessExclusion?: BlockAccessExclusion;
+    blockAccessExclusion: BlockAccessExclusion;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    allocation?: Allocation;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationByExtIdRequest {
-    roomType?: string;
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    roomType: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    allocation?: Allocation;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationRangeRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAllocationRange?: BlockAllocationRange;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationRangeByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAllocationRange?: BlockAllocationRange;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -708,122 +708,122 @@ export interface PutBlockAllocationWashRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockAllocationWash?: BlockAllocationWash;
+    blockAllocationWash: BlockAllocationWash;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockToBeChanged?: BlockToBeChanged;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockCutoffRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatus?: BlockStatus;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockOwnersRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockOwnersToChange?: BlockOwnersToChange;
+    blockOwnersToChange: BlockOwnersToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockRatesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatus?: BlockStatus;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockReservationsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockReservationsToChange?: BlockReservationsToChange;
+    blockReservationsToChange: BlockReservationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockShiftRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockToShift?: BlockToShift;
+    blockToShift: BlockToShift;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatusToChange?: BlockStatusToChange;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatusToChange?: BlockStatusToChange;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusToOpenRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatus?: BlockStatus;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockWashSchedulesRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockWashSchedulesInfo?: BlockWashSchedulesInfo;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringStatusRequest {
-    eventId?: string;
+    eventId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cateringStatusToChange?: CateringStatusToChange;
+    cateringStatusToChange: CateringStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutClearAllRestrictionsRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    allRestrictions?: AllRestrictions;
+    allRestrictions: AllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -831,7 +831,7 @@ export interface PutContractDefaultsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockStatus?: BlockStatus;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -839,7 +839,7 @@ export interface PutInventoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    inventoryToBorrow?: InventoryToBorrow;
+    inventoryToBorrow: InventoryToBorrow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -847,25 +847,25 @@ export interface PutReleasedInventoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    borrowedInventoryToReturn?: BorrowedInventoryToReturn;
+    borrowedInventoryToReturn: BorrowedInventoryToReturn;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomTypeOrderRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypeOrder?: RoomTypeOrder;
+    roomTypeOrder: RoomTypeOrder;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateBlockCodeRequest {
-    blockCode?: string;
+    blockCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    blockCodeToValidate?: BlockCodeToValidate;
+    blockCodeToValidate: BlockCodeToValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

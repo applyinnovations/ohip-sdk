@@ -12,62 +12,62 @@
 import * as runtime from '../runtime';
 import type { AutoFolioSettlementTypesCriteria, AutoFolioSettlementTypesDetails, AutoFolioSettlementTypesToBeChanged, CashierShiftDropLocationsCriteria, CashierShiftDropLocationsDetails, CashierShiftDropLocationsToBeChanged, ContractBillingInstructionsCriteria, ContractBillingInstructionsDetails, ContractBillingInstructionsToBeChanged, CustomTaxTypesCriteria, CustomTaxTypesDetails, CustomTaxTypesToBeChanged, FiscalGuestTypesCriteria, FiscalGuestTypesDetails, FiscalGuestTypesToBeChanged, FiscalRegionsCriteria, FiscalRegionsDetails, FiscalRegionsToBeChanged, Status, TaxCategoryCodesCriteria, TaxCategoryCodesDetails, TaxCategoryCodesToBeChanged, TaxOfficesCriteria, TaxOfficesDetails, TaxOfficesToBeChanged, TemplateCashierShiftDropLocationsCriteria, TemplateCashierShiftDropLocationsDetails, TemplateCashierShiftDropLocationsToBeChanged } from '../models/index';
 export interface ChangeCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    hotelId?: string;
+    dropLocationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashierShiftDropLocationsToBeChanged?: CashierShiftDropLocationsToBeChanged;
+    cashierShiftDropLocationsToBeChanged: CashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCustomTaxTypesRequest {
-    taxTypeCode?: string;
+    taxTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customTaxTypesToBeChanged?: CustomTaxTypesToBeChanged;
+    customTaxTypesToBeChanged: CustomTaxTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFiscalGuestTypesRequest {
-    fiscalGuestTypeCode?: string;
+    fiscalGuestTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalGuestTypesToBeChanged?: FiscalGuestTypesToBeChanged;
+    fiscalGuestTypesToBeChanged: FiscalGuestTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFiscalRegionsRequest {
-    regionCode?: string;
+    regionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalRegionsToBeChanged?: FiscalRegionsToBeChanged;
+    fiscalRegionsToBeChanged: FiscalRegionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTaxOfficesRequest {
-    taxOfficeId?: string;
+    taxOfficeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxOfficesToBeChanged?: TaxOfficesToBeChanged;
+    taxOfficesToBeChanged: TaxOfficesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTemplateCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
+    dropLocationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCashierShiftDropLocationsToBeChanged?: TemplateCashierShiftDropLocationsToBeChanged;
+    templateCashierShiftDropLocationsToBeChanged: TemplateCashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAutoFolioSettlementTypesRequest {
-    code?: string;
+    code: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -75,7 +75,7 @@ export interface DeleteAutoFolioSettlementTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteContractBillingInstructionsRequest {
-    contractBillingInstructionsId?: string;
+    contractBillingInstructionsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -83,7 +83,7 @@ export interface DeleteContractBillingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTaxCategoryCodesRequest {
-    taxCategoryCode?: string;
+    taxCategoryCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -102,7 +102,7 @@ export interface GetAutoFolioSettlementTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierShiftDropLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -195,16 +195,16 @@ export interface PostAutoFolioSettlementTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoFolioSettlementTypesCriteria?: AutoFolioSettlementTypesCriteria;
+    autoFolioSettlementTypesCriteria: AutoFolioSettlementTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCashierShiftDropLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashierShiftDropLocationsCriteria?: CashierShiftDropLocationsCriteria;
+    cashierShiftDropLocationsCriteria: CashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -212,7 +212,7 @@ export interface PostContractBillingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    contractBillingInstructionsCriteria?: ContractBillingInstructionsCriteria;
+    contractBillingInstructionsCriteria: ContractBillingInstructionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -220,7 +220,7 @@ export interface PostCustomTaxTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customTaxTypesCriteria?: CustomTaxTypesCriteria;
+    customTaxTypesCriteria: CustomTaxTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -228,7 +228,7 @@ export interface PostFiscalGuestTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalGuestTypesCriteria?: FiscalGuestTypesCriteria;
+    fiscalGuestTypesCriteria: FiscalGuestTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -236,7 +236,7 @@ export interface PostFiscalRegionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalRegionsCriteria?: FiscalRegionsCriteria;
+    fiscalRegionsCriteria: FiscalRegionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -244,7 +244,7 @@ export interface PostTaxCategoryCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxCategoryCodesCriteria?: TaxCategoryCodesCriteria;
+    taxCategoryCodesCriteria: TaxCategoryCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -252,7 +252,7 @@ export interface PostTaxOfficesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxOfficesCriteria?: TaxOfficesCriteria;
+    taxOfficesCriteria: TaxOfficesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -260,40 +260,40 @@ export interface PostTemplateCashierShiftDropLocationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateCashierShiftDropLocationsCriteria?: TemplateCashierShiftDropLocationsCriteria;
+    templateCashierShiftDropLocationsCriteria: TemplateCashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoFolioSettlementTypesRequest {
-    code?: string;
+    code: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoFolioSettlementTypesToBeChanged?: AutoFolioSettlementTypesToBeChanged;
+    autoFolioSettlementTypesToBeChanged: AutoFolioSettlementTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutContractBillingInstructionsRequest {
-    contractBillingInstructionsId?: string;
+    contractBillingInstructionsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    contractBillingInstructionsToBeChanged?: ContractBillingInstructionsToBeChanged;
+    contractBillingInstructionsToBeChanged: ContractBillingInstructionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTaxCategoryCodesRequest {
-    taxCategoryCode?: string;
+    taxCategoryCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taxCategoryCodesToBeChanged?: TaxCategoryCodesToBeChanged;
+    taxCategoryCodesToBeChanged: TaxCategoryCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    hotelId?: string;
+    dropLocationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -301,7 +301,7 @@ export interface RemoveCashierShiftDropLocationsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveCustomTaxTypesRequest {
-    taxTypeCode?: string;
+    taxTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -309,7 +309,7 @@ export interface RemoveCustomTaxTypesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFiscalGuestTypesRequest {
-    fiscalGuestTypeCode?: string;
+    fiscalGuestTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -317,7 +317,7 @@ export interface RemoveFiscalGuestTypesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFiscalRegionsRequest {
-    regionCode?: string;
+    regionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -325,7 +325,7 @@ export interface RemoveFiscalRegionsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTaxOfficesRequest {
-    taxOfficeId?: string;
+    taxOfficeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -333,7 +333,7 @@ export interface RemoveTaxOfficesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
+    dropLocationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

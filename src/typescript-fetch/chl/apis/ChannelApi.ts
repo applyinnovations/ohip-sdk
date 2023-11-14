@@ -227,7 +227,7 @@ export interface CopyChannelAccountContractsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContractsCopy?: ChannelAccountContractsCopy;
+    channelAccountContractsCopy: ChannelAccountContractsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -236,7 +236,7 @@ export interface CopyChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingTextCopy?: ChannelMarketingTextCopy;
+    channelMarketingTextCopy: ChannelMarketingTextCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -245,7 +245,7 @@ export interface CopyTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElementsCopy?: TotalPricingElementsCopy;
+    totalPricingElementsCopy: TotalPricingElementsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -301,9 +301,9 @@ export interface DeleteChannelBillingStatementsRequest {
 }
 
 export interface DeleteChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -313,8 +313,8 @@ export interface DeleteChannelCardTypeMappingRequest {
 }
 
 export interface DeleteChannelCarriersRequest {
-    bookingChannelCodes?: Array<string>;
-    carriers?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    carriers: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -333,9 +333,9 @@ export interface DeleteChannelErrorsRequest {
 }
 
 export interface DeleteChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -414,8 +414,8 @@ export interface DeleteChannelNegotiatedRateRequest {
 }
 
 export interface DeleteChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -425,8 +425,8 @@ export interface DeleteChannelOrgMappingRequest {
 }
 
 export interface DeleteChannelRateCategoriesRequest {
-    bookingChannelCodes?: Array<string>;
-    rateCategories?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    rateCategories: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -435,8 +435,8 @@ export interface DeleteChannelRateCategoriesRequest {
 }
 
 export interface DeleteChannelRateLevelsRequest {
-    bookingChannelCodes?: Array<string>;
-    rateLevels?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    rateLevels: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -473,9 +473,9 @@ export interface DeleteChannelRatesGlobalDescriptionsRequest {
 }
 
 export interface DeleteChannelRoomMappingRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -487,8 +487,8 @@ export interface DeleteChannelRoomMappingRequest {
 }
 
 export interface DeleteChannelRoomTypesRequest {
-    bookingChannelCodes?: Array<string>;
-    roomTypes?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    roomTypes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -636,7 +636,7 @@ export interface GenerateChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -658,7 +658,7 @@ export interface GetAmenitiesMappingRequest {
 }
 
 export interface GetChannelRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -669,7 +669,7 @@ export interface GetChannelRequest {
 }
 
 export interface GetChannelAccountRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -680,8 +680,8 @@ export interface GetChannelAccountRequest {
 }
 
 export interface GetChannelAccountContractElementsRequest {
-    contractId?: string;
-    accountProfileId?: string;
+    contractId: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -712,7 +712,7 @@ export interface GetChannelAccountsRequest {
 }
 
 export interface GetChannelBillingStatementRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -723,7 +723,7 @@ export interface GetChannelBillingStatementRequest {
 }
 
 export interface GetChannelBillingStatementDetailsRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -755,7 +755,7 @@ export interface GetChannelBillingStatementsRequest {
 }
 
 export interface GetChannelCardTypeMappingsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -772,7 +772,7 @@ export interface GetChannelCardTypeMappingsRequest {
 }
 
 export interface GetChannelGuaranteeCodeMappingsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -790,7 +790,7 @@ export interface GetChannelGuaranteeCodeMappingsRequest {
 }
 
 export interface GetChannelHotelCodeMappingRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -850,8 +850,8 @@ export interface GetChannelNegotiatedRateRequest {
 }
 
 export interface GetChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -861,8 +861,8 @@ export interface GetChannelOrgMappingRequest {
 }
 
 export interface GetChannelParametersRequest {
-    channelCode?: string;
-    hotelId?: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -872,8 +872,8 @@ export interface GetChannelParametersRequest {
 }
 
 export interface GetChannelPoliciesRequest {
-    channelCode?: string;
-    hotelId?: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -892,8 +892,8 @@ export interface GetChannelPoliciesRequest {
 }
 
 export interface GetChannelRateCodeGlobalDescRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -922,7 +922,7 @@ export interface GetChannelRateMappingRequest {
 }
 
 export interface GetChannelRateRoomSeqRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -950,7 +950,7 @@ export interface GetChannelRatesGlobalDescriptionsRequest {
 }
 
 export interface GetChannelRoomMappingRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -968,9 +968,9 @@ export interface GetChannelRoomMappingRequest {
 }
 
 export interface GetChannelRoomMappingByIdRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -981,8 +981,8 @@ export interface GetChannelRoomMappingByIdRequest {
 }
 
 export interface GetChannelRoomTypeGlobalDescRequest {
-    roomType?: string;
-    hotelId?: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1100,7 +1100,7 @@ export interface GetHotelsMappingRequest {
 }
 
 export interface GetStatementDetailsStatisticsRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1112,7 +1112,7 @@ export interface GetStatementDetailsStatisticsRequest {
 }
 
 export interface GetTotalPricingElementsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1129,7 +1129,7 @@ export interface ManageChannelRoomMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMappings?: ChannelRoomMappings;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1138,17 +1138,17 @@ export interface PostAmenitiesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    amenities?: Amenities;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelAccountContractsRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContracts?: ChannelAccountContracts;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1157,7 +1157,7 @@ export interface PostChannelAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccounts?: ChannelAccounts;
+    channelAccounts: ChannelAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1166,51 +1166,51 @@ export interface PostChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCardTypeMappings?: ChannelCardTypeMappings;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelCarriersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCarriers?: ChannelCarriers;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelErrorsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelErrors?: ChannelErrors;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGuaranteeCodeMappings?: ChannelGuaranteeCodeMappings;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1219,7 +1219,7 @@ export interface PostChannelHotelLettersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelHotelLettersToBeCreated?: ChannelHotelLettersToBeCreated;
+    channelHotelLettersToBeCreated: ChannelHotelLettersToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1228,7 +1228,7 @@ export interface PostChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingText?: ChannelMarketingText;
+    channelMarketingText: ChannelMarketingText;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1237,37 +1237,37 @@ export interface PostChannelNegotiatedRateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelNegotiatedRates?: ChannelNegotiatedRates;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelOrgMappingRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelOrgMapping?: ChannelOrgMapping;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelRateCategoriesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateCategories?: ChannelRateCategories;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelRateLevelsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateLevels?: ChannelRateLevels;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1276,17 +1276,17 @@ export interface PostChannelRateMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateMapping?: ChannelRateMapping;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRates?: ChannelRates;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1295,7 +1295,7 @@ export interface PostChannelRatesGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1304,29 +1304,29 @@ export interface PostChannelRoomMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMappings?: ChannelRoomMappings;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelRoomTypeRateRequest {
-    channelRoomType?: string;
-    channelCode?: string;
-    hotelId?: string;
+    channelRoomType: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRates?: ChannelRates;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChannelRoomTypesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomTypes?: ChannelRoomTypes;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1335,7 +1335,7 @@ export interface PostChannelRoomsGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1344,7 +1344,7 @@ export interface PostChannelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channels?: Channels;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1353,7 +1353,7 @@ export interface PostCreditCardsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditCards?: CreditCards;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1362,7 +1362,7 @@ export interface PostCurrenciesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencies?: Currencies;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1371,7 +1371,7 @@ export interface PostDistributionTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    distributionTemplates?: DistributionTemplates;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1380,7 +1380,7 @@ export interface PostGuaranteesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guarantees?: Guarantees;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1389,7 +1389,7 @@ export interface PostHotelsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    properties?: Properties;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1398,7 +1398,7 @@ export interface PostTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElements?: TotalPricingElements;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1407,17 +1407,17 @@ export interface PublishChannelAvailabilityRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAvailability?: ChannelAvailability;
+    channelAvailability: ChannelAvailability;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PublishChannelRatePlansRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRatePlans?: ChannelRatePlans;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1426,17 +1426,17 @@ export interface PublishChannelRestrictionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRestrictions?: ChannelRestrictions;
+    channelRestrictions: ChannelRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PublishHotelChannelRatePlansRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRatePlans?: ChannelRatePlans;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1445,17 +1445,17 @@ export interface PutAmenitiesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    amenities?: Amenities;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelAccountContractsRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContracts?: ChannelAccountContracts;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1464,7 +1464,7 @@ export interface PutChannelAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountsToChange?: ChannelAccountsToChange;
+    channelAccountsToChange: ChannelAccountsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1473,51 +1473,51 @@ export interface PutChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCardTypeMappings?: ChannelCardTypeMappings;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelCarriersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCarriers?: ChannelCarriers;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelErrorsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelErrors?: ChannelErrors;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGuaranteeCodeMappings?: ChannelGuaranteeCodeMappings;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1526,7 +1526,7 @@ export interface PutChannelHotelLettersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelHotelLettersToBeChanged?: ChannelHotelLettersToBeChanged;
+    channelHotelLettersToBeChanged: ChannelHotelLettersToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1535,7 +1535,7 @@ export interface PutChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingTextToChange?: ChannelMarketingTextToChange;
+    channelMarketingTextToChange: ChannelMarketingTextToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1544,48 +1544,48 @@ export interface PutChannelNegotiatedRateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelNegotiatedRates?: ChannelNegotiatedRates;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelOrgMapping?: ChannelOrgMapping;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelParametersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeChannelParameters?: ChangeChannelParameters;
+    changeChannelParameters: ChangeChannelParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelRateCategoriesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateCategories?: ChannelRateCategories;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelRateLevelsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateLevels?: ChannelRateLevels;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1594,7 +1594,7 @@ export interface PutChannelRateMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateMapping?: ChannelRateMapping;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1603,7 +1603,7 @@ export interface PutChannelRateRoomSeqRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateRoomSequence?: ChannelRateRoomSequence;
+    channelRateRoomSequence: ChannelRateRoomSequence;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1612,29 +1612,29 @@ export interface PutChannelRatesGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelRoomMappingRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMapping?: ChannelRoomMapping;
+    channelRoomMapping: ChannelRoomMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutChannelRoomTypesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomTypes?: ChannelRoomTypes;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1643,7 +1643,7 @@ export interface PutChannelRoomsGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1652,7 +1652,7 @@ export interface PutChannelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channels?: Channels;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1661,7 +1661,7 @@ export interface PutCreditCardsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditCards?: CreditCards;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1670,7 +1670,7 @@ export interface PutCurrenciesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencies?: Currencies;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1679,7 +1679,7 @@ export interface PutDistributionTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    distributionTemplates?: DistributionTemplates;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1688,7 +1688,7 @@ export interface PutGuaranteesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guarantees?: Guarantees;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1697,18 +1697,18 @@ export interface PutHotelsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    properties?: Properties;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRateGlobalDescriptionRequest {
-    channelRateCode?: string;
-    channelCode?: string;
+    channelRateCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescription?: ChannelGlobalDescription;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1717,7 +1717,7 @@ export interface PutRoomDescriptionRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescription?: ChannelGlobalDescription;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1726,7 +1726,7 @@ export interface PutTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElements?: TotalPricingElements;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1741,22 +1741,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Creates copy of channel account contracts
      */
     async copyChannelAccountContractsRaw(requestParameters: CopyChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelAccountContractsDetailsCopy>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyChannelAccountContracts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyChannelAccountContracts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyChannelAccountContracts.');
-        }
-
         if (requestParameters.channelAccountContractsCopy === null || requestParameters.channelAccountContractsCopy === undefined) {
             throw new runtime.RequiredError('channelAccountContractsCopy','Required parameter requestParameters.channelAccountContractsCopy was null or undefined when calling copyChannelAccountContracts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1808,22 +1796,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Allows to copy marketing message to another channel and hotel
      */
     async copyChannelMarketingTextRaw(requestParameters: CopyChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyChannelMarketingText.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyChannelMarketingText.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyChannelMarketingText.');
-        }
-
         if (requestParameters.channelMarketingTextCopy === null || requestParameters.channelMarketingTextCopy === undefined) {
             throw new runtime.RequiredError('channelMarketingTextCopy','Required parameter requestParameters.channelMarketingTextCopy was null or undefined when calling copyChannelMarketingText.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1875,22 +1851,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Allows to copy total pricing tax and fees to another hotel id
      */
     async copyTotalPricingElementsRaw(requestParameters: CopyTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTotalPricingElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTotalPricingElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTotalPricingElements.');
-        }
-
         if (requestParameters.totalPricingElementsCopy === null || requestParameters.totalPricingElementsCopy === undefined) {
             throw new runtime.RequiredError('totalPricingElementsCopy','Required parameter requestParameters.totalPricingElementsCopy was null or undefined when calling copyTotalPricingElements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1942,18 +1906,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel amenities configuration
      */
     async deleteAmenitiesMappingRaw(requestParameters: DeleteAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAmenitiesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAmenitiesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAmenitiesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -2058,18 +2010,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel account contracts.
      */
     async deleteChannelAccountContractsRaw(requestParameters: DeleteChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelAccountContracts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelAccountContracts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelAccountContracts.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -2150,18 +2090,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel billing statements.
      */
     async deleteChannelBillingStatementsRaw(requestParameters: DeleteChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelBillingStatements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelBillingStatements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelBillingStatements.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.id) {
@@ -2229,27 +2157,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
             throw new runtime.RequiredError('cardTypeCode','Required parameter requestParameters.cardTypeCode was null or undefined when calling deleteChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelCardTypeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelCardTypeMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.channelCardType !== undefined) {
@@ -2305,23 +2221,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelCarriers.');
         }
-
+        
         if (requestParameters.carriers === null || requestParameters.carriers === undefined) {
             throw new runtime.RequiredError('carriers','Required parameter requestParameters.carriers was null or undefined when calling deleteChannelCarriers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelCarriers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelCarriers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelCarriers.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCodes) {
@@ -2378,18 +2282,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel error codes
      */
     async deleteChannelErrorsRaw(requestParameters: DeleteChannelErrorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelErrors.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelErrors.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelErrors.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCode) {
@@ -2449,27 +2341,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
             throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2518,18 +2398,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel property confirmation letter mapping
      */
     async deleteChannelHotelLettersRaw(requestParameters: DeleteChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelHotelLetters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelHotelLetters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelHotelLetters.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.code !== undefined) {
@@ -2602,18 +2470,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel marketing messages
      */
     async deleteChannelMarketingTextRaw(requestParameters: DeleteChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelMarketingText.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelMarketingText.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelMarketingText.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.beginDate) {
@@ -2718,18 +2574,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel negotiate rate
      */
     async deleteChannelNegotiatedRateRaw(requestParameters: DeleteChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelNegotiatedRate.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCode !== undefined) {
@@ -2885,23 +2729,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
             throw new runtime.RequiredError('tenantCode','Required parameter requestParameters.tenantCode was null or undefined when calling deleteChannelOrgMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelOrgMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelOrgMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelOrgMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelOrgMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.chainCode !== undefined) {
@@ -2957,23 +2789,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRateCategories.');
         }
-
+        
         if (requestParameters.rateCategories === null || requestParameters.rateCategories === undefined) {
             throw new runtime.RequiredError('rateCategories','Required parameter requestParameters.rateCategories was null or undefined when calling deleteChannelRateCategories.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateCategories.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateCategories.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateCategories.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCodes) {
@@ -3033,23 +2853,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRateLevels.');
         }
-
+        
         if (requestParameters.rateLevels === null || requestParameters.rateLevels === undefined) {
             throw new runtime.RequiredError('rateLevels','Required parameter requestParameters.rateLevels was null or undefined when calling deleteChannelRateLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateLevels.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCodes) {
@@ -3106,18 +2914,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel property rate mapping
      */
     async deleteChannelRateMappingRaw(requestParameters: DeleteChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCode) {
@@ -3190,18 +2986,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes global rate descriptions
      */
     async deleteChannelRatesGlobalDescriptionsRaw(requestParameters: DeleteChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -3277,27 +3061,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
             throw new runtime.RequiredError('roomTypeCode','Required parameter requestParameters.roomTypeCode was null or undefined when calling deleteChannelRoomMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelRoomMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelRoomMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.beginDate !== undefined) {
@@ -3361,23 +3133,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRoomTypes.');
         }
-
+        
         if (requestParameters.roomTypes === null || requestParameters.roomTypes === undefined) {
             throw new runtime.RequiredError('roomTypes','Required parameter requestParameters.roomTypes was null or undefined when calling deleteChannelRoomTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.bookingChannelCodes) {
@@ -3434,18 +3194,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes global room descriptions
      */
     async deleteChannelRoomsGlobalDescriptionsRaw(requestParameters: DeleteChannelRoomsGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -3518,18 +3266,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel credit card mapping
      */
     async deleteCreditCardsMappingRaw(requestParameters: DeleteCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCreditCardsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCreditCardsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCreditCardsMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -3630,18 +3366,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel currency code mapping
      */
     async deleteCurrenciesMappingRaw(requestParameters: DeleteCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCurrenciesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCurrenciesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCurrenciesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -3750,18 +3474,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes rate templates configurations
      */
     async deleteDistributionTemplatesRaw(requestParameters: DeleteDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDistributionTemplates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDistributionTemplates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDistributionTemplates.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.codes) {
@@ -3822,18 +3534,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel guarantee code mapping
      */
     async deleteGuaranteesMappingRaw(requestParameters: DeleteGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -3938,18 +3638,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes channel hotel mapping
      */
     async deleteHotelsMappingRaw(requestParameters: DeleteHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHotelsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHotelsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHotelsMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -4102,18 +3790,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Deletes total pricing tax and fee types
      */
     async deleteTotalPricingElementsRaw(requestParameters: DeleteTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTotalPricingElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTotalPricingElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTotalPricingElements.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -4174,22 +3850,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * This API generates channel billing statements.
      */
     async generateChannelBillingStatementsRaw(requestParameters: GenerateChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling generateChannelBillingStatements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling generateChannelBillingStatements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling generateChannelBillingStatements.');
-        }
-
         if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
             throw new runtime.RequiredError('channelBillingStatements','Required parameter requestParameters.channelBillingStatements was null or undefined when calling generateChannelBillingStatements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4241,18 +3905,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel amenities configuration
      */
     async getAmenitiesMappingRaw(requestParameters: GetAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AmenitiesMapping>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAmenitiesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAmenitiesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAmenitiesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -4336,19 +3988,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannel.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannel.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannel.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannel.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive) {
@@ -4408,19 +4048,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
             throw new runtime.RequiredError('accountProfileId','Required parameter requestParameters.accountProfileId was null or undefined when calling getChannelAccount.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelAccount.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccount.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccount.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.markAsRecentlyAccessed !== undefined) {
@@ -4480,23 +4108,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.contractId === null || requestParameters.contractId === undefined) {
             throw new runtime.RequiredError('contractId','Required parameter requestParameters.contractId was null or undefined when calling getChannelAccountContractElements.');
         }
-
+        
         if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
             throw new runtime.RequiredError('accountProfileId','Required parameter requestParameters.accountProfileId was null or undefined when calling getChannelAccountContractElements.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelAccountContractElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccountContractElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccountContractElements.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4561,18 +4177,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * This API retrieves channel accounts.
      */
     async getChannelAccountsRaw(requestParameters: GetChannelAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelAccountsSummary>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelAccounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccounts.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.excludeInactive !== undefined) {
@@ -4664,19 +4268,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
             throw new runtime.RequiredError('statementId','Required parameter requestParameters.statementId was null or undefined when calling getChannelBillingStatement.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatement.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatement.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatement.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -4736,19 +4328,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
             throw new runtime.RequiredError('statementId','Required parameter requestParameters.statementId was null or undefined when calling getChannelBillingStatementDetails.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatementDetails.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatementDetails.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatementDetails.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4821,18 +4401,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Retrieves channel billing statements.
      */
     async getChannelBillingStatementsRaw(requestParameters: GetChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelBillingStatementSummaries>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatements.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.includeLocked !== undefined) {
@@ -4920,19 +4488,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getChannelCardTypeMappings.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelCardTypeMappings.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelCardTypeMappings.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelCardTypeMappings.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -5020,19 +4576,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelGuaranteeCodeMappings.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelGuaranteeCodeMappings.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelGuaranteeCodeMappings.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelGuaranteeCodeMappings.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -5120,19 +4664,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelHotelCodeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelHotelCodeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelHotelCodeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelHotelCodeMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -5189,18 +4721,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel property confirmation letter mapping
      */
     async getChannelHotelLettersRaw(requestParameters: GetChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedChannelHotelLetters>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelHotelLetters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelHotelLetters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelHotelLetters.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.channelCode) {
@@ -5265,18 +4785,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel marketing messages
      */
     async getChannelMarketingTextRaw(requestParameters: GetChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelMarketingTextsInfo>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelMarketingText.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelMarketingText.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelMarketingText.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.transactionType !== undefined) {
@@ -5381,18 +4889,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel negotiate rate
      */
     async getChannelNegotiatedRateRaw(requestParameters: GetChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelNegotiatedRateDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelNegotiatedRate.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -5472,23 +4968,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
             throw new runtime.RequiredError('tenantCode','Required parameter requestParameters.tenantCode was null or undefined when calling getChannelOrgMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelOrgMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelOrgMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelOrgMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelOrgMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.chainCode !== undefined) {
@@ -5544,23 +5028,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelParameters.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelParameters.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelParameters.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.parameterNameWildCard !== undefined) {
@@ -5616,23 +5088,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelPolicies.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelPolicies.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelPolicies.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelPolicies.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelPolicies.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.requestType !== undefined) {
@@ -5724,23 +5184,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
             throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling getChannelRateCodeGlobalDesc.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelRateCodeGlobalDesc.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRateCodeGlobalDesc.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateCodeGlobalDesc.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateCodeGlobalDesc.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5789,18 +5237,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel property rate mapping
      */
     async getChannelRateMappingRaw(requestParameters: GetChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelRateMappings>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRateMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -5900,19 +5336,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelRateRoomSeq.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRateRoomSeq.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateRoomSeq.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateRoomSeq.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -5989,18 +5413,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets global rate descriptions
      */
     async getChannelRatesGlobalDescriptionsRaw(requestParameters: GetChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelGlobalDescriptions>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRatesGlobalDescriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -6068,19 +5480,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomMapping.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -6168,27 +5568,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
             throw new runtime.RequiredError('roomTypeCode','Required parameter requestParameters.roomTypeCode was null or undefined when calling getChannelRoomMappingById.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelRoomMappingById.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomMappingById.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomMappingById.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomMappingById.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomMappingById.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.beginDate !== undefined) {
@@ -6248,23 +5636,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
             throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling getChannelRoomTypeGlobalDesc.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomTypeGlobalDesc.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomTypeGlobalDesc.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomTypeGlobalDesc.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomTypeGlobalDesc.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6313,18 +5689,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets global room descriptions
      */
     async getChannelRoomsGlobalDescriptionsRaw(requestParameters: GetChannelRoomsGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelGlobalDescriptions>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomsGlobalDescriptions.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -6389,18 +5753,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets list of channels
      */
     async getChannelsRaw(requestParameters: GetChannelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Channels>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannels.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -6481,18 +5833,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel credit card mapping
      */
     async getCreditCardsMappingRaw(requestParameters: GetCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardsMapping>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditCardsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardsMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -6577,18 +5917,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel currency code mapping
      */
     async getCurrenciesMappingRaw(requestParameters: GetCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesMapping>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCurrenciesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCurrenciesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCurrenciesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -6673,18 +6001,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Retrieves distribution templates
      */
     async getDistributionTemplatesRaw(requestParameters: GetDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DistributionTemplates>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDistributionTemplates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDistributionTemplates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDistributionTemplates.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.isChain !== undefined) {
@@ -6753,18 +6069,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel guarantee code mapping for a hotel
      */
     async getGuaranteesMappingRaw(requestParameters: GetGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuaranteesMapping>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuaranteesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteesMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -6849,18 +6153,6 @@ export class ChannelApi extends runtime.BaseAPI {
      * Gets channel hotel mapping
      */
     async getHotelsMappingRaw(requestParameters: GetHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PropertiesMapping>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelsMapping.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -6948,19 +6240,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
             throw new runtime.RequiredError('statementId','Required parameter requestParameters.statementId was null or undefined when calling getStatementDetailsStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStatementDetailsStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStatementDetailsStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStatementDetailsStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.contractId !== undefined) {
@@ -7024,19 +6304,7 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTotalPricingElements.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTotalPricingElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTotalPricingElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTotalPricingElements.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -7105,22 +6373,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel room configuration
      */
     async manageChannelRoomMappingRaw(requestParameters: ManageChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling manageChannelRoomMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling manageChannelRoomMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling manageChannelRoomMapping.');
-        }
-
         if (requestParameters.channelRoomMappings === null || requestParameters.channelRoomMappings === undefined) {
             throw new runtime.RequiredError('channelRoomMappings','Required parameter requestParameters.channelRoomMappings was null or undefined when calling manageChannelRoomMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7172,22 +6428,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel amenities configuration
      */
     async postAmenitiesMappingRaw(requestParameters: PostAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAmenitiesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAmenitiesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAmenitiesMapping.');
-        }
-
         if (requestParameters.amenities === null || requestParameters.amenities === undefined) {
             throw new runtime.RequiredError('amenities','Required parameter requestParameters.amenities was null or undefined when calling postAmenitiesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7242,23 +6486,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
             throw new runtime.RequiredError('accountProfileId','Required parameter requestParameters.accountProfileId was null or undefined when calling postChannelAccountContracts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelAccountContracts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelAccountContracts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelAccountContracts.');
-        }
-
+        
         if (requestParameters.channelAccountContracts === null || requestParameters.channelAccountContracts === undefined) {
             throw new runtime.RequiredError('channelAccountContracts','Required parameter requestParameters.channelAccountContracts was null or undefined when calling postChannelAccountContracts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7310,22 +6542,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel accounts.
      */
     async postChannelAccountsRaw(requestParameters: PostChannelAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelAccounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelAccounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelAccounts.');
-        }
-
         if (requestParameters.channelAccounts === null || requestParameters.channelAccounts === undefined) {
             throw new runtime.RequiredError('channelAccounts','Required parameter requestParameters.channelAccounts was null or undefined when calling postChannelAccounts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7377,22 +6597,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel billing statements.
      */
     async postChannelBillingStatementsRaw(requestParameters: PostChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelBillingStatements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelBillingStatements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelBillingStatements.');
-        }
-
         if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
             throw new runtime.RequiredError('channelBillingStatements','Required parameter requestParameters.channelBillingStatements was null or undefined when calling postChannelBillingStatements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7447,31 +6655,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
             throw new runtime.RequiredError('cardTypeCode','Required parameter requestParameters.cardTypeCode was null or undefined when calling postChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postChannelCardTypeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelCardTypeMapping.');
-        }
-
+        
         if (requestParameters.channelCardTypeMappings === null || requestParameters.channelCardTypeMappings === undefined) {
             throw new runtime.RequiredError('channelCardTypeMappings','Required parameter requestParameters.channelCardTypeMappings was null or undefined when calling postChannelCardTypeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7526,23 +6722,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelCarriers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelCarriers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelCarriers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelCarriers.');
-        }
-
+        
         if (requestParameters.channelCarriers === null || requestParameters.channelCarriers === undefined) {
             throw new runtime.RequiredError('channelCarriers','Required parameter requestParameters.channelCarriers was null or undefined when calling postChannelCarriers.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7597,23 +6781,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelErrors.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelErrors.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelErrors.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelErrors.');
-        }
-
+        
         if (requestParameters.channelErrors === null || requestParameters.channelErrors === undefined) {
             throw new runtime.RequiredError('channelErrors','Required parameter requestParameters.channelErrors was null or undefined when calling postChannelErrors.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7668,31 +6840,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
             throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling postChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postChannelGuaranteeCodeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelGuaranteeCodeMapping.');
-        }
-
+        
         if (requestParameters.channelGuaranteeCodeMappings === null || requestParameters.channelGuaranteeCodeMappings === undefined) {
             throw new runtime.RequiredError('channelGuaranteeCodeMappings','Required parameter requestParameters.channelGuaranteeCodeMappings was null or undefined when calling postChannelGuaranteeCodeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7744,22 +6904,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel property confirmation letter mapping
      */
     async postChannelHotelLettersRaw(requestParameters: PostChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelHotelLetters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelHotelLetters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelHotelLetters.');
-        }
-
         if (requestParameters.channelHotelLettersToBeCreated === null || requestParameters.channelHotelLettersToBeCreated === undefined) {
             throw new runtime.RequiredError('channelHotelLettersToBeCreated','Required parameter requestParameters.channelHotelLettersToBeCreated was null or undefined when calling postChannelHotelLetters.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7811,22 +6959,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel marketing messages
      */
     async postChannelMarketingTextRaw(requestParameters: PostChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelMarketingText.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelMarketingText.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelMarketingText.');
-        }
-
         if (requestParameters.channelMarketingText === null || requestParameters.channelMarketingText === undefined) {
             throw new runtime.RequiredError('channelMarketingText','Required parameter requestParameters.channelMarketingText was null or undefined when calling postChannelMarketingText.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7878,22 +7014,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel negotiate rate
      */
     async postChannelNegotiatedRateRaw(requestParameters: PostChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelNegotiatedRate.');
-        }
-
         if (requestParameters.channelNegotiatedRates === null || requestParameters.channelNegotiatedRates === undefined) {
             throw new runtime.RequiredError('channelNegotiatedRates','Required parameter requestParameters.channelNegotiatedRates was null or undefined when calling postChannelNegotiatedRate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7948,23 +7072,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelOrgMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelOrgMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelOrgMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelOrgMapping.');
-        }
-
+        
         if (requestParameters.channelOrgMapping === null || requestParameters.channelOrgMapping === undefined) {
             throw new runtime.RequiredError('channelOrgMapping','Required parameter requestParameters.channelOrgMapping was null or undefined when calling postChannelOrgMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8019,23 +7131,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelRateCategories.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRateCategories.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateCategories.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateCategories.');
-        }
-
+        
         if (requestParameters.channelRateCategories === null || requestParameters.channelRateCategories === undefined) {
             throw new runtime.RequiredError('channelRateCategories','Required parameter requestParameters.channelRateCategories was null or undefined when calling postChannelRateCategories.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8090,23 +7190,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelRateLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRateLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateLevels.');
-        }
-
+        
         if (requestParameters.channelRateLevels === null || requestParameters.channelRateLevels === undefined) {
             throw new runtime.RequiredError('channelRateLevels','Required parameter requestParameters.channelRateLevels was null or undefined when calling postChannelRateLevels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8158,22 +7246,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel property rate mapping
      */
     async postChannelRateMappingRaw(requestParameters: PostChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRateMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateMapping.');
-        }
-
         if (requestParameters.channelRateMapping === null || requestParameters.channelRateMapping === undefined) {
             throw new runtime.RequiredError('channelRateMapping','Required parameter requestParameters.channelRateMapping was null or undefined when calling postChannelRateMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8228,23 +7304,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postChannelRates.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRates.');
-        }
-
+        
         if (requestParameters.channelRates === null || requestParameters.channelRates === undefined) {
             throw new runtime.RequiredError('channelRates','Required parameter requestParameters.channelRates was null or undefined when calling postChannelRates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8296,22 +7360,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds global room descriptions
      */
     async postChannelRatesGlobalDescriptionsRaw(requestParameters: PostChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRatesGlobalDescriptions.');
-        }
-
         if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
             throw new runtime.RequiredError('channelGlobalDescriptions','Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling postChannelRatesGlobalDescriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8363,22 +7415,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel property room mapping
      */
     async postChannelRoomMappingRaw(requestParameters: PostChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomMapping.');
-        }
-
         if (requestParameters.channelRoomMappings === null || requestParameters.channelRoomMappings === undefined) {
             throw new runtime.RequiredError('channelRoomMappings','Required parameter requestParameters.channelRoomMappings was null or undefined when calling postChannelRoomMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8433,31 +7473,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelRoomType === null || requestParameters.channelRoomType === undefined) {
             throw new runtime.RequiredError('channelRoomType','Required parameter requestParameters.channelRoomType was null or undefined when calling postChannelRoomTypeRate.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelRoomTypeRate.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postChannelRoomTypeRate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomTypeRate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomTypeRate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomTypeRate.');
-        }
-
+        
         if (requestParameters.channelRates === null || requestParameters.channelRates === undefined) {
             throw new runtime.RequiredError('channelRates','Required parameter requestParameters.channelRates was null or undefined when calling postChannelRoomTypeRate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8512,23 +7540,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling postChannelRoomTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomTypes.');
-        }
-
+        
         if (requestParameters.channelRoomTypes === null || requestParameters.channelRoomTypes === undefined) {
             throw new runtime.RequiredError('channelRoomTypes','Required parameter requestParameters.channelRoomTypes was null or undefined when calling postChannelRoomTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8580,22 +7596,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds global rate descriptions
      */
     async postChannelRoomsGlobalDescriptionsRaw(requestParameters: PostChannelRoomsGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomsGlobalDescriptions.');
-        }
-
         if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
             throw new runtime.RequiredError('channelGlobalDescriptions','Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling postChannelRoomsGlobalDescriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8647,22 +7651,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds new channel
      */
     async postChannelsRaw(requestParameters: PostChannelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChannels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChannels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChannels.');
-        }
-
         if (requestParameters.channels === null || requestParameters.channels === undefined) {
             throw new runtime.RequiredError('channels','Required parameter requestParameters.channels was null or undefined when calling postChannels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8714,22 +7706,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel credit card mapping
      */
     async postCreditCardsMappingRaw(requestParameters: PostCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCreditCardsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCreditCardsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCreditCardsMapping.');
-        }
-
         if (requestParameters.creditCards === null || requestParameters.creditCards === undefined) {
             throw new runtime.RequiredError('creditCards','Required parameter requestParameters.creditCards was null or undefined when calling postCreditCardsMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8781,22 +7761,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel currency code mapping
      */
     async postCurrenciesMappingRaw(requestParameters: PostCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCurrenciesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCurrenciesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCurrenciesMapping.');
-        }
-
         if (requestParameters.currencies === null || requestParameters.currencies === undefined) {
             throw new runtime.RequiredError('currencies','Required parameter requestParameters.currencies was null or undefined when calling postCurrenciesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8848,22 +7816,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds rate templates configurations
      */
     async postDistributionTemplatesRaw(requestParameters: PostDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDistributionTemplates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDistributionTemplates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDistributionTemplates.');
-        }
-
         if (requestParameters.distributionTemplates === null || requestParameters.distributionTemplates === undefined) {
             throw new runtime.RequiredError('distributionTemplates','Required parameter requestParameters.distributionTemplates was null or undefined when calling postDistributionTemplates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8915,22 +7871,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel guarantee code mapping
      */
     async postGuaranteesMappingRaw(requestParameters: PostGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGuaranteesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteesMapping.');
-        }
-
         if (requestParameters.guarantees === null || requestParameters.guarantees === undefined) {
             throw new runtime.RequiredError('guarantees','Required parameter requestParameters.guarantees was null or undefined when calling postGuaranteesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8982,22 +7926,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds channel hotel mapping
      */
     async postHotelsMappingRaw(requestParameters: PostHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHotelsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHotelsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHotelsMapping.');
-        }
-
         if (requestParameters.properties === null || requestParameters.properties === undefined) {
             throw new runtime.RequiredError('properties','Required parameter requestParameters.properties was null or undefined when calling postHotelsMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9049,22 +7981,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Adds total pricing tax and fee types
      */
     async postTotalPricingElementsRaw(requestParameters: PostTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTotalPricingElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTotalPricingElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTotalPricingElements.');
-        }
-
         if (requestParameters.totalPricingElements === null || requestParameters.totalPricingElements === undefined) {
             throw new runtime.RequiredError('totalPricingElements','Required parameter requestParameters.totalPricingElements was null or undefined when calling postTotalPricingElements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9116,22 +8036,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Publishes channel availability.
      */
     async publishChannelAvailabilityRaw(requestParameters: PublishChannelAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling publishChannelAvailability.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelAvailability.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelAvailability.');
-        }
-
         if (requestParameters.channelAvailability === null || requestParameters.channelAvailability === undefined) {
             throw new runtime.RequiredError('channelAvailability','Required parameter requestParameters.channelAvailability was null or undefined when calling publishChannelAvailability.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9186,23 +8094,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling publishChannelRatePlans.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling publishChannelRatePlans.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelRatePlans.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelRatePlans.');
-        }
-
+        
         if (requestParameters.channelRatePlans === null || requestParameters.channelRatePlans === undefined) {
             throw new runtime.RequiredError('channelRatePlans','Required parameter requestParameters.channelRatePlans was null or undefined when calling publishChannelRatePlans.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9254,22 +8150,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Publishes channel restrictions
      */
     async publishChannelRestrictionsRaw(requestParameters: PublishChannelRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling publishChannelRestrictions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelRestrictions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelRestrictions.');
-        }
-
         if (requestParameters.channelRestrictions === null || requestParameters.channelRestrictions === undefined) {
             throw new runtime.RequiredError('channelRestrictions','Required parameter requestParameters.channelRestrictions was null or undefined when calling publishChannelRestrictions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9324,23 +8208,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling publishHotelChannelRatePlans.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling publishHotelChannelRatePlans.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling publishHotelChannelRatePlans.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling publishHotelChannelRatePlans.');
-        }
-
+        
         if (requestParameters.channelRatePlans === null || requestParameters.channelRatePlans === undefined) {
             throw new runtime.RequiredError('channelRatePlans','Required parameter requestParameters.channelRatePlans was null or undefined when calling publishHotelChannelRatePlans.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9392,22 +8264,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel amenities configuration
      */
     async putAmenitiesMappingRaw(requestParameters: PutAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAmenitiesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAmenitiesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAmenitiesMapping.');
-        }
-
         if (requestParameters.amenities === null || requestParameters.amenities === undefined) {
             throw new runtime.RequiredError('amenities','Required parameter requestParameters.amenities was null or undefined when calling putAmenitiesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9462,23 +8322,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
             throw new runtime.RequiredError('accountProfileId','Required parameter requestParameters.accountProfileId was null or undefined when calling putChannelAccountContracts.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelAccountContracts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelAccountContracts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelAccountContracts.');
-        }
-
+        
         if (requestParameters.channelAccountContracts === null || requestParameters.channelAccountContracts === undefined) {
             throw new runtime.RequiredError('channelAccountContracts','Required parameter requestParameters.channelAccountContracts was null or undefined when calling putChannelAccountContracts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9530,22 +8378,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel accounts
      */
     async putChannelAccountsRaw(requestParameters: PutChannelAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelAccounts.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelAccounts.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelAccounts.');
-        }
-
         if (requestParameters.channelAccountsToChange === null || requestParameters.channelAccountsToChange === undefined) {
             throw new runtime.RequiredError('channelAccountsToChange','Required parameter requestParameters.channelAccountsToChange was null or undefined when calling putChannelAccounts.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9597,22 +8433,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel billing statement details
      */
     async putChannelBillingStatementsRaw(requestParameters: PutChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelBillingStatements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelBillingStatements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelBillingStatements.');
-        }
-
         if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
             throw new runtime.RequiredError('channelBillingStatements','Required parameter requestParameters.channelBillingStatements was null or undefined when calling putChannelBillingStatements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9667,31 +8491,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
             throw new runtime.RequiredError('cardTypeCode','Required parameter requestParameters.cardTypeCode was null or undefined when calling putChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelCardTypeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putChannelCardTypeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelCardTypeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelCardTypeMapping.');
-        }
-
+        
         if (requestParameters.channelCardTypeMappings === null || requestParameters.channelCardTypeMappings === undefined) {
             throw new runtime.RequiredError('channelCardTypeMappings','Required parameter requestParameters.channelCardTypeMappings was null or undefined when calling putChannelCardTypeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9746,23 +8558,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelCarriers.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelCarriers.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelCarriers.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelCarriers.');
-        }
-
+        
         if (requestParameters.channelCarriers === null || requestParameters.channelCarriers === undefined) {
             throw new runtime.RequiredError('channelCarriers','Required parameter requestParameters.channelCarriers was null or undefined when calling putChannelCarriers.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9817,23 +8617,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelErrors.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelErrors.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelErrors.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelErrors.');
-        }
-
+        
         if (requestParameters.channelErrors === null || requestParameters.channelErrors === undefined) {
             throw new runtime.RequiredError('channelErrors','Required parameter requestParameters.channelErrors was null or undefined when calling putChannelErrors.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9888,31 +8676,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
             throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling putChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelGuaranteeCodeMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putChannelGuaranteeCodeMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelGuaranteeCodeMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelGuaranteeCodeMapping.');
-        }
-
+        
         if (requestParameters.channelGuaranteeCodeMappings === null || requestParameters.channelGuaranteeCodeMappings === undefined) {
             throw new runtime.RequiredError('channelGuaranteeCodeMappings','Required parameter requestParameters.channelGuaranteeCodeMappings was null or undefined when calling putChannelGuaranteeCodeMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9964,22 +8740,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel property confirmation letter mapping
      */
     async putChannelHotelLettersRaw(requestParameters: PutChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelHotelLetters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelHotelLetters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelHotelLetters.');
-        }
-
         if (requestParameters.channelHotelLettersToBeChanged === null || requestParameters.channelHotelLettersToBeChanged === undefined) {
             throw new runtime.RequiredError('channelHotelLettersToBeChanged','Required parameter requestParameters.channelHotelLettersToBeChanged was null or undefined when calling putChannelHotelLetters.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10031,22 +8795,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel marketing messages
      */
     async putChannelMarketingTextRaw(requestParameters: PutChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelMarketingText.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelMarketingText.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelMarketingText.');
-        }
-
         if (requestParameters.channelMarketingTextToChange === null || requestParameters.channelMarketingTextToChange === undefined) {
             throw new runtime.RequiredError('channelMarketingTextToChange','Required parameter requestParameters.channelMarketingTextToChange was null or undefined when calling putChannelMarketingText.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10098,22 +8850,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel negotiate rate
      */
     async putChannelNegotiatedRateRaw(requestParameters: PutChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelNegotiatedRate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelNegotiatedRate.');
-        }
-
         if (requestParameters.channelNegotiatedRates === null || requestParameters.channelNegotiatedRates === undefined) {
             throw new runtime.RequiredError('channelNegotiatedRates','Required parameter requestParameters.channelNegotiatedRates was null or undefined when calling putChannelNegotiatedRate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10168,27 +8908,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
             throw new runtime.RequiredError('tenantCode','Required parameter requestParameters.tenantCode was null or undefined when calling putChannelOrgMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelOrgMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelOrgMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelOrgMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelOrgMapping.');
-        }
-
+        
         if (requestParameters.channelOrgMapping === null || requestParameters.channelOrgMapping === undefined) {
             throw new runtime.RequiredError('channelOrgMapping','Required parameter requestParameters.channelOrgMapping was null or undefined when calling putChannelOrgMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10243,23 +8971,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelParameters.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelParameters.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelParameters.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelParameters.');
-        }
-
+        
         if (requestParameters.changeChannelParameters === null || requestParameters.changeChannelParameters === undefined) {
             throw new runtime.RequiredError('changeChannelParameters','Required parameter requestParameters.changeChannelParameters was null or undefined when calling putChannelParameters.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10314,23 +9030,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelRateCategories.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRateCategories.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateCategories.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateCategories.');
-        }
-
+        
         if (requestParameters.channelRateCategories === null || requestParameters.channelRateCategories === undefined) {
             throw new runtime.RequiredError('channelRateCategories','Required parameter requestParameters.channelRateCategories was null or undefined when calling putChannelRateCategories.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10385,23 +9089,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelRateLevels.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRateLevels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateLevels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateLevels.');
-        }
-
+        
         if (requestParameters.channelRateLevels === null || requestParameters.channelRateLevels === undefined) {
             throw new runtime.RequiredError('channelRateLevels','Required parameter requestParameters.channelRateLevels was null or undefined when calling putChannelRateLevels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10453,22 +9145,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel property rate mapping
      */
     async putChannelRateMappingRaw(requestParameters: PutChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRateMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateMapping.');
-        }
-
         if (requestParameters.channelRateMapping === null || requestParameters.channelRateMapping === undefined) {
             throw new runtime.RequiredError('channelRateMapping','Required parameter requestParameters.channelRateMapping was null or undefined when calling putChannelRateMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10520,22 +9200,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel property rateroom sequence
      */
     async putChannelRateRoomSeqRaw(requestParameters: PutChannelRateRoomSeqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRateRoomSeq.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateRoomSeq.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateRoomSeq.');
-        }
-
         if (requestParameters.channelRateRoomSequence === null || requestParameters.channelRateRoomSequence === undefined) {
             throw new runtime.RequiredError('channelRateRoomSequence','Required parameter requestParameters.channelRateRoomSequence was null or undefined when calling putChannelRateRoomSeq.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10587,22 +9255,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates global rate descriptions
      */
     async putChannelRatesGlobalDescriptionsRaw(requestParameters: PutChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRatesGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRatesGlobalDescriptions.');
-        }
-
         if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
             throw new runtime.RequiredError('channelGlobalDescriptions','Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling putChannelRatesGlobalDescriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10657,31 +9313,19 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
             throw new runtime.RequiredError('roomTypeCode','Required parameter requestParameters.roomTypeCode was null or undefined when calling putChannelRoomMapping.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelRoomMapping.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putChannelRoomMapping.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomMapping.');
-        }
-
+        
         if (requestParameters.channelRoomMapping === null || requestParameters.channelRoomMapping === undefined) {
             throw new runtime.RequiredError('channelRoomMapping','Required parameter requestParameters.channelRoomMapping was null or undefined when calling putChannelRoomMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10736,23 +9380,11 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putChannelRoomTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomTypes.');
-        }
-
+        
         if (requestParameters.channelRoomTypes === null || requestParameters.channelRoomTypes === undefined) {
             throw new runtime.RequiredError('channelRoomTypes','Required parameter requestParameters.channelRoomTypes was null or undefined when calling putChannelRoomTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10804,22 +9436,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates global room descriptions
      */
     async putChannelRoomsGlobalDescriptionsRaw(requestParameters: PutChannelRoomsGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomsGlobalDescriptions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomsGlobalDescriptions.');
-        }
-
         if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
             throw new runtime.RequiredError('channelGlobalDescriptions','Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling putChannelRoomsGlobalDescriptions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10871,22 +9491,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Update channel configuration
      */
     async putChannelsRaw(requestParameters: PutChannelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChannels.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChannels.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChannels.');
-        }
-
         if (requestParameters.channels === null || requestParameters.channels === undefined) {
             throw new runtime.RequiredError('channels','Required parameter requestParameters.channels was null or undefined when calling putChannels.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10938,22 +9546,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel credit card mapping
      */
     async putCreditCardsMappingRaw(requestParameters: PutCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCreditCardsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCreditCardsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCreditCardsMapping.');
-        }
-
         if (requestParameters.creditCards === null || requestParameters.creditCards === undefined) {
             throw new runtime.RequiredError('creditCards','Required parameter requestParameters.creditCards was null or undefined when calling putCreditCardsMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11005,22 +9601,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel currency code mapping
      */
     async putCurrenciesMappingRaw(requestParameters: PutCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCurrenciesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCurrenciesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCurrenciesMapping.');
-        }
-
         if (requestParameters.currencies === null || requestParameters.currencies === undefined) {
             throw new runtime.RequiredError('currencies','Required parameter requestParameters.currencies was null or undefined when calling putCurrenciesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11072,22 +9656,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates rate templates configurations
      */
     async putDistributionTemplatesRaw(requestParameters: PutDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDistributionTemplates.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDistributionTemplates.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDistributionTemplates.');
-        }
-
         if (requestParameters.distributionTemplates === null || requestParameters.distributionTemplates === undefined) {
             throw new runtime.RequiredError('distributionTemplates','Required parameter requestParameters.distributionTemplates was null or undefined when calling putDistributionTemplates.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11139,22 +9711,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel guarantee code mapping
      */
     async putGuaranteesMappingRaw(requestParameters: PutGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putGuaranteesMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putGuaranteesMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putGuaranteesMapping.');
-        }
-
         if (requestParameters.guarantees === null || requestParameters.guarantees === undefined) {
             throw new runtime.RequiredError('guarantees','Required parameter requestParameters.guarantees was null or undefined when calling putGuaranteesMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11206,22 +9766,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates channel hotel mapping
      */
     async putHotelsMappingRaw(requestParameters: PutHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putHotelsMapping.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putHotelsMapping.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putHotelsMapping.');
-        }
-
         if (requestParameters.properties === null || requestParameters.properties === undefined) {
             throw new runtime.RequiredError('properties','Required parameter requestParameters.properties was null or undefined when calling putHotelsMapping.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11276,27 +9824,15 @@ export class ChannelApi extends runtime.BaseAPI {
         if (requestParameters.channelRateCode === null || requestParameters.channelRateCode === undefined) {
             throw new runtime.RequiredError('channelRateCode','Required parameter requestParameters.channelRateCode was null or undefined when calling putRateGlobalDescription.');
         }
-
+        
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling putRateGlobalDescription.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRateGlobalDescription.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRateGlobalDescription.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRateGlobalDescription.');
-        }
-
+        
         if (requestParameters.channelGlobalDescription === null || requestParameters.channelGlobalDescription === undefined) {
             throw new runtime.RequiredError('channelGlobalDescription','Required parameter requestParameters.channelGlobalDescription was null or undefined when calling putRateGlobalDescription.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11348,22 +9884,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Update global descriptions for a room
      */
     async putRoomDescriptionRaw(requestParameters: PutRoomDescriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomDescription.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomDescription.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomDescription.');
-        }
-
         if (requestParameters.channelGlobalDescription === null || requestParameters.channelGlobalDescription === undefined) {
             throw new runtime.RequiredError('channelGlobalDescription','Required parameter requestParameters.channelGlobalDescription was null or undefined when calling putRoomDescription.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11415,22 +9939,10 @@ export class ChannelApi extends runtime.BaseAPI {
      * Updates total pricing tax and fee types
      */
     async putTotalPricingElementsRaw(requestParameters: PutTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTotalPricingElements.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTotalPricingElements.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTotalPricingElements.');
-        }
-
         if (requestParameters.totalPricingElements === null || requestParameters.totalPricingElements === undefined) {
             throw new runtime.RequiredError('totalPricingElements','Required parameter requestParameters.totalPricingElements was null or undefined when calling putTotalPricingElements.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

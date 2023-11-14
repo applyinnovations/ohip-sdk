@@ -12,56 +12,56 @@
 import * as runtime from '../runtime';
 import type { AssociateCommissionAgentToReservations, AssociateCommissionAgentToReservationsStatus, BankAccountsDetails, CalculateCommissions, CalculateCommissionsStatus, CommissionCheckStatus, CommissionCheckToBeChanged, CommissionDetails, CommissionNotesDetails, CommissionPaymentActivityByRangeStatus, CommissionPaymentActivityByRangeToBeChanged, CommissionPaymentDetails, CommissionPaymentsActivityDetails, CommissionStatus, CommissionToBeChanged, CommissionsDetails, ProcessCommissionPayments, ProcessCommissionPaymentsStatus, RecalculateCommissionOnCodeChange, RecalculateCommissionOnCodeChangeStatus, ReprintCommissionCheckByRange, ReprintCommissionCheckByRangeStatus, SetProcessingInstructions, Status } from '../models/index';
 export interface AssociateCommissionAgentToReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
+    commissionAgentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    associateCommissionAgentToReservations?: AssociateCommissionAgentToReservations;
+    associateCommissionAgentToReservations: AssociateCommissionAgentToReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CalculateCommissionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calculateCommissions?: CalculateCommissions;
+    calculateCommissions: CalculateCommissions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionToBeChanged?: CommissionToBeChanged;
+    commissionToBeChanged: CommissionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCommissionCheckRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionCheckToBeChanged?: CommissionCheckToBeChanged;
+    commissionCheckToBeChanged: CommissionCheckToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCommissionPaymentActivityByRangeRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionPaymentActivityByRangeToBeChanged?: CommissionPaymentActivityByRangeToBeChanged;
+    commissionPaymentActivityByRangeToBeChanged: CommissionPaymentActivityByRangeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DiscardCommissionChecksRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -78,7 +78,7 @@ export interface DiscardCommissionChecksRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -89,8 +89,8 @@ export interface GetBankAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -101,8 +101,8 @@ export interface GetCommissionRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -113,8 +113,8 @@ export interface GetCommissionNotesRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionPaymentDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
+    hotelId: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -122,8 +122,8 @@ export interface GetCommissionPaymentDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionPaymentsActivityRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -142,7 +142,7 @@ export interface GetCommissionPaymentsActivityRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -170,9 +170,9 @@ export interface GetCommissionsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    agentId?: string;
+    hotelId: string;
+    bankAccountId: string;
+    agentId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -187,8 +187,8 @@ export interface GetReservationsForCommissionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
+    hotelId: string;
+    bankAccountId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -196,28 +196,28 @@ export interface GetTravelAgentsForCommissionsRequest {
     acceptLanguage?: string;
 }
 export interface ProcessCommissionPaymentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    processCommissionPayments?: ProcessCommissionPayments;
+    processCommissionPayments: ProcessCommissionPayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RecalculateCommissionOnCodeChangeRequest {
-    commissionCode?: string;
-    commissionId?: string;
-    hotelId?: string;
+    commissionCode: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    recalculateCommissionOnCodeChange?: RecalculateCommissionOnCodeChange;
+    recalculateCommissionOnCodeChange: RecalculateCommissionOnCodeChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
+    commissionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -229,8 +229,8 @@ export interface RemoveCommissionRequest {
     acceptLanguage?: string;
 }
 export interface RemoveCommissionAgentFromReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
+    commissionAgentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -246,21 +246,21 @@ export interface RemoveCommissionAgentFromReservationsRequest {
     acceptLanguage?: string;
 }
 export interface ReprintCommissionCheckByRangeRequest {
-    bankAccountId?: string;
-    hotelId?: string;
+    bankAccountId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reprintCommissionCheckByRange?: ReprintCommissionCheckByRange;
+    reprintCommissionCheckByRange: ReprintCommissionCheckByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetProcessingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    setProcessingInstructions?: SetProcessingInstructions;
+    setProcessingInstructions: SetProcessingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

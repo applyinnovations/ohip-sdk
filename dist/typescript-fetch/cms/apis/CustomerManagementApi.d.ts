@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { CalendarTask, CalendarTaskAttachments, CalendarTasks, Status, TrackItItems } from '../models/index';
 export interface DeleteCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
+    activityId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,8 +21,8 @@ export interface DeleteCalendarTaskRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCalendarTaskAttachmentRequest {
-    linkedToId?: string;
-    attachId?: string;
+    linkedToId: string;
+    attachId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteCalendarTaskAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -41,7 +41,7 @@ export interface DeleteTrackItItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetCalendarTaskRequest {
-    activityId?: string;
+    activityId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -51,8 +51,8 @@ export interface GetCalendarTaskRequest {
     acceptLanguage?: string;
 }
 export interface GetCalendarTaskAttachmentsRequest {
-    taskId?: string;
-    hotelId?: string;
+    taskId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -91,7 +91,7 @@ export interface GetCalendarTasksRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -121,39 +121,39 @@ export interface GetTrackItItemsRequest {
     acceptLanguage?: string;
 }
 export interface PostCalendarTaskRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calendarTask?: CalendarTask;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItItems?: TrackItItems;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
+    activityId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calendarTask?: CalendarTask;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItItems?: TrackItItems;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

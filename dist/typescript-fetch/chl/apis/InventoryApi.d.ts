@@ -12,27 +12,27 @@
 import * as runtime from '../runtime';
 import type { ChannelSellLimits, ChannelSellLimitsByDate, ChannelSellLimitsByDateRange, Status } from '../models/index';
 export interface ChangeChannelSellLimitsByDateRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelSellLimitsByDate?: ChannelSellLimitsByDate;
+    channelSellLimitsByDate: ChannelSellLimitsByDate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeChannelSellLimitsByDateRangeRequest {
-    channelId?: string;
-    hotelId?: string;
+    channelId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelSellLimitsByDateRange?: ChannelSellLimitsByDateRange;
+    channelSellLimitsByDateRange: ChannelSellLimitsByDateRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelSellLimitsRequest {
-    id?: string;
-    hotelId?: string;
+    id: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -40,8 +40,8 @@ export interface DeleteChannelSellLimitsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelSellLimitsRequest {
-    hotelId?: string;
-    fromDate?: Date;
+    hotelId: string;
+    fromDate: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

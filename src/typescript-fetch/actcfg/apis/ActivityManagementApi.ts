@@ -68,27 +68,27 @@ import {
 } from '../models/index';
 
 export interface CopyActivityTypesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigCopy?: ActivityTypesConfigCopy;
+    activityTypesConfigCopy: ActivityTypesConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionCopy?: AutoTraceDefinitionCopy;
+    autoTraceDefinitionCopy: AutoTraceDefinitionCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityResultsConfigRequest {
-    activityResultCode?: string;
+    activityResultCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -97,8 +97,8 @@ export interface DeleteActivityResultsConfigRequest {
 }
 
 export interface DeleteActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
+    activityTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -107,7 +107,7 @@ export interface DeleteActivityTypesRequest {
 }
 
 export interface DeleteAutoTraceCodesRequest {
-    autoTraceCode?: string;
+    autoTraceCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -116,7 +116,7 @@ export interface DeleteAutoTraceCodesRequest {
 }
 
 export interface DeleteAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
+    autoTraceDefinitionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -125,7 +125,7 @@ export interface DeleteAutoTraceDefinitionsRequest {
 }
 
 export interface DeleteAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
+    autoTraceOwnerAssignmentID: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -148,7 +148,7 @@ export interface GetActivityResultsConfigRequest {
 }
 
 export interface GetActivityTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -175,7 +175,7 @@ export interface GetAutoTraceCodesRequest {
 }
 
 export interface GetAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -189,7 +189,7 @@ export interface GetAutoTraceDefinitionsRequest {
 }
 
 export interface GetAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -205,17 +205,17 @@ export interface PostActivityResultsConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityResultsConfigInfo?: ActivityResultsConfigInfo;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostActivityTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigInfo?: ActivityTypesConfigInfo;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -224,80 +224,80 @@ export interface PostAutoTraceCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceCodesInfo?: AutoTraceCodesInfo;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionsInfo?: AutoTraceDefinitionsInfo;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: AutoTraceOwnerAssignmentsInfo;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityResultsConfigRequest {
-    activityResultCode?: string;
+    activityResultCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityResultsConfigInfo?: ActivityResultsConfigInfo;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
+    activityTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigInfo?: ActivityTypesConfigInfo;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceCodesRequest {
-    autoTraceCode?: string;
+    autoTraceCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceCodesInfo?: AutoTraceCodesInfo;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    hotelId?: string;
+    autoTraceDefinitionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionsInfo?: AutoTraceDefinitionsInfo;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    hotelId?: string;
+    autoTraceOwnerAssignmentID: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: AutoTraceOwnerAssignmentsInfo;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -315,23 +315,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyActivityTypesConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityTypesConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityTypesConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityTypesConfig.');
-        }
-
+        
         if (requestParameters.activityTypesConfigCopy === null || requestParameters.activityTypesConfigCopy === undefined) {
             throw new runtime.RequiredError('activityTypesConfigCopy','Required parameter requestParameters.activityTypesConfigCopy was null or undefined when calling copyActivityTypesConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -386,23 +374,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyAutoTraceDefinitions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyAutoTraceDefinitions.');
-        }
-
+        
         if (requestParameters.autoTraceDefinitionCopy === null || requestParameters.autoTraceDefinitionCopy === undefined) {
             throw new runtime.RequiredError('autoTraceDefinitionCopy','Required parameter requestParameters.autoTraceDefinitionCopy was null or undefined when calling copyAutoTraceDefinitions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -457,19 +433,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityResultCode === null || requestParameters.activityResultCode === undefined) {
             throw new runtime.RequiredError('activityResultCode','Required parameter requestParameters.activityResultCode was null or undefined when calling deleteActivityResultsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityResultsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityResultsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityResultsConfig.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -521,23 +485,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityTypeCode === null || requestParameters.activityTypeCode === undefined) {
             throw new runtime.RequiredError('activityTypeCode','Required parameter requestParameters.activityTypeCode was null or undefined when calling deleteActivityTypes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -589,19 +541,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceCode === null || requestParameters.autoTraceCode === undefined) {
             throw new runtime.RequiredError('autoTraceCode','Required parameter requestParameters.autoTraceCode was null or undefined when calling deleteAutoTraceCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -653,19 +593,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceDefinitionId === null || requestParameters.autoTraceDefinitionId === undefined) {
             throw new runtime.RequiredError('autoTraceDefinitionId','Required parameter requestParameters.autoTraceDefinitionId was null or undefined when calling deleteAutoTraceDefinitions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceDefinitions.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -717,19 +645,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceOwnerAssignmentID === null || requestParameters.autoTraceOwnerAssignmentID === undefined) {
             throw new runtime.RequiredError('autoTraceOwnerAssignmentID','Required parameter requestParameters.autoTraceOwnerAssignmentID was null or undefined when calling deleteAutoTraceOwnerAssignments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceOwnerAssignments.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -778,18 +694,6 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get all Configured Activity Result Codes 
      */
     async getActivityResultsConfigRaw(requestParameters: GetActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityResultsConfigDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityResultsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityResultsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityResultsConfig.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -865,19 +769,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -946,18 +838,6 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get Auto Trace codes
      */
     async getAutoTraceCodesRaw(requestParameters: GetAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceCodesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceCodes.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1029,19 +909,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAutoTraceDefinitions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceDefinitions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1113,19 +981,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAutoTraceOwnerAssignments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceOwnerAssignments.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1190,22 +1046,10 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create an Activity results code
      */
     async postActivityResultsConfigRaw(requestParameters: PostActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityResultsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityResultsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityResultsConfig.');
-        }
-
         if (requestParameters.activityResultsConfigInfo === null || requestParameters.activityResultsConfigInfo === undefined) {
             throw new runtime.RequiredError('activityResultsConfigInfo','Required parameter requestParameters.activityResultsConfigInfo was null or undefined when calling postActivityResultsConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1260,23 +1104,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityTypes.');
-        }
-
+        
         if (requestParameters.activityTypesConfigInfo === null || requestParameters.activityTypesConfigInfo === undefined) {
             throw new runtime.RequiredError('activityTypesConfigInfo','Required parameter requestParameters.activityTypesConfigInfo was null or undefined when calling postActivityTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1328,22 +1160,10 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create an Auto Trace code
      */
     async postAutoTraceCodesRaw(requestParameters: PostAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceCodes.');
-        }
-
         if (requestParameters.autoTraceCodesInfo === null || requestParameters.autoTraceCodesInfo === undefined) {
             throw new runtime.RequiredError('autoTraceCodesInfo','Required parameter requestParameters.autoTraceCodesInfo was null or undefined when calling postAutoTraceCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1398,23 +1218,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAutoTraceDefinitions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceDefinitions.');
-        }
-
+        
         if (requestParameters.autoTraceDefinitionsInfo === null || requestParameters.autoTraceDefinitionsInfo === undefined) {
             throw new runtime.RequiredError('autoTraceDefinitionsInfo','Required parameter requestParameters.autoTraceDefinitionsInfo was null or undefined when calling postAutoTraceDefinitions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1469,23 +1277,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAutoTraceOwnerAssignments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceOwnerAssignments.');
-        }
-
+        
         if (requestParameters.autoTraceOwnerAssignmentsInfo === null || requestParameters.autoTraceOwnerAssignmentsInfo === undefined) {
             throw new runtime.RequiredError('autoTraceOwnerAssignmentsInfo','Required parameter requestParameters.autoTraceOwnerAssignmentsInfo was null or undefined when calling postAutoTraceOwnerAssignments.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1540,23 +1336,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityResultCode === null || requestParameters.activityResultCode === undefined) {
             throw new runtime.RequiredError('activityResultCode','Required parameter requestParameters.activityResultCode was null or undefined when calling putActivityResultsConfig.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityResultsConfig.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityResultsConfig.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityResultsConfig.');
-        }
-
+        
         if (requestParameters.activityResultsConfigInfo === null || requestParameters.activityResultsConfigInfo === undefined) {
             throw new runtime.RequiredError('activityResultsConfigInfo','Required parameter requestParameters.activityResultsConfigInfo was null or undefined when calling putActivityResultsConfig.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1611,27 +1395,15 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityTypeCode === null || requestParameters.activityTypeCode === undefined) {
             throw new runtime.RequiredError('activityTypeCode','Required parameter requestParameters.activityTypeCode was null or undefined when calling putActivityTypes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityTypes.');
-        }
-
+        
         if (requestParameters.activityTypesConfigInfo === null || requestParameters.activityTypesConfigInfo === undefined) {
             throw new runtime.RequiredError('activityTypesConfigInfo','Required parameter requestParameters.activityTypesConfigInfo was null or undefined when calling putActivityTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1686,23 +1458,11 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceCode === null || requestParameters.autoTraceCode === undefined) {
             throw new runtime.RequiredError('autoTraceCode','Required parameter requestParameters.autoTraceCode was null or undefined when calling putAutoTraceCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceCodes.');
-        }
-
+        
         if (requestParameters.autoTraceCodesInfo === null || requestParameters.autoTraceCodesInfo === undefined) {
             throw new runtime.RequiredError('autoTraceCodesInfo','Required parameter requestParameters.autoTraceCodesInfo was null or undefined when calling putAutoTraceCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1757,27 +1517,15 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceDefinitionId === null || requestParameters.autoTraceDefinitionId === undefined) {
             throw new runtime.RequiredError('autoTraceDefinitionId','Required parameter requestParameters.autoTraceDefinitionId was null or undefined when calling putAutoTraceDefinitions.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAutoTraceDefinitions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceDefinitions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceDefinitions.');
-        }
-
+        
         if (requestParameters.autoTraceDefinitionsInfo === null || requestParameters.autoTraceDefinitionsInfo === undefined) {
             throw new runtime.RequiredError('autoTraceDefinitionsInfo','Required parameter requestParameters.autoTraceDefinitionsInfo was null or undefined when calling putAutoTraceDefinitions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1832,27 +1580,15 @@ export class ActivityManagementApi extends runtime.BaseAPI {
         if (requestParameters.autoTraceOwnerAssignmentID === null || requestParameters.autoTraceOwnerAssignmentID === undefined) {
             throw new runtime.RequiredError('autoTraceOwnerAssignmentID','Required parameter requestParameters.autoTraceOwnerAssignmentID was null or undefined when calling putAutoTraceOwnerAssignments.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAutoTraceOwnerAssignments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceOwnerAssignments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceOwnerAssignments.');
-        }
-
+        
         if (requestParameters.autoTraceOwnerAssignmentsInfo === null || requestParameters.autoTraceOwnerAssignmentsInfo === undefined) {
             throw new runtime.RequiredError('autoTraceOwnerAssignmentsInfo','Required parameter requestParameters.autoTraceOwnerAssignmentsInfo was null or undefined when calling putAutoTraceOwnerAssignments.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -15,12 +15,12 @@ export interface EmailFolioReportRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioReportToEmail?: FolioReportToEmail;
+    folioReportToEmail: FolioReportToEmail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomizedLetterRequest {
-    letterId?: string;
+    letterId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface GetCustomizedLetterRequest {
     acceptLanguage?: string;
 }
 export interface GetEmailFileRequest {
-    emailId?: string;
+    emailId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,8 +48,8 @@ export interface GetFileAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioReportRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -83,8 +83,8 @@ export interface GetImageRequest {
     acceptLanguage?: string;
 }
 export interface GetRegistrationCardRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -110,12 +110,12 @@ export interface RemoveImageRequest {
     acceptLanguage?: string;
 }
 export interface SetCustomizedLetterRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customizedLetter?: CustomizedLetter;
+    customizedLetter: CustomizedLetter;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -123,7 +123,7 @@ export interface UploadFileAttachmentRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fileToUpload?: FileToUpload;
+    fileToUpload: FileToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -131,7 +131,7 @@ export interface UploadImageRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    imageToUpload?: ImageToUpload;
+    imageToUpload: ImageToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

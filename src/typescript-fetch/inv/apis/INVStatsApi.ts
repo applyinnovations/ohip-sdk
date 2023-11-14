@@ -29,7 +29,7 @@ import {
 } from '../models/index';
 
 export interface GetBlockInventoryStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -60,7 +60,7 @@ export interface GetBlockInventoryStatisticsRequest {
 }
 
 export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -91,10 +91,10 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
 }
 
 export interface GetInventoryStatisticsRequest {
-    hotelId?: string;
-    dateRangeEnd?: Date;
-    reportCode?: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart?: Date;
+    hotelId: string;
+    dateRangeEnd: Date;
+    reportCode: GetInventoryStatisticsReportCodeEnum;
+    dateRangeStart: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -117,19 +117,7 @@ export class INVStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockInventoryStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockInventoryStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockInventoryStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockInventoryStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeBlocksWithNoRoom !== undefined) {
@@ -269,19 +257,7 @@ export class INVStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -425,31 +401,19 @@ export class INVStatsApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryStatistics.');
         }
-
+        
         if (requestParameters.dateRangeEnd === null || requestParameters.dateRangeEnd === undefined) {
             throw new runtime.RequiredError('dateRangeEnd','Required parameter requestParameters.dateRangeEnd was null or undefined when calling getInventoryStatistics.');
         }
-
+        
         if (requestParameters.reportCode === null || requestParameters.reportCode === undefined) {
             throw new runtime.RequiredError('reportCode','Required parameter requestParameters.reportCode was null or undefined when calling getInventoryStatistics.');
         }
-
+        
         if (requestParameters.dateRangeStart === null || requestParameters.dateRangeStart === undefined) {
             throw new runtime.RequiredError('dateRangeStart','Required parameter requestParameters.dateRangeStart was null or undefined when calling getInventoryStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeEnd !== undefined) {

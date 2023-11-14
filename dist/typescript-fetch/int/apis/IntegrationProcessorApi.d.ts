@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { BusinessEvents } from '../models/index';
 export interface GetBusinessEventsRequest {
-    hotelId?: string;
-    extSystemCode?: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -22,7 +22,7 @@ export interface GetBusinessEventsRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessEventsByExternalSystemRequest {
-    extSystemCode?: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

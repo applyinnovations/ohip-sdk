@@ -35,11 +35,11 @@ import {
 } from '../models/index';
 
 export interface ChangeTemplateDeviceLocationsRequest {
-    deviceLocationId?: string;
+    deviceLocationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateDeviceLocationsToBeChanged?: TemplateDeviceLocationsToBeChanged;
+    templateDeviceLocationsToBeChanged: TemplateDeviceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -60,13 +60,13 @@ export interface PostTemplateDeviceLocationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateDeviceLocationsCriteria?: TemplateDeviceLocationsCriteria;
+    templateDeviceLocationsCriteria: TemplateDeviceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateDeviceLocationsRequest {
-    deviceLocationId?: string;
+    deviceLocationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -87,23 +87,11 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.deviceLocationId === null || requestParameters.deviceLocationId === undefined) {
             throw new runtime.RequiredError('deviceLocationId','Required parameter requestParameters.deviceLocationId was null or undefined when calling changeTemplateDeviceLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateDeviceLocations.');
-        }
-
+        
         if (requestParameters.templateDeviceLocationsToBeChanged === null || requestParameters.templateDeviceLocationsToBeChanged === undefined) {
             throw new runtime.RequiredError('templateDeviceLocationsToBeChanged','Required parameter requestParameters.templateDeviceLocationsToBeChanged was null or undefined when calling changeTemplateDeviceLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -155,18 +143,6 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get the template device locations
      */
     async getTemplateDeviceLocationsRaw(requestParameters: GetTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateDeviceLocationsDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateDeviceLocations.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -231,22 +207,10 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Create the template device locations
      */
     async postTemplateDeviceLocationsRaw(requestParameters: PostTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateDeviceLocations.');
-        }
-
         if (requestParameters.templateDeviceLocationsCriteria === null || requestParameters.templateDeviceLocationsCriteria === undefined) {
             throw new runtime.RequiredError('templateDeviceLocationsCriteria','Required parameter requestParameters.templateDeviceLocationsCriteria was null or undefined when calling postTemplateDeviceLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -301,19 +265,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
         if (requestParameters.deviceLocationId === null || requestParameters.deviceLocationId === undefined) {
             throw new runtime.RequiredError('deviceLocationId','Required parameter requestParameters.deviceLocationId was null or undefined when calling removeTemplateDeviceLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateDeviceLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateDeviceLocations.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -26,8 +26,8 @@ import {
 } from '../models/index';
 
 export interface ValidateRateCouponRequest {
-    couponCode?: string;
-    hotelId?: string;
+    couponCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -36,8 +36,8 @@ export interface ValidateRateCouponRequest {
 }
 
 export interface ValidateRatePromotionRequest {
-    promotionCode?: string;
-    hotelId?: string;
+    promotionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -46,9 +46,9 @@ export interface ValidateRatePromotionRequest {
 }
 
 export interface ValidateRatePromotionCouponRequest {
-    hotelId?: string;
-    couponCode?: string;
-    promotionCode?: string;
+    hotelId: string;
+    couponCode: string;
+    promotionCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -71,23 +71,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         if (requestParameters.couponCode === null || requestParameters.couponCode === undefined) {
             throw new runtime.RequiredError('couponCode','Required parameter requestParameters.couponCode was null or undefined when calling validateRateCoupon.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateRateCoupon.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateRateCoupon.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateRateCoupon.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateRateCoupon.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -139,23 +127,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
             throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling validateRatePromotion.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateRatePromotion.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateRatePromotion.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateRatePromotion.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateRatePromotion.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -207,27 +183,15 @@ export class AvailabilityApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateRatePromotionCoupon.');
         }
-
+        
         if (requestParameters.couponCode === null || requestParameters.couponCode === undefined) {
             throw new runtime.RequiredError('couponCode','Required parameter requestParameters.couponCode was null or undefined when calling validateRatePromotionCoupon.');
         }
-
+        
         if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
             throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling validateRatePromotionCoupon.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateRatePromotionCoupon.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateRatePromotionCoupon.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateRatePromotionCoupon.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.couponCode !== undefined) {

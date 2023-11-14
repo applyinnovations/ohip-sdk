@@ -67,15 +67,6 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
             if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
                 throw new runtime.RequiredError('membershipType', 'Required parameter requestParameters.membershipType was null or undefined when calling getProfileMembershipStatistics.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileMembershipStatistics.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileMembershipStatistics.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileMembershipStatistics.');
-            }
             const queryParameters = {};
             if (requestParameters.profileId) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -147,15 +138,6 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
             }
             if (requestParameters.reportType === null || requestParameters.reportType === undefined) {
                 throw new runtime.RequiredError('reportType', 'Required parameter requestParameters.reportType was null or undefined when calling getProfileStatistics.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileStatistics.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileStatistics.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileStatistics.');
             }
             const queryParameters = {};
             if (requestParameters.profileId) {

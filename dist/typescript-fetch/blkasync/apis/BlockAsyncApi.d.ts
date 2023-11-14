@@ -12,30 +12,30 @@
 import * as runtime from '../runtime';
 import type { BlockAllocationSummary, Criteria } from '../models/index';
 export interface GetBlockAllocationSummaryRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockAllocationSummaryProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface StartBlockAllocationSummaryProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    criteria?: Criteria;
+    criteria: Criteria;
     acceptLanguage?: string;
 }
 /**

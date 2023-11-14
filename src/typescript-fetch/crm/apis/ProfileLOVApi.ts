@@ -29,8 +29,8 @@ import {
 } from '../models/index';
 
 export interface GetAvailableARAddressesRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -43,7 +43,7 @@ export interface GetAvailableARAddressesRequest {
 }
 
 export interface GetAvailablePreferencesRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -66,23 +66,11 @@ export class ProfileLOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getAvailableARAddresses.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableARAddresses.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableARAddresses.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableARAddresses.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableARAddresses.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.profileId !== undefined) {
@@ -158,19 +146,7 @@ export class ProfileLOVApi extends runtime.BaseAPI {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling getAvailablePreferences.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailablePreferences.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailablePreferences.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailablePreferences.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {

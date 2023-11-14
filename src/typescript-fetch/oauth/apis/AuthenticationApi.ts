@@ -24,7 +24,7 @@ import {
 
 export interface GetTokenRequest {
     xAppKey?: string;
-    grantType?: GetTokenGrantTypeEnum;
+    grantType: GetTokenGrantTypeEnum;
     enterpriseId?: string;
     username?: string;
     password?: string;
@@ -41,14 +41,10 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Authenticate with the identity server
      */
     async getTokenRaw(requestParameters: GetTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OAuth2TokenResponse>> {
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getToken.');
-        }
-
         if (requestParameters.grantType === null || requestParameters.grantType === undefined) {
             throw new runtime.RequiredError('grantType','Required parameter requestParameters.grantType was null or undefined when calling getToken.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -70,15 +70,6 @@ class LeisureManagementApi extends runtime.BaseAPI {
             if (requestParameters.activityIdType === null || requestParameters.activityIdType === undefined) {
                 throw new runtime.RequiredError('activityIdType', 'Required parameter requestParameters.activityIdType was null or undefined when calling deleteActivityBooking.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteActivityBooking.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityBooking.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityBooking.');
-            }
             const queryParameters = {};
             if (requestParameters.activityId !== undefined) {
                 queryParameters['activityId'] = requestParameters.activityId;
@@ -132,15 +123,6 @@ class LeisureManagementApi extends runtime.BaseAPI {
             }
             if (requestParameters.profileIds === null || requestParameters.profileIds === undefined) {
                 throw new runtime.RequiredError('profileIds', 'Required parameter requestParameters.profileIds was null or undefined when calling getActivityBookings.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getActivityBookings.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getActivityBookings.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getActivityBookings.');
             }
             const queryParameters = {};
             if (requestParameters.profileIds) {
@@ -217,15 +199,6 @@ class LeisureManagementApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postActivityBooking.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postActivityBooking.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postActivityBooking.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postActivityBooking.');
-            }
             if (requestParameters.createActivityBooking === null || requestParameters.createActivityBooking === undefined) {
                 throw new runtime.RequiredError('createActivityBooking', 'Required parameter requestParameters.createActivityBooking was null or undefined when calling postActivityBooking.');
             }
@@ -279,15 +252,6 @@ class LeisureManagementApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postLocationNotification.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postLocationNotification.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postLocationNotification.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postLocationNotification.');
-            }
             if (requestParameters.locationNotificationToBeCreated === null || requestParameters.locationNotificationToBeCreated === undefined) {
                 throw new runtime.RequiredError('locationNotificationToBeCreated', 'Required parameter requestParameters.locationNotificationToBeCreated was null or undefined when calling postLocationNotification.');
             }
@@ -340,15 +304,6 @@ class LeisureManagementApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putActivityBooking.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putActivityBooking.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putActivityBooking.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putActivityBooking.');
             }
             if (requestParameters.changeActivityBooking === null || requestParameters.changeActivityBooking === undefined) {
                 throw new runtime.RequiredError('changeActivityBooking', 'Required parameter requestParameters.changeActivityBooking was null or undefined when calling putActivityBooking.');

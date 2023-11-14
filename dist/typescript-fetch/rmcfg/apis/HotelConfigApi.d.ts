@@ -15,7 +15,7 @@ export interface ChangeBuildingGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    buildingGroupsToBeChanged?: BuildingGroupsToBeChanged;
+    buildingGroupsToBeChanged: BuildingGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -23,144 +23,144 @@ export interface ChangeBuildingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    buildingsToBeChanged?: BuildingsToBeChanged;
+    buildingsToBeChanged: BuildingsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFloorsRequest {
-    floorsId?: string;
+    floorsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    floorsToBeChanged?: FloorsToBeChanged;
+    floorsToBeChanged: FloorsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHotelRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
+    reasonCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelRoomMaintenanceReasonsToBeChanged?: HotelRoomMaintenanceReasonsToBeChanged;
+    hotelRoomMaintenanceReasonsToBeChanged: HotelRoomMaintenanceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingAttendantsRequest {
-    attendantId?: string;
-    hotelId?: string;
+    attendantId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingAttendantsToBeChanged?: HousekeepingAttendantsToBeChanged;
+    housekeepingAttendantsToBeChanged: HousekeepingAttendantsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingCreditRulesRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingCreditRulesToBeChanged?: HousekeepingCreditRulesToBeChanged;
+    housekeepingCreditRulesToBeChanged: HousekeepingCreditRulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingRoomSchedulesRequest {
-    roomScheduleId?: string;
-    hotelId?: string;
+    roomScheduleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingRoomSchedulesToBeChanged?: HousekeepingRoomSchedulesToBeChanged;
+    housekeepingRoomSchedulesToBeChanged: HousekeepingRoomSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingSectionGroupsRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingSectionGroupsToBeChanged?: HousekeepingSectionGroupsToBeChanged;
+    housekeepingSectionGroupsToBeChanged: HousekeepingSectionGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingSectionsRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingSectionsToBeChanged?: HousekeepingSectionsToBeChanged;
+    housekeepingSectionsToBeChanged: HousekeepingSectionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingSupplyCodesRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingCodesToBeChanged?: HousekeepingCodesToBeChanged;
+    housekeepingCodesToBeChanged: HousekeepingCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeHousekeepingTasksRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingTasksToBeChanged?: HousekeepingTasksToBeChanged;
+    housekeepingTasksToBeChanged: HousekeepingTasksToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
+    reasonCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    outOfOrderServiceReasonsToBeChanged?: OutOfOrderServiceReasonsToBeChanged;
+    outOfOrderServiceReasonsToBeChanged: OutOfOrderServiceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeResortRoomConditionRequest {
-    roomConditionCode?: string;
-    hotelId?: string;
+    roomConditionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    resortRoomConditionToBeChanged?: ResortRoomConditionToBeChanged;
+    resortRoomConditionToBeChanged: ResortRoomConditionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeRoomConditionTemplateRequest {
-    templateCode?: string;
+    templateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomConditionTemplateToBeChanged?: RoomConditionTemplateToBeChanged;
+    roomConditionTemplateToBeChanged: RoomConditionTemplateToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeRoomFeaturesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomFeaturesToBeChanged?: RoomFeaturesToBeChanged;
+    roomFeaturesToBeChanged: RoomFeaturesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeRoomGroupsRequest {
-    rateGroupCode?: string;
-    hotelId?: string;
+    rateGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomGroupsToBeChanged?: RoomGroupsToBeChanged;
+    roomGroupsToBeChanged: RoomGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -168,25 +168,25 @@ export interface ChangeRoomHierarchiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomHierarchiesToBeChanged?: RoomHierarchiesToBeChanged;
+    roomHierarchiesToBeChanged: RoomHierarchiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTemplateFloorsRequest {
-    templateFloorsId?: string;
+    templateFloorsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateFloorsToBeChanged?: TemplateFloorsToBeChanged;
+    templateFloorsToBeChanged: TemplateFloorsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTemplateOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateOutOfOrderServiceReasonsToBeChanged?: TemplateOutOfOrderServiceReasonsToBeChanged;
+    templateOutOfOrderServiceReasonsToBeChanged: TemplateOutOfOrderServiceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -194,61 +194,61 @@ export interface ChangeTemplateRoomFeaturesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateRoomFeaturesToBeChanged?: TemplateRoomFeaturesToBeChanged;
+    templateRoomFeaturesToBeChanged: TemplateRoomFeaturesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTemplateRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateRoomMaintenanceReasonsToBeChanged?: TemplateRoomMaintenanceReasonsToBeChanged;
+    templateRoomMaintenanceReasonsToBeChanged: TemplateRoomMaintenanceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyBuildingGroupsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyBuildingGroups?: CopyBuildingGroups;
+    copyBuildingGroups: CopyBuildingGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyBuildingsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyBuildings?: CopyBuildings;
+    copyBuildings: CopyBuildings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyHousekeepingSectionGroupsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyHousekeepingSectionGroups?: CopyHousekeepingSectionGroups;
+    copyHousekeepingSectionGroups: CopyHousekeepingSectionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyHousekeepingSectionsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyHousekeepingSections?: CopyHousekeepingSections;
+    copyHousekeepingSections: CopyHousekeepingSections;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyHousekeepingSupplyCodesRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyHousekeepingCodes?: CopyHousekeepingCodes;
+    copyHousekeepingCodes: CopyHousekeepingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -256,23 +256,23 @@ export interface CopyRoomHierarchiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyRoomHierarchies?: CopyRoomHierarchies;
+    copyRoomHierarchies: CopyRoomHierarchies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyRoomsRequest {
-    roomsId?: string;
-    hotelId?: string;
+    roomsId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyRooms?: CopyRooms;
+    copyRooms: CopyRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomClassRequest {
-    roomClassId?: string;
-    hotelId?: string;
+    roomClassId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -281,7 +281,7 @@ export interface DeleteRoomClassRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomClassTemplateRequest {
-    roomClassTemplateId?: string;
+    roomClassTemplateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -290,7 +290,7 @@ export interface DeleteRoomClassTemplateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomTypeTemplatesRequest {
-    roomTypeTemplatesId?: string;
+    roomTypeTemplatesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -299,8 +299,8 @@ export interface DeleteRoomTypeTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomTypesRequest {
-    roomTypeId?: string;
-    hotelId?: string;
+    roomTypeId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -309,8 +309,8 @@ export interface DeleteRoomTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomsRequest {
-    roomsId?: string;
-    hotelId?: string;
+    roomsId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -319,7 +319,7 @@ export interface DeleteRoomsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplateHousekeepingTaskRequest {
-    templateId?: string;
+    templateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -331,7 +331,7 @@ export interface GenerateRoomHierarchyRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomHierarchiesToGenerate?: RoomHierarchiesToGenerate;
+    roomHierarchiesToGenerate: RoomHierarchiesToGenerate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -378,7 +378,7 @@ export interface GetFloorsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRoomMaintenanceReasonsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -392,7 +392,7 @@ export interface GetHotelRoomMaintenanceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingSupplyCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -402,7 +402,7 @@ export interface GetHouseKeepingSupplyCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingAttendantsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -414,7 +414,7 @@ export interface GetHousekeepingAttendantsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingCreditRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -425,7 +425,7 @@ export interface GetHousekeepingCreditRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingRoomSchedulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -435,7 +435,7 @@ export interface GetHousekeepingRoomSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingSectionGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -445,7 +445,7 @@ export interface GetHousekeepingSectionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingSectionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -457,7 +457,7 @@ export interface GetHousekeepingSectionsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingTaskSheetRoomsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -472,7 +472,7 @@ export interface GetHousekeepingTaskSheetRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingTasksRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -483,7 +483,7 @@ export interface GetHousekeepingTasksRequest {
     acceptLanguage?: string;
 }
 export interface GetOutOfOrderServiceReasonsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -496,7 +496,7 @@ export interface GetOutOfOrderServiceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomConditionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -516,7 +516,7 @@ export interface GetRoomClassTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -536,7 +536,7 @@ export interface GetRoomConditionTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomFeaturesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -547,7 +547,7 @@ export interface GetRoomFeaturesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -570,8 +570,8 @@ export interface GetRoomHierarchiesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypeInfoRequest {
-    roomTypeCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -592,7 +592,7 @@ export interface GetRoomTypeTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -610,7 +610,7 @@ export interface GetRoomTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -691,7 +691,7 @@ export interface PostBuildingGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    buildingGroupsCriteria?: BuildingGroupsCriteria;
+    buildingGroupsCriteria: BuildingGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -699,7 +699,7 @@ export interface PostBuildingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    buildingsCriteria?: BuildingsCriteria;
+    buildingsCriteria: BuildingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -707,106 +707,106 @@ export interface PostFloorsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    floorsCriteria?: FloorsCriteria;
+    floorsCriteria: FloorsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHotelRoomMaintenanceReasonsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelRoomMaintenanceReasonsCriteria?: HotelRoomMaintenanceReasonsCriteria;
+    hotelRoomMaintenanceReasonsCriteria: HotelRoomMaintenanceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingAttendantsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingAttendantsCriteria?: HousekeepingAttendantsCriteria;
+    housekeepingAttendantsCriteria: HousekeepingAttendantsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingCreditRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingCreditRulesCriteria?: HousekeepingCreditRulesCriteria;
+    housekeepingCreditRulesCriteria: HousekeepingCreditRulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingRoomSchedulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingRoomSchedulesCriteria?: HousekeepingRoomSchedulesCriteria;
+    housekeepingRoomSchedulesCriteria: HousekeepingRoomSchedulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingSectionGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingSectionGroupsCriteria?: HousekeepingSectionGroupsCriteria;
+    housekeepingSectionGroupsCriteria: HousekeepingSectionGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingSectionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingSectionsCriteria?: HousekeepingSectionsCriteria;
+    housekeepingSectionsCriteria: HousekeepingSectionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingSupplyCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingCodesCriteria?: HousekeepingCodesCriteria;
+    housekeepingCodesCriteria: HousekeepingCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHousekeepingTasksRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    housekeepingTasksCriteria?: HousekeepingTasksCriteria;
+    housekeepingTasksCriteria: HousekeepingTasksCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostOutOfOrderServiceReasonsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    outOfOrderServiceReasonsCriteria?: OutOfOrderServiceReasonsCriteria;
+    outOfOrderServiceReasonsCriteria: OutOfOrderServiceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostResortRoomConditionRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    resortRoomConditionCriteria?: ResortRoomConditionCriteria;
+    resortRoomConditionCriteria: ResortRoomConditionCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomClassRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomClassCriteria?: RoomClassCriteria;
+    roomClassCriteria: RoomClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -814,7 +814,7 @@ export interface PostRoomClassTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomClassTemplateCriteria?: RoomClassTemplateCriteria;
+    roomClassTemplateCriteria: RoomClassTemplateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -822,25 +822,25 @@ export interface PostRoomConditionTemplateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomConditionTemplateCriteria?: RoomConditionTemplateCriteria;
+    roomConditionTemplateCriteria: RoomConditionTemplateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomFeaturesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomFeaturesCriteria?: RoomFeaturesCriteria;
+    roomFeaturesCriteria: RoomFeaturesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomGroupsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomGroupsCriteria?: RoomGroupsCriteria;
+    roomGroupsCriteria: RoomGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -848,7 +848,7 @@ export interface PostRoomHierarchiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomHierarchiesCriteria?: RoomHierarchiesCriteria;
+    roomHierarchiesCriteria: RoomHierarchiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -856,25 +856,25 @@ export interface PostRoomTypeTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypeTemplatesCriteria?: RoomTypeTemplatesCriteria;
+    roomTypeTemplatesCriteria: RoomTypeTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypesCriteria?: RoomTypesCriteria;
+    roomTypesCriteria: RoomTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomCriteria?: RoomCriteria;
+    roomCriteria: RoomCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -882,7 +882,7 @@ export interface PostTemplateFloorsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateFloorsCriteria?: TemplateFloorsCriteria;
+    templateFloorsCriteria: TemplateFloorsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -890,7 +890,7 @@ export interface PostTemplateHousekeepingTasksRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateHousekeepingTasksCriteria?: TemplateHousekeepingTasksCriteria;
+    templateHousekeepingTasksCriteria: TemplateHousekeepingTasksCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -898,7 +898,7 @@ export interface PostTemplateOutOfOrderServiceReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateOutOfOrderServiceReasonsCriteria?: TemplateOutOfOrderServiceReasonsCriteria;
+    templateOutOfOrderServiceReasonsCriteria: TemplateOutOfOrderServiceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -906,7 +906,7 @@ export interface PostTemplateRoomFeaturesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateRoomFeaturesCriteria?: TemplateRoomFeaturesCriteria;
+    templateRoomFeaturesCriteria: TemplateRoomFeaturesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -914,64 +914,64 @@ export interface PostTemplateRoomMaintenanceReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateRoomMaintenanceReasonsCriteria?: TemplateRoomMaintenanceReasonsCriteria;
+    templateRoomMaintenanceReasonsCriteria: TemplateRoomMaintenanceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomClassRequest {
-    roomClassId?: string;
-    hotelId?: string;
+    roomClassId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomClassToBeChanged?: RoomClassToBeChanged;
+    roomClassToBeChanged: RoomClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomClassTemplateRequest {
-    roomClassTemplateId?: string;
+    roomClassTemplateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomClassTemplateToBeChanged?: RoomClassTemplateToBeChanged;
+    roomClassTemplateToBeChanged: RoomClassTemplateToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomTypeTemplatesRequest {
-    roomTypeTemplatesId?: string;
+    roomTypeTemplatesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypeTemplatesToBeChanged?: RoomTypeTemplatesToBeChanged;
+    roomTypeTemplatesToBeChanged: RoomTypeTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomTypesRequest {
-    roomTypeId?: string;
-    hotelId?: string;
+    roomTypeId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypesToBeChanged?: RoomTypesToBeChanged;
+    roomTypesToBeChanged: RoomTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomsRequest {
-    roomsId?: string;
-    hotelId?: string;
+    roomsId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomToBeChanged?: RoomToBeChanged;
+    roomToBeChanged: RoomToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplateHousekeepingTaskRequest {
-    templateId?: string;
+    templateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateHousekeepingTaskToBeChanged?: TemplateHousekeepingTaskToBeChanged;
+    templateHousekeepingTaskToBeChanged: TemplateHousekeepingTaskToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -994,7 +994,7 @@ export interface RemoveBuildingsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFloorsRequest {
-    floorsId?: string;
+    floorsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1003,8 +1003,8 @@ export interface RemoveFloorsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHotelRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
+    reasonCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1012,8 +1012,8 @@ export interface RemoveHotelRoomMaintenanceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingAttendantsRequest {
-    attendantId?: string;
-    hotelId?: string;
+    attendantId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1035,8 +1035,8 @@ export interface RemoveHousekeepingAttendantsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingCreditRulesRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1044,9 +1044,9 @@ export interface RemoveHousekeepingCreditRulesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingRoomSchedulesRequest {
-    roomScheduleId?: string;
-    roomTypeCode?: string;
-    hotelId?: string;
+    roomScheduleId: string;
+    roomTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1054,8 +1054,8 @@ export interface RemoveHousekeepingRoomSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSectionGroupsRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1064,8 +1064,8 @@ export interface RemoveHousekeepingSectionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSectionsRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1073,8 +1073,8 @@ export interface RemoveHousekeepingSectionsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSupplyCodesRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1084,8 +1084,8 @@ export interface RemoveHousekeepingSupplyCodesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingTasksRequest {
-    code?: string;
-    hotelId?: string;
+    code: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1094,8 +1094,8 @@ export interface RemoveHousekeepingTasksRequest {
     acceptLanguage?: string;
 }
 export interface RemoveOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
+    reasonCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1103,8 +1103,8 @@ export interface RemoveOutOfOrderServiceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveResortRoomConditionRequest {
-    roomConditionCode?: string;
-    hotelId?: string;
+    roomConditionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1112,7 +1112,7 @@ export interface RemoveResortRoomConditionRequest {
     acceptLanguage?: string;
 }
 export interface RemoveRoomConditionTemplateRequest {
-    templateCode?: string;
+    templateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1121,7 +1121,7 @@ export interface RemoveRoomConditionTemplateRequest {
     acceptLanguage?: string;
 }
 export interface RemoveRoomFeaturesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1131,8 +1131,8 @@ export interface RemoveRoomFeaturesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveRoomGroupsRequest {
-    rateGroupCode?: string;
-    hotelId?: string;
+    rateGroupCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1151,7 +1151,7 @@ export interface RemoveRoomHierarchiesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateFloorsRequest {
-    templateFloorsId?: string;
+    templateFloorsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1159,7 +1159,7 @@ export interface RemoveTemplateFloorsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1176,7 +1176,7 @@ export interface RemoveTemplateRoomFeaturesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1187,25 +1187,25 @@ export interface SetBuildingFloorMappingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    setBuildingFloorMappings?: SetBuildingFloorMappings;
+    setBuildingFloorMappings: SetBuildingFloorMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetHousekeepingTaskSheetRoomsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    setHousekeepingTaskSheetRooms?: SetHousekeepingTaskSheetRooms;
+    setHousekeepingTaskSheetRooms: SetHousekeepingTaskSheetRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateRoomClassInUseRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    validateRoomClassInUse?: ValidateRoomClassInUse;
+    validateRoomClassInUse: ValidateRoomClassInUse;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

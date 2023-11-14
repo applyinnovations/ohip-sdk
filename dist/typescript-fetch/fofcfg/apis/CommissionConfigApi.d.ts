@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { BankAccounts, BankAccountsInfo, CommissionCodeDetail, CommissionCodes, CommissionCodesSummary, Status, StopProcessingReasons } from '../models/index';
 export interface DeleteCommissionCodesRequest {
-    hotelIds?: Array<string>;
-    commissionCodes?: Array<string>;
+    hotelIds: Array<string>;
+    commissionCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,8 +21,8 @@ export interface DeleteCommissionCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteConfigBankAccountsRequest {
-    hotelId?: Array<string>;
-    bankAccountID?: Array<number>;
+    hotelId: Array<string>;
+    bankAccountID: Array<number>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteConfigBankAccountsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteStopProcessingReasonsRequest {
-    codes?: Array<string>;
+    codes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -38,8 +38,8 @@ export interface DeleteStopProcessingReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionCodeRequest {
-    commissionCode?: string;
-    hotelId?: string;
+    commissionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -47,7 +47,7 @@ export interface GetCommissionCodeRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -56,7 +56,7 @@ export interface GetCommissionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigBankAccountsRequest {
-    hotels?: Array<string>;
+    hotels: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -80,7 +80,7 @@ export interface PostCommissionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionCodes?: CommissionCodes;
+    commissionCodes: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -88,7 +88,7 @@ export interface PostConfigBankAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bankAccounts?: BankAccounts;
+    bankAccounts: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -96,7 +96,7 @@ export interface PostStopProcessingReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stopProcessingReasons?: StopProcessingReasons;
+    stopProcessingReasons: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -104,7 +104,7 @@ export interface PutCommissionCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    commissionCodes?: CommissionCodes;
+    commissionCodes: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -112,7 +112,7 @@ export interface PutConfigBankAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bankAccounts?: BankAccounts;
+    bankAccounts: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -120,7 +120,7 @@ export interface PutStopProcessingReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stopProcessingReasons?: StopProcessingReasons;
+    stopProcessingReasons: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

@@ -62,70 +62,70 @@ import {
 } from '../models/index';
 
 export interface ChangeTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
+    actionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItActionsToBeChanged?: TrackItActionsToBeChanged;
+    trackItActionsToBeChanged: TrackItActionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
+    locationCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItLocationsToBeChanged?: TrackItLocationsToBeChanged;
+    trackItLocationsToBeChanged: TrackItLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
+    typeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItTypesToBeChanged?: TrackItTypesToBeChanged;
+    trackItTypesToBeChanged: TrackItTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyTrackItActionsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItActions?: CopyTrackItActions;
+    copyTrackItActions: CopyTrackItActions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyTrackItLocationsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItLocations?: CopyTrackItLocations;
+    copyTrackItLocations: CopyTrackItLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyTrackItTypesRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItTypes?: CopyTrackItTypes;
+    copyTrackItTypes: CopyTrackItTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTrackItActionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -138,7 +138,7 @@ export interface GetTrackItActionsRequest {
 }
 
 export interface GetTrackItLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -151,7 +151,7 @@ export interface GetTrackItLocationsRequest {
 }
 
 export interface GetTrackItTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -164,38 +164,38 @@ export interface GetTrackItTypesRequest {
 }
 
 export interface PostTrackItActionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItActionsCriteria?: TrackItActionsCriteria;
+    trackItActionsCriteria: TrackItActionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTrackItLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItLocationsCriteria?: TrackItLocationsCriteria;
+    trackItLocationsCriteria: TrackItLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTrackItTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItTypesCriteria?: TrackItTypesCriteria;
+    trackItTypesCriteria: TrackItTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
+    actionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -204,8 +204,8 @@ export interface RemoveTrackItActionsRequest {
 }
 
 export interface RemoveTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
+    locationCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -214,8 +214,8 @@ export interface RemoveTrackItLocationsRequest {
 }
 
 export interface RemoveTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
+    typeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -236,27 +236,15 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
             throw new runtime.RequiredError('actionCode','Required parameter requestParameters.actionCode was null or undefined when calling changeTrackItActions.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItActions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItActions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItActions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItActions.');
-        }
-
+        
         if (requestParameters.trackItActionsToBeChanged === null || requestParameters.trackItActionsToBeChanged === undefined) {
             throw new runtime.RequiredError('trackItActionsToBeChanged','Required parameter requestParameters.trackItActionsToBeChanged was null or undefined when calling changeTrackItActions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -311,27 +299,15 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.locationCode === null || requestParameters.locationCode === undefined) {
             throw new runtime.RequiredError('locationCode','Required parameter requestParameters.locationCode was null or undefined when calling changeTrackItLocations.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItLocations.');
-        }
-
+        
         if (requestParameters.trackItLocationsToBeChanged === null || requestParameters.trackItLocationsToBeChanged === undefined) {
             throw new runtime.RequiredError('trackItLocationsToBeChanged','Required parameter requestParameters.trackItLocationsToBeChanged was null or undefined when calling changeTrackItLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -386,27 +362,15 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.typeCode === null || requestParameters.typeCode === undefined) {
             throw new runtime.RequiredError('typeCode','Required parameter requestParameters.typeCode was null or undefined when calling changeTrackItTypes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItTypes.');
-        }
-
+        
         if (requestParameters.trackItTypesToBeChanged === null || requestParameters.trackItTypesToBeChanged === undefined) {
             throw new runtime.RequiredError('trackItTypesToBeChanged','Required parameter requestParameters.trackItTypesToBeChanged was null or undefined when calling changeTrackItTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -461,23 +425,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
             throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItActions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItActions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItActions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItActions.');
-        }
-
+        
         if (requestParameters.copyTrackItActions === null || requestParameters.copyTrackItActions === undefined) {
             throw new runtime.RequiredError('copyTrackItActions','Required parameter requestParameters.copyTrackItActions was null or undefined when calling copyTrackItActions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -532,23 +484,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
             throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItLocations.');
-        }
-
+        
         if (requestParameters.copyTrackItLocations === null || requestParameters.copyTrackItLocations === undefined) {
             throw new runtime.RequiredError('copyTrackItLocations','Required parameter requestParameters.copyTrackItLocations was null or undefined when calling copyTrackItLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -603,23 +543,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
             throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItTypes.');
-        }
-
+        
         if (requestParameters.copyTrackItTypes === null || requestParameters.copyTrackItTypes === undefined) {
             throw new runtime.RequiredError('copyTrackItTypes','Required parameter requestParameters.copyTrackItTypes was null or undefined when calling copyTrackItTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -674,19 +602,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItActions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItActions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItActions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItActions.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -754,19 +670,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItLocations.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -834,19 +738,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -914,23 +806,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItActions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItActions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItActions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItActions.');
-        }
-
+        
         if (requestParameters.trackItActionsCriteria === null || requestParameters.trackItActionsCriteria === undefined) {
             throw new runtime.RequiredError('trackItActionsCriteria','Required parameter requestParameters.trackItActionsCriteria was null or undefined when calling postTrackItActions.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -985,23 +865,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItLocations.');
-        }
-
+        
         if (requestParameters.trackItLocationsCriteria === null || requestParameters.trackItLocationsCriteria === undefined) {
             throw new runtime.RequiredError('trackItLocationsCriteria','Required parameter requestParameters.trackItLocationsCriteria was null or undefined when calling postTrackItLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1056,23 +924,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItTypes.');
-        }
-
+        
         if (requestParameters.trackItTypesCriteria === null || requestParameters.trackItTypesCriteria === undefined) {
             throw new runtime.RequiredError('trackItTypesCriteria','Required parameter requestParameters.trackItTypesCriteria was null or undefined when calling postTrackItTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1127,23 +983,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
             throw new runtime.RequiredError('actionCode','Required parameter requestParameters.actionCode was null or undefined when calling removeTrackItActions.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItActions.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItActions.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItActions.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItActions.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1195,23 +1039,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.locationCode === null || requestParameters.locationCode === undefined) {
             throw new runtime.RequiredError('locationCode','Required parameter requestParameters.locationCode was null or undefined when calling removeTrackItLocations.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItLocations.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1263,23 +1095,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         if (requestParameters.typeCode === null || requestParameters.typeCode === undefined) {
             throw new runtime.RequiredError('typeCode','Required parameter requestParameters.typeCode was null or undefined when calling removeTrackItTypes.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

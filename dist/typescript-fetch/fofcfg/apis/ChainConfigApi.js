@@ -64,15 +64,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeCashierShiftDropLocations.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeCashierShiftDropLocations.');
-            }
             if (requestParameters.cashierShiftDropLocationsToBeChanged === null || requestParameters.cashierShiftDropLocationsToBeChanged === undefined) {
                 throw new runtime.RequiredError('cashierShiftDropLocationsToBeChanged', 'Required parameter requestParameters.cashierShiftDropLocationsToBeChanged was null or undefined when calling changeCashierShiftDropLocations.');
             }
@@ -122,15 +113,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.taxTypeCode === null || requestParameters.taxTypeCode === undefined) {
                 throw new runtime.RequiredError('taxTypeCode', 'Required parameter requestParameters.taxTypeCode was null or undefined when calling changeCustomTaxTypes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeCustomTaxTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeCustomTaxTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeCustomTaxTypes.');
             }
             if (requestParameters.customTaxTypesToBeChanged === null || requestParameters.customTaxTypesToBeChanged === undefined) {
                 throw new runtime.RequiredError('customTaxTypesToBeChanged', 'Required parameter requestParameters.customTaxTypesToBeChanged was null or undefined when calling changeCustomTaxTypes.');
@@ -182,15 +164,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.fiscalGuestTypeCode === null || requestParameters.fiscalGuestTypeCode === undefined) {
                 throw new runtime.RequiredError('fiscalGuestTypeCode', 'Required parameter requestParameters.fiscalGuestTypeCode was null or undefined when calling changeFiscalGuestTypes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeFiscalGuestTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalGuestTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalGuestTypes.');
-            }
             if (requestParameters.fiscalGuestTypesToBeChanged === null || requestParameters.fiscalGuestTypesToBeChanged === undefined) {
                 throw new runtime.RequiredError('fiscalGuestTypesToBeChanged', 'Required parameter requestParameters.fiscalGuestTypesToBeChanged was null or undefined when calling changeFiscalGuestTypes.');
             }
@@ -240,15 +213,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
                 throw new runtime.RequiredError('regionCode', 'Required parameter requestParameters.regionCode was null or undefined when calling changeFiscalRegions.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeFiscalRegions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalRegions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalRegions.');
             }
             if (requestParameters.fiscalRegionsToBeChanged === null || requestParameters.fiscalRegionsToBeChanged === undefined) {
                 throw new runtime.RequiredError('fiscalRegionsToBeChanged', 'Required parameter requestParameters.fiscalRegionsToBeChanged was null or undefined when calling changeFiscalRegions.');
@@ -300,15 +264,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.taxOfficeId === null || requestParameters.taxOfficeId === undefined) {
                 throw new runtime.RequiredError('taxOfficeId', 'Required parameter requestParameters.taxOfficeId was null or undefined when calling changeTaxOffices.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTaxOffices.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTaxOffices.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTaxOffices.');
-            }
             if (requestParameters.taxOfficesToBeChanged === null || requestParameters.taxOfficesToBeChanged === undefined) {
                 throw new runtime.RequiredError('taxOfficesToBeChanged', 'Required parameter requestParameters.taxOfficesToBeChanged was null or undefined when calling changeTaxOffices.');
             }
@@ -358,15 +313,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
                 throw new runtime.RequiredError('dropLocationId', 'Required parameter requestParameters.dropLocationId was null or undefined when calling changeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateCashierShiftDropLocations.');
             }
             if (requestParameters.templateCashierShiftDropLocationsToBeChanged === null || requestParameters.templateCashierShiftDropLocationsToBeChanged === undefined) {
                 throw new runtime.RequiredError('templateCashierShiftDropLocationsToBeChanged', 'Required parameter requestParameters.templateCashierShiftDropLocationsToBeChanged was null or undefined when calling changeTemplateCashierShiftDropLocations.');
@@ -418,15 +364,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.code === null || requestParameters.code === undefined) {
                 throw new runtime.RequiredError('code', 'Required parameter requestParameters.code was null or undefined when calling deleteAutoFolioSettlementTypes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoFolioSettlementTypes.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -471,15 +408,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.contractBillingInstructionsId === null || requestParameters.contractBillingInstructionsId === undefined) {
                 throw new runtime.RequiredError('contractBillingInstructionsId', 'Required parameter requestParameters.contractBillingInstructionsId was null or undefined when calling deleteContractBillingInstructions.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteContractBillingInstructions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteContractBillingInstructions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteContractBillingInstructions.');
             }
             const queryParameters = {};
             const headerParameters = {};
@@ -526,15 +454,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.taxCategoryCode === null || requestParameters.taxCategoryCode === undefined) {
                 throw new runtime.RequiredError('taxCategoryCode', 'Required parameter requestParameters.taxCategoryCode was null or undefined when calling deleteTaxCategoryCodes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTaxCategoryCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaxCategoryCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaxCategoryCodes.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -577,15 +496,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getAutoFolioSettlementTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAutoFolioSettlementTypes.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -642,15 +552,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getCashierShiftDropLocations.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCashierShiftDropLocations.');
             }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
@@ -709,15 +610,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getContractBillingInstructionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getContractBillingInstructions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getContractBillingInstructions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getContractBillingInstructions.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -772,15 +664,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getCustomTaxTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCustomTaxTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCustomTaxTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCustomTaxTypes.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -835,15 +718,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getFetchTaxCategoryCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFetchTaxCategoryCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFetchTaxCategoryCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFetchTaxCategoryCodes.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -898,15 +772,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getFiscalGuestTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFiscalGuestTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalGuestTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalGuestTypes.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -961,15 +826,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getFiscalRegionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFiscalRegions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalRegions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalRegions.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1024,15 +880,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getTaxOfficesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTaxOffices.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTaxOffices.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTaxOffices.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1087,15 +934,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getTemplateCashierShiftDropLocationsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCashierShiftDropLocations.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1150,15 +988,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postAutoFolioSettlementTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAutoFolioSettlementTypes.');
-            }
             if (requestParameters.autoFolioSettlementTypesCriteria === null || requestParameters.autoFolioSettlementTypesCriteria === undefined) {
                 throw new runtime.RequiredError('autoFolioSettlementTypesCriteria', 'Required parameter requestParameters.autoFolioSettlementTypesCriteria was null or undefined when calling postAutoFolioSettlementTypes.');
             }
@@ -1209,15 +1038,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postCashierShiftDropLocations.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCashierShiftDropLocations.');
-            }
             if (requestParameters.cashierShiftDropLocationsCriteria === null || requestParameters.cashierShiftDropLocationsCriteria === undefined) {
                 throw new runtime.RequiredError('cashierShiftDropLocationsCriteria', 'Required parameter requestParameters.cashierShiftDropLocationsCriteria was null or undefined when calling postCashierShiftDropLocations.');
             }
@@ -1265,15 +1085,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postContractBillingInstructionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postContractBillingInstructions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postContractBillingInstructions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postContractBillingInstructions.');
-            }
             if (requestParameters.contractBillingInstructionsCriteria === null || requestParameters.contractBillingInstructionsCriteria === undefined) {
                 throw new runtime.RequiredError('contractBillingInstructionsCriteria', 'Required parameter requestParameters.contractBillingInstructionsCriteria was null or undefined when calling postContractBillingInstructions.');
             }
@@ -1321,15 +1132,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postCustomTaxTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCustomTaxTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCustomTaxTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCustomTaxTypes.');
-            }
             if (requestParameters.customTaxTypesCriteria === null || requestParameters.customTaxTypesCriteria === undefined) {
                 throw new runtime.RequiredError('customTaxTypesCriteria', 'Required parameter requestParameters.customTaxTypesCriteria was null or undefined when calling postCustomTaxTypes.');
             }
@@ -1377,15 +1179,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postFiscalGuestTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postFiscalGuestTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalGuestTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalGuestTypes.');
-            }
             if (requestParameters.fiscalGuestTypesCriteria === null || requestParameters.fiscalGuestTypesCriteria === undefined) {
                 throw new runtime.RequiredError('fiscalGuestTypesCriteria', 'Required parameter requestParameters.fiscalGuestTypesCriteria was null or undefined when calling postFiscalGuestTypes.');
             }
@@ -1433,15 +1226,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postFiscalRegionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postFiscalRegions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalRegions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalRegions.');
-            }
             if (requestParameters.fiscalRegionsCriteria === null || requestParameters.fiscalRegionsCriteria === undefined) {
                 throw new runtime.RequiredError('fiscalRegionsCriteria', 'Required parameter requestParameters.fiscalRegionsCriteria was null or undefined when calling postFiscalRegions.');
             }
@@ -1489,15 +1273,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postTaxCategoryCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTaxCategoryCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTaxCategoryCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTaxCategoryCodes.');
-            }
             if (requestParameters.taxCategoryCodesCriteria === null || requestParameters.taxCategoryCodesCriteria === undefined) {
                 throw new runtime.RequiredError('taxCategoryCodesCriteria', 'Required parameter requestParameters.taxCategoryCodesCriteria was null or undefined when calling postTaxCategoryCodes.');
             }
@@ -1545,15 +1320,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postTaxOfficesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTaxOffices.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTaxOffices.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTaxOffices.');
-            }
             if (requestParameters.taxOfficesCriteria === null || requestParameters.taxOfficesCriteria === undefined) {
                 throw new runtime.RequiredError('taxOfficesCriteria', 'Required parameter requestParameters.taxOfficesCriteria was null or undefined when calling postTaxOffices.');
             }
@@ -1601,15 +1367,6 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postTemplateCashierShiftDropLocationsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCashierShiftDropLocations.');
-            }
             if (requestParameters.templateCashierShiftDropLocationsCriteria === null || requestParameters.templateCashierShiftDropLocationsCriteria === undefined) {
                 throw new runtime.RequiredError('templateCashierShiftDropLocationsCriteria', 'Required parameter requestParameters.templateCashierShiftDropLocationsCriteria was null or undefined when calling postTemplateCashierShiftDropLocations.');
             }
@@ -1659,15 +1416,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.code === null || requestParameters.code === undefined) {
                 throw new runtime.RequiredError('code', 'Required parameter requestParameters.code was null or undefined when calling putAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAutoFolioSettlementTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAutoFolioSettlementTypes.');
             }
             if (requestParameters.autoFolioSettlementTypesToBeChanged === null || requestParameters.autoFolioSettlementTypesToBeChanged === undefined) {
                 throw new runtime.RequiredError('autoFolioSettlementTypesToBeChanged', 'Required parameter requestParameters.autoFolioSettlementTypesToBeChanged was null or undefined when calling putAutoFolioSettlementTypes.');
@@ -1719,15 +1467,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.contractBillingInstructionsId === null || requestParameters.contractBillingInstructionsId === undefined) {
                 throw new runtime.RequiredError('contractBillingInstructionsId', 'Required parameter requestParameters.contractBillingInstructionsId was null or undefined when calling putContractBillingInstructions.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putContractBillingInstructions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putContractBillingInstructions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putContractBillingInstructions.');
-            }
             if (requestParameters.contractBillingInstructionsToBeChanged === null || requestParameters.contractBillingInstructionsToBeChanged === undefined) {
                 throw new runtime.RequiredError('contractBillingInstructionsToBeChanged', 'Required parameter requestParameters.contractBillingInstructionsToBeChanged was null or undefined when calling putContractBillingInstructions.');
             }
@@ -1777,15 +1516,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.taxCategoryCode === null || requestParameters.taxCategoryCode === undefined) {
                 throw new runtime.RequiredError('taxCategoryCode', 'Required parameter requestParameters.taxCategoryCode was null or undefined when calling putTaxCategoryCodes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTaxCategoryCodes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTaxCategoryCodes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTaxCategoryCodes.');
             }
             if (requestParameters.taxCategoryCodesToBeChanged === null || requestParameters.taxCategoryCodesToBeChanged === undefined) {
                 throw new runtime.RequiredError('taxCategoryCodesToBeChanged', 'Required parameter requestParameters.taxCategoryCodesToBeChanged was null or undefined when calling putTaxCategoryCodes.');
@@ -1840,15 +1570,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removeCashierShiftDropLocations.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeCashierShiftDropLocations.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1893,15 +1614,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.taxTypeCode === null || requestParameters.taxTypeCode === undefined) {
                 throw new runtime.RequiredError('taxTypeCode', 'Required parameter requestParameters.taxTypeCode was null or undefined when calling removeCustomTaxTypes.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeCustomTaxTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeCustomTaxTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeCustomTaxTypes.');
             }
             const queryParameters = {};
             const headerParameters = {};
@@ -1948,15 +1660,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.fiscalGuestTypeCode === null || requestParameters.fiscalGuestTypeCode === undefined) {
                 throw new runtime.RequiredError('fiscalGuestTypeCode', 'Required parameter requestParameters.fiscalGuestTypeCode was null or undefined when calling removeFiscalGuestTypes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeFiscalGuestTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeFiscalGuestTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeFiscalGuestTypes.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -2001,15 +1704,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
                 throw new runtime.RequiredError('regionCode', 'Required parameter requestParameters.regionCode was null or undefined when calling removeFiscalRegions.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeFiscalRegions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeFiscalRegions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeFiscalRegions.');
             }
             const queryParameters = {};
             const headerParameters = {};
@@ -2056,15 +1750,6 @@ class ChainConfigApi extends runtime.BaseAPI {
             if (requestParameters.taxOfficeId === null || requestParameters.taxOfficeId === undefined) {
                 throw new runtime.RequiredError('taxOfficeId', 'Required parameter requestParameters.taxOfficeId was null or undefined when calling removeTaxOffices.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTaxOffices.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTaxOffices.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTaxOffices.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -2109,15 +1794,6 @@ class ChainConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
                 throw new runtime.RequiredError('dropLocationId', 'Required parameter requestParameters.dropLocationId was null or undefined when calling removeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateCashierShiftDropLocations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateCashierShiftDropLocations.');
             }
             const queryParameters = {};
             const headerParameters = {};

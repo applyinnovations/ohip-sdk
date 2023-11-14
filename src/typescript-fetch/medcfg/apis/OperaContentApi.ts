@@ -56,13 +56,13 @@ export interface EmailFolioReportRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioReportToEmail?: FolioReportToEmail;
+    folioReportToEmail: FolioReportToEmail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCustomizedLetterRequest {
-    letterId?: string;
+    letterId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -73,7 +73,7 @@ export interface GetCustomizedLetterRequest {
 }
 
 export interface GetEmailFileRequest {
-    emailId?: string;
+    emailId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -93,8 +93,8 @@ export interface GetFileAttachmentRequest {
 }
 
 export interface GetFolioReportRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -130,8 +130,8 @@ export interface GetImageRequest {
 }
 
 export interface GetRegistrationCardRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -159,12 +159,12 @@ export interface RemoveImageRequest {
 }
 
 export interface SetCustomizedLetterRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    customizedLetter?: CustomizedLetter;
+    customizedLetter: CustomizedLetter;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -173,7 +173,7 @@ export interface UploadFileAttachmentRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fileToUpload?: FileToUpload;
+    fileToUpload: FileToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -182,7 +182,7 @@ export interface UploadImageRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    imageToUpload?: ImageToUpload;
+    imageToUpload: ImageToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -197,22 +197,10 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Email folio report
      */
     async emailFolioReportRaw(requestParameters: EmailFolioReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling emailFolioReport.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling emailFolioReport.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling emailFolioReport.');
-        }
-
         if (requestParameters.folioReportToEmail === null || requestParameters.folioReportToEmail === undefined) {
             throw new runtime.RequiredError('folioReportToEmail','Required parameter requestParameters.folioReportToEmail was null or undefined when calling emailFolioReport.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -267,19 +255,7 @@ export class OperaContentApi extends runtime.BaseAPI {
         if (requestParameters.letterId === null || requestParameters.letterId === undefined) {
             throw new runtime.RequiredError('letterId','Required parameter requestParameters.letterId was null or undefined when calling getCustomizedLetter.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomizedLetter.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomizedLetter.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomizedLetter.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.letterIdContext !== undefined) {
@@ -339,19 +315,7 @@ export class OperaContentApi extends runtime.BaseAPI {
         if (requestParameters.emailId === null || requestParameters.emailId === undefined) {
             throw new runtime.RequiredError('emailId','Required parameter requestParameters.emailId was null or undefined when calling getEmailFile.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEmailFile.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEmailFile.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEmailFile.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -400,18 +364,6 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Get file attachment
      */
     async getFileAttachmentRaw(requestParameters: GetFileAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFileAttachment.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFileAttachment.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFileAttachment.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -479,23 +431,11 @@ export class OperaContentApi extends runtime.BaseAPI {
         if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
             throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFolioReport.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioReport.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioReport.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioReport.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioReport.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.reservationIdContext !== undefined) {
@@ -572,18 +512,6 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Get image
      */
     async getImageRaw(requestParameters: GetImageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Image>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getImage.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getImage.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getImage.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.linkId !== undefined) {
@@ -683,23 +611,11 @@ export class OperaContentApi extends runtime.BaseAPI {
         if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
             throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getRegistrationCard.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRegistrationCard.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRegistrationCard.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRegistrationCard.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRegistrationCard.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.reservationIdContext !== undefined) {
@@ -772,18 +688,6 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Use this API to Delete image
      */
     async removeImageRaw(requestParameters: RemoveImageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeImage.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeImage.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeImage.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.imageCode !== undefined) {
@@ -855,27 +759,15 @@ export class OperaContentApi extends runtime.BaseAPI {
         if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
             throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling setCustomizedLetter.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setCustomizedLetter.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setCustomizedLetter.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setCustomizedLetter.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setCustomizedLetter.');
-        }
-
+        
         if (requestParameters.customizedLetter === null || requestParameters.customizedLetter === undefined) {
             throw new runtime.RequiredError('customizedLetter','Required parameter requestParameters.customizedLetter was null or undefined when calling setCustomizedLetter.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -927,22 +819,10 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Upload a file attachment
      */
     async uploadFileAttachmentRaw(requestParameters: UploadFileAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling uploadFileAttachment.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling uploadFileAttachment.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling uploadFileAttachment.');
-        }
-
         if (requestParameters.fileToUpload === null || requestParameters.fileToUpload === undefined) {
             throw new runtime.RequiredError('fileToUpload','Required parameter requestParameters.fileToUpload was null or undefined when calling uploadFileAttachment.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -994,22 +874,10 @@ export class OperaContentApi extends runtime.BaseAPI {
      * Use this API to Upload an image
      */
     async uploadImageRaw(requestParameters: UploadImageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling uploadImage.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling uploadImage.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling uploadImage.');
-        }
-
         if (requestParameters.imageToUpload === null || requestParameters.imageToUpload === undefined) {
             throw new runtime.RequiredError('imageToUpload','Required parameter requestParameters.imageToUpload was null or undefined when calling uploadImage.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

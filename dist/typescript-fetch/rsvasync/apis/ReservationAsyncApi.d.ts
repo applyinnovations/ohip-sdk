@@ -12,30 +12,30 @@
 import * as runtime from '../runtime';
 import type { Criteria, ReservationsDailySummaryDetails } from '../models/index';
 export interface GetReservationsDailySummaryRequest {
-    summaryId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
+    summaryId: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationsProcessStatusRequest {
-    summaryId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
+    summaryId: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     acceptLanguage?: string;
 }
 export interface StartReservationsDailySummaryProcessRequest {
-    extSystemCode?: string;
-    hotelId?: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    criteria?: Criteria;
+    criteria: Criteria;
     acceptLanguage?: string;
 }
 /**

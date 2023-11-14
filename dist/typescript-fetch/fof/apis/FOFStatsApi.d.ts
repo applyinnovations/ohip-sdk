@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ReservationQueueStatistics, ReservationStatusStatisticsResponseType, RoomStatusStatisticsListType, Statistics, TaskSheetStatistics } from '../models/index';
 export interface GetFrontOfficeStatisticsRequest {
-    statisticsCode?: GetFrontOfficeStatisticsStatisticsCodeEnum;
-    hotelId?: string;
+    statisticsCode: GetFrontOfficeStatisticsStatisticsCodeEnum;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -26,8 +26,8 @@ export interface GetFrontOfficeStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetFrontOfficeStatisticsWithDateRangeRequest {
-    statisticsCode?: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
-    hotelId?: string;
+    statisticsCode: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -41,7 +41,7 @@ export interface GetFrontOfficeStatisticsWithDateRangeRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationQueueStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -49,8 +49,8 @@ export interface GetReservationQueueStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationStatusStatisticsRequest {
-    hotelId?: string;
-    reservationStatus?: Array<GetReservationStatusStatisticsReservationStatusEnum>;
+    hotelId: string;
+    reservationStatus: Array<GetReservationStatusStatisticsReservationStatusEnum>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -58,11 +58,11 @@ export interface GetReservationStatusStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsByRoomStatusRequest {
-    hotelId?: string;
+    hotelId: string;
     frontOfficeStatus?: GetRoomsByRoomStatusFrontOfficeStatusEnum;
 }
 export interface GetTaskSheetStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

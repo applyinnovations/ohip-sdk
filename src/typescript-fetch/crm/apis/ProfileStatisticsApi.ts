@@ -29,9 +29,9 @@ import {
 } from '../models/index';
 
 export interface GetProfileMembershipStatisticsRequest {
-    profileId?: Array<string>;
-    membershipCardNo?: string;
-    membershipType?: string;
+    profileId: Array<string>;
+    membershipCardNo: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -44,9 +44,9 @@ export interface GetProfileMembershipStatisticsRequest {
 }
 
 export interface GetProfileStatisticsRequest {
-    profileId?: Array<string>;
-    hotelIds?: Array<string>;
-    reportType?: GetProfileStatisticsReportTypeEnum;
+    profileId: Array<string>;
+    hotelIds: Array<string>;
+    reportType: GetProfileStatisticsReportTypeEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -78,27 +78,15 @@ export class ProfileStatisticsApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileMembershipStatistics.');
         }
-
+        
         if (requestParameters.membershipCardNo === null || requestParameters.membershipCardNo === undefined) {
             throw new runtime.RequiredError('membershipCardNo','Required parameter requestParameters.membershipCardNo was null or undefined when calling getProfileMembershipStatistics.');
         }
-
+        
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getProfileMembershipStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileMembershipStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileMembershipStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileMembershipStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.profileId) {
@@ -178,27 +166,15 @@ export class ProfileStatisticsApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileStatistics.');
         }
-
+        
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getProfileStatistics.');
         }
-
+        
         if (requestParameters.reportType === null || requestParameters.reportType === undefined) {
             throw new runtime.RequiredError('reportType','Required parameter requestParameters.reportType was null or undefined when calling getProfileStatistics.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileStatistics.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileStatistics.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileStatistics.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.profileId) {

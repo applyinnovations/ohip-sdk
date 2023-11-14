@@ -23,7 +23,7 @@ export interface PostMultiRoomRateAvailabilityOperationRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    request?: PostMultiRoomRateAvailabilityRequest;
+    request: PostMultiRoomRateAvailabilityRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

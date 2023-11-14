@@ -12,40 +12,40 @@
 import * as runtime from '../runtime';
 import type { AccountForecasts, AwardDetails, ChangeAccountForecastsRS, ChangeProfileOwnersRequest, ChangedMembership, CheckedProfiles, CityState, Company, DuplicateExternalSubscriptions, DuplicateOPERASubscriptions, ECertificateGeneration, ECertificateToConsume, ECertificateToExtend, ECertificateToVerify, ECertificates, ForecastsInformation, ForgetProfilesCriteria, FulfillmentExportedLogs, FuturePastBookings, FuturePastBookingsCriteria, Guest, LinkedProfiles, MatchedProfiles, Membership, MembershipNumber, MembershipTierProjections, MergeProfilesRequest, MergedProfilesSnapshotDetails, MergedStageProfileSnapshot, PostProfileRelationshipRequest, PostProfileRequest, Preference, Profile, ProfileAccounts, ProfileActivityLog, ProfileAttachments, ProfileCashieringDetails, ProfileCashieringDetailsInfo, ProfileCommissionAccount, ProfileCommissionAccountCopy, ProfileCommissionAccountInfo, ProfileDetails, ProfileOwners, ProfileOwnersDetail, ProfileRelationships, ProfileStayHistory, ProfileSubscriptionsToSynchronize, ProfileSummaries, PutProfileRelationshipRequest, PutProfileRequest, RecentlyAccessedProfiles, StagedProfile, StagedProfileDetails, StagedProfiles, Status, StoreEmailRequest, SuspendedAddresses, SuspendedProfileErrorSummaryInfo, ValidatedForgetProfiles, VerifiedECertificate } from '../models/index';
 export interface ChangeMembershipRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membership?: Membership;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeProfileCashieringDetailsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCashieringDetails?: ProfileCashieringDetails;
+    profileCashieringDetails: ProfileCashieringDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeProfileOwnersOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileOwners?: ChangeProfileOwnersRequest;
+    profileOwners: ChangeProfileOwnersRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeStagedProfileRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stagedProfile?: StagedProfile;
+    stagedProfile: StagedProfile;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -61,28 +61,28 @@ export interface CheckProfileTypeRequest {
     acceptLanguage?: string;
 }
 export interface ConsumeECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToConsume?: ECertificateToConsume;
+    eCertificateToConsume: ECertificateToConsume;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyProfileCommissionAccountRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccountCopy?: ProfileCommissionAccountCopy;
+    profileCommissionAccountCopy: ProfileCommissionAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -98,7 +98,7 @@ export interface DeleteCertificateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -106,9 +106,9 @@ export interface DeleteECertificateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteGlobalPreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    profileId?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -117,9 +117,9 @@ export interface DeleteGlobalPreferenceRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -127,8 +127,8 @@ export interface DeleteMembershipRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMultipleAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -137,10 +137,10 @@ export interface DeleteMultipleAccountForecastsRequest {
     acceptLanguage?: string;
 }
 export interface DeletePreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    hotelId?: string;
-    profileId?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -149,7 +149,7 @@ export interface DeletePreferenceRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -157,8 +157,8 @@ export interface DeleteProfileRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileAttachmentRequest {
-    attachmentId?: string;
-    profileId?: string;
+    attachmentId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -172,7 +172,7 @@ export interface DeleteProfileAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -191,7 +191,7 @@ export interface DeleteProfileCommissionAccountRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfilePermanentlyRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -199,26 +199,26 @@ export interface DeleteProfilePermanentlyRequest {
     acceptLanguage?: string;
 }
 export interface DistributePreferenceRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preference?: Preference;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ExtendECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToExtend?: ECertificateToExtend;
+    eCertificateToExtend: ECertificateToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -242,7 +242,7 @@ export interface GetAddressRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -253,7 +253,7 @@ export interface GetAwardsRequest {
     acceptLanguage?: string;
 }
 export interface GetCashieringDetailsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -266,7 +266,7 @@ export interface GetCashieringDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetCompanyProfileRequest {
-    corporateID?: string;
+    corporateID: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -319,7 +319,7 @@ export interface GetECertificatesRequest {
     acceptLanguage?: string;
 }
 export interface GetFulfillmentExportLogsRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -331,7 +331,7 @@ export interface GetFulfillmentExportLogsRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestProfileRequest {
-    guestId?: string;
+    guestId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -341,7 +341,7 @@ export interface GetGuestProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedProfilesRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -373,7 +373,7 @@ export interface GetLinkedProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetMatchProfilesRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -398,7 +398,7 @@ export interface GetMembershipTierProjectionsRequest {
     acceptLanguage?: string;
 }
 export interface GetMergeProfilesSnapshotRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -412,7 +412,7 @@ export interface GetMergeProfilesSnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetMergeStageProfileSnapshotRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -426,7 +426,7 @@ export interface GetMergeStageProfileSnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceForProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -439,7 +439,7 @@ export interface GetPreferenceForProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -455,7 +455,7 @@ export interface GetProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileAccountsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -486,7 +486,7 @@ export interface GetProfileActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileAttachmentsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -496,8 +496,8 @@ export interface GetProfileAttachmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileByExtIdRequest {
-    profileExternalId?: string;
-    extSystemCode?: string;
+    profileExternalId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -512,7 +512,7 @@ export interface GetProfileByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -521,7 +521,7 @@ export interface GetProfileCommissionAccountRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -532,7 +532,7 @@ export interface GetProfileOwnersRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRelationshipsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -626,7 +626,7 @@ export interface GetRecentlyAccessedProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetStagedProfileRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -660,7 +660,7 @@ export interface GetStagedProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetStayHistoryRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -695,21 +695,21 @@ export interface GetSuspendedProfileErrorSummaryRequest {
     acceptLanguage?: string;
 }
 export interface MergeProfilesOperationRequest {
-    survivorProfileId?: string;
+    survivorProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileToBeMerged?: MergeProfilesRequest;
+    profileToBeMerged: MergeProfilesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAccountForecastRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forecastsInformation?: ForecastsInformation;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -717,7 +717,7 @@ export interface PostCompanyProfileRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    company?: Company;
+    company: Company;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -725,7 +725,7 @@ export interface PostECertificateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateGeneration?: ECertificateGeneration;
+    eCertificateGeneration: ECertificateGeneration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -733,34 +733,34 @@ export interface PostGuestProfileRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guest?: Guest;
+    guest: Guest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMembershipRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membership?: Membership;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMembershipNumberRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipNumber?: MembershipNumber;
+    membershipNumber: MembershipNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferenceRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preference?: Preference;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -768,73 +768,73 @@ export interface PostProfileOperationRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profile?: PostProfileRequest;
+    profile: PostProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccount?: ProfileCommissionAccount;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileOwners?: ProfileOwners;
+    profileOwners: ProfileOwners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileRelationship?: PostProfileRelationshipRequest;
+    profileRelationship: PostProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forecastsInformation?: ForecastsInformation;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profile?: PutProfileRequest;
+    profile: PutProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileRelationshipToBeChanged?: PutProfileRelationshipRequest;
+    profileRelationshipToBeChanged: PutProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveProfileRelationshipRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
-    sourceRelation?: string;
-    targetRelation?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
+    sourceRelation: string;
+    targetRelation: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -845,20 +845,20 @@ export interface RemoveProfileRelationshipRequest {
     acceptLanguage?: string;
 }
 export interface SetProfileCommissionAccountRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileCommissionAccount?: ProfileCommissionAccount;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface StoreEmailOperationRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    emailMessageType?: StoreEmailRequest;
+    emailMessageType: StoreEmailRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -866,7 +866,7 @@ export interface SynchronizeProfileSubscriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileSubscriptionsToSynchronize?: ProfileSubscriptionsToSynchronize;
+    profileSubscriptionsToSynchronize: ProfileSubscriptionsToSynchronize;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -874,25 +874,25 @@ export interface ValidateForgetProfilesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    forgetProfilesCriteria?: ForgetProfilesCriteria;
+    forgetProfilesCriteria: ForgetProfilesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateReservationsForProfileRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    futurePastBookingsCriteria?: FuturePastBookingsCriteria;
+    futurePastBookingsCriteria: FuturePastBookingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface VerifyECertificateRequest {
-    certificateId?: string;
+    certificateId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eCertificateToVerify?: ECertificateToVerify;
+    eCertificateToVerify: ECertificateToVerify;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

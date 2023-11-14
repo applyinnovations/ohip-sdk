@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { BlockInventoryStatistic, InventoryStatistics } from '../models/index';
 export interface GetBlockInventoryStatisticsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -42,7 +42,7 @@ export interface GetBlockInventoryStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,10 +72,10 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryStatisticsRequest {
-    hotelId?: string;
-    dateRangeEnd?: Date;
-    reportCode?: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart?: Date;
+    hotelId: string;
+    dateRangeEnd: Date;
+    reportCode: GetInventoryStatisticsReportCodeEnum;
+    dateRangeStart: Date;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

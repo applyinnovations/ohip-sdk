@@ -56,27 +56,27 @@ import {
 } from '../models/index';
 
 export interface ChangeSellLimitByDateRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimit?: SellLimit;
+    sellLimit: SellLimit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeSellLimitByDateRangeRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimitByRange?: SellLimitByRange;
+    sellLimitByRange: SellLimitByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHoldItemsInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -86,10 +86,10 @@ export interface GetHoldItemsInventoryRequest {
 }
 
 export interface GetHotelInventoryRequest {
-    hotelId?: string;
-    dateRangeStart?: Date;
-    dateRangeEnd?: Date;
-    roomCountRequested?: number;
+    hotelId: string;
+    dateRangeStart: Date;
+    dateRangeEnd: Date;
+    roomCountRequested: number;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -103,7 +103,7 @@ export interface GetHotelInventoryRequest {
 }
 
 export interface GetItemInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -128,21 +128,21 @@ export interface GetItemInventoryRequest {
 }
 
 export interface PostHoldItemInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdItemInventory?: HoldItemInventory;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutHoldItemsInventoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdItemInventory?: HoldItemInventory;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -151,7 +151,7 @@ export interface PutItemInventoryHoldRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    releaseItemInventoryHold?: ReleaseItemInventoryHold;
+    releaseItemInventoryHold: ReleaseItemInventoryHold;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -169,23 +169,11 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSellLimitByDate.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSellLimitByDate.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSellLimitByDate.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSellLimitByDate.');
-        }
-
+        
         if (requestParameters.sellLimit === null || requestParameters.sellLimit === undefined) {
             throw new runtime.RequiredError('sellLimit','Required parameter requestParameters.sellLimit was null or undefined when calling changeSellLimitByDate.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -240,23 +228,11 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSellLimitByDateRange.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSellLimitByDateRange.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSellLimitByDateRange.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSellLimitByDateRange.');
-        }
-
+        
         if (requestParameters.sellLimitByRange === null || requestParameters.sellLimitByRange === undefined) {
             throw new runtime.RequiredError('sellLimitByRange','Required parameter requestParameters.sellLimitByRange was null or undefined when calling changeSellLimitByDateRange.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -311,19 +287,7 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHoldItemsInventory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHoldItemsInventory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHoldItemsInventory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHoldItemsInventory.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.itemHoldId) {
@@ -379,31 +343,19 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelInventory.');
         }
-
+        
         if (requestParameters.dateRangeStart === null || requestParameters.dateRangeStart === undefined) {
             throw new runtime.RequiredError('dateRangeStart','Required parameter requestParameters.dateRangeStart was null or undefined when calling getHotelInventory.');
         }
-
+        
         if (requestParameters.dateRangeEnd === null || requestParameters.dateRangeEnd === undefined) {
             throw new runtime.RequiredError('dateRangeEnd','Required parameter requestParameters.dateRangeEnd was null or undefined when calling getHotelInventory.');
         }
-
+        
         if (requestParameters.roomCountRequested === null || requestParameters.roomCountRequested === undefined) {
             throw new runtime.RequiredError('roomCountRequested','Required parameter requestParameters.roomCountRequested was null or undefined when calling getHotelInventory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInventory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInventory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInventory.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeStart !== undefined) {
@@ -487,19 +439,7 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemInventory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemInventory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemInventory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemInventory.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
@@ -615,23 +555,11 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postHoldItemInventory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHoldItemInventory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHoldItemInventory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHoldItemInventory.');
-        }
-
+        
         if (requestParameters.holdItemInventory === null || requestParameters.holdItemInventory === undefined) {
             throw new runtime.RequiredError('holdItemInventory','Required parameter requestParameters.holdItemInventory was null or undefined when calling postHoldItemInventory.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -686,23 +614,11 @@ export class InventoryApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putHoldItemsInventory.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putHoldItemsInventory.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putHoldItemsInventory.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putHoldItemsInventory.');
-        }
-
+        
         if (requestParameters.holdItemInventory === null || requestParameters.holdItemInventory === undefined) {
             throw new runtime.RequiredError('holdItemInventory','Required parameter requestParameters.holdItemInventory was null or undefined when calling putHoldItemsInventory.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -754,22 +670,10 @@ export class InventoryApi extends runtime.BaseAPI {
      * Release item inventory held
      */
     async putItemInventoryHoldRaw(requestParameters: PutItemInventoryHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleasedItemInventoryHeld>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putItemInventoryHold.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putItemInventoryHold.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putItemInventoryHold.');
-        }
-
         if (requestParameters.releaseItemInventoryHold === null || requestParameters.releaseItemInventoryHold === undefined) {
             throw new runtime.RequiredError('releaseItemInventoryHold','Required parameter requestParameters.releaseItemInventoryHold was null or undefined when calling putItemInventoryHold.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -23,7 +23,7 @@ export interface DeleteDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelInterfaceRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,8 +48,8 @@ export interface DeleteInterfaceRightRequest {
     acceptLanguage?: string;
 }
 export interface DeletePublisherRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
+    hotelId: string;
+    externalSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -70,8 +70,8 @@ export interface GetDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalDatabaseAvailablePropertiesRequest {
-    databaseId?: string;
-    interfaceId?: string;
+    databaseId: string;
+    interfaceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -152,7 +152,7 @@ export interface GetInterfaceRightsRequest {
     acceptLanguage?: string;
 }
 export interface GetPublishersRequest {
-    externalSystemCode?: string;
+    externalSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -173,17 +173,17 @@ export interface PostDeliveryMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createDeliveryMethods?: CreateDeliveryMethods;
+    createDeliveryMethods: CreateDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPublishersRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
+    hotelId: string;
+    externalSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createPublishers?: CreatePublishers;
+    createPublishers: CreatePublishers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -191,7 +191,7 @@ export interface PutDeliveryMethodsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeDeliveryMethods?: ChangeDeliveryMethods;
+    changeDeliveryMethods: ChangeDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -199,7 +199,7 @@ export interface PutInterfaceRightRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeInterfaceRight?: ChangeInterfaceRight;
+    changeInterfaceRight: ChangeInterfaceRight;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -207,7 +207,7 @@ export interface PutUDFMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeUDFMapping?: ChangeUDFMapping;
+    changeUDFMapping: ChangeUDFMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { MembershipAwards, MembershipAwardsInfo, MembershipBenefitPrograms, MembershipBenefitProgramsInfo, MembershipClasses, MembershipClassesInfo, MembershipEnrollmentGroups, MembershipEnrollmentGroupsInfo, MembershipFolioTexts, MembershipLevels, MembershipLevelsInfo, MembershipMarketGroups, MembershipMarketGroupsInfo, MembershipPropertyGroups, MembershipPropertyGroupsInfo, MembershipRateGroups, MembershipRateGroupsInfo, MembershipTypeChangeInstructions, MembershipTypeRule, MembershipTypeRules, MembershipTypeRulesDetails, MembershipTypeRulesInfo, MembershipTypes, MembershipTypesDetails, Status } from '../models/index';
 export interface DeleteMembershipAwardsRequest {
-    membershipAwardsId?: string;
+    membershipAwardsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,7 +21,7 @@ export interface DeleteMembershipAwardsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
+    membershipBenefitProgramsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteMembershipBenefitProgramsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipClassesRequest {
-    membershipClassId?: string;
+    membershipClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -38,7 +38,7 @@ export interface DeleteMembershipClassesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
+    membershipEnrollmentGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -46,7 +46,7 @@ export interface DeleteMembershipEnrollmentGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipLevelsRequest {
-    membershipLevelsId?: string;
+    membershipLevelsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -55,7 +55,7 @@ export interface DeleteMembershipLevelsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
+    membershipMarketGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -63,7 +63,7 @@ export interface DeleteMembershipMarketGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
+    membershipPropertyGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -71,7 +71,7 @@ export interface DeleteMembershipPropertyGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
+    membershipRateGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -79,7 +79,7 @@ export interface DeleteMembershipRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -88,7 +88,7 @@ export interface DeleteMembershipTypeRulesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteMembershipTypesRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -146,7 +146,7 @@ export interface GetMembershipEnrollmentGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipLevelsRequest {
-    membershipTypeCode?: string;
+    membershipTypeCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -190,7 +190,7 @@ export interface GetMembershipRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTypeRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -200,7 +200,7 @@ export interface GetMembershipTypeRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTypeRuleRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -238,7 +238,7 @@ export interface PostMembershipAwardsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipAwards?: MembershipAwards;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -246,7 +246,7 @@ export interface PostMembershipBenefitProgramsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipBenefitPrograms?: MembershipBenefitPrograms;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -254,7 +254,7 @@ export interface PostMembershipClassesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClasses?: MembershipClasses;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -262,7 +262,7 @@ export interface PostMembershipEnrollmentGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipEnrollmentGroups?: MembershipEnrollmentGroups;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -270,7 +270,7 @@ export interface PostMembershipFolioTextsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipFolioTexts?: MembershipFolioTexts;
+    membershipFolioTexts: MembershipFolioTexts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -278,7 +278,7 @@ export interface PostMembershipLevelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipLevels?: MembershipLevels;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -286,7 +286,7 @@ export interface PostMembershipMarketGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipMarketGroups?: MembershipMarketGroups;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -294,7 +294,7 @@ export interface PostMembershipPropertyGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipPropertyGroups?: MembershipPropertyGroups;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -302,7 +302,7 @@ export interface PostMembershipRateGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipRateGroups?: MembershipRateGroups;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -310,7 +310,7 @@ export interface PostMembershipTypeRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeRules?: MembershipTypeRules;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -318,97 +318,97 @@ export interface PostMembershipTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypes?: MembershipTypes;
+    membershipTypes: MembershipTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipAwardsRequest {
-    membershipAwardsId?: string;
+    membershipAwardsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipAwards?: MembershipAwards;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
+    membershipBenefitProgramsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipBenefitPrograms?: MembershipBenefitPrograms;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipClassesRequest {
-    membershipClassId?: string;
+    membershipClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClasses?: MembershipClasses;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
+    membershipEnrollmentGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipEnrollmentGroups?: MembershipEnrollmentGroups;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipLevelsRequest {
-    membershipLevelsId?: string;
+    membershipLevelsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipLevels?: MembershipLevels;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
+    membershipMarketGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipMarketGroups?: MembershipMarketGroups;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
+    membershipPropertyGroupsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipPropertyGroups?: MembershipPropertyGroups;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
+    membershipRateGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipRateGroups?: MembershipRateGroups;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipTypeRequest {
-    membershipTypeId?: string;
+    membershipTypeId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeChangeInstructions?: MembershipTypeChangeInstructions;
+    membershipTypeChangeInstructions: MembershipTypeChangeInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
+    membershipTypeRulesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTypeRules?: MembershipTypeRules;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

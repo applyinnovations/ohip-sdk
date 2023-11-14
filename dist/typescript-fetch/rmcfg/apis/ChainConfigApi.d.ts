@@ -12,16 +12,16 @@
 import * as runtime from '../runtime';
 import type { BedTypeRequestsCriteria, BedTypeRequestsDetails, BedTypeRequestsToBeChanged, BedTypesCriteria, BedTypesDetails, BedTypesToBeChanged, FloorTypesCriteria, FloorTypesDetails, FloorTypesToBeChanged, RoomMoveReasonsCriteria, RoomMoveReasonsDetails, RoomMoveReasonsToBeChanged, RoomPotentialsCriteria, RoomPotentialsDetails, RoomPotentialsToBeChanged, RoomPreferencePrioritiesCriteria, RoomPreferencePrioritiesDetails, RoomPreferencePrioritiesToBeChanged, SmokingTypesCriteria, SmokingTypesDetails, SmokingTypesToBeChanged, Status } from '../models/index';
 export interface ChangeRoomMoveReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomMoveReasonsToBeChanged?: RoomMoveReasonsToBeChanged;
+    roomMoveReasonsToBeChanged: RoomMoveReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBedTypeRequestsRequest {
-    bedTypeRequestsId?: string;
+    bedTypeRequestsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteBedTypeRequestsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBedTypesRequest {
-    bedTypesId?: string;
+    bedTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,7 +39,7 @@ export interface DeleteBedTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFloorTypesRequest {
-    floorTypesId?: string;
+    floorTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,7 +48,7 @@ export interface DeleteFloorTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomPotentialsRequest {
-    roomPotentialsId?: string;
+    roomPotentialsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -57,7 +57,7 @@ export interface DeleteRoomPotentialsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId?: string;
+    roomPreferencePrioritiesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -66,7 +66,7 @@ export interface DeleteRoomPreferencePrioritiesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteSmokingTypesRequest {
-    smokingTypesId?: string;
+    smokingTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -155,7 +155,7 @@ export interface PostBedTypeRequestsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTypeRequestsCriteria?: BedTypeRequestsCriteria;
+    bedTypeRequestsCriteria: BedTypeRequestsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -163,7 +163,7 @@ export interface PostBedTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTypesCriteria?: BedTypesCriteria;
+    bedTypesCriteria: BedTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -171,7 +171,7 @@ export interface PostFloorTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    floorTypesCriteria?: FloorTypesCriteria;
+    floorTypesCriteria: FloorTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -179,7 +179,7 @@ export interface PostRoomMoveReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomMoveReasonsCriteria?: RoomMoveReasonsCriteria;
+    roomMoveReasonsCriteria: RoomMoveReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -187,7 +187,7 @@ export interface PostRoomPotentialsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomPotentialsCriteria?: RoomPotentialsCriteria;
+    roomPotentialsCriteria: RoomPotentialsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -195,7 +195,7 @@ export interface PostRoomPreferencePrioritiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomPreferencePrioritiesCriteria?: RoomPreferencePrioritiesCriteria;
+    roomPreferencePrioritiesCriteria: RoomPreferencePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -203,66 +203,66 @@ export interface PostSmokingTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    smokingTypesCriteria?: SmokingTypesCriteria;
+    smokingTypesCriteria: SmokingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBedTypeRequestsRequest {
-    bedTypeRequestsId?: string;
+    bedTypeRequestsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTypeRequestsToBeChanged?: BedTypeRequestsToBeChanged;
+    bedTypeRequestsToBeChanged: BedTypeRequestsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBedTypesRequest {
-    bedTypesId?: string;
+    bedTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTypesToBeChanged?: BedTypesToBeChanged;
+    bedTypesToBeChanged: BedTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutFloorTypesRequest {
-    floorTypesId?: string;
+    floorTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    floorTypesToBeChanged?: FloorTypesToBeChanged;
+    floorTypesToBeChanged: FloorTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomPotentialsRequest {
-    roomPotentialsId?: string;
+    roomPotentialsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomPotentialsToBeChanged?: RoomPotentialsToBeChanged;
+    roomPotentialsToBeChanged: RoomPotentialsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId?: string;
+    roomPreferencePrioritiesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomPreferencePrioritiesToBeChanged?: RoomPreferencePrioritiesToBeChanged;
+    roomPreferencePrioritiesToBeChanged: RoomPreferencePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutSmokingTypesRequest {
-    smokingTypesId?: string;
+    smokingTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    smokingTypesToBeChanged?: SmokingTypesToBeChanged;
+    smokingTypesToBeChanged: SmokingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomMoveReasonsRequest {
-    reasonCode?: string;
+    reasonCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

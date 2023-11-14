@@ -38,7 +38,7 @@ import {
 } from '../models/index';
 
 export interface GetADSEchoTokenLOVRequest {
-    errorType?: string;
+    errorType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -51,7 +51,7 @@ export interface GetADSEchoTokenLOVRequest {
 }
 
 export interface GetADSStatusLOVRequest {
-    errorType?: string;
+    errorType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -64,7 +64,7 @@ export interface GetADSStatusLOVRequest {
 }
 
 export interface GetARAccountTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -77,7 +77,7 @@ export interface GetARAccountTypesLOVRequest {
 }
 
 export interface GetARCreditCardsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -90,7 +90,7 @@ export interface GetARCreditCardsLOVRequest {
 }
 
 export interface GetActionTypesLOVRequest {
-    module?: string;
+    module: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -103,7 +103,7 @@ export interface GetActionTypesLOVRequest {
 }
 
 export interface GetActivitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -116,7 +116,7 @@ export interface GetActivitiesLOVRequest {
 }
 
 export interface GetActivityConfigTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -129,7 +129,7 @@ export interface GetActivityConfigTypesLOVRequest {
 }
 
 export interface GetActivityLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -142,7 +142,7 @@ export interface GetActivityLocationsLOVRequest {
 }
 
 export interface GetActivityStatusLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -155,7 +155,7 @@ export interface GetActivityStatusLOVRequest {
 }
 
 export interface GetActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -168,7 +168,7 @@ export interface GetActivityTypesLOVRequest {
 }
 
 export interface GetAddressFormatElementsLOVRequest {
-    salesFormat?: string;
+    salesFormat: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -181,7 +181,7 @@ export interface GetAddressFormatElementsLOVRequest {
 }
 
 export interface GetAgentAccountsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -194,7 +194,7 @@ export interface GetAgentAccountsLOVRequest {
 }
 
 export interface GetAgentSourceCitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -207,7 +207,7 @@ export interface GetAgentSourceCitiesLOVRequest {
 }
 
 export interface GetAgentSourceResvCitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -220,7 +220,7 @@ export interface GetAgentSourceResvCitiesLOVRequest {
 }
 
 export interface GetAlertCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -233,7 +233,7 @@ export interface GetAlertCodesLOVRequest {
 }
 
 export interface GetAllRevenueTypesLOVRequest {
-    interfaceId?: string;
+    interfaceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -246,9 +246,9 @@ export interface GetAllRevenueTypesLOVRequest {
 }
 
 export interface GetAllowedHotelInterfaceRightsLOVRequest {
-    interfaceRowId?: string;
-    interfaceType?: string;
-    hotelId?: string;
+    interfaceRowId: string;
+    interfaceType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -261,7 +261,7 @@ export interface GetAllowedHotelInterfaceRightsLOVRequest {
 }
 
 export interface GetAlternateHotelCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -274,7 +274,7 @@ export interface GetAlternateHotelCodesLOVRequest {
 }
 
 export interface GetAmenitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -287,8 +287,8 @@ export interface GetAmenitiesLOVRequest {
 }
 
 export interface GetApplicationModulesLOVRequest {
-    relModuleName?: string;
-    hotelId?: string;
+    relModuleName: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -301,8 +301,8 @@ export interface GetApplicationModulesLOVRequest {
 }
 
 export interface GetApplicationSettingsLOVRequest {
-    settingName?: string;
-    levelCode?: string;
+    settingName: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -315,7 +315,7 @@ export interface GetApplicationSettingsLOVRequest {
 }
 
 export interface GetArrangementCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -328,7 +328,7 @@ export interface GetArrangementCodeLOVRequest {
 }
 
 export interface GetArrangementCodesNumberLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -341,7 +341,7 @@ export interface GetArrangementCodesNumberLOVRequest {
 }
 
 export interface GetArticleCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -354,8 +354,8 @@ export interface GetArticleCodesLOVRequest {
 }
 
 export interface GetAssignRoomsLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -368,7 +368,7 @@ export interface GetAssignRoomsLOVRequest {
 }
 
 export interface GetAttractionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -381,7 +381,7 @@ export interface GetAttractionsLOVRequest {
 }
 
 export interface GetAuthorizerLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -394,7 +394,7 @@ export interface GetAuthorizerLOVRequest {
 }
 
 export interface GetAutoNumberGeneratorLOVRequest {
-    number?: string;
+    number: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -407,8 +407,8 @@ export interface GetAutoNumberGeneratorLOVRequest {
 }
 
 export interface GetAutoTraceExpressionFieldsLOVRequest {
-    traceGroup?: string;
-    tableName?: string;
+    traceGroup: string;
+    tableName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -421,8 +421,8 @@ export interface GetAutoTraceExpressionFieldsLOVRequest {
 }
 
 export interface GetAvailableExportTemplatesLOVRequest {
-    fileGroup?: string;
-    hotelId?: string;
+    fileGroup: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -435,7 +435,7 @@ export interface GetAvailableExportTemplatesLOVRequest {
 }
 
 export interface GetAvailableProfileOwnerRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -448,9 +448,9 @@ export interface GetAvailableProfileOwnerRoomsLOVRequest {
 }
 
 export interface GetAvailableRoomComponentsLOVRequest {
-    roomNumber?: string;
-    roomType?: string;
-    hotelId?: string;
+    roomNumber: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -463,8 +463,8 @@ export interface GetAvailableRoomComponentsLOVRequest {
 }
 
 export interface GetAvailableRoomTypeComponentsLOVRequest {
-    roomType?: string;
-    hotelId?: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -477,7 +477,7 @@ export interface GetAvailableRoomTypeComponentsLOVRequest {
 }
 
 export interface GetAvailableScriptLanguagesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -490,7 +490,7 @@ export interface GetAvailableScriptLanguagesLOVRequest {
 }
 
 export interface GetAwardCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -503,7 +503,7 @@ export interface GetAwardCodesLOVRequest {
 }
 
 export interface GetAwardCodesMultiHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -516,7 +516,7 @@ export interface GetAwardCodesMultiHotelLOVRequest {
 }
 
 export interface GetAwardMktgCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -529,8 +529,8 @@ export interface GetAwardMktgCodesLOVRequest {
 }
 
 export interface GetAwardPaymentLOVRequest {
-    membershipType?: string;
-    hotelId?: string;
+    membershipType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -543,7 +543,7 @@ export interface GetAwardPaymentLOVRequest {
 }
 
 export interface GetBankAccountsForReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -556,7 +556,7 @@ export interface GetBankAccountsForReportsLOVRequest {
 }
 
 export interface GetBankAccountsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -569,7 +569,7 @@ export interface GetBankAccountsLOVRequest {
 }
 
 export interface GetBanquetPrintingMethodLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -582,7 +582,7 @@ export interface GetBanquetPrintingMethodLOVRequest {
 }
 
 export interface GetBillingInstructionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -595,7 +595,7 @@ export interface GetBillingInstructionsLOVRequest {
 }
 
 export interface GetBlockBookingStatusesLOVRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -608,7 +608,7 @@ export interface GetBlockBookingStatusesLOVRequest {
 }
 
 export interface GetBlockCatNextStatusesLOVRequest {
-    catStatus?: string;
+    catStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -621,8 +621,8 @@ export interface GetBlockCatNextStatusesLOVRequest {
 }
 
 export interface GetBlockCodesByArrivalDateLOVRequest {
-    arrivalDate?: string;
-    hotelId?: string;
+    arrivalDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -635,7 +635,7 @@ export interface GetBlockCodesByArrivalDateLOVRequest {
 }
 
 export interface GetBlockCodesFinOperationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -648,9 +648,9 @@ export interface GetBlockCodesFinOperationsLOVRequest {
 }
 
 export interface GetBlockCodesLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -663,7 +663,7 @@ export interface GetBlockCodesLOVRequest {
 }
 
 export interface GetBlockCurrentStatusesLOVRequest {
-    blockId?: string;
+    blockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -676,8 +676,8 @@ export interface GetBlockCurrentStatusesLOVRequest {
 }
 
 export interface GetBlockEventIdsLOVRequest {
-    blockId?: string;
-    hotelId?: string;
+    blockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -690,7 +690,7 @@ export interface GetBlockEventIdsLOVRequest {
 }
 
 export interface GetBlockEventsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -703,9 +703,9 @@ export interface GetBlockEventsLOVRequest {
 }
 
 export interface GetBlockIdsLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -718,7 +718,7 @@ export interface GetBlockIdsLOVRequest {
 }
 
 export interface GetBlockModeLovLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -731,7 +731,7 @@ export interface GetBlockModeLovLOVRequest {
 }
 
 export interface GetBlockNextStatusesLOVRequest {
-    bookingStatus?: string;
+    bookingStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -744,7 +744,7 @@ export interface GetBlockNextStatusesLOVRequest {
 }
 
 export interface GetBlockPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -757,10 +757,10 @@ export interface GetBlockPaymentMethodsLOVRequest {
 }
 
 export interface GetBlockRateCodesLOVRequest {
-    negotiatedOnly?: string;
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    negotiatedOnly: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -773,10 +773,10 @@ export interface GetBlockRateCodesLOVRequest {
 }
 
 export interface GetBlockRatesLOVRequest {
-    blockId?: string;
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
+    blockId: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -789,8 +789,8 @@ export interface GetBlockRatesLOVRequest {
 }
 
 export interface GetBlockReservationTypesLOVRequest {
-    bookingStatus?: string;
-    hotelId?: string;
+    bookingStatus: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -803,8 +803,8 @@ export interface GetBlockReservationTypesLOVRequest {
 }
 
 export interface GetBookingChannelRatePlansLOVRequest {
-    channel?: string;
-    hotelId?: string;
+    channel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -817,7 +817,7 @@ export interface GetBookingChannelRatePlansLOVRequest {
 }
 
 export interface GetBookingChannelRoomTypesLOVRequest {
-    channel?: string;
+    channel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -830,7 +830,7 @@ export interface GetBookingChannelRoomTypesLOVRequest {
 }
 
 export interface GetBookingTypesIndividualsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -843,7 +843,7 @@ export interface GetBookingTypesIndividualsLOVRequest {
 }
 
 export interface GetBudgetForecastCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -856,7 +856,7 @@ export interface GetBudgetForecastCodesLOVRequest {
 }
 
 export interface GetBudgetRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -869,10 +869,10 @@ export interface GetBudgetRateCodesLOVRequest {
 }
 
 export interface GetBusinessEventActionTypeExtDBLOVRequest {
-    databaseId?: string;
-    extSystem?: string;
-    module?: string;
-    hotelId?: string;
+    databaseId: string;
+    extSystem: string;
+    module: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -885,9 +885,9 @@ export interface GetBusinessEventActionTypeExtDBLOVRequest {
 }
 
 export interface GetBusinessEventActionTypeLOVRequest {
-    module?: string;
-    extSystem?: string;
-    hotelId?: string;
+    module: string;
+    extSystem: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -900,7 +900,7 @@ export interface GetBusinessEventActionTypeLOVRequest {
 }
 
 export interface GetCampaignActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -913,7 +913,7 @@ export interface GetCampaignActivityTypesLOVRequest {
 }
 
 export interface GetCashRegisterIDLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -926,7 +926,7 @@ export interface GetCashRegisterIDLOVRequest {
 }
 
 export interface GetCashierHotelsLOVRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -939,8 +939,8 @@ export interface GetCashierHotelsLOVRequest {
 }
 
 export interface GetCatBudgetTypeEventCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -953,8 +953,8 @@ export interface GetCatBudgetTypeEventCodesLOVRequest {
 }
 
 export interface GetCatBudgetTypeMarketCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -967,8 +967,8 @@ export interface GetCatBudgetTypeMarketCodesLOVRequest {
 }
 
 export interface GetCatBudgetTypeMealCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -981,8 +981,8 @@ export interface GetCatBudgetTypeMealCodesLOVRequest {
 }
 
 export interface GetCatBudgetTypeRevenueCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
+    catBudgetType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -995,8 +995,8 @@ export interface GetCatBudgetTypeRevenueCodesLOVRequest {
 }
 
 export interface GetCateringBudgetTypesLOVRequest {
-    active?: string;
-    catering?: string;
+    active: string;
+    catering: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1009,7 +1009,7 @@ export interface GetCateringBudgetTypesLOVRequest {
 }
 
 export interface GetCateringCodesLOVRequest {
-    codeType?: string;
+    codeType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1022,8 +1022,8 @@ export interface GetCateringCodesLOVRequest {
 }
 
 export interface GetCateringEventStatusLOVRequest {
-    waitList?: string;
-    newEvent?: string;
+    waitList: string;
+    newEvent: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1036,8 +1036,8 @@ export interface GetCateringEventStatusLOVRequest {
 }
 
 export interface GetCateringPackageCodesLOVRequest {
-    hotelId?: string;
-    radioType?: string;
+    hotelId: string;
+    radioType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1050,7 +1050,7 @@ export interface GetCateringPackageCodesLOVRequest {
 }
 
 export interface GetCateringPackagePriceCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1063,7 +1063,7 @@ export interface GetCateringPackagePriceCodesLOVRequest {
 }
 
 export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
-    pkgLinkId?: string;
+    pkgLinkId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1076,7 +1076,7 @@ export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
 }
 
 export interface GetCateringPackageRevenueEventTypeLOVRequest {
-    pkgId?: string;
+    pkgId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1089,8 +1089,8 @@ export interface GetCateringPackageRevenueEventTypeLOVRequest {
 }
 
 export interface GetCateringSetupStylesLOVRequest {
-    space?: string;
-    hotelId?: string;
+    space: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1103,7 +1103,7 @@ export interface GetCateringSetupStylesLOVRequest {
 }
 
 export interface GetCateringStatusCodesLOVRequest {
-    exclusionList?: string;
+    exclusionList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1116,7 +1116,7 @@ export interface GetCateringStatusCodesLOVRequest {
 }
 
 export interface GetChainLanguagesLOVRequest {
-    chainCode?: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1129,7 +1129,7 @@ export interface GetChainLanguagesLOVRequest {
 }
 
 export interface GetChannelCardTypeMappingCardTypeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1142,8 +1142,8 @@ export interface GetChannelCardTypeMappingCardTypeLOVRequest {
 }
 
 export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
-    cardType?: string;
-    gdsHost?: string;
+    cardType: string;
+    gdsHost: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1156,7 +1156,7 @@ export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
 }
 
 export interface GetChannelCardTypeMappingGdsHostLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1169,9 +1169,9 @@ export interface GetChannelCardTypeMappingGdsHostLOVRequest {
 }
 
 export interface GetChannelConfigRateCodesLOVRequest {
-    roomType?: string;
-    bookingChannelCode?: string;
-    hotelId?: string;
+    roomType: string;
+    bookingChannelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1184,10 +1184,10 @@ export interface GetChannelConfigRateCodesLOVRequest {
 }
 
 export interface GetChannelParametersLOVRequest {
-    channelCode?: string;
-    settingName?: string;
-    levelType?: string;
-    levelCode?: string;
+    channelCode: string;
+    settingName: string;
+    levelType: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1200,7 +1200,7 @@ export interface GetChannelParametersLOVRequest {
 }
 
 export interface GetClaimMembershipDetailsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1213,7 +1213,7 @@ export interface GetClaimMembershipDetailsLOVRequest {
 }
 
 export interface GetCommissionCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1226,7 +1226,7 @@ export interface GetCommissionCodeLOVRequest {
 }
 
 export interface GetCommissionTxnCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1239,7 +1239,7 @@ export interface GetCommissionTxnCodesLOVRequest {
 }
 
 export interface GetCompAuthorizersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1252,7 +1252,7 @@ export interface GetCompAuthorizersLOVRequest {
 }
 
 export interface GetCompTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1265,7 +1265,7 @@ export interface GetCompTypesLOVRequest {
 }
 
 export interface GetCompaniesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1278,7 +1278,7 @@ export interface GetCompaniesLOVRequest {
 }
 
 export interface GetConfLetterReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1291,10 +1291,10 @@ export interface GetConfLetterReportsLOVRequest {
 }
 
 export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
-    daily?: string;
-    tiered?: string;
-    currentRateCode?: string;
-    hotelId?: string;
+    daily: string;
+    tiered: string;
+    currentRateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1307,11 +1307,11 @@ export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
 }
 
 export interface GetConfigBaseRatePlansLOVRequest {
-    tiered?: string;
-    daily?: string;
-    currencyCode?: string;
-    currentRateCode?: string;
-    hotelId?: string;
+    tiered: string;
+    daily: string;
+    currencyCode: string;
+    currentRateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1324,9 +1324,9 @@ export interface GetConfigBaseRatePlansLOVRequest {
 }
 
 export interface GetConfigDynamicBaseRatePlansLOVRequest {
-    currentRateCode?: string;
-    tiered?: string;
-    hotelId?: string;
+    currentRateCode: string;
+    tiered: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1339,7 +1339,7 @@ export interface GetConfigDynamicBaseRatePlansLOVRequest {
 }
 
 export interface GetConfigReportsLOVRequest {
-    moduleName?: string;
+    moduleName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1352,8 +1352,8 @@ export interface GetConfigReportsLOVRequest {
 }
 
 export interface GetConnectingSuitesLOVRequest {
-    roomNumber?: string;
-    hotelId?: string;
+    roomNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1366,7 +1366,7 @@ export interface GetConnectingSuitesLOVRequest {
 }
 
 export interface GetCreditCardTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1379,7 +1379,7 @@ export interface GetCreditCardTypesLOVRequest {
 }
 
 export interface GetCroUsersLOVRequest {
-    userId?: string;
+    userId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1392,8 +1392,8 @@ export interface GetCroUsersLOVRequest {
 }
 
 export interface GetCurrencyExchangeRatesLOVRequest {
-    exchangeType?: string;
-    hotelId?: string;
+    exchangeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1406,7 +1406,7 @@ export interface GetCurrencyExchangeRatesLOVRequest {
 }
 
 export interface GetCurrencyFormatsLOVRequest {
-    decimal?: string;
+    decimal: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1419,7 +1419,7 @@ export interface GetCurrencyFormatsLOVRequest {
 }
 
 export interface GetCustomNumberConfigCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1432,8 +1432,8 @@ export interface GetCustomNumberConfigCodesLOVRequest {
 }
 
 export interface GetCustomRoomTranslationLOVRequest {
-    dbfLogo?: string;
-    hotelId?: string;
+    dbfLogo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1446,8 +1446,8 @@ export interface GetCustomRoomTranslationLOVRequest {
 }
 
 export interface GetDepositCancelRulesLOVRequest {
-    policyType?: string;
-    hotelId?: string;
+    policyType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1460,7 +1460,7 @@ export interface GetDepositCancelRulesLOVRequest {
 }
 
 export interface GetDepositCancelRulesMultiHotelLOVRequest {
-    policyType?: string;
+    policyType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1473,10 +1473,10 @@ export interface GetDepositCancelRulesMultiHotelLOVRequest {
 }
 
 export interface GetDeviceCodeMappingValuesLOVRequest {
-    externalCode?: string;
-    codeType?: string;
-    deviceCode?: string;
-    deviceType?: string;
+    externalCode: string;
+    codeType: string;
+    deviceCode: string;
+    deviceType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1489,7 +1489,7 @@ export interface GetDeviceCodeMappingValuesLOVRequest {
 }
 
 export interface GetDeviceLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1502,7 +1502,7 @@ export interface GetDeviceLocationsLOVRequest {
 }
 
 export interface GetDietaryPreferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1515,8 +1515,8 @@ export interface GetDietaryPreferencesLOVRequest {
 }
 
 export interface GetDistributionTemplatesLOVRequest {
-    location?: string;
-    locationType?: string;
+    location: string;
+    locationType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1529,7 +1529,7 @@ export interface GetDistributionTemplatesLOVRequest {
 }
 
 export interface GetECertificateGroupEntityLOVRequest {
-    entityName?: string;
+    entityName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1542,7 +1542,7 @@ export interface GetECertificateGroupEntityLOVRequest {
 }
 
 export interface GetECouponLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1555,7 +1555,7 @@ export interface GetECouponLOVRequest {
 }
 
 export interface GetECouponRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1568,7 +1568,7 @@ export interface GetECouponRateCodesLOVRequest {
 }
 
 export interface GetEcouponResvRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1581,8 +1581,8 @@ export interface GetEcouponResvRoomLOVRequest {
 }
 
 export interface GetEndOfDayReportsLOVRequest {
-    beforeIncomeAudit?: string;
-    hotelId?: string;
+    beforeIncomeAudit: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1595,7 +1595,7 @@ export interface GetEndOfDayReportsLOVRequest {
 }
 
 export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1608,7 +1608,7 @@ export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
 }
 
 export interface GetEventGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1621,7 +1621,7 @@ export interface GetEventGroupsLOVRequest {
 }
 
 export interface GetEventLocationsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1634,8 +1634,8 @@ export interface GetEventLocationsLOVRequest {
 }
 
 export interface GetEventRateCodeLOVRequest {
-    space?: string;
-    hotelId?: string;
+    space: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1648,8 +1648,8 @@ export interface GetEventRateCodeLOVRequest {
 }
 
 export interface GetEventSetupStylesLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1662,7 +1662,7 @@ export interface GetEventSetupStylesLOVRequest {
 }
 
 export interface GetEventStatusCodesLOVRequest {
-    exclusionList?: string;
+    exclusionList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1675,7 +1675,7 @@ export interface GetEventStatusCodesLOVRequest {
 }
 
 export interface GetExchangeTypesLOVRequest {
-    currencyCode?: string;
+    currencyCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1688,8 +1688,8 @@ export interface GetExchangeTypesLOVRequest {
 }
 
 export interface GetExportMappingCodesToLinkLOVRequest {
-    configType?: string;
-    hotelId?: string;
+    configType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1702,7 +1702,7 @@ export interface GetExportMappingCodesToLinkLOVRequest {
 }
 
 export interface GetExportMappingTypeCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1715,8 +1715,8 @@ export interface GetExportMappingTypeCodesLOVRequest {
 }
 
 export interface GetExternalDatabaseAvailableResortsLOVRequest {
-    databaseId?: string;
-    interfaceType?: string;
+    databaseId: string;
+    interfaceType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1729,7 +1729,7 @@ export interface GetExternalDatabaseAvailableResortsLOVRequest {
 }
 
 export interface GetExternalReferenceTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1742,7 +1742,7 @@ export interface GetExternalReferenceTypesLOVRequest {
 }
 
 export interface GetFacilityCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1755,8 +1755,8 @@ export interface GetFacilityCodesLOVRequest {
 }
 
 export interface GetFacilityCodesReservationLOVRequest {
-    facilityTask?: string;
-    hotelId?: string;
+    facilityTask: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1769,7 +1769,7 @@ export interface GetFacilityCodesReservationLOVRequest {
 }
 
 export interface GetFacilityTasksLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1782,8 +1782,8 @@ export interface GetFacilityTasksLOVRequest {
 }
 
 export interface GetFacilityTasksRoomTypeLOVRequest {
-    roomTypeLabel?: string;
-    hotelId?: string;
+    roomTypeLabel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1796,7 +1796,7 @@ export interface GetFacilityTasksRoomTypeLOVRequest {
 }
 
 export interface GetFieldNameLOVRequest {
-    changeSource?: string;
+    changeSource: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1809,7 +1809,7 @@ export interface GetFieldNameLOVRequest {
 }
 
 export interface GetFiscalPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1822,7 +1822,7 @@ export interface GetFiscalPaymentMethodsLOVRequest {
 }
 
 export interface GetFixedChargesTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1835,7 +1835,7 @@ export interface GetFixedChargesTransactionCodesLOVRequest {
 }
 
 export interface GetFloorsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1848,7 +1848,7 @@ export interface GetFloorsLOVRequest {
 }
 
 export interface GetFolioGroupingCodesLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1861,7 +1861,7 @@ export interface GetFolioGroupingCodesLOVRequest {
 }
 
 export interface GetFolioGroupingTransactionCodesLOVRequest {
-    mode?: string;
+    mode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1874,7 +1874,7 @@ export interface GetFolioGroupingTransactionCodesLOVRequest {
 }
 
 export interface GetFolioStylesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1887,7 +1887,7 @@ export interface GetFolioStylesLOVRequest {
 }
 
 export interface GetFolioTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1900,7 +1900,7 @@ export interface GetFolioTypesLOVRequest {
 }
 
 export interface GetForecastGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1913,9 +1913,9 @@ export interface GetForecastGroupsLOVRequest {
 }
 
 export interface GetForeignCurrenciesLOVRequest {
-    exchangeType?: string;
-    sell?: string;
-    hotelId?: string;
+    exchangeType: string;
+    sell: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1928,9 +1928,9 @@ export interface GetForeignCurrenciesLOVRequest {
 }
 
 export interface GetFormatLOVRequest {
-    method?: string;
-    moduleName?: string;
-    hotelId?: string;
+    method: string;
+    moduleName: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1943,8 +1943,8 @@ export interface GetFormatLOVRequest {
 }
 
 export interface GetFrequencyLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1957,8 +1957,8 @@ export interface GetFrequencyLOVRequest {
 }
 
 export interface GetFrequencyTypeLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1971,7 +1971,7 @@ export interface GetFrequencyTypeLOVRequest {
 }
 
 export interface GetFromRoomNumberLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1984,8 +1984,8 @@ export interface GetFromRoomNumberLOVRequest {
 }
 
 export interface GetGdsConvAmenityCodesLOVRequest {
-    bookingChannelCodes?: string;
-    featureType?: string;
+    bookingChannelCodes: string;
+    featureType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1998,7 +1998,7 @@ export interface GetGdsConvAmenityCodesLOVRequest {
 }
 
 export interface GetGdsGuaranteeCodesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2011,7 +2011,7 @@ export interface GetGdsGuaranteeCodesLOVRequest {
 }
 
 export interface GetGdsHotelsLOVRequest {
-    channelType?: string;
+    channelType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2024,7 +2024,7 @@ export interface GetGdsHotelsLOVRequest {
 }
 
 export interface GetGdsRateCategoriesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2037,7 +2037,7 @@ export interface GetGdsRateCategoriesLOVRequest {
 }
 
 export interface GetGdsRateLevelsLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2050,7 +2050,7 @@ export interface GetGdsRateLevelsLOVRequest {
 }
 
 export interface GetGdsRoomCategoryTemplatesLOVRequest {
-    bookingChannelCodes?: string;
+    bookingChannelCodes: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2063,7 +2063,7 @@ export interface GetGdsRoomCategoryTemplatesLOVRequest {
 }
 
 export interface GetGemMenuItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2076,7 +2076,7 @@ export interface GetGemMenuItemsLOVRequest {
 }
 
 export interface GetGenericReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2089,7 +2089,7 @@ export interface GetGenericReportsLOVRequest {
 }
 
 export interface GetGlobalAlertFieldQueryLOVRequest {
-    sourceId?: string;
+    sourceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2102,7 +2102,7 @@ export interface GetGlobalAlertFieldQueryLOVRequest {
 }
 
 export interface GetGlobalAlertFunctionLOVRequest {
-    fieldType?: string;
+    fieldType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2115,10 +2115,10 @@ export interface GetGlobalAlertFunctionLOVRequest {
 }
 
 export interface GetGlobalAlertOperatorLOVRequest {
-    tableName?: string;
-    fieldName?: string;
-    fieldType?: string;
-    sourceIdIn?: string;
+    tableName: string;
+    fieldName: string;
+    fieldType: string;
+    sourceIdIn: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2131,7 +2131,7 @@ export interface GetGlobalAlertOperatorLOVRequest {
 }
 
 export interface GetGridTypesLOVRequest {
-    bookingStatus?: string;
+    bookingStatus: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2144,7 +2144,7 @@ export interface GetGridTypesLOVRequest {
 }
 
 export interface GetGroupArrivalsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2157,7 +2157,7 @@ export interface GetGroupArrivalsLOVRequest {
 }
 
 export interface GetGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2170,7 +2170,7 @@ export interface GetGroupsLOVRequest {
 }
 
 export interface GetGuestMessagesMultiHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2183,7 +2183,7 @@ export interface GetGuestMessagesMultiHotelLOVRequest {
 }
 
 export interface GetGuestMessagesQuickTextsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2196,7 +2196,7 @@ export interface GetGuestMessagesQuickTextsLOVRequest {
 }
 
 export interface GetHKAttendantsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2209,7 +2209,7 @@ export interface GetHKAttendantsLOVRequest {
 }
 
 export interface GetHKAttendantsMobileLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2222,8 +2222,8 @@ export interface GetHKAttendantsMobileLOVRequest {
 }
 
 export interface GetHKScheduledAttendantsLOVRequest {
-    businessDate?: string;
-    hotelId?: string;
+    businessDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2236,7 +2236,7 @@ export interface GetHKScheduledAttendantsLOVRequest {
 }
 
 export interface GetHKTaskBreakOutLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2249,7 +2249,7 @@ export interface GetHKTaskBreakOutLOVRequest {
 }
 
 export interface GetHKTaskCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2262,8 +2262,8 @@ export interface GetHKTaskCodesLOVRequest {
 }
 
 export interface GetHKTaskSheetsNoLOVRequest {
-    breakOutId?: string;
-    hotelId?: string;
+    breakOutId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2276,7 +2276,7 @@ export interface GetHKTaskSheetsNoLOVRequest {
 }
 
 export interface GetHKTaskTemplatesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2289,7 +2289,7 @@ export interface GetHKTaskTemplatesLOVRequest {
 }
 
 export interface GetHkFloorsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2302,7 +2302,7 @@ export interface GetHkFloorsLOVRequest {
 }
 
 export interface GetHkRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2315,7 +2315,7 @@ export interface GetHkRoomTypesLOVRequest {
 }
 
 export interface GetHkRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2328,8 +2328,8 @@ export interface GetHkRoomsLOVRequest {
 }
 
 export interface GetHotelContactCommMethodLOVRequest {
-    contactType?: string;
-    hotelId?: string;
+    contactType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2342,7 +2342,7 @@ export interface GetHotelContactCommMethodLOVRequest {
 }
 
 export interface GetHotelEventTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2355,8 +2355,8 @@ export interface GetHotelEventTypesLOVRequest {
 }
 
 export interface GetHotelInterfaceDataLineTypesLOVRequest {
-    logo?: string;
-    hotelId?: string;
+    logo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2369,7 +2369,7 @@ export interface GetHotelInterfaceDataLineTypesLOVRequest {
 }
 
 export interface GetHotelInterfaceImportRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2382,7 +2382,7 @@ export interface GetHotelInterfaceImportRoomsLOVRequest {
 }
 
 export interface GetHotelRateTierLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2395,7 +2395,7 @@ export interface GetHotelRateTierLOVRequest {
 }
 
 export interface GetHotelsForARProfileLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2408,7 +2408,7 @@ export interface GetHotelsForARProfileLOVRequest {
 }
 
 export interface GetHotelsForSnCLOVRequest {
-    cateringEvents?: string;
+    cateringEvents: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2421,7 +2421,7 @@ export interface GetHotelsForSnCLOVRequest {
 }
 
 export interface GetHouseKeepingRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2434,7 +2434,7 @@ export interface GetHouseKeepingRoomsLOVRequest {
 }
 
 export interface GetHouseKeepingSectionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2447,7 +2447,7 @@ export interface GetHouseKeepingSectionsLOVRequest {
 }
 
 export interface GetHousekeepingCreditRulesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2460,9 +2460,9 @@ export interface GetHousekeepingCreditRulesLOVRequest {
 }
 
 export interface GetIfcRightsViewLOVRequest {
-    category?: string;
-    ifcId?: string;
-    hotelId?: string;
+    category: string;
+    ifcId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2475,7 +2475,7 @@ export interface GetIfcRightsViewLOVRequest {
 }
 
 export interface GetImbalanceVerificationTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2488,7 +2488,7 @@ export interface GetImbalanceVerificationTypesLOVRequest {
 }
 
 export interface GetInterfaceAutoBalanceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2501,7 +2501,7 @@ export interface GetInterfaceAutoBalanceLOVRequest {
 }
 
 export interface GetInterfaceDataRequestMarketCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2514,7 +2514,7 @@ export interface GetInterfaceDataRequestMarketCodeLOVRequest {
 }
 
 export interface GetInterfaceDataRequestMarketGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2527,7 +2527,7 @@ export interface GetInterfaceDataRequestMarketGroupLOVRequest {
 }
 
 export interface GetInterfaceDataRequestRoomClassLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2540,7 +2540,7 @@ export interface GetInterfaceDataRequestRoomClassLOVRequest {
 }
 
 export interface GetInterfaceDataRequestRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2553,7 +2553,7 @@ export interface GetInterfaceDataRequestRoomTypesLOVRequest {
 }
 
 export interface GetInterfaceDataRequestSourceCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2566,7 +2566,7 @@ export interface GetInterfaceDataRequestSourceCodeLOVRequest {
 }
 
 export interface GetInterfaceDataRequestSourceGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2579,7 +2579,7 @@ export interface GetInterfaceDataRequestSourceGroupLOVRequest {
 }
 
 export interface GetInterfacePseudoRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2592,7 +2592,7 @@ export interface GetInterfacePseudoRoomLOVRequest {
 }
 
 export interface GetInterfaceResyncFunctionSpaceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2605,7 +2605,7 @@ export interface GetInterfaceResyncFunctionSpaceLOVRequest {
 }
 
 export interface GetInterfaceResyncOwnerContractLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2618,7 +2618,7 @@ export interface GetInterfaceResyncOwnerContractLOVRequest {
 }
 
 export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2631,7 +2631,7 @@ export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
 }
 
 export interface GetInterfaceResyncProductsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2644,8 +2644,8 @@ export interface GetInterfaceResyncProductsLOVRequest {
 }
 
 export interface GetInterfaceRevenueCodeLOVRequest {
-    logo?: string;
-    hotelId?: string;
+    logo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2658,7 +2658,7 @@ export interface GetInterfaceRevenueCodeLOVRequest {
 }
 
 export interface GetInterfaceTabColumnsLOVRequest {
-    tableName?: string;
+    tableName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2671,7 +2671,7 @@ export interface GetInterfaceTabColumnsLOVRequest {
 }
 
 export interface GetInterfaceTrxCodesAllChargesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2684,7 +2684,7 @@ export interface GetInterfaceTrxCodesAllChargesLOVRequest {
 }
 
 export interface GetInterfaceTrxCodesMinibarLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2697,7 +2697,7 @@ export interface GetInterfaceTrxCodesMinibarLOVRequest {
 }
 
 export interface GetInvItemsClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2710,7 +2710,7 @@ export interface GetInvItemsClassesLOVRequest {
 }
 
 export interface GetInvItemsPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2723,8 +2723,8 @@ export interface GetInvItemsPoolsLOVRequest {
 }
 
 export interface GetInventoryItemAttributesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2737,8 +2737,8 @@ export interface GetInventoryItemAttributesLOVRequest {
 }
 
 export interface GetInventoryItemRatesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2751,7 +2751,7 @@ export interface GetInventoryItemRatesLOVRequest {
 }
 
 export interface GetInventoryItemTemplateItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2764,9 +2764,9 @@ export interface GetInventoryItemTemplateItemsLOVRequest {
 }
 
 export interface GetInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2779,7 +2779,7 @@ export interface GetInventoryItemsLOVRequest {
 }
 
 export interface GetItemClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2792,7 +2792,7 @@ export interface GetItemClassesLOVRequest {
 }
 
 export interface GetItemCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2805,8 +2805,8 @@ export interface GetItemCodesLOVRequest {
 }
 
 export interface GetItemPriceCodeLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2819,8 +2819,8 @@ export interface GetItemPriceCodeLOVRequest {
 }
 
 export interface GetItemVendorLOVRequest {
-    itemId?: string;
-    hotelId?: string;
+    itemId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2833,7 +2833,7 @@ export interface GetItemVendorLOVRequest {
 }
 
 export interface GetJobTitlesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2846,7 +2846,7 @@ export interface GetJobTitlesLOVRequest {
 }
 
 export interface GetKeyOptionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2867,7 +2867,7 @@ export interface GetLOVNamesRequest {
 }
 
 export interface GetLicensesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2880,7 +2880,7 @@ export interface GetLicensesLOVRequest {
 }
 
 export interface GetListOfValuesRequest {
-    name?: GetListOfValuesNameEnum;
+    name: GetListOfValuesNameEnum;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2893,7 +2893,7 @@ export interface GetListOfValuesRequest {
 }
 
 export interface GetLocatorQuickTextsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2906,7 +2906,7 @@ export interface GetLocatorQuickTextsLOVRequest {
 }
 
 export interface GetMailGenericLOVRequest {
-    sourceIdIn?: string;
+    sourceIdIn: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2919,7 +2919,7 @@ export interface GetMailGenericLOVRequest {
 }
 
 export interface GetManagerReportDetailsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2932,7 +2932,7 @@ export interface GetManagerReportDetailsLOVRequest {
 }
 
 export interface GetManagersReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2945,7 +2945,7 @@ export interface GetManagersReportsLOVRequest {
 }
 
 export interface GetMarketGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2958,7 +2958,7 @@ export interface GetMarketGroupsLOVRequest {
 }
 
 export interface GetMarketSegmentLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2971,7 +2971,7 @@ export interface GetMarketSegmentLOVRequest {
 }
 
 export interface GetMasterBlockLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2984,7 +2984,7 @@ export interface GetMasterBlockLOVRequest {
 }
 
 export interface GetMembershipAwardFinTrxLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2997,7 +2997,7 @@ export interface GetMembershipAwardFinTrxLOVRequest {
 }
 
 export interface GetMembershipAwardProductsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3010,7 +3010,7 @@ export interface GetMembershipAwardProductsLOVRequest {
 }
 
 export interface GetMembershipAwardRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3023,7 +3023,7 @@ export interface GetMembershipAwardRateCodesLOVRequest {
 }
 
 export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3036,7 +3036,7 @@ export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
 }
 
 export interface GetMembershipAwardUpgradeRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3049,7 +3049,7 @@ export interface GetMembershipAwardUpgradeRoomLOVRequest {
 }
 
 export interface GetMembershipBenefitProgramLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3062,7 +3062,7 @@ export interface GetMembershipBenefitProgramLOVRequest {
 }
 
 export interface GetMembershipBenefitsLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3075,7 +3075,7 @@ export interface GetMembershipBenefitsLOVRequest {
 }
 
 export interface GetMembershipCardFeeAmountLOVRequest {
-    membershipLevel?: string;
+    membershipLevel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3088,8 +3088,8 @@ export interface GetMembershipCardFeeAmountLOVRequest {
 }
 
 export interface GetMembershipClassTypesLOVRequest {
-    loyalty?: string;
-    airlines?: string;
+    loyalty: string;
+    airlines: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3102,8 +3102,8 @@ export interface GetMembershipClassTypesLOVRequest {
 }
 
 export interface GetMembershipMaxDowngradeLevelLOVRequest {
-    membershipType?: string;
-    membershipLevelRank?: string;
+    membershipType: string;
+    membershipLevelRank: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3116,7 +3116,7 @@ export interface GetMembershipMaxDowngradeLevelLOVRequest {
 }
 
 export interface GetMembershipPointsRuleCodesLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3129,9 +3129,9 @@ export interface GetMembershipPointsRuleCodesLOVRequest {
 }
 
 export interface GetMembershipPromotionsLOVRequest {
-    membershipId?: string;
-    beginDate?: string;
-    hotelId?: string;
+    membershipId: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3144,7 +3144,7 @@ export interface GetMembershipPromotionsLOVRequest {
 }
 
 export interface GetMembershipStatementBatchListLOVRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3157,7 +3157,7 @@ export interface GetMembershipStatementBatchListLOVRequest {
 }
 
 export interface GetMembershipTotalPointsAvailableLOVRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3170,7 +3170,7 @@ export interface GetMembershipTotalPointsAvailableLOVRequest {
 }
 
 export interface GetMembershipTransferPointsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3183,7 +3183,7 @@ export interface GetMembershipTransferPointsLOVRequest {
 }
 
 export interface GetMenuClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3196,7 +3196,7 @@ export interface GetMenuClassesLOVRequest {
 }
 
 export interface GetMenuItemsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3209,7 +3209,7 @@ export interface GetMenuItemsLOVRequest {
 }
 
 export interface GetMenuLOVRequest {
-    menuClassId?: string;
+    menuClassId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3222,7 +3222,7 @@ export interface GetMenuLOVRequest {
 }
 
 export interface GetNegotiatedRateHotelsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3235,8 +3235,8 @@ export interface GetNegotiatedRateHotelsLOVRequest {
 }
 
 export interface GetNegotiatedRatesHotelsLOVRequest {
-    profileId?: string;
-    rateCode?: string;
+    profileId: string;
+    rateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3249,7 +3249,7 @@ export interface GetNegotiatedRatesHotelsLOVRequest {
 }
 
 export interface GetNoteTypesLOVRequest {
-    departmentType?: string;
+    departmentType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3262,7 +3262,7 @@ export interface GetNoteTypesLOVRequest {
 }
 
 export interface GetOSAActivityTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3275,7 +3275,7 @@ export interface GetOSAActivityTypesLOVRequest {
 }
 
 export interface GetOXIInterfaceReferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3288,7 +3288,7 @@ export interface GetOXIInterfaceReferencesLOVRequest {
 }
 
 export interface GetOXIInterfaceResortsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3301,7 +3301,7 @@ export interface GetOXIInterfaceResortsLOVRequest {
 }
 
 export interface GetOXIInterfacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3314,7 +3314,7 @@ export interface GetOXIInterfacesLOVRequest {
 }
 
 export interface GetOXIResortsLOVRequest {
-    interfaceId?: string;
+    interfaceId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3327,9 +3327,9 @@ export interface GetOXIResortsLOVRequest {
 }
 
 export interface GetOrganizationsLOVRequest {
-    actionTask?: string;
-    chainCode?: string;
-    roles?: string;
+    actionTask: string;
+    chainCode: string;
+    roles: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3342,7 +3342,7 @@ export interface GetOrganizationsLOVRequest {
 }
 
 export interface GetPackForecastGroupCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3355,8 +3355,8 @@ export interface GetPackForecastGroupCodeLOVRequest {
 }
 
 export interface GetPackageArrangementAssociationLOVRequest {
-    arrangementCode?: string;
-    hotelId?: string;
+    arrangementCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3369,8 +3369,8 @@ export interface GetPackageArrangementAssociationLOVRequest {
 }
 
 export interface GetParameterActiveUnderChainLOVRequest {
-    chainCode?: string;
-    parameter?: string;
+    chainCode: string;
+    parameter: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3383,7 +3383,7 @@ export interface GetParameterActiveUnderChainLOVRequest {
 }
 
 export interface GetPaymentMethodsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3396,7 +3396,7 @@ export interface GetPaymentMethodsLOVRequest {
 }
 
 export interface GetPaymentTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3409,7 +3409,7 @@ export interface GetPaymentTypesLOVRequest {
 }
 
 export interface GetPeriodSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3422,7 +3422,7 @@ export interface GetPeriodSetupLOVRequest {
 }
 
 export interface GetPeriodsSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3435,7 +3435,7 @@ export interface GetPeriodsSetupLOVRequest {
 }
 
 export interface GetPostalCodesLOVRequest {
-    country?: string;
+    country: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3448,7 +3448,7 @@ export interface GetPostalCodesLOVRequest {
 }
 
 export interface GetPostingRoomLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3461,7 +3461,7 @@ export interface GetPostingRoomLOVRequest {
 }
 
 export interface GetPostingTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3474,8 +3474,8 @@ export interface GetPostingTransactionCodesLOVRequest {
 }
 
 export interface GetPreferenceSubgroupsLOVRequest {
-    preferenceGroup?: string;
-    chainCode?: string;
+    preferenceGroup: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3488,7 +3488,7 @@ export interface GetPreferenceSubgroupsLOVRequest {
 }
 
 export interface GetPreferencesMultiHotelsLOVRequest {
-    preferenceGroup?: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3501,7 +3501,7 @@ export interface GetPreferencesMultiHotelsLOVRequest {
 }
 
 export interface GetPrepaidCardInterfacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3514,7 +3514,7 @@ export interface GetPrepaidCardInterfacesLOVRequest {
 }
 
 export interface GetPrintersLOVRequest {
-    alertPrinters?: string;
+    alertPrinters: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3527,7 +3527,7 @@ export interface GetPrintersLOVRequest {
 }
 
 export interface GetPrioritiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3540,7 +3540,7 @@ export interface GetPrioritiesLOVRequest {
 }
 
 export interface GetProfileCommunicationsLOVRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3553,7 +3553,7 @@ export interface GetProfileCommunicationsLOVRequest {
 }
 
 export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3566,7 +3566,7 @@ export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
 }
 
 export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3579,7 +3579,7 @@ export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
 }
 
 export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
-    nameType?: string;
+    nameType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3592,8 +3592,8 @@ export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
 }
 
 export interface GetProfileHotelsLOVRequest {
-    taxTypeCheck?: string;
-    profileId?: string;
+    taxTypeCheck: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3606,8 +3606,8 @@ export interface GetProfileHotelsLOVRequest {
 }
 
 export interface GetProfileIdentificationsLOVRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3620,7 +3620,7 @@ export interface GetProfileIdentificationsLOVRequest {
 }
 
 export interface GetProfileNameValidationsTypeLOVRequest {
-    operaParam?: string;
+    operaParam: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3633,7 +3633,7 @@ export interface GetProfileNameValidationsTypeLOVRequest {
 }
 
 export interface GetPromoGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3646,8 +3646,8 @@ export interface GetPromoGroupsLOVRequest {
 }
 
 export interface GetPromoRatesLOVRequest {
-    promoCode?: string;
-    hotelId?: string;
+    promoCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3660,7 +3660,7 @@ export interface GetPromoRatesLOVRequest {
 }
 
 export interface GetPropertyAmenitiesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3673,7 +3673,7 @@ export interface GetPropertyAmenitiesLOVRequest {
 }
 
 export interface GetPublisherPropertiesLOVRequest {
-    subscriber?: string;
+    subscriber: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3686,7 +3686,7 @@ export interface GetPublisherPropertiesLOVRequest {
 }
 
 export interface GetQueueNameLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3699,8 +3699,8 @@ export interface GetQueueNameLOVRequest {
 }
 
 export interface GetQuickTextsLOVRequest {
-    departmentId?: string;
-    hotelId?: string;
+    departmentId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3713,7 +3713,7 @@ export interface GetQuickTextsLOVRequest {
 }
 
 export interface GetRateCategoriesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3726,7 +3726,7 @@ export interface GetRateCategoriesLOVRequest {
 }
 
 export interface GetRateCodeGlobalDescEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3739,8 +3739,8 @@ export interface GetRateCodeGlobalDescEditLOVRequest {
 }
 
 export interface GetRateCodesByTypeLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
+    rateCodeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3753,7 +3753,7 @@ export interface GetRateCodesByTypeLOVRequest {
 }
 
 export interface GetRateCodesValidLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3766,7 +3766,7 @@ export interface GetRateCodesValidLOVRequest {
 }
 
 export interface GetRateCommissionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3779,7 +3779,7 @@ export interface GetRateCommissionCodesLOVRequest {
 }
 
 export interface GetRateConfigCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3792,7 +3792,7 @@ export interface GetRateConfigCurrenciesLOVRequest {
 }
 
 export interface GetRateGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3805,8 +3805,8 @@ export interface GetRateGroupsLOVRequest {
 }
 
 export interface GetRatePlanForMassRateLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
+    rateCodeType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3819,8 +3819,8 @@ export interface GetRatePlanForMassRateLOVRequest {
 }
 
 export interface GetRatePlansForYieldAsConfigLOVRequest {
-    rateCode?: string;
-    hotelId?: string;
+    rateCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3833,7 +3833,7 @@ export interface GetRatePlansForYieldAsConfigLOVRequest {
 }
 
 export interface GetRatePlansLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3846,7 +3846,7 @@ export interface GetRatePlansLOVRequest {
 }
 
 export interface GetRepBlockCodesParamOffLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3859,7 +3859,7 @@ export interface GetRepBlockCodesParamOffLOVRequest {
 }
 
 export interface GetRepBlockCodesParamOnLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3872,7 +3872,7 @@ export interface GetRepBlockCodesParamOnLOVRequest {
 }
 
 export interface GetRepCalendarMonthsLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3885,7 +3885,7 @@ export interface GetRepCalendarMonthsLOVRequest {
 }
 
 export interface GetRepCalendarWeeksLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3898,7 +3898,7 @@ export interface GetRepCalendarWeeksLOVRequest {
 }
 
 export interface GetRepCalendarYearsLOVRequest {
-    period?: string;
+    period: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3911,7 +3911,7 @@ export interface GetRepCalendarYearsLOVRequest {
 }
 
 export interface GetRepCashiersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3924,7 +3924,7 @@ export interface GetRepCashiersLOVRequest {
 }
 
 export interface GetRepContactListLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3937,7 +3937,7 @@ export interface GetRepContactListLOVRequest {
 }
 
 export interface GetRepCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3950,7 +3950,7 @@ export interface GetRepCurrenciesLOVRequest {
 }
 
 export interface GetRepDepartmentsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3963,8 +3963,8 @@ export interface GetRepDepartmentsLOVRequest {
 }
 
 export interface GetRepFiscalMonthsLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
+    fiscalYearId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3977,8 +3977,8 @@ export interface GetRepFiscalMonthsLOVRequest {
 }
 
 export interface GetRepFiscalWeeksLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
+    fiscalYearId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -3991,7 +3991,7 @@ export interface GetRepFiscalWeeksLOVRequest {
 }
 
 export interface GetRepFiscalYearsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4004,7 +4004,7 @@ export interface GetRepFiscalYearsLOVRequest {
 }
 
 export interface GetRepForeignCurrenciesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4017,7 +4017,7 @@ export interface GetRepForeignCurrenciesLOVRequest {
 }
 
 export interface GetRepGroupReportsLOVRequest {
-    groupName?: string;
+    groupName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4030,7 +4030,7 @@ export interface GetRepGroupReportsLOVRequest {
 }
 
 export interface GetRepGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4043,7 +4043,7 @@ export interface GetRepGroupsLOVRequest {
 }
 
 export interface GetRepInventoryItemPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4056,7 +4056,7 @@ export interface GetRepInventoryItemPoolsLOVRequest {
 }
 
 export interface GetRepMarketCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4069,7 +4069,7 @@ export interface GetRepMarketCodesLOVRequest {
 }
 
 export interface GetRepOwnerCodesLOVRequest {
-    hotelCodesList?: string;
+    hotelCodesList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4082,7 +4082,7 @@ export interface GetRepOwnerCodesLOVRequest {
 }
 
 export interface GetRepRatePlansLOVRequest {
-    propertyList?: string;
+    propertyList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4095,7 +4095,7 @@ export interface GetRepRatePlansLOVRequest {
 }
 
 export interface GetRepRoomStatusesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4108,7 +4108,7 @@ export interface GetRepRoomStatusesLOVRequest {
 }
 
 export interface GetRepRoomTypeMultiHotelLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4121,7 +4121,7 @@ export interface GetRepRoomTypeMultiHotelLOVRequest {
 }
 
 export interface GetRepRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4134,7 +4134,7 @@ export interface GetRepRoomTypesLOVRequest {
 }
 
 export interface GetRepRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4147,9 +4147,9 @@ export interface GetRepRoomsLOVRequest {
 }
 
 export interface GetRepRoomsStatLOVRequest {
-    toDate?: string;
-    fromDate?: string;
-    hotelId?: string;
+    toDate: string;
+    fromDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4162,7 +4162,7 @@ export interface GetRepRoomsStatLOVRequest {
 }
 
 export interface GetRepServiceRequestCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4175,7 +4175,7 @@ export interface GetRepServiceRequestCodesLOVRequest {
 }
 
 export interface GetRepTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4188,7 +4188,7 @@ export interface GetRepTransactionCodesLOVRequest {
 }
 
 export interface GetRepTraveAgtCalendarYearLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4201,8 +4201,8 @@ export interface GetRepTraveAgtCalendarYearLOVRequest {
 }
 
 export interface GetReportsGenericLOVRequest {
-    parameter?: string;
-    moduleId?: string;
+    parameter: string;
+    moduleId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4215,9 +4215,9 @@ export interface GetReportsGenericLOVRequest {
 }
 
 export interface GetResStatReportRateCodeLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4230,7 +4230,7 @@ export interface GetResStatReportRateCodeLOVRequest {
 }
 
 export interface GetReservationBasedBlocksLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4243,7 +4243,7 @@ export interface GetReservationBasedBlocksLOVRequest {
 }
 
 export interface GetReservationBasedProfilesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4256,11 +4256,11 @@ export interface GetReservationBasedProfilesLOVRequest {
 }
 
 export interface GetReservationPackagesGroupItemsLOVRequest {
-    group?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
+    group: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4273,11 +4273,11 @@ export interface GetReservationPackagesGroupItemsLOVRequest {
 }
 
 export interface GetReservationPackagesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4290,7 +4290,7 @@ export interface GetReservationPackagesLOVRequest {
 }
 
 export interface GetReservationPreferencesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4303,7 +4303,7 @@ export interface GetReservationPreferencesLOVRequest {
 }
 
 export interface GetReservationStatusesHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4316,9 +4316,9 @@ export interface GetReservationStatusesHotelLOVRequest {
 }
 
 export interface GetReservationTicketsCodesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4331,8 +4331,8 @@ export interface GetReservationTicketsCodesLOVRequest {
 }
 
 export interface GetReservationTicketsLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
+    resvNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4345,7 +4345,7 @@ export interface GetReservationTicketsLOVRequest {
 }
 
 export interface GetResortAirportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4358,7 +4358,7 @@ export interface GetResortAirportsLOVRequest {
 }
 
 export interface GetResortCROsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4371,7 +4371,7 @@ export interface GetResortCROsLOVRequest {
 }
 
 export interface GetResortGuaranteeCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4384,9 +4384,9 @@ export interface GetResortGuaranteeCodesLOVRequest {
 }
 
 export interface GetResortInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4399,7 +4399,7 @@ export interface GetResortInventoryItemsLOVRequest {
 }
 
 export interface GetResortMarketCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4412,7 +4412,7 @@ export interface GetResortMarketCodesLOVRequest {
 }
 
 export interface GetResortRateClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4425,7 +4425,7 @@ export interface GetResortRateClassesLOVRequest {
 }
 
 export interface GetResortRestrictionStatusesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4438,7 +4438,7 @@ export interface GetResortRestrictionStatusesLOVRequest {
 }
 
 export interface GetResortRoomNumbersLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4451,7 +4451,7 @@ export interface GetResortRoomNumbersLOVRequest {
 }
 
 export interface GetResortRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4464,7 +4464,7 @@ export interface GetResortRoomTypesLOVRequest {
 }
 
 export interface GetResortTransportationLabelsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4477,7 +4477,7 @@ export interface GetResortTransportationLabelsLOVRequest {
 }
 
 export interface GetResourceItemClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4490,7 +4490,7 @@ export interface GetResourceItemClassesLOVRequest {
 }
 
 export interface GetResvAutoAttachRulesCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4503,7 +4503,7 @@ export interface GetResvAutoAttachRulesCodesLOVRequest {
 }
 
 export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4516,7 +4516,7 @@ export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
 }
 
 export interface GetResvBasedProfilesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4529,8 +4529,8 @@ export interface GetResvBasedProfilesLOVRequest {
 }
 
 export interface GetResvTransactionDiversionCodesLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
+    resvNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4543,8 +4543,8 @@ export interface GetResvTransactionDiversionCodesLOVRequest {
 }
 
 export interface GetRevenueBucketTrxCodesLOVRequest {
-    bucketType?: string;
-    hotelId?: string;
+    bucketType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4557,7 +4557,7 @@ export interface GetRevenueBucketTrxCodesLOVRequest {
 }
 
 export interface GetRevenueBucketsLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4570,7 +4570,7 @@ export interface GetRevenueBucketsLOVRequest {
 }
 
 export interface GetRevenueTypeMappingSpaceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4583,7 +4583,7 @@ export interface GetRevenueTypeMappingSpaceLOVRequest {
 }
 
 export interface GetRevenueTypeMappingTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4596,8 +4596,8 @@ export interface GetRevenueTypeMappingTrxCodesLOVRequest {
 }
 
 export interface GetRolesForLevelLOVRequest {
-    levelCode?: string;
-    roleLevel?: string;
+    levelCode: string;
+    roleLevel: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4610,7 +4610,7 @@ export interface GetRolesForLevelLOVRequest {
 }
 
 export interface GetRoomClassCategoriesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4623,7 +4623,7 @@ export interface GetRoomClassCategoriesLOVRequest {
 }
 
 export interface GetRoomClassMultiPropertyLOVRequest {
-    hotelCodeList?: string;
+    hotelCodeList: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4636,7 +4636,7 @@ export interface GetRoomClassMultiPropertyLOVRequest {
 }
 
 export interface GetRoomClassesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4649,7 +4649,7 @@ export interface GetRoomClassesLOVRequest {
 }
 
 export interface GetRoomFeaturesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4662,7 +4662,7 @@ export interface GetRoomFeaturesLOVRequest {
 }
 
 export interface GetRoomHierarchyClassesCopyLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4675,7 +4675,7 @@ export interface GetRoomHierarchyClassesCopyLOVRequest {
 }
 
 export interface GetRoomHierarchyRoomClassesLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4688,7 +4688,7 @@ export interface GetRoomHierarchyRoomClassesLOVRequest {
 }
 
 export interface GetRoomHierarchyRoomTypesLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4701,7 +4701,7 @@ export interface GetRoomHierarchyRoomTypesLOVRequest {
 }
 
 export interface GetRoomHierarchyTypesCopyLOVRequest {
-    property?: string;
+    property: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4714,7 +4714,7 @@ export interface GetRoomHierarchyTypesCopyLOVRequest {
 }
 
 export interface GetRoomHoldConditionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4727,7 +4727,7 @@ export interface GetRoomHoldConditionsLOVRequest {
 }
 
 export interface GetRoomMaintenanceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4740,8 +4740,8 @@ export interface GetRoomMaintenanceLOVRequest {
 }
 
 export interface GetRoomPoolRoomTypesLOVRequest {
-    roomPool?: string;
-    hotelId?: string;
+    roomPool: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4754,7 +4754,7 @@ export interface GetRoomPoolRoomTypesLOVRequest {
 }
 
 export interface GetRoomPoolsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4767,8 +4767,8 @@ export interface GetRoomPoolsLOVRequest {
 }
 
 export interface GetRoomRatesLOVRequest {
-    room?: string;
-    hotelId?: string;
+    room: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4781,7 +4781,7 @@ export interface GetRoomRatesLOVRequest {
 }
 
 export interface GetRoomReservationStatusLOVRequest {
-    includeDayUse?: string;
+    includeDayUse: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4794,7 +4794,7 @@ export interface GetRoomReservationStatusLOVRequest {
 }
 
 export interface GetRoomRevenueTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4807,7 +4807,7 @@ export interface GetRoomRevenueTrxCodesLOVRequest {
 }
 
 export interface GetRoomRotationGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4820,7 +4820,7 @@ export interface GetRoomRotationGroupsLOVRequest {
 }
 
 export interface GetRoomRotationUnitGradesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4833,7 +4833,7 @@ export interface GetRoomRotationUnitGradesLOVRequest {
 }
 
 export interface GetRoomSpecialsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4846,7 +4846,7 @@ export interface GetRoomSpecialsLOVRequest {
 }
 
 export interface GetRoomTypePoolLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4859,8 +4859,8 @@ export interface GetRoomTypePoolLOVRequest {
 }
 
 export interface GetRoomTypesForMassRateLOVRequest {
-    ratePlanCodes?: string;
-    hotelId?: string;
+    ratePlanCodes: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4873,7 +4873,7 @@ export interface GetRoomTypesForMassRateLOVRequest {
 }
 
 export interface GetRoomTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4886,10 +4886,10 @@ export interface GetRoomTypesLOVRequest {
 }
 
 export interface GetRoomingListHKRoomsLOVRequest {
-    departure?: string;
-    arrival?: string;
-    roomType?: string;
-    hotelId?: string;
+    departure: string;
+    arrival: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4902,7 +4902,7 @@ export interface GetRoomingListHKRoomsLOVRequest {
 }
 
 export interface GetRoomsKeyGenerationLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4915,7 +4915,7 @@ export interface GetRoomsKeyGenerationLOVRequest {
 }
 
 export interface GetRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4928,7 +4928,7 @@ export interface GetRoomsLOVRequest {
 }
 
 export interface GetRoutingInstructionsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4941,7 +4941,7 @@ export interface GetRoutingInstructionsLOVRequest {
 }
 
 export interface GetSalesManagerGoalPeriodLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4954,7 +4954,7 @@ export interface GetSalesManagerGoalPeriodLOVRequest {
 }
 
 export interface GetScheduledReportsExportLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4967,9 +4967,9 @@ export interface GetScheduledReportsExportLOVRequest {
 }
 
 export interface GetScreenCodesLOVRequest {
-    screenArea?: string;
-    screenType?: string;
-    chainCode?: string;
+    screenArea: string;
+    screenType: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4982,8 +4982,8 @@ export interface GetScreenCodesLOVRequest {
 }
 
 export interface GetScreenStyleCodesLOVRequest {
-    screenCode?: string;
-    chainCode?: string;
+    screenCode: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -4996,8 +4996,8 @@ export interface GetScreenStyleCodesLOVRequest {
 }
 
 export interface GetServiceNameLOVRequest {
-    protocol?: string;
-    outboundType?: string;
+    protocol: string;
+    outboundType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5010,7 +5010,7 @@ export interface GetServiceNameLOVRequest {
 }
 
 export interface GetServiceRequestCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5023,7 +5023,7 @@ export interface GetServiceRequestCodesLOVRequest {
 }
 
 export interface GetSetupStylesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5036,7 +5036,7 @@ export interface GetSetupStylesLOVRequest {
 }
 
 export interface GetShiftReportsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5049,7 +5049,7 @@ export interface GetShiftReportsLOVRequest {
 }
 
 export interface GetShiftReportsNoParamLOVRequest {
-    shiftGroupId?: string;
+    shiftGroupId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5062,8 +5062,8 @@ export interface GetShiftReportsNoParamLOVRequest {
 }
 
 export interface GetSitePlanSectionTypeLinksLOVRequest {
-    sectionType?: string;
-    hotelId?: string;
+    sectionType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5076,7 +5076,7 @@ export interface GetSitePlanSectionTypeLinksLOVRequest {
 }
 
 export interface GetSitePlanSectionTypesLOVRequest {
-    siteType?: string;
+    siteType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5089,8 +5089,8 @@ export interface GetSitePlanSectionTypesLOVRequest {
 }
 
 export interface GetSitePlansLOVRequest {
-    siteType?: string;
-    hotelId?: string;
+    siteType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5103,8 +5103,8 @@ export interface GetSitePlansLOVRequest {
 }
 
 export interface GetSourceGroupsLOVRequest {
-    includeInactive?: string;
-    hotelId?: string;
+    includeInactive: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5117,7 +5117,7 @@ export interface GetSourceGroupsLOVRequest {
 }
 
 export interface GetSpacesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5130,7 +5130,7 @@ export interface GetSpacesLOVRequest {
 }
 
 export interface GetSpecialRequestsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5143,7 +5143,7 @@ export interface GetSpecialRequestsLOVRequest {
 }
 
 export interface GetSpecialsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5156,8 +5156,8 @@ export interface GetSpecialsLOVRequest {
 }
 
 export interface GetStageProfilesLOVRequest {
-    criteria?: string;
-    hotelId?: string;
+    criteria: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5170,8 +5170,8 @@ export interface GetStageProfilesLOVRequest {
 }
 
 export interface GetStagedProfilePreferencesLOVRequest {
-    resortNameId?: string;
-    hotelId?: string;
+    resortNameId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5184,7 +5184,7 @@ export interface GetStagedProfilePreferencesLOVRequest {
 }
 
 export interface GetStatisticsYearsLOVRequest {
-    year?: string;
+    year: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5197,7 +5197,7 @@ export interface GetStatisticsYearsLOVRequest {
 }
 
 export interface GetStoredValueRedeemTrxLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5210,8 +5210,8 @@ export interface GetStoredValueRedeemTrxLOVRequest {
 }
 
 export interface GetSubBlockLOVRequest {
-    superBlock?: string;
-    hotelId?: string;
+    superBlock: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5224,7 +5224,7 @@ export interface GetSubBlockLOVRequest {
 }
 
 export interface GetSummaryRefreshLogLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5237,7 +5237,7 @@ export interface GetSummaryRefreshLogLOVRequest {
 }
 
 export interface GetSynchronizeRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5250,8 +5250,8 @@ export interface GetSynchronizeRateCodesLOVRequest {
 }
 
 export interface GetTaskBreakOutLOVRequest {
-    fromDate?: string;
-    hotelId?: string;
+    fromDate: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5264,7 +5264,7 @@ export interface GetTaskBreakOutLOVRequest {
 }
 
 export interface GetTaskSheetDeptLOVRequest {
-    levelCode?: string;
+    levelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5277,7 +5277,7 @@ export interface GetTaskSheetDeptLOVRequest {
 }
 
 export interface GetTaskSheetLOVRequest {
-    breakOutId?: string;
+    breakOutId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5290,9 +5290,9 @@ export interface GetTaskSheetLOVRequest {
 }
 
 export interface GetTaskSheetRoomsLOVRequest {
-    taskSheetNo?: string;
-    taskCode?: string;
-    hotelId?: string;
+    taskSheetNo: string;
+    taskCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5305,8 +5305,8 @@ export interface GetTaskSheetRoomsLOVRequest {
 }
 
 export interface GetTaxTransactionCodeLOVRequest {
-    taxCode?: string;
-    hotelId?: string;
+    taxCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5319,7 +5319,7 @@ export interface GetTaxTransactionCodeLOVRequest {
 }
 
 export interface GetTaxTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5332,7 +5332,7 @@ export interface GetTaxTypesLOVRequest {
 }
 
 export interface GetTelephoneCategoryLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5345,7 +5345,7 @@ export interface GetTelephoneCategoryLOVRequest {
 }
 
 export interface GetTemplateBookingChannelRoomTypesLOVRequest {
-    bookingChannelCode?: string;
+    bookingChannelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5358,7 +5358,7 @@ export interface GetTemplateBookingChannelRoomTypesLOVRequest {
 }
 
 export interface GetTemplateFiscalFolioParametersLOVRequest {
-    templateCode?: string;
+    templateCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5371,7 +5371,7 @@ export interface GetTemplateFiscalFolioParametersLOVRequest {
 }
 
 export interface GetTemplateMarketCodesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5384,7 +5384,7 @@ export interface GetTemplateMarketCodesLOVRequest {
 }
 
 export interface GetTemplateMarketGroupsLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5397,7 +5397,7 @@ export interface GetTemplateMarketGroupsLOVRequest {
 }
 
 export interface GetTemplatePolicyCodesLOVRequest {
-    policyType?: string;
+    policyType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5410,7 +5410,7 @@ export interface GetTemplatePolicyCodesLOVRequest {
 }
 
 export interface GetTemplatePreferencesLOVRequest {
-    includeGlobals?: string;
+    includeGlobals: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5423,7 +5423,7 @@ export interface GetTemplatePreferencesLOVRequest {
 }
 
 export interface GetTemplateRoomClassesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5436,7 +5436,7 @@ export interface GetTemplateRoomClassesLOVRequest {
 }
 
 export interface GetTemplateSourceCodesLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5449,7 +5449,7 @@ export interface GetTemplateSourceCodesLOVRequest {
 }
 
 export interface GetTemplateSourceGroupsLOVRequest {
-    includeInactive?: string;
+    includeInactive: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5462,7 +5462,7 @@ export interface GetTemplateSourceGroupsLOVRequest {
 }
 
 export interface GetTemplateTransactionSubgroupsLOVRequest {
-    fetchOnlyUniqueValues?: string;
+    fetchOnlyUniqueValues: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5475,10 +5475,10 @@ export interface GetTemplateTransactionSubgroupsLOVRequest {
 }
 
 export interface GetTestUpsellRulesRateCodeLOVRequest {
-    roomCategory?: string;
-    arrivalDate?: string;
-    nights?: string;
-    hotelId?: string;
+    roomCategory: string;
+    arrivalDate: string;
+    nights: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5491,7 +5491,7 @@ export interface GetTestUpsellRulesRateCodeLOVRequest {
 }
 
 export interface GetToPostalCodesLOVRequest {
-    country?: string;
+    country: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5504,7 +5504,7 @@ export interface GetToPostalCodesLOVRequest {
 }
 
 export interface GetTraceDateCalcLOVRequest {
-    view?: string;
+    view: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5517,7 +5517,7 @@ export interface GetTraceDateCalcLOVRequest {
 }
 
 export interface GetTraceFieldLOVRequest {
-    view?: string;
+    view: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5530,7 +5530,7 @@ export interface GetTraceFieldLOVRequest {
 }
 
 export interface GetTransactionAdjustmentReasonCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5543,7 +5543,7 @@ export interface GetTransactionAdjustmentReasonCodesLOVRequest {
 }
 
 export interface GetTransactionCodesConsumptionLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5556,7 +5556,7 @@ export interface GetTransactionCodesConsumptionLOVRequest {
 }
 
 export interface GetTransactionCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5569,7 +5569,7 @@ export interface GetTransactionCodesLOVRequest {
 }
 
 export interface GetTransactionCodesPaymentLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5582,7 +5582,7 @@ export interface GetTransactionCodesPaymentLOVRequest {
 }
 
 export interface GetTransactionDeleteReasonCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5595,7 +5595,7 @@ export interface GetTransactionDeleteReasonCodesLOVRequest {
 }
 
 export interface GetTransactionDiversionRuleRoomsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5608,7 +5608,7 @@ export interface GetTransactionDiversionRuleRoomsLOVRequest {
 }
 
 export interface GetTransactionGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5621,7 +5621,7 @@ export interface GetTransactionGroupsLOVRequest {
 }
 
 export interface GetTransactionSubgroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5634,7 +5634,7 @@ export interface GetTransactionSubgroupsLOVRequest {
 }
 
 export interface GetTransportTypesHotelLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5647,7 +5647,7 @@ export interface GetTransportTypesHotelLOVRequest {
 }
 
 export interface GetTransportTypesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5660,7 +5660,7 @@ export interface GetTransportTypesLOVRequest {
 }
 
 export interface GetTravelAgentSourceLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5673,7 +5673,7 @@ export interface GetTravelAgentSourceLOVRequest {
 }
 
 export interface GetTravelAgentSourceResvLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5686,7 +5686,7 @@ export interface GetTravelAgentSourceResvLOVRequest {
 }
 
 export interface GetTrxCodeArrangementLOVRequest {
-    type?: string;
+    type: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5699,7 +5699,7 @@ export interface GetTrxCodeArrangementLOVRequest {
 }
 
 export interface GetTurnawayCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5712,7 +5712,7 @@ export interface GetTurnawayCodesLOVRequest {
 }
 
 export interface GetUDFMappingsLOVRequest {
-    moduleName?: string;
+    moduleName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5725,8 +5725,8 @@ export interface GetUDFMappingsLOVRequest {
 }
 
 export interface GetUdfAttributesLOVRequest {
-    udfCategory?: string;
-    udfType?: string;
+    udfCategory: string;
+    udfType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5739,7 +5739,7 @@ export interface GetUdfAttributesLOVRequest {
 }
 
 export interface GetUpsellDefaultTrxCodeLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5752,7 +5752,7 @@ export interface GetUpsellDefaultTrxCodeLOVRequest {
 }
 
 export interface GetUpsellFromRoomClassEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5765,7 +5765,7 @@ export interface GetUpsellFromRoomClassEditLOVRequest {
 }
 
 export interface GetUpsellFromRoomTypeEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5778,7 +5778,7 @@ export interface GetUpsellFromRoomTypeEditLOVRequest {
 }
 
 export interface GetUpsellHierarchyLevelsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5791,7 +5791,7 @@ export interface GetUpsellHierarchyLevelsLOVRequest {
 }
 
 export interface GetUpsellMembershipLevelsOnlyLOVRequest {
-    membershipType?: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5804,8 +5804,8 @@ export interface GetUpsellMembershipLevelsOnlyLOVRequest {
 }
 
 export interface GetUpsellOccupancyLevelsLOVRequest {
-    includeBlank?: string;
-    hotelId?: string;
+    includeBlank: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5818,7 +5818,7 @@ export interface GetUpsellOccupancyLevelsLOVRequest {
 }
 
 export interface GetUpsellRateCategoriesEditLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5831,7 +5831,7 @@ export interface GetUpsellRateCategoriesEditLOVRequest {
 }
 
 export interface GetUpsellRateCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5844,7 +5844,7 @@ export interface GetUpsellRateCodesLOVRequest {
 }
 
 export interface GetUpsellRoomClassViewLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5857,7 +5857,7 @@ export interface GetUpsellRoomClassViewLOVRequest {
 }
 
 export interface GetUpsellRoomTypeViewLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5870,7 +5870,7 @@ export interface GetUpsellRoomTypeViewLOVRequest {
 }
 
 export interface GetUpsellRuleLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5883,8 +5883,8 @@ export interface GetUpsellRuleLOVRequest {
 }
 
 export interface GetUpsellToRoomClassEditLOVRequest {
-    fromRoomClass?: string;
-    hotelId?: string;
+    fromRoomClass: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5897,8 +5897,8 @@ export interface GetUpsellToRoomClassEditLOVRequest {
 }
 
 export interface GetUpsellToRoomTypeEditLOVRequest {
-    fromRoomTypeLabel?: string;
-    hotelId?: string;
+    fromRoomTypeLabel: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5911,7 +5911,7 @@ export interface GetUpsellToRoomTypeEditLOVRequest {
 }
 
 export interface GetUpsellTrxCodesLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5924,8 +5924,8 @@ export interface GetUpsellTrxCodesLOVRequest {
 }
 
 export interface GetUserDbFunctionArgsLOVRequest {
-    category?: string;
-    functionName?: string;
+    category: string;
+    functionName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5938,7 +5938,7 @@ export interface GetUserDbFunctionArgsLOVRequest {
 }
 
 export interface GetUserDbFunctionsLOVRequest {
-    category?: string;
+    category: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5951,7 +5951,7 @@ export interface GetUserDbFunctionsLOVRequest {
 }
 
 export interface GetUserLogActivityGroupsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5964,8 +5964,8 @@ export interface GetUserLogActivityGroupsLOVRequest {
 }
 
 export interface GetUserLogActivityTypesLOVRequest {
-    activityGroup?: string;
-    hotelId?: string;
+    activityGroup: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5978,8 +5978,8 @@ export interface GetUserLogActivityTypesLOVRequest {
 }
 
 export interface GetUserRolesLOVRequest {
-    roleWithDepartment?: string;
-    hotelId?: string;
+    roleWithDepartment: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -5992,7 +5992,7 @@ export interface GetUserRolesLOVRequest {
 }
 
 export interface GetYearSetupLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -6005,7 +6005,7 @@ export interface GetYearSetupLOVRequest {
 }
 
 export interface GetYieldMarketsLOVRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -6029,7 +6029,7 @@ export interface ValidateListOfValuesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    validateListOfValues?: ValidateListOfValues;
+    validateListOfValues: ValidateListOfValues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -6047,19 +6047,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.errorType === null || requestParameters.errorType === undefined) {
             throw new runtime.RequiredError('errorType','Required parameter requestParameters.errorType was null or undefined when calling getADSEchoTokenLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getADSEchoTokenLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getADSEchoTokenLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getADSEchoTokenLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6127,19 +6115,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.errorType === null || requestParameters.errorType === undefined) {
             throw new runtime.RequiredError('errorType','Required parameter requestParameters.errorType was null or undefined when calling getADSStatusLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getADSStatusLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getADSStatusLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getADSStatusLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6207,19 +6183,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARAccountTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARAccountTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARAccountTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARAccountTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6287,19 +6251,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARCreditCardsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARCreditCardsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARCreditCardsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARCreditCardsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6367,19 +6319,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.module === null || requestParameters.module === undefined) {
             throw new runtime.RequiredError('module','Required parameter requestParameters.module was null or undefined when calling getActionTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActionTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActionTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActionTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6447,19 +6387,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivitiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivitiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivitiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivitiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6527,19 +6455,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityConfigTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityConfigTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityConfigTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityConfigTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6607,19 +6523,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityLocationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityLocationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityLocationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityLocationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6687,19 +6591,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityStatusLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityStatusLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityStatusLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityStatusLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6767,19 +6659,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6847,19 +6727,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.salesFormat === null || requestParameters.salesFormat === undefined) {
             throw new runtime.RequiredError('salesFormat','Required parameter requestParameters.salesFormat was null or undefined when calling getAddressFormatElementsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAddressFormatElementsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAddressFormatElementsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAddressFormatElementsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -6927,19 +6795,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAgentAccountsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAgentAccountsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAgentAccountsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAgentAccountsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7007,19 +6863,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAgentSourceCitiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAgentSourceCitiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAgentSourceCitiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAgentSourceCitiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7087,19 +6931,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAgentSourceResvCitiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAgentSourceResvCitiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAgentSourceResvCitiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAgentSourceResvCitiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7167,19 +6999,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAlertCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAlertCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAlertCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAlertCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7247,19 +7067,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.interfaceId === null || requestParameters.interfaceId === undefined) {
             throw new runtime.RequiredError('interfaceId','Required parameter requestParameters.interfaceId was null or undefined when calling getAllRevenueTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAllRevenueTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAllRevenueTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAllRevenueTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7327,27 +7135,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.interfaceRowId === null || requestParameters.interfaceRowId === undefined) {
             throw new runtime.RequiredError('interfaceRowId','Required parameter requestParameters.interfaceRowId was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
         }
-
+        
         if (requestParameters.interfaceType === null || requestParameters.interfaceType === undefined) {
             throw new runtime.RequiredError('interfaceType','Required parameter requestParameters.interfaceType was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAllowedHotelInterfaceRightsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7415,19 +7211,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAlternateHotelCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAlternateHotelCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAlternateHotelCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAlternateHotelCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7495,19 +7279,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAmenitiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAmenitiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAmenitiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAmenitiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7575,23 +7347,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.relModuleName === null || requestParameters.relModuleName === undefined) {
             throw new runtime.RequiredError('relModuleName','Required parameter requestParameters.relModuleName was null or undefined when calling getApplicationModulesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getApplicationModulesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getApplicationModulesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getApplicationModulesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getApplicationModulesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7659,23 +7419,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.settingName === null || requestParameters.settingName === undefined) {
             throw new runtime.RequiredError('settingName','Required parameter requestParameters.settingName was null or undefined when calling getApplicationSettingsLOV.');
         }
-
+        
         if (requestParameters.levelCode === null || requestParameters.levelCode === undefined) {
             throw new runtime.RequiredError('levelCode','Required parameter requestParameters.levelCode was null or undefined when calling getApplicationSettingsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getApplicationSettingsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getApplicationSettingsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getApplicationSettingsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7743,19 +7491,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getArrangementCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getArrangementCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getArrangementCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getArrangementCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7823,19 +7559,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.type === null || requestParameters.type === undefined) {
             throw new runtime.RequiredError('type','Required parameter requestParameters.type was null or undefined when calling getArrangementCodesNumberLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getArrangementCodesNumberLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getArrangementCodesNumberLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getArrangementCodesNumberLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7903,19 +7627,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getArticleCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getArticleCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getArticleCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getArticleCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -7983,23 +7695,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.room === null || requestParameters.room === undefined) {
             throw new runtime.RequiredError('room','Required parameter requestParameters.room was null or undefined when calling getAssignRoomsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAssignRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAssignRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAssignRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAssignRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8067,19 +7767,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAttractionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAttractionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAttractionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAttractionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8147,19 +7835,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAuthorizerLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizerLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizerLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizerLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8227,19 +7903,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.number === null || requestParameters.number === undefined) {
             throw new runtime.RequiredError('number','Required parameter requestParameters.number was null or undefined when calling getAutoNumberGeneratorLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoNumberGeneratorLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoNumberGeneratorLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoNumberGeneratorLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8307,23 +7971,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.traceGroup === null || requestParameters.traceGroup === undefined) {
             throw new runtime.RequiredError('traceGroup','Required parameter requestParameters.traceGroup was null or undefined when calling getAutoTraceExpressionFieldsLOV.');
         }
-
+        
         if (requestParameters.tableName === null || requestParameters.tableName === undefined) {
             throw new runtime.RequiredError('tableName','Required parameter requestParameters.tableName was null or undefined when calling getAutoTraceExpressionFieldsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceExpressionFieldsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceExpressionFieldsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceExpressionFieldsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8391,23 +8043,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fileGroup === null || requestParameters.fileGroup === undefined) {
             throw new runtime.RequiredError('fileGroup','Required parameter requestParameters.fileGroup was null or undefined when calling getAvailableExportTemplatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableExportTemplatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableExportTemplatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableExportTemplatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableExportTemplatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8475,19 +8115,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableProfileOwnerRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableProfileOwnerRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableProfileOwnerRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableProfileOwnerRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8555,27 +8183,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomNumber === null || requestParameters.roomNumber === undefined) {
             throw new runtime.RequiredError('roomNumber','Required parameter requestParameters.roomNumber was null or undefined when calling getAvailableRoomComponentsLOV.');
         }
-
+        
         if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
             throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling getAvailableRoomComponentsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableRoomComponentsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableRoomComponentsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableRoomComponentsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableRoomComponentsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8643,23 +8259,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
             throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling getAvailableRoomTypeComponentsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableRoomTypeComponentsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableRoomTypeComponentsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableRoomTypeComponentsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableRoomTypeComponentsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8727,19 +8331,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableScriptLanguagesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableScriptLanguagesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableScriptLanguagesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableScriptLanguagesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8807,19 +8399,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAwardCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAwardCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAwardCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAwardCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8887,19 +8467,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAwardCodesMultiHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAwardCodesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAwardCodesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAwardCodesMultiHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -8967,19 +8535,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAwardMktgCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAwardMktgCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAwardMktgCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAwardMktgCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9047,23 +8603,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getAwardPaymentLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAwardPaymentLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAwardPaymentLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAwardPaymentLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAwardPaymentLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9131,19 +8675,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBankAccountsForReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBankAccountsForReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBankAccountsForReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBankAccountsForReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9211,19 +8743,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBankAccountsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBankAccountsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBankAccountsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBankAccountsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9291,19 +8811,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBanquetPrintingMethodLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBanquetPrintingMethodLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBanquetPrintingMethodLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBanquetPrintingMethodLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9371,19 +8879,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBillingInstructionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBillingInstructionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBillingInstructionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBillingInstructionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9451,19 +8947,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
             throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockBookingStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockBookingStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockBookingStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockBookingStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9531,19 +9015,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.catStatus === null || requestParameters.catStatus === undefined) {
             throw new runtime.RequiredError('catStatus','Required parameter requestParameters.catStatus was null or undefined when calling getBlockCatNextStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCatNextStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCatNextStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCatNextStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9611,23 +9083,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.arrivalDate === null || requestParameters.arrivalDate === undefined) {
             throw new runtime.RequiredError('arrivalDate','Required parameter requestParameters.arrivalDate was null or undefined when calling getBlockCodesByArrivalDateLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockCodesByArrivalDateLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCodesByArrivalDateLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCodesByArrivalDateLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCodesByArrivalDateLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9695,19 +9155,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockCodesFinOperationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCodesFinOperationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCodesFinOperationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCodesFinOperationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9775,27 +9223,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
             throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling getBlockCodesLOV.');
         }
-
+        
         if (requestParameters.beginDate === null || requestParameters.beginDate === undefined) {
             throw new runtime.RequiredError('beginDate','Required parameter requestParameters.beginDate was null or undefined when calling getBlockCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9863,19 +9299,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
             throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockCurrentStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCurrentStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCurrentStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCurrentStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -9943,23 +9367,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
             throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockEventIdsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockEventIdsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockEventIdsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockEventIdsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockEventIdsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10027,19 +9439,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockEventsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockEventsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockEventsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockEventsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10107,27 +9507,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
             throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling getBlockIdsLOV.');
         }
-
+        
         if (requestParameters.beginDate === null || requestParameters.beginDate === undefined) {
             throw new runtime.RequiredError('beginDate','Required parameter requestParameters.beginDate was null or undefined when calling getBlockIdsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockIdsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockIdsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockIdsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockIdsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10195,19 +9583,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockModeLovLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockModeLovLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockModeLovLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockModeLovLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10275,19 +9651,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingStatus === null || requestParameters.bookingStatus === undefined) {
             throw new runtime.RequiredError('bookingStatus','Required parameter requestParameters.bookingStatus was null or undefined when calling getBlockNextStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockNextStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockNextStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockNextStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10355,19 +9719,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockPaymentMethodsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockPaymentMethodsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10435,31 +9787,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.negotiatedOnly === null || requestParameters.negotiatedOnly === undefined) {
             throw new runtime.RequiredError('negotiatedOnly','Required parameter requestParameters.negotiatedOnly was null or undefined when calling getBlockRateCodesLOV.');
         }
-
+        
         if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
             throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling getBlockRateCodesLOV.');
         }
-
+        
         if (requestParameters.beginDate === null || requestParameters.beginDate === undefined) {
             throw new runtime.RequiredError('beginDate','Required parameter requestParameters.beginDate was null or undefined when calling getBlockRateCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10527,31 +9867,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
             throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRatesLOV.');
         }
-
+        
         if (requestParameters.departure === null || requestParameters.departure === undefined) {
             throw new runtime.RequiredError('departure','Required parameter requestParameters.departure was null or undefined when calling getBlockRatesLOV.');
         }
-
+        
         if (requestParameters.arrival === null || requestParameters.arrival === undefined) {
             throw new runtime.RequiredError('arrival','Required parameter requestParameters.arrival was null or undefined when calling getBlockRatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockRatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10619,23 +9947,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingStatus === null || requestParameters.bookingStatus === undefined) {
             throw new runtime.RequiredError('bookingStatus','Required parameter requestParameters.bookingStatus was null or undefined when calling getBlockReservationTypesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockReservationTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockReservationTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockReservationTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockReservationTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10703,23 +10019,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.channel === null || requestParameters.channel === undefined) {
             throw new runtime.RequiredError('channel','Required parameter requestParameters.channel was null or undefined when calling getBookingChannelRatePlansLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBookingChannelRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBookingChannelRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBookingChannelRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBookingChannelRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10787,19 +10091,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.channel === null || requestParameters.channel === undefined) {
             throw new runtime.RequiredError('channel','Required parameter requestParameters.channel was null or undefined when calling getBookingChannelRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBookingChannelRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBookingChannelRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBookingChannelRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10867,19 +10159,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBookingTypesIndividualsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBookingTypesIndividualsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBookingTypesIndividualsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBookingTypesIndividualsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -10947,19 +10227,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBudgetForecastCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBudgetForecastCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBudgetForecastCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBudgetForecastCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11027,19 +10295,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBudgetRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBudgetRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBudgetRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBudgetRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11107,31 +10363,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.databaseId === null || requestParameters.databaseId === undefined) {
             throw new runtime.RequiredError('databaseId','Required parameter requestParameters.databaseId was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
         }
-
+        
         if (requestParameters.extSystem === null || requestParameters.extSystem === undefined) {
             throw new runtime.RequiredError('extSystem','Required parameter requestParameters.extSystem was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
         }
-
+        
         if (requestParameters.module === null || requestParameters.module === undefined) {
             throw new runtime.RequiredError('module','Required parameter requestParameters.module was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEventActionTypeExtDBLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11199,27 +10443,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.module === null || requestParameters.module === undefined) {
             throw new runtime.RequiredError('module','Required parameter requestParameters.module was null or undefined when calling getBusinessEventActionTypeLOV.');
         }
-
+        
         if (requestParameters.extSystem === null || requestParameters.extSystem === undefined) {
             throw new runtime.RequiredError('extSystem','Required parameter requestParameters.extSystem was null or undefined when calling getBusinessEventActionTypeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBusinessEventActionTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBusinessEventActionTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEventActionTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEventActionTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11287,19 +10519,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCampaignActivityTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCampaignActivityTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCampaignActivityTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCampaignActivityTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11367,19 +10587,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCashRegisterIDLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashRegisterIDLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashRegisterIDLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashRegisterIDLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11447,19 +10655,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
             throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling getCashierHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11527,23 +10723,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.catBudgetType === null || requestParameters.catBudgetType === undefined) {
             throw new runtime.RequiredError('catBudgetType','Required parameter requestParameters.catBudgetType was null or undefined when calling getCatBudgetTypeEventCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCatBudgetTypeEventCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCatBudgetTypeEventCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCatBudgetTypeEventCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCatBudgetTypeEventCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11611,23 +10795,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.catBudgetType === null || requestParameters.catBudgetType === undefined) {
             throw new runtime.RequiredError('catBudgetType','Required parameter requestParameters.catBudgetType was null or undefined when calling getCatBudgetTypeMarketCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCatBudgetTypeMarketCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCatBudgetTypeMarketCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCatBudgetTypeMarketCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCatBudgetTypeMarketCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11695,23 +10867,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.catBudgetType === null || requestParameters.catBudgetType === undefined) {
             throw new runtime.RequiredError('catBudgetType','Required parameter requestParameters.catBudgetType was null or undefined when calling getCatBudgetTypeMealCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCatBudgetTypeMealCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCatBudgetTypeMealCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCatBudgetTypeMealCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCatBudgetTypeMealCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11779,23 +10939,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.catBudgetType === null || requestParameters.catBudgetType === undefined) {
             throw new runtime.RequiredError('catBudgetType','Required parameter requestParameters.catBudgetType was null or undefined when calling getCatBudgetTypeRevenueCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCatBudgetTypeRevenueCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCatBudgetTypeRevenueCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCatBudgetTypeRevenueCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCatBudgetTypeRevenueCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11863,23 +11011,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.active === null || requestParameters.active === undefined) {
             throw new runtime.RequiredError('active','Required parameter requestParameters.active was null or undefined when calling getCateringBudgetTypesLOV.');
         }
-
+        
         if (requestParameters.catering === null || requestParameters.catering === undefined) {
             throw new runtime.RequiredError('catering','Required parameter requestParameters.catering was null or undefined when calling getCateringBudgetTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringBudgetTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringBudgetTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringBudgetTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -11947,19 +11083,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.codeType === null || requestParameters.codeType === undefined) {
             throw new runtime.RequiredError('codeType','Required parameter requestParameters.codeType was null or undefined when calling getCateringCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12027,23 +11151,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.waitList === null || requestParameters.waitList === undefined) {
             throw new runtime.RequiredError('waitList','Required parameter requestParameters.waitList was null or undefined when calling getCateringEventStatusLOV.');
         }
-
+        
         if (requestParameters.newEvent === null || requestParameters.newEvent === undefined) {
             throw new runtime.RequiredError('newEvent','Required parameter requestParameters.newEvent was null or undefined when calling getCateringEventStatusLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringEventStatusLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringEventStatusLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringEventStatusLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12111,23 +11223,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringPackageCodesLOV.');
         }
-
+        
         if (requestParameters.radioType === null || requestParameters.radioType === undefined) {
             throw new runtime.RequiredError('radioType','Required parameter requestParameters.radioType was null or undefined when calling getCateringPackageCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackageCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackageCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackageCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12195,19 +11295,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringPackagePriceCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackagePriceCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackagePriceCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackagePriceCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12275,19 +11363,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.pkgLinkId === null || requestParameters.pkgLinkId === undefined) {
             throw new runtime.RequiredError('pkgLinkId','Required parameter requestParameters.pkgLinkId was null or undefined when calling getCateringPackageRevenueConfigEventTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackageRevenueConfigEventTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackageRevenueConfigEventTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackageRevenueConfigEventTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12355,19 +11431,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.pkgId === null || requestParameters.pkgId === undefined) {
             throw new runtime.RequiredError('pkgId','Required parameter requestParameters.pkgId was null or undefined when calling getCateringPackageRevenueEventTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackageRevenueEventTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackageRevenueEventTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackageRevenueEventTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12435,23 +11499,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.space === null || requestParameters.space === undefined) {
             throw new runtime.RequiredError('space','Required parameter requestParameters.space was null or undefined when calling getCateringSetupStylesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringSetupStylesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringSetupStylesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringSetupStylesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringSetupStylesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12519,19 +11571,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.exclusionList === null || requestParameters.exclusionList === undefined) {
             throw new runtime.RequiredError('exclusionList','Required parameter requestParameters.exclusionList was null or undefined when calling getCateringStatusCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringStatusCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringStatusCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringStatusCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12599,19 +11639,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getChainLanguagesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChainLanguagesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChainLanguagesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChainLanguagesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12679,19 +11707,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelCardTypeMappingCardTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelCardTypeMappingCardTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelCardTypeMappingCardTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelCardTypeMappingCardTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12759,23 +11775,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.cardType === null || requestParameters.cardType === undefined) {
             throw new runtime.RequiredError('cardType','Required parameter requestParameters.cardType was null or undefined when calling getChannelCardTypeMappingChannelCardTypeLOV.');
         }
-
+        
         if (requestParameters.gdsHost === null || requestParameters.gdsHost === undefined) {
             throw new runtime.RequiredError('gdsHost','Required parameter requestParameters.gdsHost was null or undefined when calling getChannelCardTypeMappingChannelCardTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelCardTypeMappingChannelCardTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelCardTypeMappingChannelCardTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelCardTypeMappingChannelCardTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12843,19 +11847,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelCardTypeMappingGdsHostLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelCardTypeMappingGdsHostLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelCardTypeMappingGdsHostLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelCardTypeMappingGdsHostLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -12923,27 +11915,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
             throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling getChannelConfigRateCodesLOV.');
         }
-
+        
         if (requestParameters.bookingChannelCode === null || requestParameters.bookingChannelCode === undefined) {
             throw new runtime.RequiredError('bookingChannelCode','Required parameter requestParameters.bookingChannelCode was null or undefined when calling getChannelConfigRateCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelConfigRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelConfigRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelConfigRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelConfigRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13011,31 +11991,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
             throw new runtime.RequiredError('channelCode','Required parameter requestParameters.channelCode was null or undefined when calling getChannelParametersLOV.');
         }
-
+        
         if (requestParameters.settingName === null || requestParameters.settingName === undefined) {
             throw new runtime.RequiredError('settingName','Required parameter requestParameters.settingName was null or undefined when calling getChannelParametersLOV.');
         }
-
+        
         if (requestParameters.levelType === null || requestParameters.levelType === undefined) {
             throw new runtime.RequiredError('levelType','Required parameter requestParameters.levelType was null or undefined when calling getChannelParametersLOV.');
         }
-
+        
         if (requestParameters.levelCode === null || requestParameters.levelCode === undefined) {
             throw new runtime.RequiredError('levelCode','Required parameter requestParameters.levelCode was null or undefined when calling getChannelParametersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelParametersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelParametersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelParametersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13103,19 +12071,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getClaimMembershipDetailsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getClaimMembershipDetailsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getClaimMembershipDetailsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getClaimMembershipDetailsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13183,19 +12139,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13263,19 +12207,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionTxnCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionTxnCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionTxnCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionTxnCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13343,19 +12275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompAuthorizersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompAuthorizersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompAuthorizersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompAuthorizersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13423,19 +12343,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13503,19 +12411,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompaniesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompaniesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompaniesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompaniesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13583,19 +12479,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getConfLetterReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConfLetterReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConfLetterReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConfLetterReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13663,31 +12547,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.daily === null || requestParameters.daily === undefined) {
             throw new runtime.RequiredError('daily','Required parameter requestParameters.daily was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.tiered === null || requestParameters.tiered === undefined) {
             throw new runtime.RequiredError('tiered','Required parameter requestParameters.tiered was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.currentRateCode === null || requestParameters.currentRateCode === undefined) {
             throw new runtime.RequiredError('currentRateCode','Required parameter requestParameters.currentRateCode was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConfigAdvDynamicBaseRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13755,35 +12627,23 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.tiered === null || requestParameters.tiered === undefined) {
             throw new runtime.RequiredError('tiered','Required parameter requestParameters.tiered was null or undefined when calling getConfigBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.daily === null || requestParameters.daily === undefined) {
             throw new runtime.RequiredError('daily','Required parameter requestParameters.daily was null or undefined when calling getConfigBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.currencyCode === null || requestParameters.currencyCode === undefined) {
             throw new runtime.RequiredError('currencyCode','Required parameter requestParameters.currencyCode was null or undefined when calling getConfigBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.currentRateCode === null || requestParameters.currentRateCode === undefined) {
             throw new runtime.RequiredError('currentRateCode','Required parameter requestParameters.currentRateCode was null or undefined when calling getConfigBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getConfigBaseRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConfigBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConfigBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConfigBaseRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13851,27 +12711,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.currentRateCode === null || requestParameters.currentRateCode === undefined) {
             throw new runtime.RequiredError('currentRateCode','Required parameter requestParameters.currentRateCode was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.tiered === null || requestParameters.tiered === undefined) {
             throw new runtime.RequiredError('tiered','Required parameter requestParameters.tiered was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConfigDynamicBaseRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -13939,19 +12787,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.moduleName === null || requestParameters.moduleName === undefined) {
             throw new runtime.RequiredError('moduleName','Required parameter requestParameters.moduleName was null or undefined when calling getConfigReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConfigReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConfigReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConfigReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14019,23 +12855,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomNumber === null || requestParameters.roomNumber === undefined) {
             throw new runtime.RequiredError('roomNumber','Required parameter requestParameters.roomNumber was null or undefined when calling getConnectingSuitesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getConnectingSuitesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConnectingSuitesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConnectingSuitesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConnectingSuitesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14103,19 +12927,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCreditCardTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditCardTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14183,19 +12995,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.userId === null || requestParameters.userId === undefined) {
             throw new runtime.RequiredError('userId','Required parameter requestParameters.userId was null or undefined when calling getCroUsersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCroUsersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCroUsersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCroUsersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14263,23 +13063,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.exchangeType === null || requestParameters.exchangeType === undefined) {
             throw new runtime.RequiredError('exchangeType','Required parameter requestParameters.exchangeType was null or undefined when calling getCurrencyExchangeRatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCurrencyExchangeRatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCurrencyExchangeRatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCurrencyExchangeRatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCurrencyExchangeRatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14347,19 +13135,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.decimal === null || requestParameters.decimal === undefined) {
             throw new runtime.RequiredError('decimal','Required parameter requestParameters.decimal was null or undefined when calling getCurrencyFormatsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCurrencyFormatsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCurrencyFormatsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCurrencyFormatsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14427,19 +13203,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomNumberConfigCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomNumberConfigCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomNumberConfigCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomNumberConfigCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14507,23 +13271,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.dbfLogo === null || requestParameters.dbfLogo === undefined) {
             throw new runtime.RequiredError('dbfLogo','Required parameter requestParameters.dbfLogo was null or undefined when calling getCustomRoomTranslationLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCustomRoomTranslationLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomRoomTranslationLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomRoomTranslationLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomRoomTranslationLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14591,23 +13343,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.policyType === null || requestParameters.policyType === undefined) {
             throw new runtime.RequiredError('policyType','Required parameter requestParameters.policyType was null or undefined when calling getDepositCancelRulesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDepositCancelRulesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositCancelRulesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositCancelRulesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositCancelRulesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14675,19 +13415,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.policyType === null || requestParameters.policyType === undefined) {
             throw new runtime.RequiredError('policyType','Required parameter requestParameters.policyType was null or undefined when calling getDepositCancelRulesMultiHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositCancelRulesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositCancelRulesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositCancelRulesMultiHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14755,31 +13483,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.externalCode === null || requestParameters.externalCode === undefined) {
             throw new runtime.RequiredError('externalCode','Required parameter requestParameters.externalCode was null or undefined when calling getDeviceCodeMappingValuesLOV.');
         }
-
+        
         if (requestParameters.codeType === null || requestParameters.codeType === undefined) {
             throw new runtime.RequiredError('codeType','Required parameter requestParameters.codeType was null or undefined when calling getDeviceCodeMappingValuesLOV.');
         }
-
+        
         if (requestParameters.deviceCode === null || requestParameters.deviceCode === undefined) {
             throw new runtime.RequiredError('deviceCode','Required parameter requestParameters.deviceCode was null or undefined when calling getDeviceCodeMappingValuesLOV.');
         }
-
+        
         if (requestParameters.deviceType === null || requestParameters.deviceType === undefined) {
             throw new runtime.RequiredError('deviceType','Required parameter requestParameters.deviceType was null or undefined when calling getDeviceCodeMappingValuesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDeviceCodeMappingValuesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDeviceCodeMappingValuesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDeviceCodeMappingValuesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14847,19 +13563,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDeviceLocationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDeviceLocationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDeviceLocationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDeviceLocationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -14927,19 +13631,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDietaryPreferencesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDietaryPreferencesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDietaryPreferencesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDietaryPreferencesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15007,23 +13699,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.location === null || requestParameters.location === undefined) {
             throw new runtime.RequiredError('location','Required parameter requestParameters.location was null or undefined when calling getDistributionTemplatesLOV.');
         }
-
+        
         if (requestParameters.locationType === null || requestParameters.locationType === undefined) {
             throw new runtime.RequiredError('locationType','Required parameter requestParameters.locationType was null or undefined when calling getDistributionTemplatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDistributionTemplatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDistributionTemplatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDistributionTemplatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15091,19 +13771,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.entityName === null || requestParameters.entityName === undefined) {
             throw new runtime.RequiredError('entityName','Required parameter requestParameters.entityName was null or undefined when calling getECertificateGroupEntityLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getECertificateGroupEntityLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getECertificateGroupEntityLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getECertificateGroupEntityLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15171,19 +13839,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getECouponLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getECouponLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getECouponLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getECouponLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15251,19 +13907,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getECouponRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getECouponRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getECouponRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getECouponRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15331,19 +13975,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEcouponResvRoomLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEcouponResvRoomLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEcouponResvRoomLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEcouponResvRoomLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15411,23 +14043,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.beforeIncomeAudit === null || requestParameters.beforeIncomeAudit === undefined) {
             throw new runtime.RequiredError('beforeIncomeAudit','Required parameter requestParameters.beforeIncomeAudit was null or undefined when calling getEndOfDayReportsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEndOfDayReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEndOfDayReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEndOfDayReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEndOfDayReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15495,19 +14115,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.type === null || requestParameters.type === undefined) {
             throw new runtime.RequiredError('type','Required parameter requestParameters.type was null or undefined when calling getEnrollmentMatchCommunicationTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEnrollmentMatchCommunicationTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEnrollmentMatchCommunicationTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEnrollmentMatchCommunicationTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15575,19 +14183,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEventGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15655,19 +14251,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEventLocationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventLocationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventLocationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventLocationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15735,23 +14319,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.space === null || requestParameters.space === undefined) {
             throw new runtime.RequiredError('space','Required parameter requestParameters.space was null or undefined when calling getEventRateCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEventRateCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventRateCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventRateCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventRateCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15819,23 +14391,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.room === null || requestParameters.room === undefined) {
             throw new runtime.RequiredError('room','Required parameter requestParameters.room was null or undefined when calling getEventSetupStylesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEventSetupStylesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventSetupStylesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventSetupStylesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventSetupStylesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15903,19 +14463,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.exclusionList === null || requestParameters.exclusionList === undefined) {
             throw new runtime.RequiredError('exclusionList','Required parameter requestParameters.exclusionList was null or undefined when calling getEventStatusCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventStatusCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventStatusCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventStatusCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -15983,19 +14531,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.currencyCode === null || requestParameters.currencyCode === undefined) {
             throw new runtime.RequiredError('currencyCode','Required parameter requestParameters.currencyCode was null or undefined when calling getExchangeTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExchangeTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExchangeTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExchangeTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16063,23 +14599,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.configType === null || requestParameters.configType === undefined) {
             throw new runtime.RequiredError('configType','Required parameter requestParameters.configType was null or undefined when calling getExportMappingCodesToLinkLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingCodesToLinkLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingCodesToLinkLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingCodesToLinkLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingCodesToLinkLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16147,19 +14671,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingTypeCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingTypeCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingTypeCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingTypeCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16227,23 +14739,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.databaseId === null || requestParameters.databaseId === undefined) {
             throw new runtime.RequiredError('databaseId','Required parameter requestParameters.databaseId was null or undefined when calling getExternalDatabaseAvailableResortsLOV.');
         }
-
+        
         if (requestParameters.interfaceType === null || requestParameters.interfaceType === undefined) {
             throw new runtime.RequiredError('interfaceType','Required parameter requestParameters.interfaceType was null or undefined when calling getExternalDatabaseAvailableResortsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExternalDatabaseAvailableResortsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExternalDatabaseAvailableResortsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExternalDatabaseAvailableResortsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16311,19 +14811,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExternalReferenceTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExternalReferenceTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExternalReferenceTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExternalReferenceTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16391,19 +14879,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFacilityCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFacilityCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16471,23 +14947,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.facilityTask === null || requestParameters.facilityTask === undefined) {
             throw new runtime.RequiredError('facilityTask','Required parameter requestParameters.facilityTask was null or undefined when calling getFacilityCodesReservationLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFacilityCodesReservationLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFacilityCodesReservationLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityCodesReservationLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityCodesReservationLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16555,19 +15019,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFacilityTasksLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFacilityTasksLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityTasksLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityTasksLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16635,23 +15087,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomTypeLabel === null || requestParameters.roomTypeLabel === undefined) {
             throw new runtime.RequiredError('roomTypeLabel','Required parameter requestParameters.roomTypeLabel was null or undefined when calling getFacilityTasksRoomTypeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFacilityTasksRoomTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFacilityTasksRoomTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityTasksRoomTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityTasksRoomTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16719,19 +15159,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.changeSource === null || requestParameters.changeSource === undefined) {
             throw new runtime.RequiredError('changeSource','Required parameter requestParameters.changeSource was null or undefined when calling getFieldNameLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFieldNameLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFieldNameLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFieldNameLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16799,19 +15227,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalPaymentMethodsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalPaymentMethodsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16879,19 +15295,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFixedChargesTransactionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFixedChargesTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFixedChargesTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFixedChargesTransactionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -16959,19 +15363,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFloorsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFloorsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFloorsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFloorsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17039,19 +15431,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.type === null || requestParameters.type === undefined) {
             throw new runtime.RequiredError('type','Required parameter requestParameters.type was null or undefined when calling getFolioGroupingCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioGroupingCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioGroupingCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioGroupingCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17119,19 +15499,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.mode === null || requestParameters.mode === undefined) {
             throw new runtime.RequiredError('mode','Required parameter requestParameters.mode was null or undefined when calling getFolioGroupingTransactionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioGroupingTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioGroupingTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioGroupingTransactionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17199,19 +15567,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioStylesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioStylesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioStylesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioStylesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17279,19 +15635,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17359,19 +15703,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getForecastGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getForecastGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getForecastGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getForecastGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17439,27 +15771,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.exchangeType === null || requestParameters.exchangeType === undefined) {
             throw new runtime.RequiredError('exchangeType','Required parameter requestParameters.exchangeType was null or undefined when calling getForeignCurrenciesLOV.');
         }
-
+        
         if (requestParameters.sell === null || requestParameters.sell === undefined) {
             throw new runtime.RequiredError('sell','Required parameter requestParameters.sell was null or undefined when calling getForeignCurrenciesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getForeignCurrenciesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getForeignCurrenciesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getForeignCurrenciesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getForeignCurrenciesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17527,27 +15847,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.method === null || requestParameters.method === undefined) {
             throw new runtime.RequiredError('method','Required parameter requestParameters.method was null or undefined when calling getFormatLOV.');
         }
-
+        
         if (requestParameters.moduleName === null || requestParameters.moduleName === undefined) {
             throw new runtime.RequiredError('moduleName','Required parameter requestParameters.moduleName was null or undefined when calling getFormatLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFormatLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFormatLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFormatLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFormatLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17615,23 +15923,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.defaultDepartureTask === null || requestParameters.defaultDepartureTask === undefined) {
             throw new runtime.RequiredError('defaultDepartureTask','Required parameter requestParameters.defaultDepartureTask was null or undefined when calling getFrequencyLOV.');
         }
-
+        
         if (requestParameters.guestRequested === null || requestParameters.guestRequested === undefined) {
             throw new runtime.RequiredError('guestRequested','Required parameter requestParameters.guestRequested was null or undefined when calling getFrequencyLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFrequencyLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFrequencyLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFrequencyLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17699,23 +15995,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.defaultDepartureTask === null || requestParameters.defaultDepartureTask === undefined) {
             throw new runtime.RequiredError('defaultDepartureTask','Required parameter requestParameters.defaultDepartureTask was null or undefined when calling getFrequencyTypeLOV.');
         }
-
+        
         if (requestParameters.guestRequested === null || requestParameters.guestRequested === undefined) {
             throw new runtime.RequiredError('guestRequested','Required parameter requestParameters.guestRequested was null or undefined when calling getFrequencyTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFrequencyTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFrequencyTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFrequencyTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17783,19 +16067,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFromRoomNumberLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFromRoomNumberLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFromRoomNumberLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFromRoomNumberLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17863,23 +16135,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling getGdsConvAmenityCodesLOV.');
         }
-
+        
         if (requestParameters.featureType === null || requestParameters.featureType === undefined) {
             throw new runtime.RequiredError('featureType','Required parameter requestParameters.featureType was null or undefined when calling getGdsConvAmenityCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsConvAmenityCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsConvAmenityCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsConvAmenityCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -17947,19 +16207,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCode === null || requestParameters.bookingChannelCode === undefined) {
             throw new runtime.RequiredError('bookingChannelCode','Required parameter requestParameters.bookingChannelCode was null or undefined when calling getGdsGuaranteeCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsGuaranteeCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsGuaranteeCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsGuaranteeCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18027,19 +16275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.channelType === null || requestParameters.channelType === undefined) {
             throw new runtime.RequiredError('channelType','Required parameter requestParameters.channelType was null or undefined when calling getGdsHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18107,19 +16343,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCode === null || requestParameters.bookingChannelCode === undefined) {
             throw new runtime.RequiredError('bookingChannelCode','Required parameter requestParameters.bookingChannelCode was null or undefined when calling getGdsRateCategoriesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsRateCategoriesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsRateCategoriesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsRateCategoriesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18187,19 +16411,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCode === null || requestParameters.bookingChannelCode === undefined) {
             throw new runtime.RequiredError('bookingChannelCode','Required parameter requestParameters.bookingChannelCode was null or undefined when calling getGdsRateLevelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsRateLevelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsRateLevelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsRateLevelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18267,19 +16479,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
             throw new runtime.RequiredError('bookingChannelCodes','Required parameter requestParameters.bookingChannelCodes was null or undefined when calling getGdsRoomCategoryTemplatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGdsRoomCategoryTemplatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGdsRoomCategoryTemplatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGdsRoomCategoryTemplatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18347,19 +16547,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGemMenuItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGemMenuItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGemMenuItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGemMenuItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18427,19 +16615,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGenericReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGenericReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGenericReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGenericReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18507,19 +16683,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.sourceId === null || requestParameters.sourceId === undefined) {
             throw new runtime.RequiredError('sourceId','Required parameter requestParameters.sourceId was null or undefined when calling getGlobalAlertFieldQueryLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGlobalAlertFieldQueryLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGlobalAlertFieldQueryLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGlobalAlertFieldQueryLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18587,19 +16751,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fieldType === null || requestParameters.fieldType === undefined) {
             throw new runtime.RequiredError('fieldType','Required parameter requestParameters.fieldType was null or undefined when calling getGlobalAlertFunctionLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGlobalAlertFunctionLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGlobalAlertFunctionLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGlobalAlertFunctionLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18667,31 +16819,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.tableName === null || requestParameters.tableName === undefined) {
             throw new runtime.RequiredError('tableName','Required parameter requestParameters.tableName was null or undefined when calling getGlobalAlertOperatorLOV.');
         }
-
+        
         if (requestParameters.fieldName === null || requestParameters.fieldName === undefined) {
             throw new runtime.RequiredError('fieldName','Required parameter requestParameters.fieldName was null or undefined when calling getGlobalAlertOperatorLOV.');
         }
-
+        
         if (requestParameters.fieldType === null || requestParameters.fieldType === undefined) {
             throw new runtime.RequiredError('fieldType','Required parameter requestParameters.fieldType was null or undefined when calling getGlobalAlertOperatorLOV.');
         }
-
+        
         if (requestParameters.sourceIdIn === null || requestParameters.sourceIdIn === undefined) {
             throw new runtime.RequiredError('sourceIdIn','Required parameter requestParameters.sourceIdIn was null or undefined when calling getGlobalAlertOperatorLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGlobalAlertOperatorLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGlobalAlertOperatorLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGlobalAlertOperatorLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18759,19 +16899,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingStatus === null || requestParameters.bookingStatus === undefined) {
             throw new runtime.RequiredError('bookingStatus','Required parameter requestParameters.bookingStatus was null or undefined when calling getGridTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGridTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGridTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGridTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18839,19 +16967,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGroupArrivalsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGroupArrivalsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGroupArrivalsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGroupArrivalsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18919,19 +17035,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -18999,19 +17103,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuestMessagesMultiHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuestMessagesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuestMessagesMultiHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuestMessagesMultiHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19079,19 +17171,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuestMessagesQuickTextsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuestMessagesQuickTextsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuestMessagesQuickTextsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuestMessagesQuickTextsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19159,19 +17239,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKAttendantsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKAttendantsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKAttendantsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKAttendantsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19239,19 +17307,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKAttendantsMobileLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKAttendantsMobileLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKAttendantsMobileLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKAttendantsMobileLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19319,23 +17375,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.businessDate === null || requestParameters.businessDate === undefined) {
             throw new runtime.RequiredError('businessDate','Required parameter requestParameters.businessDate was null or undefined when calling getHKScheduledAttendantsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKScheduledAttendantsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKScheduledAttendantsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKScheduledAttendantsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKScheduledAttendantsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19403,19 +17447,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKTaskBreakOutLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKTaskBreakOutLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKTaskBreakOutLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKTaskBreakOutLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19483,19 +17515,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKTaskCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKTaskCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKTaskCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKTaskCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19563,23 +17583,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.breakOutId === null || requestParameters.breakOutId === undefined) {
             throw new runtime.RequiredError('breakOutId','Required parameter requestParameters.breakOutId was null or undefined when calling getHKTaskSheetsNoLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKTaskSheetsNoLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKTaskSheetsNoLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKTaskSheetsNoLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKTaskSheetsNoLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19647,19 +17655,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHKTaskTemplatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHKTaskTemplatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHKTaskTemplatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHKTaskTemplatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19727,19 +17723,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHkFloorsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHkFloorsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHkFloorsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHkFloorsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19807,19 +17791,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHkRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHkRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHkRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHkRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19887,19 +17859,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHkRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHkRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHkRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHkRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -19967,23 +17927,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.contactType === null || requestParameters.contactType === undefined) {
             throw new runtime.RequiredError('contactType','Required parameter requestParameters.contactType was null or undefined when calling getHotelContactCommMethodLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelContactCommMethodLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelContactCommMethodLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelContactCommMethodLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelContactCommMethodLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20051,19 +17999,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelEventTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelEventTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelEventTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelEventTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20131,23 +18067,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.logo === null || requestParameters.logo === undefined) {
             throw new runtime.RequiredError('logo','Required parameter requestParameters.logo was null or undefined when calling getHotelInterfaceDataLineTypesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelInterfaceDataLineTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceDataLineTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceDataLineTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceDataLineTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20215,19 +18139,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelInterfaceImportRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceImportRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceImportRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceImportRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20295,19 +18207,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelRateTierLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelRateTierLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelRateTierLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelRateTierLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20375,19 +18275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getHotelsForARProfileLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelsForARProfileLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelsForARProfileLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelsForARProfileLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20455,19 +18343,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.cateringEvents === null || requestParameters.cateringEvents === undefined) {
             throw new runtime.RequiredError('cateringEvents','Required parameter requestParameters.cateringEvents was null or undefined when calling getHotelsForSnCLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelsForSnCLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelsForSnCLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelsForSnCLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20535,19 +18411,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHouseKeepingRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHouseKeepingRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHouseKeepingRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHouseKeepingRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20615,19 +18479,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHouseKeepingSectionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHouseKeepingSectionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHouseKeepingSectionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHouseKeepingSectionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20695,19 +18547,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingCreditRulesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingCreditRulesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingCreditRulesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingCreditRulesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20775,27 +18615,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.category === null || requestParameters.category === undefined) {
             throw new runtime.RequiredError('category','Required parameter requestParameters.category was null or undefined when calling getIfcRightsViewLOV.');
         }
-
+        
         if (requestParameters.ifcId === null || requestParameters.ifcId === undefined) {
             throw new runtime.RequiredError('ifcId','Required parameter requestParameters.ifcId was null or undefined when calling getIfcRightsViewLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getIfcRightsViewLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getIfcRightsViewLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getIfcRightsViewLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getIfcRightsViewLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20863,19 +18691,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getImbalanceVerificationTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getImbalanceVerificationTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getImbalanceVerificationTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getImbalanceVerificationTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -20943,19 +18759,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceAutoBalanceLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceAutoBalanceLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceAutoBalanceLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceAutoBalanceLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21023,19 +18827,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestMarketCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestMarketCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestMarketCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestMarketCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21103,19 +18895,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestMarketGroupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestMarketGroupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestMarketGroupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestMarketGroupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21183,19 +18963,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestRoomClassLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestRoomClassLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestRoomClassLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestRoomClassLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21263,19 +19031,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21343,19 +19099,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestSourceCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestSourceCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestSourceCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestSourceCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21423,19 +19167,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceDataRequestSourceGroupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceDataRequestSourceGroupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceDataRequestSourceGroupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceDataRequestSourceGroupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21503,19 +19235,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfacePseudoRoomLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfacePseudoRoomLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfacePseudoRoomLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfacePseudoRoomLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21583,19 +19303,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceResyncFunctionSpaceLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceResyncFunctionSpaceLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceResyncFunctionSpaceLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceResyncFunctionSpaceLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21663,19 +19371,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceResyncOwnerContractLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceResyncOwnerContractLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceResyncOwnerContractLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceResyncOwnerContractLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21743,19 +19439,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceResyncOwnerContractRoomLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceResyncOwnerContractRoomLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceResyncOwnerContractRoomLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceResyncOwnerContractRoomLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21823,19 +19507,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceResyncProductsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceResyncProductsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceResyncProductsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceResyncProductsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21903,23 +19575,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.logo === null || requestParameters.logo === undefined) {
             throw new runtime.RequiredError('logo','Required parameter requestParameters.logo was null or undefined when calling getInterfaceRevenueCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceRevenueCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceRevenueCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceRevenueCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceRevenueCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -21987,19 +19647,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.tableName === null || requestParameters.tableName === undefined) {
             throw new runtime.RequiredError('tableName','Required parameter requestParameters.tableName was null or undefined when calling getInterfaceTabColumnsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceTabColumnsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceTabColumnsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceTabColumnsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22067,19 +19715,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceTrxCodesAllChargesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceTrxCodesAllChargesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceTrxCodesAllChargesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceTrxCodesAllChargesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22147,19 +19783,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInterfaceTrxCodesMinibarLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceTrxCodesMinibarLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceTrxCodesMinibarLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceTrxCodesMinibarLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22227,19 +19851,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInvItemsClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvItemsClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvItemsClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvItemsClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22307,19 +19919,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInvItemsPoolsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvItemsPoolsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvItemsPoolsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvItemsPoolsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22387,23 +19987,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.itemId === null || requestParameters.itemId === undefined) {
             throw new runtime.RequiredError('itemId','Required parameter requestParameters.itemId was null or undefined when calling getInventoryItemAttributesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryItemAttributesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItemAttributesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItemAttributesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItemAttributesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22471,23 +20059,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.itemId === null || requestParameters.itemId === undefined) {
             throw new runtime.RequiredError('itemId','Required parameter requestParameters.itemId was null or undefined when calling getInventoryItemRatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryItemRatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItemRatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItemRatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItemRatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22555,19 +20131,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryItemTemplateItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItemTemplateItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItemTemplateItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItemTemplateItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22635,27 +20199,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.sellInEvent === null || requestParameters.sellInEvent === undefined) {
             throw new runtime.RequiredError('sellInEvent','Required parameter requestParameters.sellInEvent was null or undefined when calling getInventoryItemsLOV.');
         }
-
+        
         if (requestParameters.sellInReservation === null || requestParameters.sellInReservation === undefined) {
             throw new runtime.RequiredError('sellInReservation','Required parameter requestParameters.sellInReservation was null or undefined when calling getInventoryItemsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22723,19 +20275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22803,19 +20343,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22883,23 +20411,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.itemId === null || requestParameters.itemId === undefined) {
             throw new runtime.RequiredError('itemId','Required parameter requestParameters.itemId was null or undefined when calling getItemPriceCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemPriceCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemPriceCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemPriceCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemPriceCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -22967,23 +20483,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.itemId === null || requestParameters.itemId === undefined) {
             throw new runtime.RequiredError('itemId','Required parameter requestParameters.itemId was null or undefined when calling getItemVendorLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemVendorLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemVendorLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemVendorLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemVendorLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23051,19 +20555,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getJobTitlesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getJobTitlesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getJobTitlesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getJobTitlesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23131,19 +20623,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getKeyOptionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getKeyOptionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getKeyOptionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getKeyOptionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23208,18 +20688,6 @@ export class LOVApi extends runtime.BaseAPI {
      * Return list of value names
      */
     async getLOVNamesRaw(requestParameters: GetLOVNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOfValueNames>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getLOVNames.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getLOVNames.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getLOVNames.');
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -23271,19 +20739,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getLicensesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getLicensesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getLicensesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getLicensesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23351,19 +20807,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling getListOfValues.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getListOfValues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getListOfValues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getListOfValues.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23431,19 +20875,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getLocatorQuickTextsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getLocatorQuickTextsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getLocatorQuickTextsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getLocatorQuickTextsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23511,19 +20943,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.sourceIdIn === null || requestParameters.sourceIdIn === undefined) {
             throw new runtime.RequiredError('sourceIdIn','Required parameter requestParameters.sourceIdIn was null or undefined when calling getMailGenericLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMailGenericLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMailGenericLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMailGenericLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23591,19 +21011,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getManagerReportDetailsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getManagerReportDetailsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getManagerReportDetailsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getManagerReportDetailsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23671,19 +21079,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getManagersReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getManagersReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getManagersReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getManagersReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23751,19 +21147,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMarketGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23831,19 +21215,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMarketSegmentLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketSegmentLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketSegmentLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketSegmentLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23911,19 +21283,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMasterBlockLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMasterBlockLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMasterBlockLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMasterBlockLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -23991,19 +21351,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipAwardFinTrxLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwardFinTrxLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwardFinTrxLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwardFinTrxLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24071,19 +21419,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipAwardProductsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwardProductsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwardProductsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwardProductsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24151,19 +21487,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipAwardRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwardRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwardRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwardRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24231,19 +21555,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipAwardUpgradeRoomGroupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwardUpgradeRoomGroupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwardUpgradeRoomGroupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwardUpgradeRoomGroupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24311,19 +21623,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipAwardUpgradeRoomLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwardUpgradeRoomLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwardUpgradeRoomLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwardUpgradeRoomLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24391,19 +21691,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getMembershipBenefitProgramLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipBenefitProgramLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipBenefitProgramLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipBenefitProgramLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24471,19 +21759,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getMembershipBenefitsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipBenefitsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipBenefitsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipBenefitsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24551,19 +21827,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipLevel === null || requestParameters.membershipLevel === undefined) {
             throw new runtime.RequiredError('membershipLevel','Required parameter requestParameters.membershipLevel was null or undefined when calling getMembershipCardFeeAmountLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipCardFeeAmountLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipCardFeeAmountLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipCardFeeAmountLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24631,23 +21895,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.loyalty === null || requestParameters.loyalty === undefined) {
             throw new runtime.RequiredError('loyalty','Required parameter requestParameters.loyalty was null or undefined when calling getMembershipClassTypesLOV.');
         }
-
+        
         if (requestParameters.airlines === null || requestParameters.airlines === undefined) {
             throw new runtime.RequiredError('airlines','Required parameter requestParameters.airlines was null or undefined when calling getMembershipClassTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipClassTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipClassTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipClassTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24715,23 +21967,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getMembershipMaxDowngradeLevelLOV.');
         }
-
+        
         if (requestParameters.membershipLevelRank === null || requestParameters.membershipLevelRank === undefined) {
             throw new runtime.RequiredError('membershipLevelRank','Required parameter requestParameters.membershipLevelRank was null or undefined when calling getMembershipMaxDowngradeLevelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipMaxDowngradeLevelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipMaxDowngradeLevelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipMaxDowngradeLevelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24799,19 +22039,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getMembershipPointsRuleCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipPointsRuleCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipPointsRuleCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipPointsRuleCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24879,27 +22107,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling getMembershipPromotionsLOV.');
         }
-
+        
         if (requestParameters.beginDate === null || requestParameters.beginDate === undefined) {
             throw new runtime.RequiredError('beginDate','Required parameter requestParameters.beginDate was null or undefined when calling getMembershipPromotionsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMembershipPromotionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipPromotionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipPromotionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipPromotionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -24967,19 +22183,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling getMembershipStatementBatchListLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipStatementBatchListLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipStatementBatchListLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipStatementBatchListLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25047,19 +22251,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
             throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling getMembershipTotalPointsAvailableLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTotalPointsAvailableLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTotalPointsAvailableLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTotalPointsAvailableLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25127,19 +22319,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getMembershipTransferPointsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTransferPointsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTransferPointsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTransferPointsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25207,19 +22387,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMenuClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMenuClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMenuClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMenuClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25287,19 +22455,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMenuItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMenuItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMenuItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMenuItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25367,19 +22523,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.menuClassId === null || requestParameters.menuClassId === undefined) {
             throw new runtime.RequiredError('menuClassId','Required parameter requestParameters.menuClassId was null or undefined when calling getMenuLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMenuLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMenuLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMenuLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25447,19 +22591,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getNegotiatedRateHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNegotiatedRateHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNegotiatedRateHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNegotiatedRateHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25527,23 +22659,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getNegotiatedRatesHotelsLOV.');
         }
-
+        
         if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
             throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling getNegotiatedRatesHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNegotiatedRatesHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNegotiatedRatesHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNegotiatedRatesHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25611,19 +22731,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.departmentType === null || requestParameters.departmentType === undefined) {
             throw new runtime.RequiredError('departmentType','Required parameter requestParameters.departmentType was null or undefined when calling getNoteTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNoteTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNoteTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNoteTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25691,19 +22799,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOSAActivityTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOSAActivityTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOSAActivityTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOSAActivityTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25771,19 +22867,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOXIInterfaceReferencesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOXIInterfaceReferencesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOXIInterfaceReferencesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOXIInterfaceReferencesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25851,19 +22935,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOXIInterfaceResortsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOXIInterfaceResortsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOXIInterfaceResortsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOXIInterfaceResortsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -25931,19 +23003,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOXIInterfacesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOXIInterfacesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOXIInterfacesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOXIInterfacesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26011,19 +23071,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.interfaceId === null || requestParameters.interfaceId === undefined) {
             throw new runtime.RequiredError('interfaceId','Required parameter requestParameters.interfaceId was null or undefined when calling getOXIResortsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOXIResortsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOXIResortsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOXIResortsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26091,27 +23139,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.actionTask === null || requestParameters.actionTask === undefined) {
             throw new runtime.RequiredError('actionTask','Required parameter requestParameters.actionTask was null or undefined when calling getOrganizationsLOV.');
         }
-
+        
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getOrganizationsLOV.');
         }
-
+        
         if (requestParameters.roles === null || requestParameters.roles === undefined) {
             throw new runtime.RequiredError('roles','Required parameter requestParameters.roles was null or undefined when calling getOrganizationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOrganizationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOrganizationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOrganizationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26179,19 +23215,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackForecastGroupCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackForecastGroupCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackForecastGroupCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackForecastGroupCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26259,23 +23283,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.arrangementCode === null || requestParameters.arrangementCode === undefined) {
             throw new runtime.RequiredError('arrangementCode','Required parameter requestParameters.arrangementCode was null or undefined when calling getPackageArrangementAssociationLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackageArrangementAssociationLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackageArrangementAssociationLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackageArrangementAssociationLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackageArrangementAssociationLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26343,23 +23355,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getParameterActiveUnderChainLOV.');
         }
-
+        
         if (requestParameters.parameter === null || requestParameters.parameter === undefined) {
             throw new runtime.RequiredError('parameter','Required parameter requestParameters.parameter was null or undefined when calling getParameterActiveUnderChainLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getParameterActiveUnderChainLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getParameterActiveUnderChainLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getParameterActiveUnderChainLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26427,19 +23427,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPaymentMethodsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPaymentMethodsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPaymentMethodsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26507,19 +23495,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPaymentTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPaymentTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPaymentTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPaymentTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26587,19 +23563,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPeriodSetupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPeriodSetupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPeriodSetupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPeriodSetupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26667,19 +23631,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPeriodsSetupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPeriodsSetupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPeriodsSetupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPeriodsSetupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26747,19 +23699,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.country === null || requestParameters.country === undefined) {
             throw new runtime.RequiredError('country','Required parameter requestParameters.country was null or undefined when calling getPostalCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostalCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostalCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostalCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26827,19 +23767,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostingRoomLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostingRoomLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostingRoomLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostingRoomLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26907,19 +23835,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostingTransactionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostingTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostingTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostingTransactionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -26987,23 +23903,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
             throw new runtime.RequiredError('preferenceGroup','Required parameter requestParameters.preferenceGroup was null or undefined when calling getPreferenceSubgroupsLOV.');
         }
-
+        
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getPreferenceSubgroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPreferenceSubgroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPreferenceSubgroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPreferenceSubgroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27071,19 +23975,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
             throw new runtime.RequiredError('preferenceGroup','Required parameter requestParameters.preferenceGroup was null or undefined when calling getPreferencesMultiHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPreferencesMultiHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPreferencesMultiHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPreferencesMultiHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27151,19 +24043,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPrepaidCardInterfacesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrepaidCardInterfacesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrepaidCardInterfacesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrepaidCardInterfacesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27231,19 +24111,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.alertPrinters === null || requestParameters.alertPrinters === undefined) {
             throw new runtime.RequiredError('alertPrinters','Required parameter requestParameters.alertPrinters was null or undefined when calling getPrintersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrintersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrintersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrintersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27311,19 +24179,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPrioritiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrioritiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrioritiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrioritiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27391,19 +24247,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileCommunicationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileCommunicationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileCommunicationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileCommunicationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27471,19 +24315,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.nameType === null || requestParameters.nameType === undefined) {
             throw new runtime.RequiredError('nameType','Required parameter requestParameters.nameType was null or undefined when calling getProfileEnrollmentMatchCriteriaLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileEnrollmentMatchCriteriaLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileEnrollmentMatchCriteriaLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileEnrollmentMatchCriteriaLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27551,19 +24383,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.nameType === null || requestParameters.nameType === undefined) {
             throw new runtime.RequiredError('nameType','Required parameter requestParameters.nameType was null or undefined when calling getProfileEnrollmentRuleDoNotMergeCriteriaLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileEnrollmentRuleDoNotMergeCriteriaLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileEnrollmentRuleDoNotMergeCriteriaLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileEnrollmentRuleDoNotMergeCriteriaLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27631,19 +24451,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.nameType === null || requestParameters.nameType === undefined) {
             throw new runtime.RequiredError('nameType','Required parameter requestParameters.nameType was null or undefined when calling getProfileEnrollmentRuleFilterCriteriaLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileEnrollmentRuleFilterCriteriaLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileEnrollmentRuleFilterCriteriaLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileEnrollmentRuleFilterCriteriaLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27711,23 +24519,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.taxTypeCheck === null || requestParameters.taxTypeCheck === undefined) {
             throw new runtime.RequiredError('taxTypeCheck','Required parameter requestParameters.taxTypeCheck was null or undefined when calling getProfileHotelsLOV.');
         }
-
+        
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileHotelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileHotelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileHotelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileHotelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27795,23 +24591,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
             throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileIdentificationsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getProfileIdentificationsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileIdentificationsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileIdentificationsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileIdentificationsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27879,19 +24663,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.operaParam === null || requestParameters.operaParam === undefined) {
             throw new runtime.RequiredError('operaParam','Required parameter requestParameters.operaParam was null or undefined when calling getProfileNameValidationsTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileNameValidationsTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileNameValidationsTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileNameValidationsTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -27959,19 +24731,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPromoGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPromoGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPromoGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPromoGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28039,23 +24799,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.promoCode === null || requestParameters.promoCode === undefined) {
             throw new runtime.RequiredError('promoCode','Required parameter requestParameters.promoCode was null or undefined when calling getPromoRatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPromoRatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPromoRatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPromoRatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPromoRatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28123,19 +24871,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPropertyAmenitiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPropertyAmenitiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPropertyAmenitiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPropertyAmenitiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28203,19 +24939,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.subscriber === null || requestParameters.subscriber === undefined) {
             throw new runtime.RequiredError('subscriber','Required parameter requestParameters.subscriber was null or undefined when calling getPublisherPropertiesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPublisherPropertiesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPublisherPropertiesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPublisherPropertiesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28283,19 +25007,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelCodeList === null || requestParameters.hotelCodeList === undefined) {
             throw new runtime.RequiredError('hotelCodeList','Required parameter requestParameters.hotelCodeList was null or undefined when calling getQueueNameLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getQueueNameLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getQueueNameLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getQueueNameLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28363,23 +25075,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.departmentId === null || requestParameters.departmentId === undefined) {
             throw new runtime.RequiredError('departmentId','Required parameter requestParameters.departmentId was null or undefined when calling getQuickTextsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getQuickTextsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getQuickTextsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getQuickTextsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getQuickTextsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28447,19 +25147,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCategoriesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCategoriesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCategoriesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCategoriesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28527,19 +25215,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCodeGlobalDescEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCodeGlobalDescEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCodeGlobalDescEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCodeGlobalDescEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28607,23 +25283,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.rateCodeType === null || requestParameters.rateCodeType === undefined) {
             throw new runtime.RequiredError('rateCodeType','Required parameter requestParameters.rateCodeType was null or undefined when calling getRateCodesByTypeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCodesByTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCodesByTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCodesByTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCodesByTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28691,19 +25355,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCodesValidLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCodesValidLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCodesValidLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCodesValidLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28771,19 +25423,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCommissionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCommissionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCommissionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCommissionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28851,19 +25491,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateConfigCurrenciesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateConfigCurrenciesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateConfigCurrenciesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateConfigCurrenciesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -28931,19 +25559,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29011,23 +25627,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.rateCodeType === null || requestParameters.rateCodeType === undefined) {
             throw new runtime.RequiredError('rateCodeType','Required parameter requestParameters.rateCodeType was null or undefined when calling getRatePlanForMassRateLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlanForMassRateLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlanForMassRateLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlanForMassRateLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlanForMassRateLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29095,23 +25699,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
             throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling getRatePlansForYieldAsConfigLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansForYieldAsConfigLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlansForYieldAsConfigLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansForYieldAsConfigLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansForYieldAsConfigLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29179,19 +25771,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29259,19 +25839,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepBlockCodesParamOffLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepBlockCodesParamOffLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepBlockCodesParamOffLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepBlockCodesParamOffLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29339,19 +25907,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepBlockCodesParamOnLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepBlockCodesParamOnLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepBlockCodesParamOnLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepBlockCodesParamOnLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29419,19 +25975,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.year === null || requestParameters.year === undefined) {
             throw new runtime.RequiredError('year','Required parameter requestParameters.year was null or undefined when calling getRepCalendarMonthsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepCalendarMonthsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepCalendarMonthsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepCalendarMonthsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29499,19 +26043,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.year === null || requestParameters.year === undefined) {
             throw new runtime.RequiredError('year','Required parameter requestParameters.year was null or undefined when calling getRepCalendarWeeksLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepCalendarWeeksLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepCalendarWeeksLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepCalendarWeeksLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29579,19 +26111,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.period === null || requestParameters.period === undefined) {
             throw new runtime.RequiredError('period','Required parameter requestParameters.period was null or undefined when calling getRepCalendarYearsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepCalendarYearsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepCalendarYearsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepCalendarYearsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29659,19 +26179,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepCashiersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepCashiersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepCashiersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepCashiersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29739,19 +26247,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepContactListLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepContactListLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepContactListLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepContactListLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29819,19 +26315,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepCurrenciesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepCurrenciesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepCurrenciesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepCurrenciesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29899,19 +26383,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepDepartmentsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepDepartmentsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepDepartmentsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepDepartmentsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -29979,23 +26451,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fiscalYearId === null || requestParameters.fiscalYearId === undefined) {
             throw new runtime.RequiredError('fiscalYearId','Required parameter requestParameters.fiscalYearId was null or undefined when calling getRepFiscalMonthsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepFiscalMonthsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepFiscalMonthsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepFiscalMonthsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepFiscalMonthsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30063,23 +26523,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fiscalYearId === null || requestParameters.fiscalYearId === undefined) {
             throw new runtime.RequiredError('fiscalYearId','Required parameter requestParameters.fiscalYearId was null or undefined when calling getRepFiscalWeeksLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepFiscalWeeksLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepFiscalWeeksLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepFiscalWeeksLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepFiscalWeeksLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30147,19 +26595,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepFiscalYearsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepFiscalYearsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepFiscalYearsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepFiscalYearsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30227,19 +26663,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepForeignCurrenciesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepForeignCurrenciesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepForeignCurrenciesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepForeignCurrenciesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30307,19 +26731,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.groupName === null || requestParameters.groupName === undefined) {
             throw new runtime.RequiredError('groupName','Required parameter requestParameters.groupName was null or undefined when calling getRepGroupReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepGroupReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepGroupReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepGroupReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30387,19 +26799,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30467,19 +26867,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepInventoryItemPoolsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepInventoryItemPoolsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepInventoryItemPoolsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepInventoryItemPoolsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30547,19 +26935,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepMarketCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepMarketCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepMarketCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepMarketCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30627,19 +27003,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelCodesList === null || requestParameters.hotelCodesList === undefined) {
             throw new runtime.RequiredError('hotelCodesList','Required parameter requestParameters.hotelCodesList was null or undefined when calling getRepOwnerCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepOwnerCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepOwnerCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepOwnerCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30707,19 +27071,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.propertyList === null || requestParameters.propertyList === undefined) {
             throw new runtime.RequiredError('propertyList','Required parameter requestParameters.propertyList was null or undefined when calling getRepRatePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRatePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRatePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRatePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30787,19 +27139,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepRoomStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRoomStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRoomStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRoomStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30867,19 +27207,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelCodeList === null || requestParameters.hotelCodeList === undefined) {
             throw new runtime.RequiredError('hotelCodeList','Required parameter requestParameters.hotelCodeList was null or undefined when calling getRepRoomTypeMultiHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRoomTypeMultiHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRoomTypeMultiHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRoomTypeMultiHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -30947,19 +27275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31027,19 +27343,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31107,27 +27411,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.toDate === null || requestParameters.toDate === undefined) {
             throw new runtime.RequiredError('toDate','Required parameter requestParameters.toDate was null or undefined when calling getRepRoomsStatLOV.');
         }
-
+        
         if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
             throw new runtime.RequiredError('fromDate','Required parameter requestParameters.fromDate was null or undefined when calling getRepRoomsStatLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepRoomsStatLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepRoomsStatLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepRoomsStatLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepRoomsStatLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31195,19 +27487,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepServiceRequestCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepServiceRequestCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepServiceRequestCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepServiceRequestCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31275,19 +27555,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepTransactionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepTransactionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31355,19 +27623,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRepTraveAgtCalendarYearLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRepTraveAgtCalendarYearLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRepTraveAgtCalendarYearLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRepTraveAgtCalendarYearLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31435,23 +27691,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.parameter === null || requestParameters.parameter === undefined) {
             throw new runtime.RequiredError('parameter','Required parameter requestParameters.parameter was null or undefined when calling getReportsGenericLOV.');
         }
-
+        
         if (requestParameters.moduleId === null || requestParameters.moduleId === undefined) {
             throw new runtime.RequiredError('moduleId','Required parameter requestParameters.moduleId was null or undefined when calling getReportsGenericLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReportsGenericLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReportsGenericLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReportsGenericLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31519,27 +27763,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
             throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling getResStatReportRateCodeLOV.');
         }
-
+        
         if (requestParameters.beginDate === null || requestParameters.beginDate === undefined) {
             throw new runtime.RequiredError('beginDate','Required parameter requestParameters.beginDate was null or undefined when calling getResStatReportRateCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResStatReportRateCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResStatReportRateCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResStatReportRateCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResStatReportRateCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31607,19 +27839,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationBasedBlocksLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationBasedBlocksLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationBasedBlocksLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationBasedBlocksLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31687,19 +27907,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationBasedProfilesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationBasedProfilesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationBasedProfilesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationBasedProfilesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31767,35 +27975,23 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.group === null || requestParameters.group === undefined) {
             throw new runtime.RequiredError('group','Required parameter requestParameters.group was null or undefined when calling getReservationPackagesGroupItemsLOV.');
         }
-
+        
         if (requestParameters.arrival === null || requestParameters.arrival === undefined) {
             throw new runtime.RequiredError('arrival','Required parameter requestParameters.arrival was null or undefined when calling getReservationPackagesGroupItemsLOV.');
         }
-
+        
         if (requestParameters.children === null || requestParameters.children === undefined) {
             throw new runtime.RequiredError('children','Required parameter requestParameters.children was null or undefined when calling getReservationPackagesGroupItemsLOV.');
         }
-
+        
         if (requestParameters.adults === null || requestParameters.adults === undefined) {
             throw new runtime.RequiredError('adults','Required parameter requestParameters.adults was null or undefined when calling getReservationPackagesGroupItemsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationPackagesGroupItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationPackagesGroupItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationPackagesGroupItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationPackagesGroupItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31863,35 +28059,23 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.departure === null || requestParameters.departure === undefined) {
             throw new runtime.RequiredError('departure','Required parameter requestParameters.departure was null or undefined when calling getReservationPackagesLOV.');
         }
-
+        
         if (requestParameters.arrival === null || requestParameters.arrival === undefined) {
             throw new runtime.RequiredError('arrival','Required parameter requestParameters.arrival was null or undefined when calling getReservationPackagesLOV.');
         }
-
+        
         if (requestParameters.children === null || requestParameters.children === undefined) {
             throw new runtime.RequiredError('children','Required parameter requestParameters.children was null or undefined when calling getReservationPackagesLOV.');
         }
-
+        
         if (requestParameters.adults === null || requestParameters.adults === undefined) {
             throw new runtime.RequiredError('adults','Required parameter requestParameters.adults was null or undefined when calling getReservationPackagesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationPackagesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationPackagesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationPackagesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationPackagesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -31959,19 +28143,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationPreferencesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationPreferencesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationPreferencesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationPreferencesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32039,19 +28211,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationStatusesHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationStatusesHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationStatusesHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationStatusesHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32119,27 +28279,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.departure === null || requestParameters.departure === undefined) {
             throw new runtime.RequiredError('departure','Required parameter requestParameters.departure was null or undefined when calling getReservationTicketsCodesLOV.');
         }
-
+        
         if (requestParameters.arrival === null || requestParameters.arrival === undefined) {
             throw new runtime.RequiredError('arrival','Required parameter requestParameters.arrival was null or undefined when calling getReservationTicketsCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationTicketsCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationTicketsCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationTicketsCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationTicketsCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32207,23 +28355,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.resvNameId === null || requestParameters.resvNameId === undefined) {
             throw new runtime.RequiredError('resvNameId','Required parameter requestParameters.resvNameId was null or undefined when calling getReservationTicketsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationTicketsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationTicketsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationTicketsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationTicketsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32291,19 +28427,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortAirportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortAirportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortAirportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortAirportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32371,19 +28495,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortCROsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortCROsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortCROsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortCROsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32451,19 +28563,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortGuaranteeCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortGuaranteeCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortGuaranteeCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortGuaranteeCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32531,27 +28631,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.sellInEvent === null || requestParameters.sellInEvent === undefined) {
             throw new runtime.RequiredError('sellInEvent','Required parameter requestParameters.sellInEvent was null or undefined when calling getResortInventoryItemsLOV.');
         }
-
+        
         if (requestParameters.sellInReservation === null || requestParameters.sellInReservation === undefined) {
             throw new runtime.RequiredError('sellInReservation','Required parameter requestParameters.sellInReservation was null or undefined when calling getResortInventoryItemsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortInventoryItemsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortInventoryItemsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortInventoryItemsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortInventoryItemsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32619,19 +28707,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortMarketCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortMarketCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortMarketCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortMarketCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32699,19 +28775,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortRateClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortRateClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortRateClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortRateClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32779,19 +28843,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortRestrictionStatusesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortRestrictionStatusesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortRestrictionStatusesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortRestrictionStatusesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32859,19 +28911,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortRoomNumbersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortRoomNumbersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortRoomNumbersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortRoomNumbersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -32939,19 +28979,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33019,19 +29047,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResortTransportationLabelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResortTransportationLabelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResortTransportationLabelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResortTransportationLabelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33099,19 +29115,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResourceItemClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResourceItemClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResourceItemClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResourceItemClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33179,19 +29183,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResvAutoAttachRulesCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResvAutoAttachRulesCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResvAutoAttachRulesCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResvAutoAttachRulesCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33259,19 +29251,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResvAutoAttachRulesRuleTypeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResvAutoAttachRulesRuleTypeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResvAutoAttachRulesRuleTypeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResvAutoAttachRulesRuleTypeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33339,19 +29319,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResvBasedProfilesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResvBasedProfilesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResvBasedProfilesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResvBasedProfilesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33419,23 +29387,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.resvNameId === null || requestParameters.resvNameId === undefined) {
             throw new runtime.RequiredError('resvNameId','Required parameter requestParameters.resvNameId was null or undefined when calling getResvTransactionDiversionCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResvTransactionDiversionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResvTransactionDiversionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResvTransactionDiversionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResvTransactionDiversionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33503,23 +29459,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bucketType === null || requestParameters.bucketType === undefined) {
             throw new runtime.RequiredError('bucketType','Required parameter requestParameters.bucketType was null or undefined when calling getRevenueBucketTrxCodesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueBucketTrxCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueBucketTrxCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueBucketTrxCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueBucketTrxCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33587,19 +29531,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.type === null || requestParameters.type === undefined) {
             throw new runtime.RequiredError('type','Required parameter requestParameters.type was null or undefined when calling getRevenueBucketsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueBucketsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueBucketsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueBucketsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33667,19 +29599,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueTypeMappingSpaceLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTypeMappingSpaceLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTypeMappingSpaceLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTypeMappingSpaceLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33747,19 +29667,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueTypeMappingTrxCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTypeMappingTrxCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTypeMappingTrxCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTypeMappingTrxCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33827,23 +29735,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.levelCode === null || requestParameters.levelCode === undefined) {
             throw new runtime.RequiredError('levelCode','Required parameter requestParameters.levelCode was null or undefined when calling getRolesForLevelLOV.');
         }
-
+        
         if (requestParameters.roleLevel === null || requestParameters.roleLevel === undefined) {
             throw new runtime.RequiredError('roleLevel','Required parameter requestParameters.roleLevel was null or undefined when calling getRolesForLevelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRolesForLevelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRolesForLevelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRolesForLevelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33911,19 +29807,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomClassCategoriesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomClassCategoriesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomClassCategoriesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomClassCategoriesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -33991,19 +29875,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelCodeList === null || requestParameters.hotelCodeList === undefined) {
             throw new runtime.RequiredError('hotelCodeList','Required parameter requestParameters.hotelCodeList was null or undefined when calling getRoomClassMultiPropertyLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomClassMultiPropertyLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomClassMultiPropertyLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomClassMultiPropertyLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34071,19 +29943,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34151,19 +30011,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomFeaturesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomFeaturesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomFeaturesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomFeaturesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34231,19 +30079,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.property === null || requestParameters.property === undefined) {
             throw new runtime.RequiredError('property','Required parameter requestParameters.property was null or undefined when calling getRoomHierarchyClassesCopyLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomHierarchyClassesCopyLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomHierarchyClassesCopyLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomHierarchyClassesCopyLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34311,19 +30147,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.property === null || requestParameters.property === undefined) {
             throw new runtime.RequiredError('property','Required parameter requestParameters.property was null or undefined when calling getRoomHierarchyRoomClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomHierarchyRoomClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomHierarchyRoomClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomHierarchyRoomClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34391,19 +30215,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.property === null || requestParameters.property === undefined) {
             throw new runtime.RequiredError('property','Required parameter requestParameters.property was null or undefined when calling getRoomHierarchyRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomHierarchyRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomHierarchyRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomHierarchyRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34471,19 +30283,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.property === null || requestParameters.property === undefined) {
             throw new runtime.RequiredError('property','Required parameter requestParameters.property was null or undefined when calling getRoomHierarchyTypesCopyLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomHierarchyTypesCopyLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomHierarchyTypesCopyLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomHierarchyTypesCopyLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34551,19 +30351,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomHoldConditionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomHoldConditionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomHoldConditionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomHoldConditionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34631,19 +30419,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomMaintenanceLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomMaintenanceLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomMaintenanceLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomMaintenanceLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34711,23 +30487,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomPool === null || requestParameters.roomPool === undefined) {
             throw new runtime.RequiredError('roomPool','Required parameter requestParameters.roomPool was null or undefined when calling getRoomPoolRoomTypesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomPoolRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomPoolRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomPoolRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomPoolRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34795,19 +30559,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomPoolsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomPoolsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomPoolsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomPoolsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34875,23 +30627,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.room === null || requestParameters.room === undefined) {
             throw new runtime.RequiredError('room','Required parameter requestParameters.room was null or undefined when calling getRoomRatesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomRatesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomRatesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRatesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRatesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -34959,19 +30699,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeDayUse === null || requestParameters.includeDayUse === undefined) {
             throw new runtime.RequiredError('includeDayUse','Required parameter requestParameters.includeDayUse was null or undefined when calling getRoomReservationStatusLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomReservationStatusLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomReservationStatusLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomReservationStatusLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35039,19 +30767,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomRevenueTrxCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomRevenueTrxCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRevenueTrxCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRevenueTrxCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35119,19 +30835,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomRotationGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomRotationGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRotationGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRotationGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35199,19 +30903,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomRotationUnitGradesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomRotationUnitGradesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRotationUnitGradesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRotationUnitGradesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35279,19 +30971,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomSpecialsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomSpecialsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomSpecialsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomSpecialsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35359,19 +31039,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomTypePoolLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomTypePoolLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomTypePoolLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomTypePoolLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35439,23 +31107,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.ratePlanCodes === null || requestParameters.ratePlanCodes === undefined) {
             throw new runtime.RequiredError('ratePlanCodes','Required parameter requestParameters.ratePlanCodes was null or undefined when calling getRoomTypesForMassRateLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomTypesForMassRateLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomTypesForMassRateLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomTypesForMassRateLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomTypesForMassRateLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35523,19 +31179,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35603,31 +31247,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.departure === null || requestParameters.departure === undefined) {
             throw new runtime.RequiredError('departure','Required parameter requestParameters.departure was null or undefined when calling getRoomingListHKRoomsLOV.');
         }
-
+        
         if (requestParameters.arrival === null || requestParameters.arrival === undefined) {
             throw new runtime.RequiredError('arrival','Required parameter requestParameters.arrival was null or undefined when calling getRoomingListHKRoomsLOV.');
         }
-
+        
         if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
             throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling getRoomingListHKRoomsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomingListHKRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomingListHKRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomingListHKRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomingListHKRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35695,19 +31327,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomsKeyGenerationLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomsKeyGenerationLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomsKeyGenerationLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomsKeyGenerationLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35775,19 +31395,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35855,19 +31463,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoutingInstructionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoutingInstructionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoutingInstructionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoutingInstructionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -35935,19 +31531,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSalesManagerGoalPeriodLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesManagerGoalPeriodLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesManagerGoalPeriodLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesManagerGoalPeriodLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36015,19 +31599,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getScheduledReportsExportLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getScheduledReportsExportLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getScheduledReportsExportLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getScheduledReportsExportLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36095,27 +31667,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.screenArea === null || requestParameters.screenArea === undefined) {
             throw new runtime.RequiredError('screenArea','Required parameter requestParameters.screenArea was null or undefined when calling getScreenCodesLOV.');
         }
-
+        
         if (requestParameters.screenType === null || requestParameters.screenType === undefined) {
             throw new runtime.RequiredError('screenType','Required parameter requestParameters.screenType was null or undefined when calling getScreenCodesLOV.');
         }
-
+        
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getScreenCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getScreenCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getScreenCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getScreenCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36183,23 +31743,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.screenCode === null || requestParameters.screenCode === undefined) {
             throw new runtime.RequiredError('screenCode','Required parameter requestParameters.screenCode was null or undefined when calling getScreenStyleCodesLOV.');
         }
-
+        
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getScreenStyleCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getScreenStyleCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getScreenStyleCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getScreenStyleCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36267,23 +31815,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.protocol === null || requestParameters.protocol === undefined) {
             throw new runtime.RequiredError('protocol','Required parameter requestParameters.protocol was null or undefined when calling getServiceNameLOV.');
         }
-
+        
         if (requestParameters.outboundType === null || requestParameters.outboundType === undefined) {
             throw new runtime.RequiredError('outboundType','Required parameter requestParameters.outboundType was null or undefined when calling getServiceNameLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceNameLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceNameLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceNameLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36351,19 +31887,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequestCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36431,19 +31955,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSetupStylesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSetupStylesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSetupStylesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSetupStylesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36511,19 +32023,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getShiftReportsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getShiftReportsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getShiftReportsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getShiftReportsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36591,19 +32091,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.shiftGroupId === null || requestParameters.shiftGroupId === undefined) {
             throw new runtime.RequiredError('shiftGroupId','Required parameter requestParameters.shiftGroupId was null or undefined when calling getShiftReportsNoParamLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getShiftReportsNoParamLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getShiftReportsNoParamLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getShiftReportsNoParamLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36671,23 +32159,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.sectionType === null || requestParameters.sectionType === undefined) {
             throw new runtime.RequiredError('sectionType','Required parameter requestParameters.sectionType was null or undefined when calling getSitePlanSectionTypeLinksLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSitePlanSectionTypeLinksLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSitePlanSectionTypeLinksLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSitePlanSectionTypeLinksLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSitePlanSectionTypeLinksLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36755,19 +32231,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.siteType === null || requestParameters.siteType === undefined) {
             throw new runtime.RequiredError('siteType','Required parameter requestParameters.siteType was null or undefined when calling getSitePlanSectionTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSitePlanSectionTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSitePlanSectionTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSitePlanSectionTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36835,23 +32299,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.siteType === null || requestParameters.siteType === undefined) {
             throw new runtime.RequiredError('siteType','Required parameter requestParameters.siteType was null or undefined when calling getSitePlansLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSitePlansLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSitePlansLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSitePlansLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSitePlansLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -36919,23 +32371,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getSourceGroupsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSourceGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSourceGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSourceGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSourceGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37003,19 +32443,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSpacesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSpacesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSpacesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSpacesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37083,19 +32511,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSpecialRequestsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSpecialRequestsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSpecialRequestsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSpecialRequestsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37163,19 +32579,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSpecialsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSpecialsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSpecialsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSpecialsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37243,23 +32647,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.criteria === null || requestParameters.criteria === undefined) {
             throw new runtime.RequiredError('criteria','Required parameter requestParameters.criteria was null or undefined when calling getStageProfilesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getStageProfilesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStageProfilesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStageProfilesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStageProfilesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37327,23 +32719,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.resortNameId === null || requestParameters.resortNameId === undefined) {
             throw new runtime.RequiredError('resortNameId','Required parameter requestParameters.resortNameId was null or undefined when calling getStagedProfilePreferencesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getStagedProfilePreferencesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStagedProfilePreferencesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStagedProfilePreferencesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStagedProfilePreferencesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37411,19 +32791,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.year === null || requestParameters.year === undefined) {
             throw new runtime.RequiredError('year','Required parameter requestParameters.year was null or undefined when calling getStatisticsYearsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStatisticsYearsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStatisticsYearsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStatisticsYearsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37491,19 +32859,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getStoredValueRedeemTrxLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStoredValueRedeemTrxLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStoredValueRedeemTrxLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStoredValueRedeemTrxLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37571,23 +32927,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.superBlock === null || requestParameters.superBlock === undefined) {
             throw new runtime.RequiredError('superBlock','Required parameter requestParameters.superBlock was null or undefined when calling getSubBlockLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSubBlockLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSubBlockLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSubBlockLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSubBlockLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37655,19 +32999,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSummaryRefreshLogLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSummaryRefreshLogLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSummaryRefreshLogLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSummaryRefreshLogLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37735,19 +33067,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSynchronizeRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSynchronizeRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSynchronizeRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSynchronizeRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37815,23 +33135,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
             throw new runtime.RequiredError('fromDate','Required parameter requestParameters.fromDate was null or undefined when calling getTaskBreakOutLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaskBreakOutLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskBreakOutLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskBreakOutLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskBreakOutLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37899,19 +33207,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.levelCode === null || requestParameters.levelCode === undefined) {
             throw new runtime.RequiredError('levelCode','Required parameter requestParameters.levelCode was null or undefined when calling getTaskSheetDeptLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetDeptLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetDeptLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetDeptLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -37979,19 +33275,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.breakOutId === null || requestParameters.breakOutId === undefined) {
             throw new runtime.RequiredError('breakOutId','Required parameter requestParameters.breakOutId was null or undefined when calling getTaskSheetLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38059,27 +33343,15 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.taskSheetNo === null || requestParameters.taskSheetNo === undefined) {
             throw new runtime.RequiredError('taskSheetNo','Required parameter requestParameters.taskSheetNo was null or undefined when calling getTaskSheetRoomsLOV.');
         }
-
+        
         if (requestParameters.taskCode === null || requestParameters.taskCode === undefined) {
             throw new runtime.RequiredError('taskCode','Required parameter requestParameters.taskCode was null or undefined when calling getTaskSheetRoomsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaskSheetRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38147,23 +33419,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.taxCode === null || requestParameters.taxCode === undefined) {
             throw new runtime.RequiredError('taxCode','Required parameter requestParameters.taxCode was null or undefined when calling getTaxTransactionCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaxTransactionCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaxTransactionCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaxTransactionCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaxTransactionCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38231,19 +33491,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaxTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaxTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaxTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaxTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38311,19 +33559,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTelephoneCategoryLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTelephoneCategoryLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTelephoneCategoryLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTelephoneCategoryLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38391,19 +33627,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.bookingChannelCode === null || requestParameters.bookingChannelCode === undefined) {
             throw new runtime.RequiredError('bookingChannelCode','Required parameter requestParameters.bookingChannelCode was null or undefined when calling getTemplateBookingChannelRoomTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateBookingChannelRoomTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateBookingChannelRoomTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateBookingChannelRoomTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38471,19 +33695,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.templateCode === null || requestParameters.templateCode === undefined) {
             throw new runtime.RequiredError('templateCode','Required parameter requestParameters.templateCode was null or undefined when calling getTemplateFiscalFolioParametersLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateFiscalFolioParametersLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateFiscalFolioParametersLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateFiscalFolioParametersLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38551,19 +33763,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplateMarketCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38631,19 +33831,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplateMarketGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38711,19 +33899,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.policyType === null || requestParameters.policyType === undefined) {
             throw new runtime.RequiredError('policyType','Required parameter requestParameters.policyType was null or undefined when calling getTemplatePolicyCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplatePolicyCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplatePolicyCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplatePolicyCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38791,19 +33967,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeGlobals === null || requestParameters.includeGlobals === undefined) {
             throw new runtime.RequiredError('includeGlobals','Required parameter requestParameters.includeGlobals was null or undefined when calling getTemplatePreferencesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplatePreferencesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplatePreferencesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplatePreferencesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38871,19 +34035,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplateRoomClassesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateRoomClassesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateRoomClassesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateRoomClassesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -38951,19 +34103,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplateSourceCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39031,19 +34171,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
             throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplateSourceGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39111,19 +34239,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fetchOnlyUniqueValues === null || requestParameters.fetchOnlyUniqueValues === undefined) {
             throw new runtime.RequiredError('fetchOnlyUniqueValues','Required parameter requestParameters.fetchOnlyUniqueValues was null or undefined when calling getTemplateTransactionSubgroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateTransactionSubgroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateTransactionSubgroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateTransactionSubgroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39191,31 +34307,19 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roomCategory === null || requestParameters.roomCategory === undefined) {
             throw new runtime.RequiredError('roomCategory','Required parameter requestParameters.roomCategory was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
         }
-
+        
         if (requestParameters.arrivalDate === null || requestParameters.arrivalDate === undefined) {
             throw new runtime.RequiredError('arrivalDate','Required parameter requestParameters.arrivalDate was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
         }
-
+        
         if (requestParameters.nights === null || requestParameters.nights === undefined) {
             throw new runtime.RequiredError('nights','Required parameter requestParameters.nights was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTestUpsellRulesRateCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39283,19 +34387,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.country === null || requestParameters.country === undefined) {
             throw new runtime.RequiredError('country','Required parameter requestParameters.country was null or undefined when calling getToPostalCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getToPostalCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getToPostalCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getToPostalCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39363,19 +34455,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.view === null || requestParameters.view === undefined) {
             throw new runtime.RequiredError('view','Required parameter requestParameters.view was null or undefined when calling getTraceDateCalcLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTraceDateCalcLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTraceDateCalcLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTraceDateCalcLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39443,19 +34523,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.view === null || requestParameters.view === undefined) {
             throw new runtime.RequiredError('view','Required parameter requestParameters.view was null or undefined when calling getTraceFieldLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTraceFieldLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTraceFieldLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTraceFieldLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39523,19 +34591,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionAdjustmentReasonCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionAdjustmentReasonCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionAdjustmentReasonCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionAdjustmentReasonCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39603,19 +34659,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCodesConsumptionLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodesConsumptionLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodesConsumptionLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodesConsumptionLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39683,19 +34727,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39763,19 +34795,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCodesPaymentLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodesPaymentLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodesPaymentLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodesPaymentLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39843,19 +34863,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionDeleteReasonCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionDeleteReasonCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionDeleteReasonCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionDeleteReasonCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -39923,19 +34931,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionDiversionRuleRoomsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionDiversionRuleRoomsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionDiversionRuleRoomsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionDiversionRuleRoomsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40003,19 +34999,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40083,19 +35067,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionSubgroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionSubgroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionSubgroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionSubgroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40163,19 +35135,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransportTypesHotelLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransportTypesHotelLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransportTypesHotelLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransportTypesHotelLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40243,19 +35203,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransportTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransportTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransportTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransportTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40323,19 +35271,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTravelAgentSourceLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTravelAgentSourceLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTravelAgentSourceLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTravelAgentSourceLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40403,19 +35339,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTravelAgentSourceResvLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTravelAgentSourceResvLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTravelAgentSourceResvLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTravelAgentSourceResvLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40483,19 +35407,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.type === null || requestParameters.type === undefined) {
             throw new runtime.RequiredError('type','Required parameter requestParameters.type was null or undefined when calling getTrxCodeArrangementLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrxCodeArrangementLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrxCodeArrangementLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrxCodeArrangementLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40563,19 +35475,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTurnawayCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTurnawayCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTurnawayCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTurnawayCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40643,19 +35543,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.moduleName === null || requestParameters.moduleName === undefined) {
             throw new runtime.RequiredError('moduleName','Required parameter requestParameters.moduleName was null or undefined when calling getUDFMappingsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUDFMappingsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUDFMappingsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUDFMappingsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40723,23 +35611,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.udfCategory === null || requestParameters.udfCategory === undefined) {
             throw new runtime.RequiredError('udfCategory','Required parameter requestParameters.udfCategory was null or undefined when calling getUdfAttributesLOV.');
         }
-
+        
         if (requestParameters.udfType === null || requestParameters.udfType === undefined) {
             throw new runtime.RequiredError('udfType','Required parameter requestParameters.udfType was null or undefined when calling getUdfAttributesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUdfAttributesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUdfAttributesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUdfAttributesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40807,19 +35683,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellDefaultTrxCodeLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellDefaultTrxCodeLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellDefaultTrxCodeLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellDefaultTrxCodeLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40887,19 +35751,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellFromRoomClassEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellFromRoomClassEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellFromRoomClassEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellFromRoomClassEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -40967,19 +35819,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellFromRoomTypeEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellFromRoomTypeEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellFromRoomTypeEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellFromRoomTypeEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41047,19 +35887,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellHierarchyLevelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellHierarchyLevelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellHierarchyLevelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellHierarchyLevelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41127,19 +35955,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
             throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling getUpsellMembershipLevelsOnlyLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellMembershipLevelsOnlyLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellMembershipLevelsOnlyLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellMembershipLevelsOnlyLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41207,23 +36023,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.includeBlank === null || requestParameters.includeBlank === undefined) {
             throw new runtime.RequiredError('includeBlank','Required parameter requestParameters.includeBlank was null or undefined when calling getUpsellOccupancyLevelsLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellOccupancyLevelsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellOccupancyLevelsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellOccupancyLevelsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellOccupancyLevelsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41291,19 +36095,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellRateCategoriesEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellRateCategoriesEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellRateCategoriesEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellRateCategoriesEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41371,19 +36163,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellRateCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellRateCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellRateCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellRateCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41451,19 +36231,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellRoomClassViewLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellRoomClassViewLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellRoomClassViewLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellRoomClassViewLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41531,19 +36299,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellRoomTypeViewLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellRoomTypeViewLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellRoomTypeViewLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellRoomTypeViewLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41611,19 +36367,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellRuleLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellRuleLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellRuleLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellRuleLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41691,23 +36435,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fromRoomClass === null || requestParameters.fromRoomClass === undefined) {
             throw new runtime.RequiredError('fromRoomClass','Required parameter requestParameters.fromRoomClass was null or undefined when calling getUpsellToRoomClassEditLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellToRoomClassEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellToRoomClassEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellToRoomClassEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellToRoomClassEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41775,23 +36507,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.fromRoomTypeLabel === null || requestParameters.fromRoomTypeLabel === undefined) {
             throw new runtime.RequiredError('fromRoomTypeLabel','Required parameter requestParameters.fromRoomTypeLabel was null or undefined when calling getUpsellToRoomTypeEditLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellToRoomTypeEditLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellToRoomTypeEditLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellToRoomTypeEditLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellToRoomTypeEditLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41859,19 +36579,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUpsellTrxCodesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUpsellTrxCodesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUpsellTrxCodesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUpsellTrxCodesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -41939,23 +36647,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.category === null || requestParameters.category === undefined) {
             throw new runtime.RequiredError('category','Required parameter requestParameters.category was null or undefined when calling getUserDbFunctionArgsLOV.');
         }
-
+        
         if (requestParameters.functionName === null || requestParameters.functionName === undefined) {
             throw new runtime.RequiredError('functionName','Required parameter requestParameters.functionName was null or undefined when calling getUserDbFunctionArgsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserDbFunctionArgsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserDbFunctionArgsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserDbFunctionArgsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42023,19 +36719,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.category === null || requestParameters.category === undefined) {
             throw new runtime.RequiredError('category','Required parameter requestParameters.category was null or undefined when calling getUserDbFunctionsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserDbFunctionsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserDbFunctionsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserDbFunctionsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42103,19 +36787,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUserLogActivityGroupsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserLogActivityGroupsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserLogActivityGroupsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserLogActivityGroupsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42183,23 +36855,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.activityGroup === null || requestParameters.activityGroup === undefined) {
             throw new runtime.RequiredError('activityGroup','Required parameter requestParameters.activityGroup was null or undefined when calling getUserLogActivityTypesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUserLogActivityTypesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserLogActivityTypesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserLogActivityTypesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserLogActivityTypesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42267,23 +36927,11 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.roleWithDepartment === null || requestParameters.roleWithDepartment === undefined) {
             throw new runtime.RequiredError('roleWithDepartment','Required parameter requestParameters.roleWithDepartment was null or undefined when calling getUserRolesLOV.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUserRolesLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserRolesLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserRolesLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserRolesLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42351,19 +36999,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getYearSetupLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getYearSetupLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getYearSetupLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getYearSetupLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42431,19 +37067,7 @@ export class LOVApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getYieldMarketsLOV.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getYieldMarketsLOV.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getYieldMarketsLOV.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getYieldMarketsLOV.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.includeInactiveFlag !== undefined) {
@@ -42508,18 +37132,6 @@ export class LOVApi extends runtime.BaseAPI {
      * Ping list of values service version
      */
     async pingLOVServiceRaw(requestParameters: PingLOVServiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OperaVersion>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling pingLOVService.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling pingLOVService.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling pingLOVService.');
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -42568,22 +37180,10 @@ export class LOVApi extends runtime.BaseAPI {
      * Validate list of values
      */
     async validateListOfValuesRaw(requestParameters: ValidateListOfValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateListOfValuesDetails>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateListOfValues.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateListOfValues.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateListOfValues.');
-        }
-
         if (requestParameters.validateListOfValues === null || requestParameters.validateListOfValues === undefined) {
             throw new runtime.RequiredError('validateListOfValues','Required parameter requestParameters.validateListOfValues was null or undefined when calling validateListOfValues.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

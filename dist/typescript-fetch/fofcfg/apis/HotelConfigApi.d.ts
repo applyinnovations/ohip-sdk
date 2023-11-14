@@ -12,64 +12,64 @@
 import * as runtime from '../runtime';
 import type { CopyTrackItActions, CopyTrackItLocations, CopyTrackItTypes, Status, TrackItActionsCriteria, TrackItActionsDetails, TrackItActionsToBeChanged, TrackItLocationsCriteria, TrackItLocationsDetails, TrackItLocationsToBeChanged, TrackItTypesCriteria, TrackItTypesDetails, TrackItTypesToBeChanged } from '../models/index';
 export interface ChangeTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
+    actionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItActionsToBeChanged?: TrackItActionsToBeChanged;
+    trackItActionsToBeChanged: TrackItActionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
+    locationCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItLocationsToBeChanged?: TrackItLocationsToBeChanged;
+    trackItLocationsToBeChanged: TrackItLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
+    typeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItTypesToBeChanged?: TrackItTypesToBeChanged;
+    trackItTypesToBeChanged: TrackItTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyTrackItActionsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItActions?: CopyTrackItActions;
+    copyTrackItActions: CopyTrackItActions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyTrackItLocationsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItLocations?: CopyTrackItLocations;
+    copyTrackItLocations: CopyTrackItLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyTrackItTypesRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyTrackItTypes?: CopyTrackItTypes;
+    copyTrackItTypes: CopyTrackItTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTrackItActionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -81,7 +81,7 @@ export interface GetTrackItActionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -93,7 +93,7 @@ export interface GetTrackItLocationsRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -105,35 +105,35 @@ export interface GetTrackItTypesRequest {
     acceptLanguage?: string;
 }
 export interface PostTrackItActionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItActionsCriteria?: TrackItActionsCriteria;
+    trackItActionsCriteria: TrackItActionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTrackItLocationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItLocationsCriteria?: TrackItLocationsCriteria;
+    trackItLocationsCriteria: TrackItLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTrackItTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItTypesCriteria?: TrackItTypesCriteria;
+    trackItTypesCriteria: TrackItTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
+    actionCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -141,8 +141,8 @@ export interface RemoveTrackItActionsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
+    locationCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -150,8 +150,8 @@ export interface RemoveTrackItLocationsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
+    typeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { ApplicationSecureSetting, AuthorizationRule, CardReaderDelimiters, CreditCardInfo, CreditCardReaderDevices, CreditCardTypeValidationStatus, CreditCardUniqueId, CreditCardUniqueIdRQ, DecodedCard, HotelInterfaceDetail, PrepaidCardBalanceDetails, PrepaidCardDetails, PrepaidCards, Status } from '../models/index';
 export interface DecodeCardRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -45,7 +45,7 @@ export interface GetCardReaderDelimitersRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,13 +72,13 @@ export interface GetCreditCardUniqueIdRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditCardUniqueIdRQ?: CreditCardUniqueIdRQ;
+    creditCardUniqueIdRQ: CreditCardUniqueIdRQ;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceCustomDataRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
+    interfaceLogoId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -87,8 +87,8 @@ export interface GetHotelInterfaceCustomDataRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardRequest {
-    hotelId?: string;
-    cardNumber?: string;
+    hotelId: string;
+    cardNumber: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -101,8 +101,8 @@ export interface GetPrepaidCardRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardBalanceRequest {
-    hotelId?: string;
-    cardNumber?: string;
+    hotelId: string;
+    cardNumber: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -115,7 +115,7 @@ export interface GetPrepaidCardBalanceRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -135,17 +135,17 @@ export interface PutSecureApplicationSettingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    applicationSecureSetting?: ApplicationSecureSetting;
+    applicationSecureSetting: ApplicationSecureSetting;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UpdateInterfaceCustomDataRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
+    interfaceLogoId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelInterfaceDetail?: HotelInterfaceDetail;
+    hotelInterfaceDetail: HotelInterfaceDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

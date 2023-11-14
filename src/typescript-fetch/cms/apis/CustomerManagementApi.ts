@@ -38,8 +38,8 @@ import {
 } from '../models/index';
 
 export interface DeleteCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
+    activityId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,8 +48,8 @@ export interface DeleteCalendarTaskRequest {
 }
 
 export interface DeleteCalendarTaskAttachmentRequest {
-    linkedToId?: string;
-    attachId?: string;
+    linkedToId: string;
+    attachId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -58,7 +58,7 @@ export interface DeleteCalendarTaskAttachmentRequest {
 }
 
 export interface DeleteTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -70,7 +70,7 @@ export interface DeleteTrackItItemsRequest {
 }
 
 export interface GetCalendarTaskRequest {
-    activityId?: string;
+    activityId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -81,8 +81,8 @@ export interface GetCalendarTaskRequest {
 }
 
 export interface GetCalendarTaskAttachmentsRequest {
-    taskId?: string;
-    hotelId?: string;
+    taskId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -123,7 +123,7 @@ export interface GetCalendarTasksRequest {
 }
 
 export interface GetTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -154,42 +154,42 @@ export interface GetTrackItItemsRequest {
 }
 
 export interface PostCalendarTaskRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calendarTask?: CalendarTask;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItItems?: TrackItItems;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
+    activityId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    calendarTask?: CalendarTask;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTrackItItemsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    trackItItems?: TrackItItems;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -207,23 +207,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
             throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling deleteCalendarTask.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCalendarTask.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTask.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTask.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTask.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -275,23 +263,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.linkedToId === null || requestParameters.linkedToId === undefined) {
             throw new runtime.RequiredError('linkedToId','Required parameter requestParameters.linkedToId was null or undefined when calling deleteCalendarTaskAttachment.');
         }
-
+        
         if (requestParameters.attachId === null || requestParameters.attachId === undefined) {
             throw new runtime.RequiredError('attachId','Required parameter requestParameters.attachId was null or undefined when calling deleteCalendarTaskAttachment.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTaskAttachment.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTaskAttachment.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTaskAttachment.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.linkedToId !== undefined) {
@@ -351,19 +327,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTrackItItems.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTrackItItems.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTrackItItems.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTrackItItems.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.trackItId) {
@@ -427,19 +391,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
             throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling getCalendarTask.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTask.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTask.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTask.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -499,23 +451,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.taskId === null || requestParameters.taskId === undefined) {
             throw new runtime.RequiredError('taskId','Required parameter requestParameters.taskId was null or undefined when calling getCalendarTaskAttachments.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCalendarTaskAttachments.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTaskAttachments.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTaskAttachments.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTaskAttachments.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -572,18 +512,6 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Get Calendar Tasks
      */
     async getCalendarTasksRaw(requestParameters: GetCalendarTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalendarTasks>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTasks.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTasks.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTasks.');
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters.countSummary !== undefined) {
@@ -723,19 +651,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItItems.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItItems.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItItems.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItItems.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.ticketId !== undefined) {
@@ -875,23 +791,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCalendarTask.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCalendarTask.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCalendarTask.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCalendarTask.');
-        }
-
+        
         if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
             throw new runtime.RequiredError('calendarTask','Required parameter requestParameters.calendarTask was null or undefined when calling postCalendarTask.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -946,23 +850,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItItems.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItItems.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItItems.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItItems.');
-        }
-
+        
         if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
             throw new runtime.RequiredError('trackItItems','Required parameter requestParameters.trackItItems was null or undefined when calling postTrackItItems.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1017,27 +909,15 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
             throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling putCalendarTask.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCalendarTask.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCalendarTask.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCalendarTask.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCalendarTask.');
-        }
-
+        
         if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
             throw new runtime.RequiredError('calendarTask','Required parameter requestParameters.calendarTask was null or undefined when calling putCalendarTask.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1092,23 +972,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTrackItItems.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTrackItItems.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTrackItItems.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTrackItItems.');
-        }
-
+        
         if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
             throw new runtime.RequiredError('trackItItems','Required parameter requestParameters.trackItItems was null or undefined when calling putTrackItItems.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { DisplaySetsCriteria, DisplaySetsDetails, DisplaySetsToBeChanged, Status } from '../models/index';
 export interface DeleteDisplaySetsRequest {
-    displaySetsId?: string;
+    displaySetsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -34,16 +34,16 @@ export interface PostDisplaySetsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    displaySetsCriteria?: DisplaySetsCriteria;
+    displaySetsCriteria: DisplaySetsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutDisplaySetsRequest {
-    displaySetsId?: string;
+    displaySetsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    displaySetsToBeChanged?: DisplaySetsToBeChanged;
+    displaySetsToBeChanged: DisplaySetsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

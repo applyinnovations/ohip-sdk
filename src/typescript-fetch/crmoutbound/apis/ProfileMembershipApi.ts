@@ -32,8 +32,8 @@ import {
 } from '../models/index';
 
 export interface GetMembershipDetailsRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
+    extSystemCode: string;
+    externalProfileId: string;
     authorization?: string;
     xAppKey?: string;
     operaProfileId?: Array<string>;
@@ -48,21 +48,21 @@ export interface GetMembershipDetailsRequest {
 }
 
 export interface PostEnrollmentRequest {
-    extSystemCode?: string;
-    chainCode?: string;
+    extSystemCode: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
-    enrollment?: Enrollment;
+    enrollment: Enrollment;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 
 export interface RedeemAwardRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
+    extSystemCode: string;
+    externalProfileId: string;
     authorization?: string;
     xAppKey?: string;
-    award?: Award;
+    award: Award;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
@@ -80,19 +80,11 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getMembershipDetails.');
         }
-
+        
         if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
             throw new runtime.RequiredError('externalProfileId','Required parameter requestParameters.externalProfileId was null or undefined when calling getMembershipDetails.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipDetails.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipDetails.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.operaProfileId) {
@@ -168,23 +160,15 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling postEnrollment.');
         }
-
+        
         if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
             throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling postEnrollment.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postEnrollment.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postEnrollment.');
-        }
-
+        
         if (requestParameters.enrollment === null || requestParameters.enrollment === undefined) {
             throw new runtime.RequiredError('enrollment','Required parameter requestParameters.enrollment was null or undefined when calling postEnrollment.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -235,23 +219,15 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling redeemAward.');
         }
-
+        
         if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
             throw new runtime.RequiredError('externalProfileId','Required parameter requestParameters.externalProfileId was null or undefined when calling redeemAward.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling redeemAward.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling redeemAward.');
-        }
-
+        
         if (requestParameters.award === null || requestParameters.award === undefined) {
             throw new runtime.RequiredError('award','Required parameter requestParameters.award was null or undefined when calling redeemAward.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

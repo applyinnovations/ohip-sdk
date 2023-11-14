@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { AvailableARAddresses, AvailablePreferences } from '../models/index';
 export interface GetAvailableARAddressesRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -25,7 +25,7 @@ export interface GetAvailableARAddressesRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailablePreferencesRequest {
-    id?: string;
+    id: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

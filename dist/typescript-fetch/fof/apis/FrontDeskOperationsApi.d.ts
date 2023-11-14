@@ -12,35 +12,35 @@
 import * as runtime from '../runtime';
 import type { ActivityLog, AdvanceCheckInReservation, AiraLastRunStatusInfo, AssignedRoom, AutoAssignRoom, AutoAssignedRoom, BatchCCAuth, BatchCCAuthToProcess, ChangedWakeUpCalls, CheckedinReservation, DailyDocket, DeliverQueueRoomsTextMessage, FloorPlans, HoldRooms, HotelRooms, LinkedReservations, MassAdvanceCheckInReservations, MassCheckInReservations, MoveInHouseGuest, MovedInHouseGuest, PostCheckInRequest, QueueReservation, QueueRoomsTextMessage, QueuedRoomsTextMessage, ReservationInterface, ReservationQueuePriority, ReservationQueuePriorityNumber, ReservationsInQueue, ReservationsInfo, ResvForBatchCCAut, Room, RoomInterfaceStatus, RoomKey, RoomKeyDetails, RoomKeyInfo, RoomKeyInterfaceDetails, RoomKeyMultipleGuests, RoomKeyStatus, RoomMoveHistory, RoomsAI, ServiceRequestsInfo, ShiftRooms, ShortReservation, Status, SuggestedRooms, SwapRooms, UnAssignRoomCriteria, UnAssignedRoom, UpdateRoomKeys, VerifiedCheckinReservation, WakeUpCalls } from '../models/index';
 export interface AddReservationToQueueRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    queueReservation?: QueueReservation;
+    queueReservation: QueueReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AssignRoomsAIRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomsAI?: RoomsAI;
+    roomsAI: RoomsAI;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AutoAssignRoomRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoAssignRoom?: AutoAssignRoom;
+    autoAssignRoom: AutoAssignRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AutoUnAssignRoomRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -85,8 +85,8 @@ export interface AutoUnAssignRoomRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAdvanceCheckInRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -94,18 +94,18 @@ export interface DeleteAdvanceCheckInRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAssignRoomRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    unAssignRoomCriteria?: UnAssignRoomCriteria;
+    unAssignRoomCriteria: UnAssignRoomCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCheckinRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -115,8 +115,8 @@ export interface DeleteCheckinRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDailyDocketRequest {
-    docketId?: string;
-    hotelId?: string;
+    docketId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -124,8 +124,8 @@ export interface DeleteDailyDocketRequest {
     acceptLanguage?: string;
 }
 export interface DeleteReservationFromQueueRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -133,8 +133,8 @@ export interface DeleteReservationFromQueueRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomKeyRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -142,8 +142,8 @@ export interface DeleteRoomKeyRequest {
     acceptLanguage?: string;
 }
 export interface DeleteServiceRequestsRequest {
-    serviceRequestId?: string;
-    hotelId?: string;
+    serviceRequestId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -151,8 +151,8 @@ export interface DeleteServiceRequestsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -165,18 +165,18 @@ export interface DeleteWakeUpCallRequest {
     acceptLanguage?: string;
 }
 export interface DeliverQueueRoomsTextMessageRequest {
-    messageType?: string;
-    reservationId?: string;
-    hotelId?: string;
+    messageType: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    deliverQueueRoomsTextMessage?: DeliverQueueRoomsTextMessage;
+    deliverQueueRoomsTextMessage: DeliverQueueRoomsTextMessage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface FetchAiraLastRunStatusRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -184,7 +184,7 @@ export interface FetchAiraLastRunStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetDailyDocketRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -194,7 +194,7 @@ export interface GetDailyDocketRequest {
     acceptLanguage?: string;
 }
 export interface GetFloorPlansRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -203,7 +203,7 @@ export interface GetFloorPlansRequest {
     acceptLanguage?: string;
 }
 export interface GetFulfillmentActivityLogRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -223,7 +223,7 @@ export interface GetFulfillmentActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRoomsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -270,8 +270,8 @@ export interface GetHotelRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -282,8 +282,8 @@ export interface GetLinkedReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetQueueRoomsTextMessageRequest {
-    messageType?: string;
-    hotelId?: string;
+    messageType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -295,7 +295,7 @@ export interface GetQueueRoomsTextMessageRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationSummariesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -348,7 +348,7 @@ export interface GetReservationSummariesRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsForBillingRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -407,7 +407,7 @@ export interface GetReservationsForBillingRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsInQueueRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -419,7 +419,7 @@ export interface GetReservationsInQueueRequest {
     acceptLanguage?: string;
 }
 export interface GetResvForBatchCCAuthRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -431,8 +431,8 @@ export interface GetResvForBatchCCAuthRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomInterfaceStatusRequest {
-    interfaceId?: string;
-    hotelId?: string;
+    interfaceId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -474,7 +474,7 @@ export interface GetRoomInterfaceStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomKeyInterfaceDetailsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -483,8 +483,8 @@ export interface GetRoomKeyInterfaceDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -492,8 +492,8 @@ export interface GetRoomKeysRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomMoveHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -503,7 +503,7 @@ export interface GetRoomMoveHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -527,8 +527,8 @@ export interface GetServiceRequestsRequest {
     acceptLanguage?: string;
 }
 export interface GetSuggestedRoomsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -540,8 +540,8 @@ export interface GetSuggestedRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -563,180 +563,180 @@ export interface GetWakeUpCallRequest {
     acceptLanguage?: string;
 }
 export interface MoveInHouseGuestRequest {
-    roomId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    roomId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    moveInHouseGuest?: MoveInHouseGuest;
+    moveInHouseGuest: MoveInHouseGuest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PlaceRoomsOnHoldRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdRooms?: HoldRooms;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAdvanceCheckInRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    advanceCheckInReservation?: AdvanceCheckInReservation;
+    advanceCheckInReservation: AdvanceCheckInReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCheckInOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservation?: PostCheckInRequest;
+    reservation: PostCheckInRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDailyDocketRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dailyDocket?: DailyDocket;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMassAdvanceCheckInRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    massAdvanceCheckInReservations?: MassAdvanceCheckInReservations;
+    massAdvanceCheckInReservations: MassAdvanceCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMassCheckInRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    massCheckInReservations?: MassCheckInReservations;
+    massCheckInReservations: MassCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomAssignmentRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    room?: Room;
+    room: Room;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomKeyRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomKey?: RoomKey;
+    roomKey: RoomKey;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostServiceRequestsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    serviceRequestsInfo?: ServiceRequestsInfo;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    wakeUpCalls?: WakeUpCalls;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ProcessBatchCCAuthRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchCCAuth?: BatchCCAuth;
+    batchCCAuth: BatchCCAuth;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutDailyDocketRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dailyDocket?: DailyDocket;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationQueuePriorityRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationQueuePriorityNumber?: ReservationQueuePriorityNumber;
+    reservationQueuePriorityNumber: ReservationQueuePriorityNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomInterfaceStatusRequest {
-    interfaceId?: string;
-    hotelId?: string;
+    interfaceId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationInterface?: ReservationInterface;
+    reservationInterface: ReservationInterface;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomKeys?: RoomKeyMultipleGuests;
+    roomKeys: RoomKeyMultipleGuests;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutServiceRequestsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    serviceRequestsInfo?: ServiceRequestsInfo;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    wakeUpCalls?: WakeUpCalls;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReadRoomKeyRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -748,39 +748,39 @@ export interface ReadRoomKeyRequest {
     acceptLanguage?: string;
 }
 export interface ReleaseRoomsOnHoldRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    holdRooms?: HoldRooms;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ShiftRoomsRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    shiftRooms?: ShiftRooms;
+    shiftRooms: ShiftRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SwapRoomsRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    swapRooms?: SwapRooms;
+    swapRooms: SwapRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface VerifyCheckinReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

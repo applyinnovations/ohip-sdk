@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { YieldMarketTypeDetails } from '../models/index';
 export interface GetExternalYieldMarketTypeRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

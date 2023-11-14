@@ -64,12 +64,6 @@ class ProfileMembershipApi extends runtime.BaseAPI {
             if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
                 throw new runtime.RequiredError('externalProfileId', 'Required parameter requestParameters.externalProfileId was null or undefined when calling getMembershipDetails.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getMembershipDetails.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipDetails.');
-            }
             const queryParameters = {};
             if (requestParameters.operaProfileId) {
                 queryParameters['operaProfileId'] = requestParameters.operaProfileId;
@@ -136,12 +130,6 @@ class ProfileMembershipApi extends runtime.BaseAPI {
             if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
                 throw new runtime.RequiredError('chainCode', 'Required parameter requestParameters.chainCode was null or undefined when calling postEnrollment.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postEnrollment.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postEnrollment.');
-            }
             if (requestParameters.enrollment === null || requestParameters.enrollment === undefined) {
                 throw new runtime.RequiredError('enrollment', 'Required parameter requestParameters.enrollment was null or undefined when calling postEnrollment.');
             }
@@ -191,12 +179,6 @@ class ProfileMembershipApi extends runtime.BaseAPI {
             }
             if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
                 throw new runtime.RequiredError('externalProfileId', 'Required parameter requestParameters.externalProfileId was null or undefined when calling redeemAward.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling redeemAward.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling redeemAward.');
             }
             if (requestParameters.award === null || requestParameters.award === undefined) {
                 throw new runtime.RequiredError('award', 'Required parameter requestParameters.award was null or undefined when calling redeemAward.');

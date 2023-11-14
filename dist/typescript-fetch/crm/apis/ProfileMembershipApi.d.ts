@@ -15,21 +15,21 @@ export interface CalculateMembershipPointsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipPointsToCalculate?: MembershipPointsToCalculate;
+    membershipPointsToCalculate: MembershipPointsToCalculate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeMembershipClaimRequest {
-    claimId?: string;
+    claimId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClaim?: MembershipClaim;
+    membershipClaim: MembershipClaim;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAwardsRequest {
-    awardNumber?: number;
+    awardNumber: number;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,7 +39,7 @@ export interface DeleteAwardsRequest {
     acceptLanguage?: string;
 }
 export interface ExportMembershipAwardRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -149,11 +149,11 @@ export interface ExportMembershipAwardRequest {
     acceptLanguage?: string;
 }
 export interface ExtendMemberPointsToExpireRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    extendMemberPointsToExpire?: ExtendMemberPointsToExpire;
+    extendMemberPointsToExpire: ExtendMemberPointsToExpire;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -335,7 +335,7 @@ export interface GetEnrollmentMatchProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetMemberPointsToExpireRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -343,7 +343,7 @@ export interface GetMemberPointsToExpireRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardExportInfoRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -352,8 +352,8 @@ export interface GetMembershipAwardExportInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardPointsByHotelRequest {
-    membershipId?: string;
-    hotelId?: string;
+    membershipId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -361,7 +361,7 @@ export interface GetMembershipAwardPointsByHotelRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimRequest {
-    claimId?: string;
+    claimId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -373,7 +373,7 @@ export interface GetMembershipClaimRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimsRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -408,7 +408,7 @@ export interface GetMembershipClaimsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipDetailsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -426,7 +426,7 @@ export interface GetMembershipDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipIssueAwardsListRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -437,7 +437,7 @@ export interface GetMembershipIssueAwardsListRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -448,7 +448,7 @@ export interface GetMembershipTransactionRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionAwardPointsRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -458,7 +458,7 @@ export interface GetMembershipTransactionAwardPointsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionExceptionsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -477,7 +477,7 @@ export interface GetMembershipTransactionExceptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionPointsRejectionReasonsRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -487,7 +487,7 @@ export interface GetMembershipTransactionPointsRejectionReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRatesRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -497,7 +497,7 @@ export interface GetMembershipTransactionRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRevenueRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -507,7 +507,7 @@ export interface GetMembershipTransactionRevenueRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionTierPointsRequest {
-    membershipTransactionId?: string;
+    membershipTransactionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -517,7 +517,7 @@ export interface GetMembershipTransactionTierPointsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionsSummaryRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -528,7 +528,7 @@ export interface PostEnrollmentRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    enrollment?: Enrollment;
+    enrollment: Enrollment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -536,25 +536,25 @@ export interface PostMembershipClaimRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipClaim?: MembershipClaim;
+    membershipClaim: MembershipClaim;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMembershipTransactionRequest {
-    membershipId?: string;
+    membershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    membershipTransaction?: MembershipTransaction;
+    membershipTransaction: MembershipTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RedeemAwardRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    award?: Award;
+    award: Award;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

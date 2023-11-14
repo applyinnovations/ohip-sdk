@@ -61,15 +61,6 @@ class HotelConfigApi extends runtime.BaseAPI {
             if (requestParameters.communicationTypeCode === null || requestParameters.communicationTypeCode === undefined) {
                 throw new runtime.RequiredError('communicationTypeCode', 'Required parameter requestParameters.communicationTypeCode was null or undefined when calling changeCommunicationType.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeCommunicationType.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeCommunicationType.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeCommunicationType.');
-            }
             if (requestParameters.communicationTypeToBeChanged === null || requestParameters.communicationTypeToBeChanged === undefined) {
                 throw new runtime.RequiredError('communicationTypeToBeChanged', 'Required parameter requestParameters.communicationTypeToBeChanged was null or undefined when calling changeCommunicationType.');
             }
@@ -119,15 +110,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getAvailablePreferences.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAvailablePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAvailablePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAvailablePreferences.');
             }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
@@ -180,15 +162,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     getCommunicationTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCommunicationTypes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCommunicationTypes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCommunicationTypes.');
-            }
             const queryParameters = {};
             if (requestParameters.codes) {
                 queryParameters['codes'] = requestParameters.codes;
@@ -240,15 +213,6 @@ class HotelConfigApi extends runtime.BaseAPI {
      */
     postCommunicationTypeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCommunicationType.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCommunicationType.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCommunicationType.');
-            }
             if (requestParameters.communicationTypeCriteria === null || requestParameters.communicationTypeCriteria === undefined) {
                 throw new runtime.RequiredError('communicationTypeCriteria', 'Required parameter requestParameters.communicationTypeCriteria was null or undefined when calling postCommunicationType.');
             }
@@ -298,15 +262,6 @@ class HotelConfigApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.communicationTypeCode === null || requestParameters.communicationTypeCode === undefined) {
                 throw new runtime.RequiredError('communicationTypeCode', 'Required parameter requestParameters.communicationTypeCode was null or undefined when calling removeCommunicationType.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeCommunicationType.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeCommunicationType.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeCommunicationType.');
             }
             const queryParameters = {};
             const headerParameters = {};

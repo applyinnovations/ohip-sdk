@@ -70,15 +70,6 @@ class RoomRotationApi extends runtime.BaseAPI {
             if (requestParameters.roomIds === null || requestParameters.roomIds === undefined) {
                 throw new runtime.RequiredError('roomIds', 'Required parameter requestParameters.roomIds was null or undefined when calling getReservationRotationPoints.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationRotationPoints.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationRotationPoints.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationRotationPoints.');
-            }
             const queryParameters = {};
             if (requestParameters.roomIds) {
                 queryParameters['roomIds'] = requestParameters.roomIds;
@@ -148,15 +139,6 @@ class RoomRotationApi extends runtime.BaseAPI {
             if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
                 throw new runtime.RequiredError('roomId', 'Required parameter requestParameters.roomId was null or undefined when calling getReservationRotationPointsDetails.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationRotationPointsDetails.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationRotationPointsDetails.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationRotationPointsDetails.');
-            }
             const queryParameters = {};
             if (requestParameters.includeAdjustmentLog !== undefined) {
                 queryParameters['includeAdjustmentLog'] = requestParameters.includeAdjustmentLog;
@@ -204,15 +186,6 @@ class RoomRotationApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
                 throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling getRoomOwners.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRoomOwners.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwners.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwners.');
             }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
@@ -301,15 +274,6 @@ class RoomRotationApi extends runtime.BaseAPI {
             if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
                 throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getRoomOwnerships.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRoomOwnerships.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwnerships.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwnerships.');
-            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -372,15 +336,6 @@ class RoomRotationApi extends runtime.BaseAPI {
             }
             if (requestParameters.roomRotationPointsDate === null || requestParameters.roomRotationPointsDate === undefined) {
                 throw new runtime.RequiredError('roomRotationPointsDate', 'Required parameter requestParameters.roomRotationPointsDate was null or undefined when calling getRoomRotationPoints.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRoomRotationPoints.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRotationPoints.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRotationPoints.');
             }
             const queryParameters = {};
             if (requestParameters.roomRotationPointsDate !== undefined) {
@@ -451,15 +406,6 @@ class RoomRotationApi extends runtime.BaseAPI {
             if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
                 throw new runtime.RequiredError('roomId', 'Required parameter requestParameters.roomId was null or undefined when calling putReservationRotationPointsDetails.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putReservationRotationPointsDetails.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putReservationRotationPointsDetails.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putReservationRotationPointsDetails.');
-            }
             if (requestParameters.reservationRotationPoints === null || requestParameters.reservationRotationPoints === undefined) {
                 throw new runtime.RequiredError('reservationRotationPoints', 'Required parameter requestParameters.reservationRotationPoints was null or undefined when calling putReservationRotationPointsDetails.');
             }
@@ -509,15 +455,6 @@ class RoomRotationApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putRoomRotationPoints.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRoomRotationPoints.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRoomRotationPoints.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRoomRotationPoints.');
             }
             if (requestParameters.roomRotationPointsAdjustment === null || requestParameters.roomRotationPointsAdjustment === undefined) {
                 throw new runtime.RequiredError('roomRotationPointsAdjustment', 'Required parameter requestParameters.roomRotationPointsAdjustment was null or undefined when calling putRoomRotationPoints.');

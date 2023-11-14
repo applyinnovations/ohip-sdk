@@ -12,10 +12,10 @@
 import * as runtime from '../runtime';
 import type { ActivityBookingModified, ActivityBookingsDetails, ChangeActivityBooking, CreateActivityBooking, LocationNotificationToBeCreated, Status } from '../models/index';
 export interface DeleteActivityBookingRequest {
-    reservationId?: string;
-    hotelId?: string;
-    activityId?: string;
-    activityIdType?: string;
+    reservationId: string;
+    hotelId: string;
+    activityId: string;
+    activityIdType: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -23,8 +23,8 @@ export interface DeleteActivityBookingRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityBookingsRequest {
-    hotelId?: string;
-    profileIds?: Array<string>;
+    hotelId: string;
+    profileIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -40,32 +40,32 @@ export interface GetActivityBookingsRequest {
     acceptLanguage?: string;
 }
 export interface PostActivityBookingRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createActivityBooking?: CreateActivityBooking;
+    createActivityBooking: CreateActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostLocationNotificationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    locationNotificationToBeCreated?: LocationNotificationToBeCreated;
+    locationNotificationToBeCreated: LocationNotificationToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityBookingRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeActivityBooking?: ChangeActivityBooking;
+    changeActivityBooking: ChangeActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

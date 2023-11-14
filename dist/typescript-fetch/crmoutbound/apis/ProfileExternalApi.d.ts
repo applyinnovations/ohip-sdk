@@ -12,17 +12,17 @@
 import * as runtime from '../runtime';
 import type { ExternalProfiles, FetchPlayerStatisticsRS, GamingOffers, IataNumberDetails, Profile, ValidateMembershipNumber, ValidatedAddress, ValidatedAddresses } from '../models/index';
 export interface CheckIataNumberRequest {
-    iataNumber?: string;
-    hotelId?: string;
+    iataNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 export interface DownloadExternalProfileRequest {
-    extSystemCode?: string;
-    chainCode?: string;
-    profileExternalId?: string;
+    extSystemCode: string;
+    chainCode: string;
+    profileExternalId: string;
     authorization?: string;
     xAppKey?: string;
     externalDatabaseId?: string;
@@ -31,8 +31,8 @@ export interface DownloadExternalProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalProfilesRequest {
-    extSystemCode?: string;
-    chainCode?: string;
+    extSystemCode: string;
+    chainCode: string;
     authorization?: string;
     xAppKey?: string;
     externalDatabaseId?: string;
@@ -55,8 +55,8 @@ export interface GetExternalProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetGamingOffersRequest {
-    membershipNo?: string;
-    extSystemCode?: string;
+    membershipNo: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     hotelId?: string;
@@ -65,8 +65,8 @@ export interface GetGamingOffersRequest {
     acceptLanguage?: string;
 }
 export interface GetPlayerStatisticsRequest {
-    profileId?: string;
-    extSystemCode?: string;
+    profileId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     playerId?: string;
@@ -77,15 +77,15 @@ export interface GetPlayerStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetValidatedAddressRequest {
-    externalAddressId?: string;
+    externalAddressId: string;
     authorization?: string;
     xAppKey?: string;
     timeoutSeconds?: number;
     acceptLanguage?: string;
 }
 export interface GetValidatedAddressesRequest {
-    addressText?: string;
-    country?: string;
+    addressText: string;
+    country: string;
     authorization?: string;
     xAppKey?: string;
     language?: string;
@@ -93,10 +93,10 @@ export interface GetValidatedAddressesRequest {
     acceptLanguage?: string;
 }
 export interface ValidateMembershipNumberRequest {
-    chainCode?: string;
-    extSystemCode?: string;
-    membershipNo?: string;
-    membershipType?: string;
+    chainCode: string;
+    extSystemCode: string;
+    membershipNo: string;
+    membershipType: string;
     authorization?: string;
     xAppKey?: string;
     hotelId?: string;

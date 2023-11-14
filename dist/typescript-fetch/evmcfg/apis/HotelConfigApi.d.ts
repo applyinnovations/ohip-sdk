@@ -12,58 +12,58 @@
 import * as runtime from '../runtime';
 import type { CateringRentalCodesCriteria, CateringRentalCodesDetails, CateringRentalCodesToBeChanged, CopyFunctionSpaceLocations, CopyFunctionSpaces, EventCodesCriteria, EventCodesDetails, EventCodesToBeChanged, FunctionSpaceConfigDetails, FunctionSpaceDetails, FunctionSpaceLocationsCriteria, FunctionSpaceLocationsDetails, FunctionSpaceLocationsToBeChanged, FunctionSpaceSetupStylesCriteria, FunctionSpaceSetupStylesDetails, FunctionSpaceSetupStylesToBeChanged, FunctionSpacesCriteria, FunctionSpacesDetails, FunctionSpacesToBeChanged, RoomTypePoolCriteria, RoomTypePoolDetails, RoomTypePoolToBeChanged, Status, TemplateEventCodesCriteria, TemplateEventCodesDetails, TemplateEventCodesToBeChanged } from '../models/index';
 export interface ChangeCateringRentalCodesRequest {
-    cateringRentalId?: string;
+    cateringRentalId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cateringRentalCodesToBeChanged?: CateringRentalCodesToBeChanged;
+    cateringRentalCodesToBeChanged: CateringRentalCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eventCodesToBeChanged?: EventCodesToBeChanged;
+    eventCodesToBeChanged: EventCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFunctionSpaceLocationsRequest {
-    functionspaceLocationCode?: string;
+    functionspaceLocationCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceLocationsToBeChanged?: FunctionSpaceLocationsToBeChanged;
+    functionSpaceLocationsToBeChanged: FunctionSpaceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFunctionSpaceSetupStylesRequest {
-    functionSpaceSetupStyleId?: string;
+    functionSpaceSetupStyleId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceSetupStylesToBeChanged?: FunctionSpaceSetupStylesToBeChanged;
+    functionSpaceSetupStylesToBeChanged: FunctionSpaceSetupStylesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeFunctionSpacesRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
+    functionSpaceCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpacesToBeChanged?: FunctionSpacesToBeChanged;
+    functionSpacesToBeChanged: FunctionSpacesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeRoomTypePoolRequest {
-    roomPoolCode?: string;
-    hotelId?: string;
+    roomPoolCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypePoolToBeChanged?: RoomTypePoolToBeChanged;
+    roomTypePoolToBeChanged: RoomTypePoolToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -71,25 +71,25 @@ export interface ChangeTemplateEventCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateEventCodesToBeChanged?: TemplateEventCodesToBeChanged;
+    templateEventCodesToBeChanged: TemplateEventCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyFunctionSpaceLocationsRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyFunctionSpaceLocations?: CopyFunctionSpaceLocations;
+    copyFunctionSpaceLocations: CopyFunctionSpaceLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyFunctionSpacesRequest {
-    sourceHotelId?: string;
+    sourceHotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyFunctionSpaces?: CopyFunctionSpaces;
+    copyFunctionSpaces: CopyFunctionSpaces;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -105,7 +105,7 @@ export interface GetCateringRentalCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetEventCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -117,7 +117,7 @@ export interface GetEventCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceRequest {
-    functionSpaceCode?: string;
+    functionSpaceCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -132,8 +132,8 @@ export interface GetFunctionSpaceRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceConfigRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
+    functionSpaceCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -162,7 +162,7 @@ export interface GetFunctionSpaceSetupStylesRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpacesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -180,7 +180,7 @@ export interface GetFunctionSpacesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypePoolRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -210,25 +210,25 @@ export interface PostCateringRentalCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cateringRentalCodesCriteria?: CateringRentalCodesCriteria;
+    cateringRentalCodesCriteria: CateringRentalCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostEventCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eventCodesCriteria?: EventCodesCriteria;
+    eventCodesCriteria: EventCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFunctionSpaceLocationsRequest {
-    functionspaceLocationCode?: string;
+    functionspaceLocationCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceLocationsCriteria?: FunctionSpaceLocationsCriteria;
+    functionSpaceLocationsCriteria: FunctionSpaceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -236,25 +236,25 @@ export interface PostFunctionSpaceSetupStylesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpaceSetupStylesCriteria?: FunctionSpaceSetupStylesCriteria;
+    functionSpaceSetupStylesCriteria: FunctionSpaceSetupStylesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFunctionSpacesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    functionSpacesCriteria?: FunctionSpacesCriteria;
+    functionSpacesCriteria: FunctionSpacesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomTypePoolRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomTypePoolCriteria?: RoomTypePoolCriteria;
+    roomTypePoolCriteria: RoomTypePoolCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -262,12 +262,12 @@ export interface PostTemplateEventCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateEventCodesCriteria?: TemplateEventCodesCriteria;
+    templateEventCodesCriteria: TemplateEventCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCateringRentalCodesRequest {
-    cateringRentalId?: string;
+    cateringRentalId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -275,7 +275,7 @@ export interface RemoveCateringRentalCodesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveEventCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -284,7 +284,7 @@ export interface RemoveEventCodesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpaceLocationsRequest {
-    functionspaceLocationCode?: string;
+    functionspaceLocationCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -293,7 +293,7 @@ export interface RemoveFunctionSpaceLocationsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpaceSetupStylesRequest {
-    functionSpaceSetupStyleId?: string;
+    functionSpaceSetupStyleId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -301,8 +301,8 @@ export interface RemoveFunctionSpaceSetupStylesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpacesRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
+    functionSpaceCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -310,8 +310,8 @@ export interface RemoveFunctionSpacesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveRoomTypePoolRequest {
-    roomPoolCode?: string;
-    hotelId?: string;
+    roomPoolCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

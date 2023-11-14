@@ -15,7 +15,7 @@ export interface CopyChannelAccountContractsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContractsCopy?: ChannelAccountContractsCopy;
+    channelAccountContractsCopy: ChannelAccountContractsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -23,7 +23,7 @@ export interface CopyChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingTextCopy?: ChannelMarketingTextCopy;
+    channelMarketingTextCopy: ChannelMarketingTextCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -31,7 +31,7 @@ export interface CopyTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElementsCopy?: TotalPricingElementsCopy;
+    totalPricingElementsCopy: TotalPricingElementsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -83,9 +83,9 @@ export interface DeleteChannelBillingStatementsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -94,8 +94,8 @@ export interface DeleteChannelCardTypeMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelCarriersRequest {
-    bookingChannelCodes?: Array<string>;
-    carriers?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    carriers: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -112,9 +112,9 @@ export interface DeleteChannelErrorsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -189,8 +189,8 @@ export interface DeleteChannelNegotiatedRateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -199,8 +199,8 @@ export interface DeleteChannelOrgMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRateCategoriesRequest {
-    bookingChannelCodes?: Array<string>;
-    rateCategories?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    rateCategories: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -208,8 +208,8 @@ export interface DeleteChannelRateCategoriesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRateLevelsRequest {
-    bookingChannelCodes?: Array<string>;
-    rateLevels?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    rateLevels: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -243,9 +243,9 @@ export interface DeleteChannelRatesGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRoomMappingRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -256,8 +256,8 @@ export interface DeleteChannelRoomMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRoomTypesRequest {
-    bookingChannelCodes?: Array<string>;
-    roomTypes?: Array<string>;
+    bookingChannelCodes: Array<string>;
+    roomTypes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -397,7 +397,7 @@ export interface GenerateChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -417,7 +417,7 @@ export interface GetAmenitiesMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -427,7 +427,7 @@ export interface GetChannelRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelAccountRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -437,8 +437,8 @@ export interface GetChannelAccountRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelAccountContractElementsRequest {
-    contractId?: string;
-    accountProfileId?: string;
+    contractId: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -467,7 +467,7 @@ export interface GetChannelAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelBillingStatementRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -477,7 +477,7 @@ export interface GetChannelBillingStatementRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelBillingStatementDetailsRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -507,7 +507,7 @@ export interface GetChannelBillingStatementsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -523,7 +523,7 @@ export interface GetChannelCardTypeMappingsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelGuaranteeCodeMappingsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -540,7 +540,7 @@ export interface GetChannelGuaranteeCodeMappingsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelHotelCodeMappingRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -596,8 +596,8 @@ export interface GetChannelNegotiatedRateRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -606,8 +606,8 @@ export interface GetChannelOrgMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelParametersRequest {
-    channelCode?: string;
-    hotelId?: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -616,8 +616,8 @@ export interface GetChannelParametersRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelPoliciesRequest {
-    channelCode?: string;
-    hotelId?: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -635,8 +635,8 @@ export interface GetChannelPoliciesRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRateCodeGlobalDescRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
+    ratePlanCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -663,7 +663,7 @@ export interface GetChannelRateMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRateRoomSeqRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -689,7 +689,7 @@ export interface GetChannelRatesGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRoomMappingRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -706,9 +706,9 @@ export interface GetChannelRoomMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRoomMappingByIdRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -718,8 +718,8 @@ export interface GetChannelRoomMappingByIdRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRoomTypeGlobalDescRequest {
-    roomType?: string;
-    hotelId?: string;
+    roomType: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -829,7 +829,7 @@ export interface GetHotelsMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetStatementDetailsStatisticsRequest {
-    statementId?: string;
+    statementId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -840,7 +840,7 @@ export interface GetStatementDetailsStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetTotalPricingElementsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -856,7 +856,7 @@ export interface ManageChannelRoomMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMappings?: ChannelRoomMappings;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -864,16 +864,16 @@ export interface PostAmenitiesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    amenities?: Amenities;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelAccountContractsRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContracts?: ChannelAccountContracts;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -881,7 +881,7 @@ export interface PostChannelAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccounts?: ChannelAccounts;
+    channelAccounts: ChannelAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -889,47 +889,47 @@ export interface PostChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCardTypeMappings?: ChannelCardTypeMappings;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelCarriersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCarriers?: ChannelCarriers;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelErrorsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelErrors?: ChannelErrors;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGuaranteeCodeMappings?: ChannelGuaranteeCodeMappings;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -937,7 +937,7 @@ export interface PostChannelHotelLettersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelHotelLettersToBeCreated?: ChannelHotelLettersToBeCreated;
+    channelHotelLettersToBeCreated: ChannelHotelLettersToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -945,7 +945,7 @@ export interface PostChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingText?: ChannelMarketingText;
+    channelMarketingText: ChannelMarketingText;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -953,34 +953,34 @@ export interface PostChannelNegotiatedRateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelNegotiatedRates?: ChannelNegotiatedRates;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelOrgMappingRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelOrgMapping?: ChannelOrgMapping;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRateCategoriesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateCategories?: ChannelRateCategories;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRateLevelsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateLevels?: ChannelRateLevels;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -988,16 +988,16 @@ export interface PostChannelRateMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateMapping?: ChannelRateMapping;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRatesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRates?: ChannelRates;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1005,7 +1005,7 @@ export interface PostChannelRatesGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1013,27 +1013,27 @@ export interface PostChannelRoomMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMappings?: ChannelRoomMappings;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomTypeRateRequest {
-    channelRoomType?: string;
-    channelCode?: string;
-    hotelId?: string;
+    channelRoomType: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRates?: ChannelRates;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomTypesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomTypes?: ChannelRoomTypes;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1041,7 +1041,7 @@ export interface PostChannelRoomsGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1049,7 +1049,7 @@ export interface PostChannelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channels?: Channels;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1057,7 +1057,7 @@ export interface PostCreditCardsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditCards?: CreditCards;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1065,7 +1065,7 @@ export interface PostCurrenciesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencies?: Currencies;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1073,7 +1073,7 @@ export interface PostDistributionTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    distributionTemplates?: DistributionTemplates;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1081,7 +1081,7 @@ export interface PostGuaranteesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guarantees?: Guarantees;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1089,7 +1089,7 @@ export interface PostHotelsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    properties?: Properties;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1097,7 +1097,7 @@ export interface PostTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElements?: TotalPricingElements;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1105,16 +1105,16 @@ export interface PublishChannelAvailabilityRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAvailability?: ChannelAvailability;
+    channelAvailability: ChannelAvailability;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PublishChannelRatePlansRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRatePlans?: ChannelRatePlans;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1122,16 +1122,16 @@ export interface PublishChannelRestrictionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRestrictions?: ChannelRestrictions;
+    channelRestrictions: ChannelRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PublishHotelChannelRatePlansRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRatePlans?: ChannelRatePlans;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1139,16 +1139,16 @@ export interface PutAmenitiesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    amenities?: Amenities;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelAccountContractsRequest {
-    accountProfileId?: string;
+    accountProfileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountContracts?: ChannelAccountContracts;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1156,7 +1156,7 @@ export interface PutChannelAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountsToChange?: ChannelAccountsToChange;
+    channelAccountsToChange: ChannelAccountsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1164,47 +1164,47 @@ export interface PutChannelBillingStatementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelBillingStatements?: ChannelBillingStatements;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCardTypeMappings?: ChannelCardTypeMappings;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelCarriersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelCarriers?: ChannelCarriers;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelErrorsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelErrors?: ChannelErrors;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGuaranteeCodeMappings?: ChannelGuaranteeCodeMappings;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1212,7 +1212,7 @@ export interface PutChannelHotelLettersRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelHotelLettersToBeChanged?: ChannelHotelLettersToBeChanged;
+    channelHotelLettersToBeChanged: ChannelHotelLettersToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1220,7 +1220,7 @@ export interface PutChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelMarketingTextToChange?: ChannelMarketingTextToChange;
+    channelMarketingTextToChange: ChannelMarketingTextToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1228,44 +1228,44 @@ export interface PutChannelNegotiatedRateRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelNegotiatedRates?: ChannelNegotiatedRates;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
+    tenantCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelOrgMapping?: ChannelOrgMapping;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelParametersRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeChannelParameters?: ChangeChannelParameters;
+    changeChannelParameters: ChangeChannelParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelRateCategoriesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateCategories?: ChannelRateCategories;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelRateLevelsRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateLevels?: ChannelRateLevels;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1273,7 +1273,7 @@ export interface PutChannelRateMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateMapping?: ChannelRateMapping;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1281,7 +1281,7 @@ export interface PutChannelRateRoomSeqRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRateRoomSequence?: ChannelRateRoomSequence;
+    channelRateRoomSequence: ChannelRateRoomSequence;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1289,27 +1289,27 @@ export interface PutChannelRatesGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelRoomMappingRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomMapping?: ChannelRoomMapping;
+    channelRoomMapping: ChannelRoomMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelRoomTypesRequest {
-    channelCode?: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelRoomTypes?: ChannelRoomTypes;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1317,7 +1317,7 @@ export interface PutChannelRoomsGlobalDescriptionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescriptions?: ChannelGlobalDescriptions;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1325,7 +1325,7 @@ export interface PutChannelsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channels?: Channels;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1333,7 +1333,7 @@ export interface PutCreditCardsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditCards?: CreditCards;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1341,7 +1341,7 @@ export interface PutCurrenciesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    currencies?: Currencies;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1349,7 +1349,7 @@ export interface PutDistributionTemplatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    distributionTemplates?: DistributionTemplates;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1357,7 +1357,7 @@ export interface PutGuaranteesMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guarantees?: Guarantees;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1365,17 +1365,17 @@ export interface PutHotelsMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    properties?: Properties;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRateGlobalDescriptionRequest {
-    channelRateCode?: string;
-    channelCode?: string;
+    channelRateCode: string;
+    channelCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescription?: ChannelGlobalDescription;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1383,7 +1383,7 @@ export interface PutRoomDescriptionRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelGlobalDescription?: ChannelGlobalDescription;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1391,7 +1391,7 @@ export interface PutTotalPricingElementsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    totalPricingElements?: TotalPricingElements;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

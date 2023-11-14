@@ -58,15 +58,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     copyExclusivePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyExclusivePreferences.');
-            }
             if (requestParameters.exclusivePreferencesCopy === null || requestParameters.exclusivePreferencesCopy === undefined) {
                 throw new runtime.RequiredError('exclusivePreferencesCopy', 'Required parameter requestParameters.exclusivePreferencesCopy was null or undefined when calling copyExclusivePreferences.');
             }
@@ -114,15 +105,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     copyPreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyPreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyPreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyPreferences.');
-            }
             if (requestParameters.preferencesCopy === null || requestParameters.preferencesCopy === undefined) {
                 throw new runtime.RequiredError('preferencesCopy', 'Required parameter requestParameters.preferencesCopy was null or undefined when calling copyPreferences.');
             }
@@ -173,15 +155,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.formatCodes === null || requestParameters.formatCodes === undefined) {
                 throw new runtime.RequiredError('formatCodes', 'Required parameter requestParameters.formatCodes was null or undefined when calling deleteAddressFormats.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAddressFormats.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAddressFormats.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAddressFormats.');
-            }
             const queryParameters = {};
             if (requestParameters.formatCodes) {
                 queryParameters['formatCodes'] = requestParameters.formatCodes;
@@ -229,15 +202,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.creditRatings === null || requestParameters.creditRatings === undefined) {
                 throw new runtime.RequiredError('creditRatings', 'Required parameter requestParameters.creditRatings was null or undefined when calling deleteCreditRatings.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCreditRatings.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCreditRatings.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCreditRatings.');
             }
             const queryParameters = {};
             if (requestParameters.creditRatings) {
@@ -293,15 +257,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.exclusivePreferenceGroup === null || requestParameters.exclusivePreferenceGroup === undefined) {
                 throw new runtime.RequiredError('exclusivePreferenceGroup', 'Required parameter requestParameters.exclusivePreferenceGroup was null or undefined when calling deleteExclusivePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteExclusivePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.exclusivePreferenceCode !== undefined) {
                 queryParameters['exclusivePreferenceCode'] = requestParameters.exclusivePreferenceCode;
@@ -355,15 +310,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             }
             if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
                 throw new runtime.RequiredError('preferenceGroup', 'Required parameter requestParameters.preferenceGroup was null or undefined when calling deleteHotelAndGlobalPreferences.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteHotelAndGlobalPreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteHotelAndGlobalPreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteHotelAndGlobalPreferences.');
             }
             const queryParameters = {};
             if (requestParameters.preferenceCode !== undefined) {
@@ -419,15 +365,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
                 throw new runtime.RequiredError('preferenceGroup', 'Required parameter requestParameters.preferenceGroup was null or undefined when calling deletePreferenceGroups.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deletePreferenceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deletePreferenceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deletePreferenceGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.preferenceGroup !== undefined) {
                 queryParameters['preferenceGroup'] = requestParameters.preferenceGroup;
@@ -481,15 +418,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             }
             if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
                 throw new runtime.RequiredError('preferenceGroup', 'Required parameter requestParameters.preferenceGroup was null or undefined when calling deletePreferences.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deletePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deletePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deletePreferences.');
             }
             const queryParameters = {};
             if (requestParameters.preferenceCode !== undefined) {
@@ -552,15 +480,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.toCode === null || requestParameters.toCode === undefined) {
                 throw new runtime.RequiredError('toCode', 'Required parameter requestParameters.toCode was null or undefined when calling deleteProfileLinks.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteProfileLinks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfileLinks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfileLinks.');
-            }
             const queryParameters = {};
             if (requestParameters.fromType !== undefined) {
                 queryParameters['fromType'] = requestParameters.fromType;
@@ -622,15 +541,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.profileName === null || requestParameters.profileName === undefined) {
                 throw new runtime.RequiredError('profileName', 'Required parameter requestParameters.profileName was null or undefined when calling deleteProfileNameValidations.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteProfileNameValidations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfileNameValidations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfileNameValidations.');
-            }
             const queryParameters = {};
             if (requestParameters.profileType !== undefined) {
                 queryParameters['profileType'] = requestParameters.profileType;
@@ -690,15 +600,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             }
             if (requestParameters.toCode === null || requestParameters.toCode === undefined) {
                 throw new runtime.RequiredError('toCode', 'Required parameter requestParameters.toCode was null or undefined when calling deleteProfileRelationships.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteProfileRelationships.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteProfileRelationships.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteProfileRelationships.');
             }
             const queryParameters = {};
             if (requestParameters.fromType !== undefined) {
@@ -760,15 +661,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.exclusivePreferenceGroup === null || requestParameters.exclusivePreferenceGroup === undefined) {
                 throw new runtime.RequiredError('exclusivePreferenceGroup', 'Required parameter requestParameters.exclusivePreferenceGroup was null or undefined when calling deleteTemplateExclusivePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateExclusivePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.exclusivePreferenceCode !== undefined) {
                 queryParameters['exclusivePreferenceCode'] = requestParameters.exclusivePreferenceCode;
@@ -823,15 +715,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.preferenceGroup === null || requestParameters.preferenceGroup === undefined) {
                 throw new runtime.RequiredError('preferenceGroup', 'Required parameter requestParameters.preferenceGroup was null or undefined when calling deleteTemplatePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTemplatePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplatePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplatePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.preferenceCode !== undefined) {
                 queryParameters['preferenceCode'] = requestParameters.preferenceCode;
@@ -880,15 +763,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getAddressFormatsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAddressFormats.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAddressFormats.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAddressFormats.');
-            }
             const queryParameters = {};
             if (requestParameters.codes) {
                 queryParameters['codes'] = requestParameters.codes;
@@ -937,15 +811,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getCreditRatingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCreditRatings.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCreditRatings.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCreditRatings.');
-            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1003,15 +868,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExclusivePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExclusivePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.exclusivePreferenceCodes) {
                 queryParameters['exclusivePreferenceCodes'] = requestParameters.exclusivePreferenceCodes;
@@ -1063,15 +919,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getPreferenceGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getPreferenceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getPreferenceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getPreferenceGroups.');
-            }
             const queryParameters = {};
             if (requestParameters.preferenceGroupsCodes) {
                 queryParameters['preferenceGroupsCodes'] = requestParameters.preferenceGroupsCodes;
@@ -1122,15 +969,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getPreferences.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getPreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getPreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getPreferences.');
             }
             const queryParameters = {};
             if (requestParameters.preferenceCodes) {
@@ -1184,15 +1022,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getProfileLinksRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileLinks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileLinks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileLinks.');
-            }
             const queryParameters = {};
             if (requestParameters.fromType !== undefined) {
                 queryParameters['fromType'] = requestParameters.fromType;
@@ -1242,15 +1071,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getProfileNameValidationsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileNameValidations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileNameValidations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileNameValidations.');
-            }
             const queryParameters = {};
             if (requestParameters.typeCodes) {
                 queryParameters['typeCodes'] = requestParameters.typeCodes;
@@ -1302,15 +1122,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getProfileRelationshipsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileRelationships.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileRelationships.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileRelationships.');
-            }
             const queryParameters = {};
             if (requestParameters.fromType !== undefined) {
                 queryParameters['fromType'] = requestParameters.fromType;
@@ -1359,15 +1170,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getTemplateExclusivePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateExclusivePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.exclusivePreferenceCodes) {
                 queryParameters['exclusivePreferenceCodes'] = requestParameters.exclusivePreferenceCodes;
@@ -1419,15 +1221,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     getTemplatePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTemplatePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTemplatePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTemplatePreferences.');
-            }
             const queryParameters = {};
             if (requestParameters.preferenceCodes) {
                 queryParameters['preferenceCodes'] = requestParameters.preferenceCodes;
@@ -1476,15 +1269,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postAddressFormatsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAddressFormats.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAddressFormats.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAddressFormats.');
-            }
             if (requestParameters.addressFormats === null || requestParameters.addressFormats === undefined) {
                 throw new runtime.RequiredError('addressFormats', 'Required parameter requestParameters.addressFormats was null or undefined when calling postAddressFormats.');
             }
@@ -1532,15 +1316,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postCreditRatingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCreditRatings.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCreditRatings.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCreditRatings.');
-            }
             if (requestParameters.creditRatings === null || requestParameters.creditRatings === undefined) {
                 throw new runtime.RequiredError('creditRatings', 'Required parameter requestParameters.creditRatings was null or undefined when calling postCreditRatings.');
             }
@@ -1591,15 +1366,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postExclusivePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postExclusivePreferences.');
-            }
             if (requestParameters.exclusivePreferences === null || requestParameters.exclusivePreferences === undefined) {
                 throw new runtime.RequiredError('exclusivePreferences', 'Required parameter requestParameters.exclusivePreferences was null or undefined when calling postExclusivePreferences.');
             }
@@ -1647,15 +1413,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postPreferenceGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postPreferenceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postPreferenceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postPreferenceGroups.');
-            }
             if (requestParameters.preferenceGroups === null || requestParameters.preferenceGroups === undefined) {
                 throw new runtime.RequiredError('preferenceGroups', 'Required parameter requestParameters.preferenceGroups was null or undefined when calling postPreferenceGroups.');
             }
@@ -1706,15 +1463,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postPreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postPreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postPreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postPreferences.');
-            }
             if (requestParameters.hotelPreferences === null || requestParameters.hotelPreferences === undefined) {
                 throw new runtime.RequiredError('hotelPreferences', 'Required parameter requestParameters.hotelPreferences was null or undefined when calling postPreferences.');
             }
@@ -1763,15 +1511,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postProfileLinksRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postProfileLinks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postProfileLinks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postProfileLinks.');
-            }
             if (requestParameters.profileLinks === null || requestParameters.profileLinks === undefined) {
                 throw new runtime.RequiredError('profileLinks', 'Required parameter requestParameters.profileLinks was null or undefined when calling postProfileLinks.');
             }
@@ -1820,15 +1559,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postProfileNameValidationsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postProfileNameValidations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postProfileNameValidations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postProfileNameValidations.');
-            }
             if (requestParameters.profileNameValidations === null || requestParameters.profileNameValidations === undefined) {
                 throw new runtime.RequiredError('profileNameValidations', 'Required parameter requestParameters.profileNameValidations was null or undefined when calling postProfileNameValidations.');
             }
@@ -1876,15 +1606,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postProfileRelationshipsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postProfileRelationships.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postProfileRelationships.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postProfileRelationships.');
-            }
             if (requestParameters.profileLinks === null || requestParameters.profileLinks === undefined) {
                 throw new runtime.RequiredError('profileLinks', 'Required parameter requestParameters.profileLinks was null or undefined when calling postProfileRelationships.');
             }
@@ -1932,15 +1653,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postTemplateExclusivePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateExclusivePreferences.');
-            }
             if (requestParameters.templateExclusivePreferences === null || requestParameters.templateExclusivePreferences === undefined) {
                 throw new runtime.RequiredError('templateExclusivePreferences', 'Required parameter requestParameters.templateExclusivePreferences was null or undefined when calling postTemplateExclusivePreferences.');
             }
@@ -1988,15 +1700,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     postTemplatePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTemplatePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTemplatePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTemplatePreferences.');
-            }
             if (requestParameters.templatePreferences === null || requestParameters.templatePreferences === undefined) {
                 throw new runtime.RequiredError('templatePreferences', 'Required parameter requestParameters.templatePreferences was null or undefined when calling postTemplatePreferences.');
             }
@@ -2044,15 +1747,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putAddressFormatsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAddressFormats.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAddressFormats.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAddressFormats.');
-            }
             if (requestParameters.addressFormats === null || requestParameters.addressFormats === undefined) {
                 throw new runtime.RequiredError('addressFormats', 'Required parameter requestParameters.addressFormats was null or undefined when calling putAddressFormats.');
             }
@@ -2100,15 +1794,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putCreditRatingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCreditRatings.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCreditRatings.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCreditRatings.');
-            }
             if (requestParameters.creditRatings === null || requestParameters.creditRatings === undefined) {
                 throw new runtime.RequiredError('creditRatings', 'Required parameter requestParameters.creditRatings was null or undefined when calling putCreditRatings.');
             }
@@ -2159,15 +1844,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putExclusivePreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putExclusivePreferences.');
-            }
             if (requestParameters.exclusivePreferences === null || requestParameters.exclusivePreferences === undefined) {
                 throw new runtime.RequiredError('exclusivePreferences', 'Required parameter requestParameters.exclusivePreferences was null or undefined when calling putExclusivePreferences.');
             }
@@ -2215,15 +1891,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putPreferenceGroupsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putPreferenceGroups.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putPreferenceGroups.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putPreferenceGroups.');
-            }
             if (requestParameters.preferenceGroups === null || requestParameters.preferenceGroups === undefined) {
                 throw new runtime.RequiredError('preferenceGroups', 'Required parameter requestParameters.preferenceGroups was null or undefined when calling putPreferenceGroups.');
             }
@@ -2274,15 +1941,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putPreferences.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putPreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putPreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putPreferences.');
-            }
             if (requestParameters.hotelPreferences === null || requestParameters.hotelPreferences === undefined) {
                 throw new runtime.RequiredError('hotelPreferences', 'Required parameter requestParameters.hotelPreferences was null or undefined when calling putPreferences.');
             }
@@ -2331,15 +1989,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putProfileLinksRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putProfileLinks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putProfileLinks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putProfileLinks.');
-            }
             if (requestParameters.profileLinks === null || requestParameters.profileLinks === undefined) {
                 throw new runtime.RequiredError('profileLinks', 'Required parameter requestParameters.profileLinks was null or undefined when calling putProfileLinks.');
             }
@@ -2388,15 +2037,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putProfileNameValidationsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putProfileNameValidations.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putProfileNameValidations.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putProfileNameValidations.');
-            }
             if (requestParameters.profileNameValidationsToChange === null || requestParameters.profileNameValidationsToChange === undefined) {
                 throw new runtime.RequiredError('profileNameValidationsToChange', 'Required parameter requestParameters.profileNameValidationsToChange was null or undefined when calling putProfileNameValidations.');
             }
@@ -2444,15 +2084,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putProfileRelationshipsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putProfileRelationships.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putProfileRelationships.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putProfileRelationships.');
-            }
             if (requestParameters.profileLinks === null || requestParameters.profileLinks === undefined) {
                 throw new runtime.RequiredError('profileLinks', 'Required parameter requestParameters.profileLinks was null or undefined when calling putProfileRelationships.');
             }
@@ -2500,15 +2131,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putTemplateExclusivePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTemplateExclusivePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTemplateExclusivePreferences.');
-            }
             if (requestParameters.templateExclusivePreferences === null || requestParameters.templateExclusivePreferences === undefined) {
                 throw new runtime.RequiredError('templateExclusivePreferences', 'Required parameter requestParameters.templateExclusivePreferences was null or undefined when calling putTemplateExclusivePreferences.');
             }
@@ -2556,15 +2178,6 @@ class ProfileConfigurationApi extends runtime.BaseAPI {
      */
     putTemplatePreferencesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTemplatePreferences.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTemplatePreferences.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTemplatePreferences.');
-            }
             if (requestParameters.templatePreferences === null || requestParameters.templatePreferences === undefined) {
                 throw new runtime.RequiredError('templatePreferences', 'Required parameter requestParameters.templatePreferences was null or undefined when calling putTemplatePreferences.');
             }

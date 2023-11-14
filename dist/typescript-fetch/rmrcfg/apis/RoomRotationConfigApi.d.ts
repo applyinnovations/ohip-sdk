@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { AdjustmentReasonsDetailsUpdated, ChangeAdjustmentReasonsDetails, ChangeRevenueTransactionCodesCriteria, ChangeRevenueTransactionCodesDetails, ChangeRoomOwnerDetails, ChangeRoomOwnerReferralDetails, ChangeRotationPeriodDetails, ChangeUnitGradesDetails, CreateAdjustmentReasonsDetails, CreateRoomOwnerDetails, CreateRoomOwnerReferralDetails, CreateUnitGradesDetails, FetchAdjustmentReasonsDetails, FetchRevenueTransactionCodesDetails, FetchRotationPeriod, FetchRotationRules, FetchUnitGradesDetails, OverrideReasonsCriteria, OverrideReasonsDetails, OverrideReasonsToBeChanged, RoomOwnerReferralDetails, RoomOwnershipDetails, RoomRotationRules, RotationPeriod, RotationRules, Status, UnitGradesDetailsUpdated } from '../models/index';
 export interface DeleteAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
+    adjustmentReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -21,7 +21,7 @@ export interface DeleteAdjustmentReasonsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteOverrideReasonsRequest {
-    overrideReasonsId?: string;
+    overrideReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -30,7 +30,7 @@ export interface DeleteOverrideReasonsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomOwnerRequest {
-    roomOwnershipId?: string;
+    roomOwnershipId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,8 +39,8 @@ export interface DeleteRoomOwnerRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -48,8 +48,8 @@ export interface DeleteRoomOwnerReferralRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
+    ruleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -57,8 +57,8 @@ export interface DeleteRotationRulesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
+    unitGradeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -89,7 +89,7 @@ export interface GetOverrideReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRoomOwnersRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -98,7 +98,7 @@ export interface GetProfileRoomOwnersRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTransactionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -107,7 +107,7 @@ export interface GetRevenueTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomOwnerReferralsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -116,7 +116,7 @@ export interface GetRoomOwnerReferralsRequest {
     acceptLanguage?: string;
 }
 export interface GetRotationPeriodRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -124,7 +124,7 @@ export interface GetRotationPeriodRequest {
     acceptLanguage?: string;
 }
 export interface GetRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -136,7 +136,7 @@ export interface GetRotationRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetUnitGradesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -152,7 +152,7 @@ export interface PostAdjustmentReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createAdjustmentReasonsDetails?: CreateAdjustmentReasonsDetails;
+    createAdjustmentReasonsDetails: CreateAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -160,7 +160,7 @@ export interface PostOverrideReasonsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overrideReasonsCriteria?: OverrideReasonsCriteria;
+    overrideReasonsCriteria: OverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -168,70 +168,70 @@ export interface PostRoomOwnerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createRoomOwnerDetails?: CreateRoomOwnerDetails;
+    createRoomOwnerDetails: CreateRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomOwnerReferralsRequest {
-    profileId?: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createRoomOwnerReferralDetails?: CreateRoomOwnerReferralDetails;
+    createRoomOwnerReferralDetails: CreateRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RoomRotationRules;
+    rotationRules: RoomRotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRotationRulesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RotationRules;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostUnitGradesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createUnitGradesDetails?: CreateUnitGradesDetails;
+    createUnitGradesDetails: CreateUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
+    adjustmentReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeAdjustmentReasonsDetails?: ChangeAdjustmentReasonsDetails;
+    changeAdjustmentReasonsDetails: ChangeAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutOverrideReasonsRequest {
-    overrideReasonsId?: string;
+    overrideReasonsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    overrideReasonsToBeChanged?: OverrideReasonsToBeChanged;
+    overrideReasonsToBeChanged: OverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRevenueTransactionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRevenueTransactionCodesCriteria?: ChangeRevenueTransactionCodesCriteria;
+    changeRevenueTransactionCodesCriteria: ChangeRevenueTransactionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -239,46 +239,46 @@ export interface PutRoomOwnerRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRoomOwnerDetails?: ChangeRoomOwnerDetails;
+    changeRoomOwnerDetails: ChangeRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeRoomOwnerReferralDetails?: ChangeRoomOwnerReferralDetails;
+    changeRoomOwnerReferralDetails: ChangeRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRotationPeriodRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationPeriod?: RotationPeriod;
+    rotationPeriod: RotationPeriod;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
+    ruleId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    rotationRules?: RotationRules;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
+    unitGradeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeUnitGradesDetails?: ChangeUnitGradesDetails;
+    changeUnitGradesDetails: ChangeUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

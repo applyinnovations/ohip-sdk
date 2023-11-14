@@ -12,86 +12,86 @@
 import * as runtime from '../runtime';
 import type { AcquiredCashierLock, ActivatePrepaidCard, ActivatePrepaidCardStatus, AdditionalTaxesDetails, AdjustedTransactions, AdvancePaymentBalance, AdvanceRoomCharges, AdvanceRoomChargesReservationInfo, AlertNotices, AmountEligible, ArticlesSale, ArticlesSaleCriteria, AttachPolicyApplyCriteria, AuthorizationHistory, AuthorizationInfo, AuthorizersCreditInfo, AutoSettleCompFolios, AutoSettleCompFoliosStatus, AwardPaymentDetails, BalanceInfoCriteria, BatchAdvanceFolio, BatchAutoCheckoutDetails, BatchAutoCheckoutReservation, BatchAutoSettlementCriteria, BatchDeposit, BatchZeroBalanceCheckoutDetails, BatchZeroBalanceCheckoutReservation, BedTaxCriteria, BedTaxInfo, BillingCharge, BillingChargeStatus, BillingCharges, BillingChargesDetails, BillingChargesInBatchCriteria, BillingChargesStatus, BillingCheckChargesCriteria, BillingInstructionCodes, BillingPayment, BillingPaymentToChange, CalculatedForeignCurrency, CancelPrepaidCardTransaction, CancelPrepaidCardTransactionStatus, CashOutPrepaidCard, CashOutPrepaidCardStatus, CashierClosure, CashierClosureDetails, CashierClosureInformation, CashierClosureReportsList, CashierLockCriteriaToExtend, CashierReportPostingsInfo, CashierTransactionsDetails, CcAuthorizationCriteria, CcAuthorizationInstructions, CcBatchSettlements, CcBatchSettlementsProcessCriteria, CcBatchSettlementsStatus, CcManualAuthorizationCriteria, CcSettlementCriteria, CcSurchargeDetails, ChangedRoutingInstructions, CheckDetails, CheckedRateCode, CloseFolioCriteria, CompAccountingJournal, CompRoutingInstructions, CompTransactionCriteria, CompTrxAuthorizers, ConvertFolioCriteria, ConvertFolioDetails, CreatedRoutingInstructions, CreditBillCriteria, CreditCardWallet, CreditLimitOveragePayments, CreditLimitOveragePaymentsDetails, CreditLimitOveragePaymentsInfo, DeferredTaxesProcess, DeferredTaxesProcessDetails, DepositFolioCriteria, DepositFolioTransactionDetails, DepositFolioValidateCriteria, DepositMaturityDetails, DepositPayment, DepositRefundEligibleCheck, DepositToGuestFolio, DepositTransferCriteria, DepositedFolioValidate, DepositedPayment, DetachPolicyApplyCriteria, EarlyDeparture, EarlyDepartureInfo, ExtendedCashierLock, FbaReimbursementCriteria, FinalPostings, FinancialPostings, FinancialPostingsNetVat, FiscalCallStatus, FiscalCommandsResponseInfo, FiscalFolioCriteria, FiscalInfoFolioCriteria, FiscalInformationFolio, FiscalSupportingDocumentCriteria, FiscalSupportingDocumentsResponse, FixedCharges, FixedChargesDetails, FlexibleBenefitPostingsCriteria, Folio, FolioActivityDetailsType, FolioActivityResponseDetailType, FolioCriteria, FolioHistoryResponse, FolioPrinters, FolioTaxPaymentReversal, FolioTaxPaymentsInfo, FolioToVoid, FolioToWindow, FolioTransactionDetails, FolioTypeNameInfo, FolioTypesInfo, ForeignCurrencyCriteria, ForeignCurrencyExchange, ForeignCurrencyExchangeTransaction, GamingRequestStatusInfo, GeneratedFolio, GuestCheckDetails, GuestsTransactions, HotelRevenueDetails, LinkReservationPackageAllowance, MaturedDepositsDetails, PasserBySale, PasserBySalesCriteria, PayeeTaxNumber, PaymentReversalCriteria, PostCompRedemptions, PostFiscalInfoType, PostRateCodeCriteria, PostRoomAndTaxForDayUse, PostSupplementalFolio, PostSupplementalFolioStatus, PostedBillingChargesInBatch, PostedBillingPayment, PostedCreditBill, PostedDepositFolio, PostedRateCode, PostingActivityDetail, PostingSummaryList, PostingsForRefresh, PrepaidCardCriteria, ProcessFiscalRetry, ProcessFiscalRetryStatus, PutBillingCharges, PutBillingChargesStatus, ReceiptHistoryResponse, RedeemPrepaidCards, RedeemPrepaidCardsStatus, ReinstateCheckedOutReservation, ReloadPrepaidCard, ReloadPrepaidCardStatus, Reservation, ReservationDepositCriteria, ReservationDepositFolios, ReservationFolio, ReservationFolioInformation, ReservationPackageOptions, ReservationTransaction, RevenueBucketTotals, ReverseCertificatePostingsCriteria, ReverseCompRedemptions, RoomRoutingPostings, RoomRoutingRefresh, RoundingDifferenceAmount, RoutingInstructions, RoutingInstructionsDetails, RoutingInstructionsToChange, SplitDepositTransaction, SplitDepositTransactionStatus, StagedTransactions, Status, StoredFolioDetails, StoredFolioDetailsInfo, TransactionCodes, TransactionReversal, TransactionToSplit, TransactionToSplitAndTransfer, TransactionToWindow, TransactionsAdjustment, TransferCompTransactions, TransferTransactionToWindow, ValidatedCreditBill, ValidatedTransactionCode, VaultTransaction, VoidedFolio } from '../models/index';
 export interface ActivatePrepaidCardRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activatePrepaidCard?: ActivatePrepaidCard;
+    activatePrepaidCard: ActivatePrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AdjustTransactionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionsAdjustment?: TransactionsAdjustment;
+    transactionsAdjustment: TransactionsAdjustment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ApplyFinalPostingsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    finalPostings?: FinalPostings;
+    finalPostings: FinalPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ApplyFlexibleBenefitPostingsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    flexibleBenefitPostingsCriteria?: FlexibleBenefitPostingsCriteria;
+    flexibleBenefitPostingsCriteria: FlexibleBenefitPostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AttachDepositPolicyToPaymentRequest {
-    transactionId?: string;
-    policyId?: string;
-    hotelId?: string;
+    transactionId: string;
+    policyId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    attachPolicyApplyCriteria?: AttachPolicyApplyCriteria;
+    attachPolicyApplyCriteria: AttachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AuthorizeCreditCardAmountRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ccAuthorizationCriteria?: CcAuthorizationCriteria;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AuthorizeCreditCardAmountByProfileRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ccAuthorizationCriteria?: CcAuthorizationCriteria;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AutoSettleCompFoliosRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoSettleCompFolios?: AutoSettleCompFolios;
+    autoSettleCompFolios: AutoSettleCompFolios;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface BreakCashierLockRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -102,82 +102,82 @@ export interface CalculateForeignCurrencyRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencyCriteria?: ForeignCurrencyCriteria;
+    foreignCurrencyCriteria: ForeignCurrencyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CancelPrepaidCardTransactionRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cancelPrepaidCardTransaction?: CancelPrepaidCardTransaction;
+    cancelPrepaidCardTransaction: CancelPrepaidCardTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CashOutPrepaidCardRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashOutPrepaidCard?: CashOutPrepaidCard;
+    cashOutPrepaidCard: CashOutPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeBillingPaymentRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingPaymentToChange?: BillingPaymentToChange;
+    billingPaymentToChange: BillingPaymentToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructionsToChange?: RoutingInstructionsToChange;
+    routingInstructionsToChange: RoutingInstructionsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CheckPostRateCodeRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeCriteria;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CloseReservationFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    closeFolioCriteria?: CloseFolioCriteria;
+    closeFolioCriteria: CloseFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ConvertFolioRequest {
-    folioId?: string;
-    hotelId?: string;
+    folioId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    convertFolioCriteria?: ConvertFolioCriteria;
+    convertFolioCriteria: ConvertFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAdvanceRoomChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -186,8 +186,8 @@ export interface DeleteAdvanceRoomChargesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCompRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -221,8 +221,8 @@ export interface DeleteCompRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFolioRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -251,8 +251,8 @@ export interface DeleteFolioRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRequestRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -274,8 +274,8 @@ export interface DeleteRequestRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -303,8 +303,8 @@ export interface DeleteRoomRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -312,37 +312,37 @@ export interface DeleteRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DetachDepositPolicyFromPaymentRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    detachPolicyApplyCriteria?: DetachPolicyApplyCriteria;
+    detachPolicyApplyCriteria: DetachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GenerateFiscalFolioRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalInfoFolioCriteria?: FiscalInfoFolioCriteria;
+    fiscalInfoFolioCriteria: FiscalInfoFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GenerateFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioCriteria?: FolioCriteria;
+    folioCriteria: FolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAdditionalTaxesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -354,8 +354,8 @@ export interface GetAdditionalTaxesRequest {
     acceptLanguage?: string;
 }
 export interface GetAdvancePaymentBalanceRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -368,8 +368,8 @@ export interface GetAdvancePaymentBalanceRequest {
     acceptLanguage?: string;
 }
 export interface GetAlertsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -378,8 +378,8 @@ export interface GetAlertsRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizationHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -395,7 +395,7 @@ export interface GetAuthorizationHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizersCreditInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -408,7 +408,7 @@ export interface GetAuthorizersCreditInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBalanceInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -456,7 +456,7 @@ export interface GetBalanceInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBatchCCSettlementsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -468,8 +468,8 @@ export interface GetBatchCCSettlementsRequest {
     acceptLanguage?: string;
 }
 export interface GetBatchCCSettlementsStatusRequest {
-    batchId?: string;
-    hotelId?: string;
+    batchId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -480,7 +480,7 @@ export interface GetBatchCCSettlementsStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetBedTaxInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -489,7 +489,7 @@ export interface GetBedTaxInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBillingInstructionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -505,8 +505,8 @@ export interface GetBillingInstructionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCCAuthorizationInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -580,8 +580,8 @@ export interface GetCCAuthorizationInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCCAuthorizationInstructionsByProfileRequest {
-    profileId?: string;
-    hotelId?: string;
+    profileId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -654,7 +654,7 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetCCSurchargeInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -715,8 +715,8 @@ export interface GetCCSurchargeInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierClosureRequest {
-    cashierId?: string;
-    hotelId?: string;
+    cashierId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -725,7 +725,7 @@ export interface GetCashierClosureRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierClosureInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -739,8 +739,8 @@ export interface GetCashierClosureInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierClosureReportsListRequest {
-    cashierId?: string;
-    hotelId?: string;
+    cashierId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -752,7 +752,7 @@ export interface GetCashierClosureReportsListRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierLockRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -777,7 +777,7 @@ export interface GetCashierReportPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierTransactionsRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -789,8 +789,8 @@ export interface GetCashierTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCheckDetailsRequest {
-    checkNumber?: string;
-    hotelId?: string;
+    checkNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -821,7 +821,7 @@ export interface GetCompAccountingJournalRequest {
     acceptLanguage?: string;
 }
 export interface GetCompPostingJournalRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -844,7 +844,7 @@ export interface GetCompPostingJournalRequest {
     acceptLanguage?: string;
 }
 export interface GetCompRoutingInstructionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -864,7 +864,7 @@ export interface GetCompRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCompTrxAuthorizersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -884,7 +884,7 @@ export interface GetCompTrxAuthorizersRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditLimitOveragePaymentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -895,7 +895,7 @@ export interface GetCreditLimitOveragePaymentsRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositFolioRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -907,7 +907,7 @@ export interface GetDepositFolioRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositFolioTransactionDetailsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -918,8 +918,8 @@ export interface GetDepositFolioTransactionDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositMaturityInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -930,8 +930,8 @@ export interface GetDepositMaturityInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetEligibleBillAmountRequest {
-    hotelId?: string;
-    reservationId?: string;
+    hotelId: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -940,7 +940,7 @@ export interface GetEligibleBillAmountRequest {
     acceptLanguage?: string;
 }
 export interface GetFinancialPostingsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -984,9 +984,9 @@ export interface GetFinancialPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetFinancialPostingsNetVatRequest {
-    hotelId?: string;
-    reservationId?: string;
-    folioWindowNo?: number;
+    hotelId: string;
+    reservationId: string;
+    folioWindowNo: number;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -998,7 +998,7 @@ export interface GetFinancialPostingsNetVatRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioActivityRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1007,8 +1007,8 @@ export interface GetFiscalFolioActivityRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioActivityDetailsRequest {
-    folioSeqNo?: string;
-    hotelId?: string;
+    folioSeqNo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1017,8 +1017,8 @@ export interface GetFiscalFolioActivityDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPrintingDetailsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1032,7 +1032,7 @@ export interface GetFiscalPrintingDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalSupportingDocumentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1056,8 +1056,8 @@ export interface GetFiscalSupportingDocumentsRequest {
     acceptLanguage?: string;
 }
 export interface GetFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1067,8 +1067,8 @@ export interface GetFixedChargesRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1092,7 +1092,7 @@ export interface GetFolioRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioHistoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1127,7 +1127,7 @@ export interface GetFolioHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioPrintersRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1160,8 +1160,8 @@ export interface GetFolioPrintersRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTaxPaymentsInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1272,7 +1272,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTransactionDetailsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1283,7 +1283,7 @@ export interface GetFolioTransactionDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypeNameRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1295,7 +1295,7 @@ export interface GetFolioTypeNameRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1306,8 +1306,8 @@ export interface GetFolioTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetGamingRequestStatusInfoRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1315,8 +1315,8 @@ export interface GetGamingRequestStatusInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestsTransactionsRequest {
-    hotelId?: string;
-    reservationList?: Array<string>;
+    hotelId: string;
+    reservationList: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1351,8 +1351,8 @@ export interface GetGuestsTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelCreditCardWalletRequest {
-    hotelId?: string;
-    profileId?: string;
+    hotelId: string;
+    profileId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1360,7 +1360,7 @@ export interface GetHotelCreditCardWalletRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRevenueRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1369,8 +1369,8 @@ export interface GetHotelRevenueRequest {
     acceptLanguage?: string;
 }
 export interface GetMaturedDepositsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1378,8 +1378,8 @@ export interface GetMaturedDepositsRequest {
     acceptLanguage?: string;
 }
 export interface GetPostBillingChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1408,8 +1408,8 @@ export interface GetPostBillingChargesRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingActivityDetailRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1429,7 +1429,7 @@ export interface GetPostingActivityDetailRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingSummaryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1444,9 +1444,9 @@ export interface GetPostingSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingsForRefreshRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1498,7 +1498,7 @@ export interface GetPostingsForRefreshRequest {
     acceptLanguage?: string;
 }
 export interface GetReceiptHistoryRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1513,8 +1513,8 @@ export interface GetReceiptHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackageOptionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1522,8 +1522,8 @@ export interface GetReservationPackageOptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationRevenueBucketTotalsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1590,8 +1590,8 @@ export interface GetRoundingDifferenceRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1605,8 +1605,8 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetStoredFolioDetailsRequest {
-    folioId?: string;
-    hotelId?: string;
+    folioId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1620,7 +1620,7 @@ export interface GetStoredFolioDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1643,7 +1643,7 @@ export interface GetTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetValidateFiscalPrintingDetailsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1658,8 +1658,8 @@ export interface GetValidateFiscalPrintingDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetfetchStagedTransactionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1669,9 +1669,9 @@ export interface GetfetchStagedTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface IsDepositRefundEligibleRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -1681,235 +1681,235 @@ export interface IsDepositRefundEligibleRequest {
     acceptLanguage?: string;
 }
 export interface LinkReservationPackageAllowanceRequest {
-    destinationReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
+    destinationReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    linkReservationPackageAllowance?: LinkReservationPackageAllowance;
+    linkReservationPackageAllowance: LinkReservationPackageAllowance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAdvanceFolioRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchAdvanceFolio?: BatchAdvanceFolio;
+    batchAdvanceFolio: BatchAdvanceFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAdvanceRoomChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    advanceRoomCharges?: AdvanceRoomCharges;
+    advanceRoomCharges: AdvanceRoomCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostArticlesSaleRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    articlesSaleCriteria?: ArticlesSaleCriteria;
+    articlesSaleCriteria: ArticlesSaleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAutoCheckoutReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchAutoCheckoutReservation?: BatchAutoCheckoutReservation;
+    batchAutoCheckoutReservation: BatchAutoCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAwardTransactionRequest {
-    hotelId?: string;
-    reservationId?: number;
-    membershipId?: number;
+    hotelId: string;
+    reservationId: number;
+    membershipId: number;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    awardDetails?: AwardPaymentDetails;
+    awardDetails: AwardPaymentDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBatchAutoSettlementRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchAutoSettlementCriteria?: BatchAutoSettlementCriteria;
+    batchAutoSettlementCriteria: BatchAutoSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBatchCCSettlementsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ccBatchSettlementsProcessCriteria?: CcBatchSettlementsProcessCriteria;
+    ccBatchSettlementsProcessCriteria: CcBatchSettlementsProcessCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBatchDepositRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchDeposit?: BatchDeposit;
+    batchDeposit: BatchDeposit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBedTaxInfoRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTaxCriteria?: BedTaxCriteria;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBillingChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingCharges?: BillingCharges;
+    billingCharges: BillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBillingChargesInBatchRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingChargesInBatchCriteria?: BillingChargesInBatchCriteria;
+    billingChargesInBatchCriteria: BillingChargesInBatchCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBillingCheckChargesRequest {
-    checkNumber?: string;
-    reservationId?: string;
-    hotelId?: string;
+    checkNumber: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingCheckChargesCriteria?: BillingCheckChargesCriteria;
+    billingCheckChargesCriteria: BillingCheckChargesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBillingPaymentRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingPayment?: BillingPayment;
+    billingPayment: BillingPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCCSettlementRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ccSettlementCriteria?: CcSettlementCriteria;
+    ccSettlementCriteria: CcSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCheckOutRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservation?: Reservation;
+    reservation: Reservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCompRedemptionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postCompRedemptions?: PostCompRedemptions;
+    postCompRedemptions: PostCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCompTransactionRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    compTransactionCriteria?: CompTransactionCriteria;
+    compTransactionCriteria: CompTransactionCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCreditBillRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditBillCriteria?: CreditBillCriteria;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCreditLimitOveragePaymentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditLimitOveragePayments?: CreditLimitOveragePayments;
+    creditLimitOveragePayments: CreditLimitOveragePayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDeferredTaxesProcessRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    deferredTaxesProcess?: DeferredTaxesProcess;
+    deferredTaxesProcess: DeferredTaxesProcess;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositFolioCriteria?: DepositFolioCriteria;
+    depositFolioCriteria: DepositFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositPaymentRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositPayment?: DepositPayment;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositPaymentByExtIdRequest {
-    reservationId?: string;
-    externalSysCode?: string;
-    hotelId?: string;
+    reservationId: string;
+    externalSysCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositPayment?: DepositPayment;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1917,7 +1917,7 @@ export interface PostFBAReimbursementRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fbaReimbursementCriteria?: FbaReimbursementCriteria;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1925,46 +1925,46 @@ export interface PostFBASettlementRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fbaReimbursementCriteria?: FbaReimbursementCriteria;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalCommandInvoiceRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioCriteria?: FiscalFolioCriteria;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalInfoRequest {
-    hotelId?: string;
-    reservationId?: string;
+    hotelId: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postFiscalInfoType?: PostFiscalInfoType;
+    postFiscalInfoType: PostFiscalInfoType;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalInvoiceRequest {
-    folioId?: string;
-    hotelId?: string;
+    folioId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalFolioCriteria?: FiscalFolioCriteria;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fixedCharges?: FixedCharges;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1972,266 +1972,266 @@ export interface PostForeignCurrencyExchangeRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    foreignCurrencyExchange?: ForeignCurrencyExchange;
+    foreignCurrencyExchange: ForeignCurrencyExchange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGuestCheckDetailsRequest {
-    checkNumber?: string;
-    hotelId?: string;
+    checkNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    guestCheckDetails?: GuestCheckDetails;
+    guestCheckDetails: GuestCheckDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPasserBySaleRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    passerBySalesCriteria?: PasserBySalesCriteria;
+    passerBySalesCriteria: PasserBySalesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPrepaidCardsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    prepaidCardCriteria?: PrepaidCardCriteria;
+    prepaidCardCriteria: PrepaidCardCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProformaRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationFolio?: ReservationFolio;
+    reservationFolio: ReservationFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRateCodeRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeCriteria;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReversePaymentRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    paymentReversalCriteria?: PaymentReversalCriteria;
+    paymentReversalCriteria: PaymentReversalCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoomAndTaxForDayUseRequest {
-    reservationId?: string;
+    reservationId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postRoomAndTaxForDayUse?: PostRoomAndTaxForDayUse;
+    postRoomAndTaxForDayUse: PostRoomAndTaxForDayUse;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostStoredFolioDetailsRequest {
-    folioId?: string;
-    hotelId?: string;
+    folioId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    storedFolioDetails?: StoredFolioDetails;
+    storedFolioDetails: StoredFolioDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSupplementalFolioRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    postSupplementalFolio?: PostSupplementalFolio;
+    postSupplementalFolio: PostSupplementalFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostZeroBalanceCheckoutReservationsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    batchZeroBalanceCheckoutReservation?: BatchZeroBalanceCheckoutReservation;
+    batchZeroBalanceCheckoutReservation: BatchZeroBalanceCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ProcessFiscalRetryRequest {
-    folioId?: string;
-    hotelId?: string;
+    folioId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    processFiscalRetry?: ProcessFiscalRetry;
+    processFiscalRetry: ProcessFiscalRetry;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ProcessReservationDepositRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationDepositCriteria?: ReservationDepositCriteria;
+    reservationDepositCriteria: ReservationDepositCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ProcessRoomRoutingRefreshRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    roomRoutingRefresh?: RoomRoutingRefresh;
+    roomRoutingRefresh: RoomRoutingRefresh;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
+    taxRegistraitionNo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    bedTaxCriteria?: BedTaxCriteria;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBillingChargeRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    billingCharge?: BillingCharge;
+    billingCharge: BillingCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBillingChargesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    putBillingCharges?: PutBillingCharges;
+    putBillingCharges: PutBillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCashierRequest {
-    cashierId?: string;
+    cashierId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashierClosure?: CashierClosure;
+    cashierClosure: CashierClosure;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCashierLockRequest {
-    lockId?: string;
-    hotelId?: string;
+    lockId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    cashierLockCriteriaToExtend?: CashierLockCriteriaToExtend;
+    cashierLockCriteriaToExtend: CashierLockCriteriaToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutForEarlyDepartureRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    earlyDeparture?: EarlyDeparture;
+    earlyDeparture: EarlyDeparture;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPayeeTaxNumberRequest {
-    payeeId?: string;
-    hotelId?: string;
+    payeeId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    payeeTaxNumber?: PayeeTaxNumber;
+    payeeTaxNumber: PayeeTaxNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationDepositTransferRequest {
-    sourceReservationId?: string;
-    hotelId?: string;
+    sourceReservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositTransferCriteria?: DepositTransferCriteria;
+    depositTransferCriteria: DepositTransferCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    routingInstructions?: RoutingInstructions;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RedeemPrepaidCardsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    redeemPrepaidCards?: RedeemPrepaidCards;
+    redeemPrepaidCards: RedeemPrepaidCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RegisterManualAuthorizationRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    ccManualAuthorizationCriteria?: CcManualAuthorizationCriteria;
+    ccManualAuthorizationCriteria: CcManualAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RegisterVaultTransactionRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    vaultTransaction?: VaultTransaction;
+    vaultTransaction: VaultTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReinstateCheckOutRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reinstateCheckedOutReservation?: ReinstateCheckedOutReservation;
+    reinstateCheckedOutReservation: ReinstateCheckedOutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReleaseCashierLockRequest {
-    lockId?: string;
+    lockId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2239,17 +2239,17 @@ export interface ReleaseCashierLockRequest {
     acceptLanguage?: string;
 }
 export interface ReloadPrepaidCardRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reloadPrepaidCard?: ReloadPrepaidCard;
+    reloadPrepaidCard: ReloadPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
+    taxRegistraitionNo: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2257,8 +2257,8 @@ export interface RemoveBedTaxInfoRequest {
     acceptLanguage?: string;
 }
 export interface RemoveFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2267,16 +2267,16 @@ export interface RemoveFixedChargesRequest {
     acceptLanguage?: string;
 }
 export interface ResendSupportingDocumentRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fiscalSupportingDocumentCriteria?: FiscalSupportingDocumentCriteria;
+    fiscalSupportingDocumentCriteria: FiscalSupportingDocumentCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReverseARInvoiceRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2287,28 +2287,28 @@ export interface ReverseARInvoiceRequest {
     acceptLanguage?: string;
 }
 export interface ReverseCertificatePostingsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reverseCertificatePostingsCriteria?: ReverseCertificatePostingsCriteria;
+    reverseCertificatePostingsCriteria: ReverseCertificatePostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReverseCompRedemptionsRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reverseCompRedemptions?: ReverseCompRedemptions;
+    reverseCompRedemptions: ReverseCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReverseFlexibleBenefitPostingRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2316,96 +2316,96 @@ export interface ReverseFlexibleBenefitPostingRequest {
     acceptLanguage?: string;
 }
 export interface ReverseFolioTaxPaymentRequest {
-    cashierId?: string;
-    hotelId?: string;
+    cashierId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionReversal?: TransactionReversal;
+    transactionReversal: TransactionReversal;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SplitAndTransferTransactionRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionToSplitAndTransfer?: TransactionToSplitAndTransfer;
+    transactionToSplitAndTransfer: TransactionToSplitAndTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SplitDepositTransactionRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    splitDepositTransaction?: SplitDepositTransaction;
+    splitDepositTransaction: SplitDepositTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SplitTransactionRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionToSplit?: TransactionToSplit;
+    transactionToSplit: TransactionToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface TransferCompTransactionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transferCompTransactions?: TransferCompTransactions;
+    transferCompTransactions: TransferCompTransactions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface TransferFolioToWindowRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioToWindow?: FolioToWindow;
+    folioToWindow: FolioToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface TransferTransactionToReservationRequest {
-    toReservationId?: string;
-    hotelId?: string;
+    toReservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reservationTransaction?: ReservationTransaction;
+    reservationTransaction: ReservationTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface TransferTransactionToWindowRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    transactionToWindow?: TransactionToWindow;
+    transactionToWindow: TransactionToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface TransitionDepositToGuestFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositToGuestFolio?: DepositToGuestFolio;
+    depositToGuestFolio: DepositToGuestFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UnlinkReservationPackageAllowanceRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2413,36 +2413,36 @@ export interface UnlinkReservationPackageAllowanceRequest {
     acceptLanguage?: string;
 }
 export interface UpdateFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fixedCharges?: FixedCharges;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateCreditBillRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditBillCriteria?: CreditBillCriteria;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateDepositFolioRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    depositFolioValidateCriteria?: DepositFolioValidateCriteria;
+    depositFolioValidateCriteria: DepositFolioValidateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateTransactionCodesRequest {
-    transactionId?: string;
-    hotelId?: string;
+    transactionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2458,8 +2458,8 @@ export interface ValidateTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface VerifyForEarlyDepartureRequest {
-    reservationId?: string;
-    hotelId?: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2474,8 +2474,8 @@ export interface VerifyForEarlyDepartureRequest {
     acceptLanguage?: string;
 }
 export interface VoidBillingCheckChargesRequest {
-    checkNumber?: string;
-    hotelId?: string;
+    checkNumber: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -2494,13 +2494,13 @@ export interface VoidBillingCheckChargesRequest {
     acceptLanguage?: string;
 }
 export interface VoidFolioRequest {
-    folioId?: string;
-    reservationId?: string;
-    hotelId?: string;
+    folioId: string;
+    reservationId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    folioToVoid?: FolioToVoid;
+    folioToVoid: FolioToVoid;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

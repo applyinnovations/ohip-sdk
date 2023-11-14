@@ -61,15 +61,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling autoGenerateTaskSheets.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling autoGenerateTaskSheets.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling autoGenerateTaskSheets.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling autoGenerateTaskSheets.');
-            }
             if (requestParameters.taskSheets === null || requestParameters.taskSheets === undefined) {
                 throw new runtime.RequiredError('taskSheets', 'Required parameter requestParameters.taskSheets was null or undefined when calling autoGenerateTaskSheets.');
             }
@@ -126,15 +117,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling cancelServicingTaskRoom.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling cancelServicingTaskRoom.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling cancelServicingTaskRoom.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling cancelServicingTaskRoom.');
-            }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling cancelServicingTaskRoom.');
             }
@@ -185,15 +167,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling completeOutOfOrderRooms.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling completeOutOfOrderRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling completeOutOfOrderRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling completeOutOfOrderRooms.');
-            }
             if (requestParameters.completeRoomRepair === null || requestParameters.completeRoomRepair === undefined) {
                 throw new runtime.RequiredError('completeRoomRepair', 'Required parameter requestParameters.completeRoomRepair was null or undefined when calling completeOutOfOrderRooms.');
             }
@@ -243,15 +216,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling completeOutOfServiceRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling completeOutOfServiceRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling completeOutOfServiceRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling completeOutOfServiceRooms.');
             }
             if (requestParameters.completeRoomRepair === null || requestParameters.completeRoomRepair === undefined) {
                 throw new runtime.RequiredError('completeRoomRepair', 'Required parameter requestParameters.completeRoomRepair was null or undefined when calling completeOutOfServiceRooms.');
@@ -309,15 +273,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling completeServicingTaskRoom.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling completeServicingTaskRoom.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling completeServicingTaskRoom.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling completeServicingTaskRoom.');
-            }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling completeServicingTaskRoom.');
             }
@@ -371,15 +326,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.taskCodesBreakOutId === null || requestParameters.taskCodesBreakOutId === undefined) {
                 throw new runtime.RequiredError('taskCodesBreakOutId', 'Required parameter requestParameters.taskCodesBreakOutId was null or undefined when calling deleteHouseKeepingTaskSheets.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteHouseKeepingTaskSheets.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteHouseKeepingTaskSheets.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteHouseKeepingTaskSheets.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -430,15 +376,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.attendantId === null || requestParameters.attendantId === undefined) {
                 throw new runtime.RequiredError('attendantId', 'Required parameter requestParameters.attendantId was null or undefined when calling deleteHousekeepingAttendantSchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteHousekeepingAttendantSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteHousekeepingAttendantSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteHousekeepingAttendantSchedule.');
             }
             const queryParameters = {};
             if (requestParameters.scheduleDate !== undefined) {
@@ -493,15 +430,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteReservationHousekeepingTasks.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteReservationHousekeepingTasks.');
             }
             const queryParameters = {};
             if (requestParameters.customized !== undefined) {
@@ -605,15 +533,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomMaintenance.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -664,15 +583,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
                 throw new runtime.RequiredError('taskCodes', 'Required parameter requestParameters.taskCodes was null or undefined when calling deleteTaskSheet.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheet.');
             }
             const queryParameters = {};
             if (requestParameters.sheetNumber !== undefined) {
@@ -734,15 +644,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
                 throw new runtime.RequiredError('taskCodes', 'Required parameter requestParameters.taskCodes was null or undefined when calling deleteTaskSheetRooms.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheetRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheetRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheetRooms.');
-            }
             const queryParameters = {};
             if (requestParameters.sheetNumber !== undefined) {
                 queryParameters['sheetNumber'] = requestParameters.sheetNumber;
@@ -803,15 +704,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteTaskSheetTemplate.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheetTemplate.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheetTemplate.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheetTemplate.');
-            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -859,15 +751,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling editReservationHousekeepingTasks.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling editReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling editReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling editReservationHousekeepingTasks.');
             }
             if (requestParameters.schedule === null || requestParameters.schedule === undefined) {
                 throw new runtime.RequiredError('schedule', 'Required parameter requestParameters.schedule was null or undefined when calling editReservationHousekeepingTasks.');
@@ -922,15 +805,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling endServiceBreak.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling endServiceBreak.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling endServiceBreak.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling endServiceBreak.');
-            }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling endServiceBreak.');
             }
@@ -980,15 +854,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getFacilityForecast.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFacilityForecast.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityForecast.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityForecast.');
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
@@ -1053,15 +918,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getGuestHousekeepingNotes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getGuestHousekeepingNotes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getGuestHousekeepingNotes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getGuestHousekeepingNotes.');
-            }
             const queryParameters = {};
             if (requestParameters.reservationIdContext !== undefined) {
                 queryParameters['reservationIdContext'] = requestParameters.reservationIdContext;
@@ -1121,15 +977,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.taskDate === null || requestParameters.taskDate === undefined) {
                 throw new runtime.RequiredError('taskDate', 'Required parameter requestParameters.taskDate was null or undefined when calling getHouseKeepingTasks.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHouseKeepingTasks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHouseKeepingTasks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHouseKeepingTasks.');
             }
             const queryParameters = {};
             if (requestParameters.taskDate !== undefined) {
@@ -1245,15 +1092,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.scheduleStartDate === null || requestParameters.scheduleStartDate === undefined) {
                 throw new runtime.RequiredError('scheduleStartDate', 'Required parameter requestParameters.scheduleStartDate was null or undefined when calling getHousekeepingAttendantsSchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingAttendantsSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingAttendantsSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingAttendantsSchedule.');
-            }
             const queryParameters = {};
             if (requestParameters.scheduleStartDate !== undefined) {
                 queryParameters['scheduleStartDate'] = requestParameters.scheduleStartDate.toISOString().substring(0, 10);
@@ -1304,15 +1142,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingDiscrepancies.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingDiscrepancies.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingDiscrepancies.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingDiscrepancies.');
             }
             const queryParameters = {};
             if (requestParameters.roomDiscrepancyStatus) {
@@ -1382,15 +1211,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingOverview.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingOverview.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingOverview.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingOverview.');
             }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
@@ -1509,15 +1329,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
                 throw new runtime.RequiredError('startDate', 'Required parameter requestParameters.startDate was null or undefined when calling getOutOfOrderRooms.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getOutOfOrderRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getOutOfOrderRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getOutOfOrderRooms.');
-            }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
                 queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
@@ -1580,15 +1391,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
                 throw new runtime.RequiredError('startDate', 'Required parameter requestParameters.startDate was null or undefined when calling getOutOfServiceRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getOutOfServiceRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getOutOfServiceRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getOutOfServiceRooms.');
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
@@ -1653,15 +1455,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getReservationHousekeepingSchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationHousekeepingSchedule.');
-            }
             const queryParameters = {};
             if (requestParameters.reservationIdContext !== undefined) {
                 queryParameters['reservationIdContext'] = requestParameters.reservationIdContext;
@@ -1721,15 +1514,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getRoomConditions.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRoomConditions.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRoomConditions.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRoomConditions.');
             }
             const queryParameters = {};
             if (requestParameters.roomConditionsOnly !== undefined) {
@@ -1830,15 +1614,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRoomMaintenance.');
-            }
             const queryParameters = {};
             if (requestParameters.roomIdText !== undefined) {
                 queryParameters['roomIdText'] = requestParameters.roomIdText;
@@ -1935,15 +1710,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
                 throw new runtime.RequiredError('taskCodes', 'Required parameter requestParameters.taskCodes was null or undefined when calling getTaskCompanion.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTaskCompanion.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTaskCompanion.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTaskCompanion.');
-            }
             const queryParameters = {};
             if (requestParameters.taskCodes) {
                 queryParameters['taskCodes'] = requestParameters.taskCodes;
@@ -2004,15 +1770,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getTaskSheetTemplate.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetTemplate.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetTemplate.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetTemplate.');
-            }
             const queryParameters = {};
             if (requestParameters.templateCode !== undefined) {
                 queryParameters['templateCode'] = requestParameters.templateCode;
@@ -2063,15 +1820,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling lockTaskSheet.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling lockTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling lockTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling lockTaskSheet.');
             }
             if (requestParameters.taskSheetToLock === null || requestParameters.taskSheetToLock === undefined) {
                 throw new runtime.RequiredError('taskSheetToLock', 'Required parameter requestParameters.taskSheetToLock was null or undefined when calling lockTaskSheet.');
@@ -2126,15 +1874,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling mergeTaskSheet.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling mergeTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling mergeTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling mergeTaskSheet.');
-            }
             if (requestParameters.taskSheetToMerge === null || requestParameters.taskSheetToMerge === undefined) {
                 throw new runtime.RequiredError('taskSheetToMerge', 'Required parameter requestParameters.taskSheetToMerge was null or undefined when calling mergeTaskSheet.');
             }
@@ -2184,15 +1923,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling moveTaskRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling moveTaskRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling moveTaskRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling moveTaskRooms.');
             }
             if (requestParameters.moveTaskRooms === null || requestParameters.moveTaskRooms === undefined) {
                 throw new runtime.RequiredError('moveTaskRooms', 'Required parameter requestParameters.moveTaskRooms was null or undefined when calling moveTaskRooms.');
@@ -2244,15 +1974,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postHousekeepingAttendantSchedule.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postHousekeepingAttendantSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postHousekeepingAttendantSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postHousekeepingAttendantSchedule.');
-            }
             if (requestParameters.attendantSchedule === null || requestParameters.attendantSchedule === undefined) {
                 throw new runtime.RequiredError('attendantSchedule', 'Required parameter requestParameters.attendantSchedule was null or undefined when calling postHousekeepingAttendantSchedule.');
             }
@@ -2303,15 +2024,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postOutOfOrderRooms.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postOutOfOrderRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postOutOfOrderRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postOutOfOrderRooms.');
-            }
             if (requestParameters.roomRepairOutOfOrder === null || requestParameters.roomRepairOutOfOrder === undefined) {
                 throw new runtime.RequiredError('roomRepairOutOfOrder', 'Required parameter requestParameters.roomRepairOutOfOrder was null or undefined when calling postOutOfOrderRooms.');
             }
@@ -2361,15 +2073,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postOutOfServiceRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postOutOfServiceRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postOutOfServiceRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postOutOfServiceRooms.');
             }
             if (requestParameters.roomRepairOutOfService === null || requestParameters.roomRepairOutOfService === undefined) {
                 throw new runtime.RequiredError('roomRepairOutOfService', 'Required parameter requestParameters.roomRepairOutOfService was null or undefined when calling postOutOfServiceRooms.');
@@ -2424,15 +2127,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postReservationHousekeepingTasks.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postReservationHousekeepingTasks.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postReservationHousekeepingTasks.');
-            }
             if (requestParameters.schedule === null || requestParameters.schedule === undefined) {
                 throw new runtime.RequiredError('schedule', 'Required parameter requestParameters.schedule was null or undefined when calling postReservationHousekeepingTasks.');
             }
@@ -2486,15 +2180,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postRoomMaintenance.');
-            }
             if (requestParameters.roomMaintenanceRequest === null || requestParameters.roomMaintenanceRequest === undefined) {
                 throw new runtime.RequiredError('roomMaintenanceRequest', 'Required parameter requestParameters.roomMaintenanceRequest was null or undefined when calling postRoomMaintenance.');
             }
@@ -2545,15 +2230,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postTaskSheet.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTaskSheet.');
-            }
             if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
                 throw new runtime.RequiredError('taskSheet', 'Required parameter requestParameters.taskSheet was null or undefined when calling postTaskSheet.');
             }
@@ -2603,15 +2279,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postTaskSheetRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTaskSheetRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTaskSheetRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTaskSheetRooms.');
             }
             if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
                 throw new runtime.RequiredError('taskSheet', 'Required parameter requestParameters.taskSheet was null or undefined when calling postTaskSheetRooms.');
@@ -2665,15 +2332,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
                 throw new runtime.RequiredError('roomId', 'Required parameter requestParameters.roomId was null or undefined when calling putRoomCleaningPriority.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRoomCleaningPriority.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRoomCleaningPriority.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRoomCleaningPriority.');
             }
             const queryParameters = {};
             if (requestParameters.roomId) {
@@ -2729,15 +2387,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRoomMaintenance.');
-            }
             if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
                 throw new runtime.RequiredError('roomMaintenance', 'Required parameter requestParameters.roomMaintenance was null or undefined when calling putRoomMaintenance.');
             }
@@ -2787,15 +2436,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putRoomRelatedStatus.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRoomRelatedStatus.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRoomRelatedStatus.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRoomRelatedStatus.');
             }
             if (requestParameters.housekeepingRoomStatusCriteria === null || requestParameters.housekeepingRoomStatusCriteria === undefined) {
                 throw new runtime.RequiredError('housekeepingRoomStatusCriteria', 'Required parameter requestParameters.housekeepingRoomStatusCriteria was null or undefined when calling putRoomRelatedStatus.');
@@ -2847,15 +2487,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheet.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheet.');
-            }
             if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
                 throw new runtime.RequiredError('taskSheet', 'Required parameter requestParameters.taskSheet was null or undefined when calling putTaskSheet.');
             }
@@ -2905,15 +2536,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheetRooms.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTaskSheetRooms.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheetRooms.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheetRooms.');
             }
             if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
                 throw new runtime.RequiredError('taskSheet', 'Required parameter requestParameters.taskSheet was null or undefined when calling putTaskSheetRooms.');
@@ -2968,15 +2590,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheetTemplate.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTaskSheetTemplate.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheetTemplate.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheetTemplate.');
-            }
             if (requestParameters.taskSheetTemplate === null || requestParameters.taskSheetTemplate === undefined) {
                 throw new runtime.RequiredError('taskSheetTemplate', 'Required parameter requestParameters.taskSheetTemplate was null or undefined when calling putTaskSheetTemplate.');
             }
@@ -3029,15 +2642,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling resetReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling resetReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling resetReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling resetReservationHousekeepingSchedule.');
             }
             if (requestParameters.scheduleSearch === null || requestParameters.scheduleSearch === undefined) {
                 throw new runtime.RequiredError('scheduleSearch', 'Required parameter requestParameters.scheduleSearch was null or undefined when calling resetReservationHousekeepingSchedule.');
@@ -3092,15 +2696,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling resolveRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling resolveRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling resolveRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling resolveRoomMaintenance.');
-            }
             if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
                 throw new runtime.RequiredError('roomMaintenance', 'Required parameter requestParameters.roomMaintenance was null or undefined when calling resolveRoomMaintenance.');
             }
@@ -3154,15 +2749,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling setGuestHousekeepingNotes.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling setGuestHousekeepingNotes.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling setGuestHousekeepingNotes.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling setGuestHousekeepingNotes.');
-            }
             if (requestParameters.guestHousekeepingServiceRequest === null || requestParameters.guestHousekeepingServiceRequest === undefined) {
                 throw new runtime.RequiredError('guestHousekeepingServiceRequest', 'Required parameter requestParameters.guestHousekeepingServiceRequest was null or undefined when calling setGuestHousekeepingNotes.');
             }
@@ -3212,15 +2798,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling setGuestHousekeepingServiceRequest.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling setGuestHousekeepingServiceRequest.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling setGuestHousekeepingServiceRequest.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling setGuestHousekeepingServiceRequest.');
             }
             if (requestParameters.guestHousekeepingServiceRequestCriteria === null || requestParameters.guestHousekeepingServiceRequestCriteria === undefined) {
                 throw new runtime.RequiredError('guestHousekeepingServiceRequestCriteria', 'Required parameter requestParameters.guestHousekeepingServiceRequestCriteria was null or undefined when calling setGuestHousekeepingServiceRequest.');
@@ -3275,15 +2852,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling setRoomCleaningPriority.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling setRoomCleaningPriority.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling setRoomCleaningPriority.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling setRoomCleaningPriority.');
-            }
             if (requestParameters.roomCleaningPriority === null || requestParameters.roomCleaningPriority === undefined) {
                 throw new runtime.RequiredError('roomCleaningPriority', 'Required parameter requestParameters.roomCleaningPriority was null or undefined when calling setRoomCleaningPriority.');
             }
@@ -3333,15 +2901,6 @@ class HousekeepingApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling setRoomCondition.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling setRoomCondition.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling setRoomCondition.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling setRoomCondition.');
             }
             if (requestParameters.roomCondition === null || requestParameters.roomCondition === undefined) {
                 throw new runtime.RequiredError('roomCondition', 'Required parameter requestParameters.roomCondition was null or undefined when calling setRoomCondition.');
@@ -3395,15 +2954,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling shiftReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling shiftReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling shiftReservationHousekeepingSchedule.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling shiftReservationHousekeepingSchedule.');
             }
             if (requestParameters.scheduleShiftRequest === null || requestParameters.scheduleShiftRequest === undefined) {
                 throw new runtime.RequiredError('scheduleShiftRequest', 'Required parameter requestParameters.scheduleShiftRequest was null or undefined when calling shiftReservationHousekeepingSchedule.');
@@ -3461,15 +3011,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling skipServicingTaskRoom.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling skipServicingTaskRoom.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling skipServicingTaskRoom.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling skipServicingTaskRoom.');
-            }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling skipServicingTaskRoom.');
             }
@@ -3522,15 +3063,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startServiceBreak.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startServiceBreak.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startServiceBreak.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startServiceBreak.');
             }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling startServiceBreak.');
@@ -3588,15 +3120,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startServicingTaskRoom.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startServicingTaskRoom.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startServicingTaskRoom.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startServicingTaskRoom.');
-            }
             if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
                 throw new runtime.RequiredError('taskRoom', 'Required parameter requestParameters.taskRoom was null or undefined when calling startServicingTaskRoom.');
             }
@@ -3650,15 +3173,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling unResolveRoomMaintenance.');
             }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling unResolveRoomMaintenance.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling unResolveRoomMaintenance.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling unResolveRoomMaintenance.');
-            }
             if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
                 throw new runtime.RequiredError('roomMaintenance', 'Required parameter requestParameters.roomMaintenance was null or undefined when calling unResolveRoomMaintenance.');
             }
@@ -3711,15 +3225,6 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
                 throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling unlockTaskSheet.');
-            }
-            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling unlockTaskSheet.');
-            }
-            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling unlockTaskSheet.');
-            }
-            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling unlockTaskSheet.');
             }
             if (requestParameters.taskSheetToUnlock === null || requestParameters.taskSheetToUnlock === undefined) {
                 throw new runtime.RequiredError('taskSheetToUnlock', 'Required parameter requestParameters.taskSheetToUnlock was null or undefined when calling unlockTaskSheet.');

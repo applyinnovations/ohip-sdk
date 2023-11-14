@@ -29,9 +29,9 @@ import {
 } from '../models/index';
 
 export interface GetBlockAllocationSummaryRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -39,9 +39,9 @@ export interface GetBlockAllocationSummaryRequest {
 }
 
 export interface GetBlockAllocationSummaryProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -49,12 +49,12 @@ export interface GetBlockAllocationSummaryProcessStatusRequest {
 }
 
 export interface StartBlockAllocationSummaryProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
+    hotelId: string;
+    extSystemCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    criteria?: Criteria;
+    criteria: Criteria;
     acceptLanguage?: string;
 }
 
@@ -71,27 +71,15 @@ export class BlockAsyncApi extends runtime.BaseAPI {
         if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
             throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getBlockAllocationSummary.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockAllocationSummary.');
         }
-
+        
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getBlockAllocationSummary.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockAllocationSummary.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockAllocationSummary.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockAllocationSummary.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -139,27 +127,15 @@ export class BlockAsyncApi extends runtime.BaseAPI {
         if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
             throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
         }
-
+        
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
         }
-
+        
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockAllocationSummaryProcessStatus.');
-        }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -206,27 +182,15 @@ export class BlockAsyncApi extends runtime.BaseAPI {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling startBlockAllocationSummaryProcess.');
         }
-
+        
         if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
             throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling startBlockAllocationSummaryProcess.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling startBlockAllocationSummaryProcess.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling startBlockAllocationSummaryProcess.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling startBlockAllocationSummaryProcess.');
-        }
-
+        
         if (requestParameters.criteria === null || requestParameters.criteria === undefined) {
             throw new runtime.RequiredError('criteria','Required parameter requestParameters.criteria was null or undefined when calling startBlockAllocationSummaryProcess.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

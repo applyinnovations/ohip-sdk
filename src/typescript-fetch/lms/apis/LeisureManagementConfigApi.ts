@@ -74,28 +74,28 @@ import {
 } from '../models/index';
 
 export interface CopyActivityLocationsRequest {
-    activityLocationsId?: string;
+    activityLocationsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyActivityLocations?: CopyActivityLocations;
+    copyActivityLocations: CopyActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyActivityTypesRequest {
-    activityTypesId?: string;
+    activityTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    copyActivityTypes?: CopyActivityTypes;
+    copyActivityTypes: CopyActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityLocationsRequest {
-    activityLocationsId?: string;
-    hotelIds?: string;
+    activityLocationsId: string;
+    hotelIds: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -104,8 +104,8 @@ export interface DeleteActivityLocationsRequest {
 }
 
 export interface DeleteActivityStatusCodesRequest {
-    activityStatusCodesId?: string;
-    hotelIds?: string;
+    activityStatusCodesId: string;
+    hotelIds: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -114,8 +114,8 @@ export interface DeleteActivityStatusCodesRequest {
 }
 
 export interface DeleteActivityTypesRequest {
-    activityTypesId?: string;
-    hotelIds?: string;
+    activityTypesId: string;
+    hotelIds: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -124,7 +124,7 @@ export interface DeleteActivityTypesRequest {
 }
 
 export interface GetActivityLocationsRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -134,7 +134,7 @@ export interface GetActivityLocationsRequest {
 }
 
 export interface GetActivityStatusCodesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -145,7 +145,7 @@ export interface GetActivityStatusCodesRequest {
 }
 
 export interface GetActivityTypesRequest {
-    hotelIds?: Array<string>;
+    hotelIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -158,7 +158,7 @@ export interface PostActivityLocationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createActivityLocations?: CreateActivityLocations;
+    createActivityLocations: CreateActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -167,7 +167,7 @@ export interface PostActivityStatusCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createActivityStatusCodes?: CreateActivityStatusCodes;
+    createActivityStatusCodes: CreateActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -176,37 +176,37 @@ export interface PostActivityTypesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    createActivityTypes?: CreateActivityTypes;
+    createActivityTypes: CreateActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityLocationsRequest {
-    activityLocationsId?: string;
+    activityLocationsId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeActivityLocations?: ChangeActivityLocations;
+    changeActivityLocations: ChangeActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityStatusCodesRequest {
-    activityStatusCodesId?: string;
+    activityStatusCodesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeActivityStatusCodes?: ChangeActivityStatusCodes;
+    changeActivityStatusCodes: ChangeActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityTypesRequest {
-    activityTypesId?: string;
+    activityTypesId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    changeActivityTypes?: ChangeActivityTypes;
+    changeActivityTypes: ChangeActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -224,23 +224,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
             throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling copyActivityLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityLocations.');
-        }
-
+        
         if (requestParameters.copyActivityLocations === null || requestParameters.copyActivityLocations === undefined) {
             throw new runtime.RequiredError('copyActivityLocations','Required parameter requestParameters.copyActivityLocations was null or undefined when calling copyActivityLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -295,23 +283,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
             throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling copyActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityTypes.');
-        }
-
+        
         if (requestParameters.copyActivityTypes === null || requestParameters.copyActivityTypes === undefined) {
             throw new runtime.RequiredError('copyActivityTypes','Required parameter requestParameters.copyActivityTypes was null or undefined when calling copyActivityTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -366,23 +342,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
             throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling deleteActivityLocations.');
         }
-
+        
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityLocations.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -438,23 +402,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityStatusCodesId === null || requestParameters.activityStatusCodesId === undefined) {
             throw new runtime.RequiredError('activityStatusCodesId','Required parameter requestParameters.activityStatusCodesId was null or undefined when calling deleteActivityStatusCodes.');
         }
-
+        
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityStatusCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityStatusCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityStatusCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityStatusCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -510,23 +462,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
             throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling deleteActivityTypes.');
         }
-
+        
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -582,19 +522,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityLocations.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -654,19 +582,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityStatusCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityStatusCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityStatusCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityStatusCodes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -730,19 +646,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
             throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityTypes.');
-        }
-
+        
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -799,22 +703,10 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Create an Activity Locations
      */
     async postActivityLocationsRaw(requestParameters: PostActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityLocations.');
-        }
-
         if (requestParameters.createActivityLocations === null || requestParameters.createActivityLocations === undefined) {
             throw new runtime.RequiredError('createActivityLocations','Required parameter requestParameters.createActivityLocations was null or undefined when calling postActivityLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -866,22 +758,10 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Create Activity Status Code
      */
     async postActivityStatusCodesRaw(requestParameters: PostActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityStatusCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityStatusCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityStatusCodes.');
-        }
-
         if (requestParameters.createActivityStatusCodes === null || requestParameters.createActivityStatusCodes === undefined) {
             throw new runtime.RequiredError('createActivityStatusCodes','Required parameter requestParameters.createActivityStatusCodes was null or undefined when calling postActivityStatusCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -933,22 +813,10 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Create Activity Types
      */
     async postActivityTypesRaw(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityTypes.');
-        }
-
         if (requestParameters.createActivityTypes === null || requestParameters.createActivityTypes === undefined) {
             throw new runtime.RequiredError('createActivityTypes','Required parameter requestParameters.createActivityTypes was null or undefined when calling postActivityTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1003,23 +871,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
             throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling putActivityLocations.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityLocations.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityLocations.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityLocations.');
-        }
-
+        
         if (requestParameters.changeActivityLocations === null || requestParameters.changeActivityLocations === undefined) {
             throw new runtime.RequiredError('changeActivityLocations','Required parameter requestParameters.changeActivityLocations was null or undefined when calling putActivityLocations.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1074,23 +930,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityStatusCodesId === null || requestParameters.activityStatusCodesId === undefined) {
             throw new runtime.RequiredError('activityStatusCodesId','Required parameter requestParameters.activityStatusCodesId was null or undefined when calling putActivityStatusCodes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityStatusCodes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityStatusCodes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityStatusCodes.');
-        }
-
+        
         if (requestParameters.changeActivityStatusCodes === null || requestParameters.changeActivityStatusCodes === undefined) {
             throw new runtime.RequiredError('changeActivityStatusCodes','Required parameter requestParameters.changeActivityStatusCodes was null or undefined when calling putActivityStatusCodes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1145,23 +989,11 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
         if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
             throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling putActivityTypes.');
         }
-
-        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
-            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityTypes.');
-        }
-
-        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
-            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityTypes.');
-        }
-
-        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
-            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityTypes.');
-        }
-
+        
         if (requestParameters.changeActivityTypes === null || requestParameters.changeActivityTypes === undefined) {
             throw new runtime.RequiredError('changeActivityTypes','Required parameter requestParameters.changeActivityTypes was null or undefined when calling putActivityTypes.');
         }
-
+        
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

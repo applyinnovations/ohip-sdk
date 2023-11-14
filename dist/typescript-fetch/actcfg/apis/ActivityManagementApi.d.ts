@@ -12,25 +12,25 @@
 import * as runtime from '../runtime';
 import type { ActivityResultsConfigDetails, ActivityResultsConfigInfo, ActivityTypesConfigCopy, ActivityTypesConfigDetails, ActivityTypesConfigInfo, AutoTraceCodesDetails, AutoTraceCodesInfo, AutoTraceDefinitionCopy, AutoTraceDefinitionsDetails, AutoTraceDefinitionsInfo, AutoTraceDefinitionsStatus, AutoTraceOwnerAssignmentsDetails, AutoTraceOwnerAssignmentsInfo, AutoTraceOwnerAssignmentsStatus, Status } from '../models/index';
 export interface CopyActivityTypesConfigRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigCopy?: ActivityTypesConfigCopy;
+    activityTypesConfigCopy: ActivityTypesConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionCopy?: AutoTraceDefinitionCopy;
+    autoTraceDefinitionCopy: AutoTraceDefinitionCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityResultsConfigRequest {
-    activityResultCode?: string;
+    activityResultCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -38,8 +38,8 @@ export interface DeleteActivityResultsConfigRequest {
     acceptLanguage?: string;
 }
 export interface DeleteActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
+    activityTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -47,7 +47,7 @@ export interface DeleteActivityTypesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceCodesRequest {
-    autoTraceCode?: string;
+    autoTraceCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -55,7 +55,7 @@ export interface DeleteAutoTraceCodesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
+    autoTraceDefinitionId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -63,7 +63,7 @@ export interface DeleteAutoTraceDefinitionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
+    autoTraceOwnerAssignmentID: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -84,7 +84,7 @@ export interface GetActivityResultsConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -109,7 +109,7 @@ export interface GetAutoTraceCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -122,7 +122,7 @@ export interface GetAutoTraceDefinitionsRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -137,16 +137,16 @@ export interface PostActivityResultsConfigRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityResultsConfigInfo?: ActivityResultsConfigInfo;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostActivityTypesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigInfo?: ActivityTypesConfigInfo;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -154,73 +154,73 @@ export interface PostAutoTraceCodesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceCodesInfo?: AutoTraceCodesInfo;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAutoTraceDefinitionsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionsInfo?: AutoTraceDefinitionsInfo;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: AutoTraceOwnerAssignmentsInfo;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityResultsConfigRequest {
-    activityResultCode?: string;
+    activityResultCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityResultsConfigInfo?: ActivityResultsConfigInfo;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
+    activityTypeCode: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    activityTypesConfigInfo?: ActivityTypesConfigInfo;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceCodesRequest {
-    autoTraceCode?: string;
+    autoTraceCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceCodesInfo?: AutoTraceCodesInfo;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    hotelId?: string;
+    autoTraceDefinitionId: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceDefinitionsInfo?: AutoTraceDefinitionsInfo;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    hotelId?: string;
+    autoTraceOwnerAssignmentID: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: AutoTraceOwnerAssignmentsInfo;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

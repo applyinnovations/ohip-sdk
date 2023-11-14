@@ -15,7 +15,7 @@ export interface CopyExclusivePreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exclusivePreferencesCopy?: ExclusivePreferencesCopy;
+    exclusivePreferencesCopy: ExclusivePreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -23,12 +23,12 @@ export interface CopyPreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preferencesCopy?: PreferencesCopy;
+    preferencesCopy: PreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAddressFormatsRequest {
-    formatCodes?: Array<string>;
+    formatCodes: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -36,7 +36,7 @@ export interface DeleteAddressFormatsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCreditRatingsRequest {
-    creditRatings?: Array<string>;
+    creditRatings: Array<string>;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -44,9 +44,9 @@ export interface DeleteCreditRatingsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteExclusivePreferencesRequest {
-    hotelId?: string;
-    exclusivePreferenceCode?: string;
-    exclusivePreferenceGroup?: string;
+    hotelId: string;
+    exclusivePreferenceCode: string;
+    exclusivePreferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -54,8 +54,8 @@ export interface DeleteExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelAndGlobalPreferencesRequest {
-    preferenceCode?: string;
-    preferenceGroup?: string;
+    preferenceCode: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -64,7 +64,7 @@ export interface DeleteHotelAndGlobalPreferencesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePreferenceGroupsRequest {
-    preferenceGroup?: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -72,9 +72,9 @@ export interface DeletePreferenceGroupsRequest {
     acceptLanguage?: string;
 }
 export interface DeletePreferencesRequest {
-    hotelId?: string;
-    preferenceCode?: string;
-    preferenceGroup?: string;
+    hotelId: string;
+    preferenceCode: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -82,10 +82,10 @@ export interface DeletePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileLinksRequest {
-    fromType?: string;
-    toType?: string;
-    fromCode?: string;
-    toCode?: string;
+    fromType: string;
+    toType: string;
+    fromCode: string;
+    toCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -93,8 +93,8 @@ export interface DeleteProfileLinksRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileNameValidationsRequest {
-    profileType?: DeleteProfileNameValidationsProfileTypeEnum;
-    profileName?: string;
+    profileType: DeleteProfileNameValidationsProfileTypeEnum;
+    profileName: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -102,10 +102,10 @@ export interface DeleteProfileNameValidationsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileRelationshipsRequest {
-    fromType?: string;
-    toType?: string;
-    fromCode?: string;
-    toCode?: string;
+    fromType: string;
+    toType: string;
+    fromCode: string;
+    toCode: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -113,8 +113,8 @@ export interface DeleteProfileRelationshipsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplateExclusivePreferencesRequest {
-    exclusivePreferenceCode?: string;
-    exclusivePreferenceGroup?: string;
+    exclusivePreferenceCode: string;
+    exclusivePreferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -122,8 +122,8 @@ export interface DeleteTemplateExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTemplatePreferencesRequest {
-    preferenceCode?: string;
-    preferenceGroup?: string;
+    preferenceCode: string;
+    preferenceGroup: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -151,7 +151,7 @@ export interface GetCreditRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetExclusivePreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -171,7 +171,7 @@ export interface GetPreferenceGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -232,7 +232,7 @@ export interface PostAddressFormatsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    addressFormats?: AddressFormats;
+    addressFormats: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -240,16 +240,16 @@ export interface PostCreditRatingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditRatings?: CreditRatings;
+    creditRatings: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExclusivePreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exclusivePreferences?: ExclusivePreferences;
+    exclusivePreferences: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -257,16 +257,16 @@ export interface PostPreferenceGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preferenceGroups?: PreferenceGroups;
+    preferenceGroups: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelPreferences?: HotelPreferences;
+    hotelPreferences: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -274,7 +274,7 @@ export interface PostProfileLinksRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileLinks?: ProfileLinks;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -282,7 +282,7 @@ export interface PostProfileNameValidationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileNameValidations?: ProfileNameValidations;
+    profileNameValidations: ProfileNameValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -290,7 +290,7 @@ export interface PostProfileRelationshipsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileLinks?: ProfileLinks;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -298,7 +298,7 @@ export interface PostTemplateExclusivePreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateExclusivePreferences?: TemplateExclusivePreferences;
+    templateExclusivePreferences: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -306,7 +306,7 @@ export interface PostTemplatePreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePreferences?: TemplatePreferences;
+    templatePreferences: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -314,7 +314,7 @@ export interface PutAddressFormatsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    addressFormats?: AddressFormats;
+    addressFormats: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -322,16 +322,16 @@ export interface PutCreditRatingsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    creditRatings?: CreditRatings;
+    creditRatings: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutExclusivePreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    exclusivePreferences?: ExclusivePreferences;
+    exclusivePreferences: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -339,16 +339,16 @@ export interface PutPreferenceGroupsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    preferenceGroups?: PreferenceGroups;
+    preferenceGroups: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPreferencesRequest {
-    hotelId?: string;
+    hotelId: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hotelPreferences?: HotelPreferences;
+    hotelPreferences: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -356,7 +356,7 @@ export interface PutProfileLinksRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileLinks?: ProfileLinks;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -364,7 +364,7 @@ export interface PutProfileNameValidationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileNameValidationsToChange?: ProfileNameValidationsToChange;
+    profileNameValidationsToChange: ProfileNameValidationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -372,7 +372,7 @@ export interface PutProfileRelationshipsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    profileLinks?: ProfileLinks;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -380,7 +380,7 @@ export interface PutTemplateExclusivePreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templateExclusivePreferences?: TemplateExclusivePreferences;
+    templateExclusivePreferences: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -388,7 +388,7 @@ export interface PutTemplatePreferencesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    templatePreferences?: TemplatePreferences;
+    templatePreferences: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
